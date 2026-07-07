@@ -171,6 +171,17 @@ def looks_like_secret(value: str) -> bool:
     return True
 
 
+def looks_like_generic_secret(value: str) -> bool:
+    low = value.lower()
+    if any(word in low for word in ("request", "response", "payload", "sample", "dummy", "another", "different")):
+        return False
+    if not re.search(r"\d", value):
+        return False
+    if not re.search(r"[A-Z]", value):
+        return False
+    return True
+
+
 def normalize_excerpt(text: str, max_len: int = 360) -> str:
     clean = re.sub(r"\s+", " ", text or "").strip()
     clean = mask_sensitive_text(clean)
@@ -222,6 +233,8 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None) -> list[dict[str, An
         value = match.group("value").strip().strip(",")
         if looks_like_secret(value):
             provider = PROVIDER_BY_NAME.get(match.group("name").upper(), "unknown")
+            if provider == "unknown" and not looks_like_generic_secret(value):
+                continue
             secret_matches.append((provider, value))
 
     base_urls = [clean_url(m.group("url")) for m in BASE_URL_RE.finditer(text)]
