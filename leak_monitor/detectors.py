@@ -157,6 +157,8 @@ def clean_url(value: str) -> str:
 
 def looks_like_secret(value: str) -> bool:
     low = value.lower()
+    if not value.startswith("sk-"):
+        return False
     if len(value) < 16 or any(hint in low for hint in PLACEHOLDER_HINTS):
         return False
     if any(hint in low for hint in REFERENCE_VALUE_HINTS):

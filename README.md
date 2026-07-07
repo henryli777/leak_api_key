@@ -10,6 +10,7 @@
 - 可选生成 `dist/private.html` 独立明文页，输入账号和密码后在浏览器本地解密查看完整值。
 - 生成 `dist/validation.html` 后台真实模型验证结果页；配置授权目标后会对你显式授权的 base_url/key 发起真实后台请求，拉取 `/models` 并测试模型可用性，同时保留验证时间。
 - 时间统一按东八区 `Asia/Shanghai` 输出。
+- 密钥识别只保留 `sk-` 开头的 key；Google 是搜索来源之一，不表示导出 `AIza...` 这类 Google API key。
 - 历史数据仍按 `key + base_url` 细粒度配对保存；报告页、公开 CSV 和私有明文 CSV 会按 `key_sha256` 去重导出，同一 key 的多个 base_url 合并到同一行。
 - 公开泄露 findings 不做未授权 live test；报告会给出公开证据强度，只有你主动配置授权凭据的目标才会进入后台真实验证。
 - 总览页提供 `findings.csv` 下载，内容为按密钥去重后的脱敏证据、哈希、配对来源和公开证据强度。

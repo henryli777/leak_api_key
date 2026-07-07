@@ -185,7 +185,7 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
           type: item.type || "",
           provider: item.provider || "",
           severity: item.severity || "",
-          api_key: item.raw_value || "",
+          api_key: item.type === "base_url" ? "" : (item.raw_value || ""),
           key_redacted: item.key_redacted || item.value_redacted || "",
           key_sha256: item.key_sha256 || item.value_sha256 || "",
           base_url: (item.raw_base_urls || []).join("\\n") || item.raw_base_url || "",
@@ -237,7 +237,7 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
       const findings = payload.findings || [];
       const rows = findings.map((item) => {{
         const source = (item.sources || [{{}}])[0];
-        const keyValue = item.raw_value || item.key_redacted || (item.type !== "base_url" ? item.value_redacted : "");
+        const keyValue = item.type === "base_url" ? "" : (item.raw_value || item.key_redacted || item.value_redacted || "");
         const baseUrl = (item.raw_base_urls || []).join("\\n") || item.raw_base_url || (item.base_urls_redacted || []).join("\\n") || item.base_url_redacted || (item.type === "base_url" ? item.value_redacted : "");
         const pairSource = item.base_url_source === "same_hit" ? "同一线索发现" : (item.base_url_source === "historical_fallback" ? "历史 base_url 备选" : "");
         const evidence = item.public_evidence_label || "";
@@ -308,7 +308,7 @@ def build_private_csv_rows(findings: list[dict[str, Any]]) -> list[dict[str, str
             "type": item.get("type"),
             "provider": item.get("provider"),
             "severity": item.get("severity"),
-            "api_key": item.get("raw_value") or "",
+            "api_key": "" if item.get("type") == "base_url" else item.get("raw_value") or "",
             "key_redacted": item.get("key_redacted") or item.get("value_redacted") or "",
             "key_sha256": item.get("key_sha256") or item.get("value_sha256") or "",
             "base_url": "\n".join(item.get("raw_base_urls") or []) or item.get("raw_base_url") or "",

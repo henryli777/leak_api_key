@@ -41,6 +41,8 @@ def pair_credential_findings(
     out: list[dict[str, Any]] = []
     for item in findings:
         item_type = str(item.get("type") or "")
+        if item_type in {"credential", "credential_pair"} and not has_sk_prefixed_key(item):
+            continue
         if item_type == "credential_pair":
             out.append(item)
             continue
@@ -62,6 +64,14 @@ def pair_credential_findings(
         for candidate in use_candidates:
             out.append(build_credential_pair(item, candidate, source))
     return annotate_public_evidence(_dedup_by_id(out))
+
+
+def has_sk_prefixed_key(item: dict[str, Any]) -> bool:
+    for field in ("raw_value", "key_redacted", "value_redacted"):
+        value = str(item.get(field) or "").strip()
+        if value.startswith("sk-"):
+            return True
+    return False
 
 
 def annotate_public_evidence(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:

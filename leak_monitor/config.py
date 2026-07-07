@@ -14,13 +14,12 @@ DEFAULT_QUERY_TEMPLATES = [
     '"api_key" "model" "base_url"',
     '"ANTHROPIC_API_KEY" "claude"',
     '"DEEPSEEK_API_KEY" "deepseek"',
-    '"GEMINI_API_KEY" "gemini"',
-    '"GOOGLE_API_KEY" "gemini"',
+    '"gemini" "base_url" "sk-"',
     '"OPENROUTER_API_KEY" "sk-or-v1"',
-    '"GROQ_API_KEY" "gsk_"',
+    '"groq" "base_url" "sk-"',
     '"MISTRAL_API_KEY"',
     '"DASHSCOPE_API_KEY" "qwen"',
-    '"XAI_API_KEY" "grok"',
+    '"grok" "base_url" "sk-"',
 ]
 
 TARGET_QUERY_TEMPLATES = [
@@ -30,7 +29,7 @@ TARGET_QUERY_TEMPLATES = [
     '"{target}" "api_key" "model"',
     '"{target}" "ANTHROPIC_API_KEY"',
     '"{target}" "DEEPSEEK_API_KEY"',
-    '"{target}" "GEMINI_API_KEY"',
+    '"{target}" "gemini" "sk-"',
     '"{target}" "OPENROUTER_API_KEY"',
 ]
 
