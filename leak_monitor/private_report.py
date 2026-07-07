@@ -88,9 +88,9 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
   </header>
   <main>
     <section id="login">
-      <form id="loginForm">
-        <label>账号<input id="user" autocomplete="username" required></label>
-        <label>密码<input id="password" type="password" autocomplete="current-password" required></label>
+      <form id="loginForm" method="post" action="private.html" autocomplete="on">
+        <label>账号<input id="user" name="username" autocomplete="username" required></label>
+        <label>密码<input id="password" name="password" type="password" autocomplete="current-password" required></label>
         <button type="submit">登录</button>
         <div id="error" class="error"></div>
       </form>
@@ -196,6 +196,15 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
       URL.revokeObjectURL(url);
     }}
 
+    async function storeCredential(form) {{
+      if (!("PasswordCredential" in window) || !navigator.credentials || !navigator.credentials.store) return;
+      try {{
+        await navigator.credentials.store(new PasswordCredential(form));
+      }} catch (err) {{
+        // Browser declined or policy disabled credential storage.
+      }}
+    }}
+
     function render(payload) {{
       decryptedPayload = payload;
       const health = payload.health || {{}};
@@ -247,7 +256,9 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
         return;
       }}
       try {{
-        render(await decryptPayload(password));
+        const payload = await decryptPayload(password);
+        await storeCredential(event.target);
+        render(payload);
       }} catch (err) {{
         error.textContent = "账号或密码错误";
       }}
