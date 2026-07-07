@@ -1,6 +1,34 @@
 [
   {
     "base_url_sha256": [
+      "75bd1cb2926682f7dc8f41b58ed5c9f4017c771dac10341f5fd4f933e3ecce29"
+    ],
+    "base_urls_redacted": [
+      "https://api...portkey.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T12:49:17Z",
+    "id": "7f0042e0f1f1ed55d1a4",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(llm): support Portkey / custom-header LLM gateways under --with-llm ## Summary Support LLM gateways that authenticate via **custom request headers** — Portkey being the concrete driver. Portkey is OpenAI-SDK-compatible at the wire level (`base_url = https://api.portkey.ai/v1`), but it does **not** authenticate with `Authorization: Bearer <key>`. It e...",
+        "fetched_at": "2026-07-07T12:46:02Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(llm): support Portkey / custom-header LLM gateways under --with-llm",
+        "url": "https://github.com/jentic/jentic-api-scorecard/issues/291"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...portkey.ai/v1",
+    "value_sha256": "75bd1cb2926682f7dc8f41b58ed5c9f4017c771dac10341f5fd4f933e3ecce29"
+  },
+  {
+    "base_url_sha256": [
       "ae673b63a107d29cb7276a811574f9b71222a5ba3fa412c60847bea0a202bd6b"
     ],
     "base_urls_redacted": [
@@ -321,6 +349,226 @@
   },
   {
     "base_url_sha256": [
+      "a76d8c3e94eba61fc46b5cc05fc51e5f6df1d0f46d901d32e9c27bb251f155ae"
+    ],
+    "base_urls_redacted": [
+      "http://loca..."
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "361628c468a441607d0f",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "gemini-cli",
+      "llama.cpp",
+      "claude-code",
+      "llamacpp"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 4,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "teabranch/open-responses-server/index.md GitHub code result: teabranch/open-responses-server/index.md --- title: Home nav_order: 0 permalink: / --- # Open Responses Server A plug-and-play server that speaks OpenAI's Responses API — no matter which AI backend you're running. <p><em>Find this useful? Star the repo to follow updates and show support!</em> <i...",
+        "fetched_at": "2026-07-07T12:46:08Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "teabranch/open-responses-server/index.md",
+        "url": "https://github.com/teabranch/open-responses-server/blob/0d4353cc274604236bdaece6734b42fddec6f970/index.md"
+      },
+      {
+        "excerpt": "hoangsonww/AI-Agents-Orchestrator/SETUP.md GitHub code result: hoangsonww/AI-Agents-Orchestrator/SETUP.md # Setup Guide > [!NOTE] > **Project Structure Note:** This project has two independent systems: > - **Orchestrator** (`orchestrator/`) — workflow-based multi-agent coordination > - **Agentic Team** (`agentic_team/`) — role-based team collaboration > >...",
+        "fetched_at": "2026-07-07T09:54:56Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "hoangsonww/AI-Agents-Orchestrator/SETUP.md",
+        "url": "https://github.com/hoangsonww/AI-Agents-Orchestrator/blob/af2d5e175f5901bddbd0ec655b1fd36f6180191c/SETUP.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca...",
+    "value_sha256": "a76d8c3e94eba61fc46b5cc05fc51e5f6df1d0f46d901d32e9c27bb251f155ae"
+  },
+  {
+    "base_url_sha256": [
+      "6f5367cf2e07aa9cec3e6dc4141bf07a43989258083c7134569f608b3b2d7b92"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../v1/models"
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "b7061dfb0de8c74e088d",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "gemini-cli",
+      "llama.cpp",
+      "claude-code",
+      "llamacpp"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 4,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "teabranch/open-responses-server/index.md GitHub code result: teabranch/open-responses-server/index.md --- title: Home nav_order: 0 permalink: / --- # Open Responses Server A plug-and-play server that speaks OpenAI's Responses API — no matter which AI backend you're running. <p><em>Find this useful? Star the repo to follow updates and show support!</em> <i...",
+        "fetched_at": "2026-07-07T12:46:08Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "teabranch/open-responses-server/index.md",
+        "url": "https://github.com/teabranch/open-responses-server/blob/0d4353cc274604236bdaece6734b42fddec6f970/index.md"
+      },
+      {
+        "excerpt": "hoangsonww/AI-Agents-Orchestrator/SETUP.md GitHub code result: hoangsonww/AI-Agents-Orchestrator/SETUP.md # Setup Guide > [!NOTE] > **Project Structure Note:** This project has two independent systems: > - **Orchestrator** (`orchestrator/`) — workflow-based multi-agent coordination > - **Agentic Team** (`agentic_team/`) — role-based team collaboration > >...",
+        "fetched_at": "2026-07-07T09:54:56Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "hoangsonww/AI-Agents-Orchestrator/SETUP.md",
+        "url": "https://github.com/hoangsonww/AI-Agents-Orchestrator/blob/af2d5e175f5901bddbd0ec655b1fd36f6180191c/SETUP.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../v1/models",
+    "value_sha256": "6f5367cf2e07aa9cec3e6dc4141bf07a43989258083c7134569f608b3b2d7b92"
+  },
+  {
+    "base_url_sha256": [
+      "0121783acd70272b07eae5af255f4fbf2362a61e32e0ef38b460878f5159104f"
+    ],
+    "base_urls_redacted": [
+      "http://loca..."
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "6febf0ec84801be743b0",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "llama3.2",
+      "gpt-4o",
+      "claude-3-5-sonnet-20241022"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "axon011/rag-eval-system/API.md GitHub code result: axon011/rag-eval-system/API.md # RAG Q&A System - API Endpoints ## Base URL ``` http://localhost:8000 ``` ## Interactive Documentation - **Swagger UI**: http://localhost:8000/docs - **ReDoc**: http://localhost:8000/redoc --- ## LLM Provider Configuration The system supports multiple LLM providers. Configu...",
+        "fetched_at": "2026-07-07T12:46:11Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "axon011/rag-eval-system/API.md",
+        "url": "https://github.com/axon011/rag-eval-system/blob/d18ced17865686ec4c15d1cbd0a6bb172f1f1d5d/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca...",
+    "value_sha256": "0121783acd70272b07eae5af255f4fbf2362a61e32e0ef38b460878f5159104f"
+  },
+  {
+    "base_url_sha256": [
+      "87459d11adee7bce23cb37e9d210800e77403ecd52229858300b9215af0ed0fd"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:8000/v1"
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "afdffc5329f14a63929d",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-opus-4-6",
+      "claude-sonnet-4-6",
+      "claude-haiku-4-5-20251213",
+      "gpt-4.1-mini",
+      "qwen-plus",
+      "qwen2.5-coder",
+      "llama3.2",
+      "Qwen",
+      "qwen",
+      "qwen-max",
+      "qwen-qwq",
+      "grok-3",
+      "grok-mini",
+      "grok-3-mini",
+      "grok-2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
+        "fetched_at": "2026-07-07T12:46:13Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "SatyamPote/Blood-Candy/USAGE.md",
+        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:8000/v1",
+    "value_sha256": "87459d11adee7bce23cb37e9d210800e77403ecd52229858300b9215af0ed0fd"
+  },
+  {
+    "base_url_sha256": [
+      "58a79c705df87d8dcdc948bb3e4db938978a0c17f8c6cef77f6c80399e34b80b"
+    ],
+    "base_urls_redacted": [
+      "https://ope...int.balgrist.ch/v1"
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "02c61306c1c8a062a51f",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "gpt-oss-120b",
+      "qwen3.5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "'dict' object has no attribute 'supports_thinking' error message with custom local model ### Describe the bug Since 0.23.x we get the error: 'dict' object has no attribute 'supports_thinking', when we try to use one of our local models in marimo ai chat or in the notebook. For our local model Pydantic-ai gives back a dict instead of ModelProfile. ``` prov...",
+        "fetched_at": "2026-07-07T12:46:31Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "'dict' object has no attribute 'supports_thinking' error message with custom local model",
+        "url": "https://github.com/marimo-team/marimo/issues/10090"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...int.balgrist.ch/v1",
+    "value_sha256": "58a79c705df87d8dcdc948bb3e4db938978a0c17f8c6cef77f6c80399e34b80b"
+  },
+  {
+    "base_url_sha256": [
+      "214750fd3d13e41dc5b313085c6fa051a4f78c5e5e88ab7e7bd18fe011da90aa"
+    ],
+    "base_urls_redacted": [
+      "https://oll...int.balgrist.ch/v1"
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "1c54ebb77007d90dfccb",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "gpt-oss-120b",
+      "qwen3.5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "'dict' object has no attribute 'supports_thinking' error message with custom local model ### Describe the bug Since 0.23.x we get the error: 'dict' object has no attribute 'supports_thinking', when we try to use one of our local models in marimo ai chat or in the notebook. For our local model Pydantic-ai gives back a dict instead of ModelProfile. ``` prov...",
+        "fetched_at": "2026-07-07T12:46:31Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "'dict' object has no attribute 'supports_thinking' error message with custom local model",
+        "url": "https://github.com/marimo-team/marimo/issues/10090"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://oll...int.balgrist.ch/v1",
+    "value_sha256": "214750fd3d13e41dc5b313085c6fa051a4f78c5e5e88ab7e7bd18fe011da90aa"
+  },
+  {
+    "base_url_sha256": [
       "206eb5e7537a1c3dee0cf20ac6e98cb931102f5ac10972eea97eca0c7f99f447"
     ],
     "base_urls_redacted": [
@@ -441,226 +689,6 @@
   },
   {
     "base_url_sha256": [
-      "a76d8c3e94eba61fc46b5cc05fc51e5f6df1d0f46d901d32e9c27bb251f155ae"
-    ],
-    "base_urls_redacted": [
-      "http://loca..."
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "361628c468a441607d0f",
-    "last_seen_at": "2026-07-07T10:01:58Z",
-    "models": [
-      "gemini-cli",
-      "llama.cpp",
-      "claude-code",
-      "llamacpp"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 3,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "teabranch/open-responses-server/index.md GitHub code result: teabranch/open-responses-server/index.md --- title: Home nav_order: 0 permalink: / --- # Open Responses Server A plug-and-play server that speaks OpenAI's Responses API — no matter which AI backend you're running. <p><em>Find this useful? Star the repo to follow updates and show support!</em> <i...",
-        "fetched_at": "2026-07-07T10:01:06Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "teabranch/open-responses-server/index.md",
-        "url": "https://github.com/teabranch/open-responses-server/blob/0d4353cc274604236bdaece6734b42fddec6f970/index.md"
-      },
-      {
-        "excerpt": "hoangsonww/AI-Agents-Orchestrator/SETUP.md GitHub code result: hoangsonww/AI-Agents-Orchestrator/SETUP.md # Setup Guide > [!NOTE] > **Project Structure Note:** This project has two independent systems: > - **Orchestrator** (`orchestrator/`) — workflow-based multi-agent coordination > - **Agentic Team** (`agentic_team/`) — role-based team collaboration > >...",
-        "fetched_at": "2026-07-07T09:54:56Z",
-        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
-        "source": "github_code",
-        "title": "hoangsonww/AI-Agents-Orchestrator/SETUP.md",
-        "url": "https://github.com/hoangsonww/AI-Agents-Orchestrator/blob/af2d5e175f5901bddbd0ec655b1fd36f6180191c/SETUP.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca...",
-    "value_sha256": "a76d8c3e94eba61fc46b5cc05fc51e5f6df1d0f46d901d32e9c27bb251f155ae"
-  },
-  {
-    "base_url_sha256": [
-      "6f5367cf2e07aa9cec3e6dc4141bf07a43989258083c7134569f608b3b2d7b92"
-    ],
-    "base_urls_redacted": [
-      "http://loca.../v1/models"
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "b7061dfb0de8c74e088d",
-    "last_seen_at": "2026-07-07T10:01:58Z",
-    "models": [
-      "gemini-cli",
-      "llama.cpp",
-      "claude-code",
-      "llamacpp"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 3,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "teabranch/open-responses-server/index.md GitHub code result: teabranch/open-responses-server/index.md --- title: Home nav_order: 0 permalink: / --- # Open Responses Server A plug-and-play server that speaks OpenAI's Responses API — no matter which AI backend you're running. <p><em>Find this useful? Star the repo to follow updates and show support!</em> <i...",
-        "fetched_at": "2026-07-07T10:01:06Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "teabranch/open-responses-server/index.md",
-        "url": "https://github.com/teabranch/open-responses-server/blob/0d4353cc274604236bdaece6734b42fddec6f970/index.md"
-      },
-      {
-        "excerpt": "hoangsonww/AI-Agents-Orchestrator/SETUP.md GitHub code result: hoangsonww/AI-Agents-Orchestrator/SETUP.md # Setup Guide > [!NOTE] > **Project Structure Note:** This project has two independent systems: > - **Orchestrator** (`orchestrator/`) — workflow-based multi-agent coordination > - **Agentic Team** (`agentic_team/`) — role-based team collaboration > >...",
-        "fetched_at": "2026-07-07T09:54:56Z",
-        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
-        "source": "github_code",
-        "title": "hoangsonww/AI-Agents-Orchestrator/SETUP.md",
-        "url": "https://github.com/hoangsonww/AI-Agents-Orchestrator/blob/af2d5e175f5901bddbd0ec655b1fd36f6180191c/SETUP.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca.../v1/models",
-    "value_sha256": "6f5367cf2e07aa9cec3e6dc4141bf07a43989258083c7134569f608b3b2d7b92"
-  },
-  {
-    "base_url_sha256": [
-      "0121783acd70272b07eae5af255f4fbf2362a61e32e0ef38b460878f5159104f"
-    ],
-    "base_urls_redacted": [
-      "http://loca..."
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "6febf0ec84801be743b0",
-    "last_seen_at": "2026-07-07T10:01:58Z",
-    "models": [
-      "llama3.2",
-      "gpt-4o",
-      "claude-3-5-sonnet-20241022"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "axon011/rag-eval-system/API.md GitHub code result: axon011/rag-eval-system/API.md # RAG Q&A System - API Endpoints ## Base URL ``` http://localhost:8000 ``` ## Interactive Documentation - **Swagger UI**: http://localhost:8000/docs - **ReDoc**: http://localhost:8000/redoc --- ## LLM Provider Configuration The system supports multiple LLM providers. Configu...",
-        "fetched_at": "2026-07-07T10:01:08Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "axon011/rag-eval-system/API.md",
-        "url": "https://github.com/axon011/rag-eval-system/blob/d18ced17865686ec4c15d1cbd0a6bb172f1f1d5d/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca...",
-    "value_sha256": "0121783acd70272b07eae5af255f4fbf2362a61e32e0ef38b460878f5159104f"
-  },
-  {
-    "base_url_sha256": [
-      "87459d11adee7bce23cb37e9d210800e77403ecd52229858300b9215af0ed0fd"
-    ],
-    "base_urls_redacted": [
-      "http://127...0.0.1:8000/v1"
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "afdffc5329f14a63929d",
-    "last_seen_at": "2026-07-07T10:01:58Z",
-    "models": [
-      "claude-opus-4-6",
-      "claude-sonnet-4-6",
-      "claude-haiku-4-5-20251213",
-      "gpt-4.1-mini",
-      "qwen-plus",
-      "qwen2.5-coder",
-      "llama3.2",
-      "Qwen",
-      "qwen",
-      "qwen-max",
-      "qwen-qwq",
-      "grok-3",
-      "grok-mini",
-      "grok-3-mini",
-      "grok-2"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T10:01:10Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "SatyamPote/Blood-Candy/USAGE.md",
-        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://127...0.0.1:8000/v1",
-    "value_sha256": "87459d11adee7bce23cb37e9d210800e77403ecd52229858300b9215af0ed0fd"
-  },
-  {
-    "base_url_sha256": [
-      "58a79c705df87d8dcdc948bb3e4db938978a0c17f8c6cef77f6c80399e34b80b"
-    ],
-    "base_urls_redacted": [
-      "https://ope...int.balgrist.ch/v1"
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "02c61306c1c8a062a51f",
-    "last_seen_at": "2026-07-07T09:45:59Z",
-    "models": [
-      "gpt-oss-120b",
-      "qwen3.5"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "'dict' object has no attribute 'supports_thinking' error message with custom local model ### Describe the bug Since 0.23.x we get the error: 'dict' object has no attribute 'supports_thinking', when we try to use one of our local models in marimo ai chat or in the notebook. For our local model Pydantic-ai gives back a dict instead of ModelProfile. ``` prov...",
-        "fetched_at": "2026-07-07T09:45:07Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "'dict' object has no attribute 'supports_thinking' error message with custom local model",
-        "url": "https://github.com/marimo-team/marimo/issues/10090"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://ope...int.balgrist.ch/v1",
-    "value_sha256": "58a79c705df87d8dcdc948bb3e4db938978a0c17f8c6cef77f6c80399e34b80b"
-  },
-  {
-    "base_url_sha256": [
-      "214750fd3d13e41dc5b313085c6fa051a4f78c5e5e88ab7e7bd18fe011da90aa"
-    ],
-    "base_urls_redacted": [
-      "https://oll...int.balgrist.ch/v1"
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "1c54ebb77007d90dfccb",
-    "last_seen_at": "2026-07-07T09:45:59Z",
-    "models": [
-      "gpt-oss-120b",
-      "qwen3.5"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "'dict' object has no attribute 'supports_thinking' error message with custom local model ### Describe the bug Since 0.23.x we get the error: 'dict' object has no attribute 'supports_thinking', when we try to use one of our local models in marimo ai chat or in the notebook. For our local model Pydantic-ai gives back a dict instead of ModelProfile. ``` prov...",
-        "fetched_at": "2026-07-07T09:45:07Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "'dict' object has no attribute 'supports_thinking' error message with custom local model",
-        "url": "https://github.com/marimo-team/marimo/issues/10090"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://oll...int.balgrist.ch/v1",
-    "value_sha256": "214750fd3d13e41dc5b313085c6fa051a4f78c5e5e88ab7e7bd18fe011da90aa"
-  },
-  {
-    "base_url_sha256": [
       "8cb92065d2a6dfd3a48d07f3431ca4fd350697cd87a67540f3bd4dac3e05c986"
     ],
     "base_urls_redacted": [
@@ -668,18 +696,18 @@
     ],
     "first_seen_at": "2026-07-07T08:50:51Z",
     "id": "3f7ab780e55ea34fd61d",
-    "last_seen_at": "2026-07-07T10:01:58Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "claude-code",
       "claude-opus-4-5"
     ],
     "provider": "openai_compatible",
-    "seen_count": 5,
+    "seen_count": 6,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "open-compress/claw-compactor/SKILL.md GitHub code result: open-compress/claw-compactor/SKILL.md --- name: claw-compactor version: \"1.0.0\" description: > Claw Compactor — 6-layer token compression skill for OpenClaw agents. Cuts workspace token spend by 50–97% using deterministic rule-engines plus Engram: a real-time, LLM-driven Observational Memory system...",
-        "fetched_at": "2026-07-07T10:01:03Z",
+        "fetched_at": "2026-07-07T12:46:06Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "open-compress/claw-compactor/SKILL.md",
@@ -699,7 +727,7 @@
     ],
     "first_seen_at": "2026-07-07T08:50:51Z",
     "id": "3cf61c2ae9f09fc163cc",
-    "last_seen_at": "2026-07-07T10:01:58Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "claude-code",
       "claude-opus-4-5",
@@ -710,12 +738,12 @@
       "llama2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "re-memo/re-memo/SETUP.md GitHub code result: re-memo/re-memo/SETUP.md # re:memo Setup Guide This guide will walk you through setting up re:memo on your system. Choose the deployment option that best fits your privacy preferences and technical requirements. ## Prerequisites - Docker & Docker Compose - (Optional) NVIDIA GPU for local LLM support > [!TIP] > ...",
-        "fetched_at": "2026-07-07T10:01:08Z",
+        "fetched_at": "2026-07-07T12:46:10Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "re-memo/re-memo/SETUP.md",
@@ -723,7 +751,7 @@
       },
       {
         "excerpt": "open-compress/claw-compactor/SKILL.md GitHub code result: open-compress/claw-compactor/SKILL.md --- name: claw-compactor version: \"1.0.0\" description: > Claw Compactor — 6-layer token compression skill for OpenClaw agents. Cuts workspace token spend by 50–97% using deterministic rule-engines plus Engram: a real-time, LLM-driven Observational Memory system...",
-        "fetched_at": "2026-07-07T10:01:03Z",
+        "fetched_at": "2026-07-07T12:46:06Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "open-compress/claw-compactor/SKILL.md",
@@ -733,6 +761,308 @@
     "type": "base_url",
     "value_redacted": "https://",
     "value_sha256": "66dfeeedabf1f022d223bd6b9f464d1ca241d6da54ab7ade5b2c7758b4e08fa8"
+  },
+  {
+    "base_url_sha256": [
+      "ec2756ef79b2a2b92e6b12de96f347cd259c9710d8ea080eb592d9a3fbd9e58c"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../api/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "76af04cde7eb6560655e",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-vision",
+      "claude-1705334567890",
+      "claude-3-5-sonnet-20241022",
+      "Llama",
+      "llama-3.2-90b-vision-preview"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
+        "fetched_at": "2026-07-07T12:46:35Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "pricejoshua/wehavefoodathome-backend/API.md",
+        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../api/v1",
+    "value_sha256": "ec2756ef79b2a2b92e6b12de96f347cd259c9710d8ea080eb592d9a3fbd9e58c"
+  },
+  {
+    "base_url_sha256": [
+      "11ca0c357b30e3550effecd52ac067b784f82496d7d6c2460dbbbd805ef49223"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../api/v1/receipts/parse"
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "af0a291bbaf1856e479d",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-vision",
+      "claude-1705334567890",
+      "claude-3-5-sonnet-20241022",
+      "Llama",
+      "llama-3.2-90b-vision-preview"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
+        "fetched_at": "2026-07-07T12:46:35Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "pricejoshua/wehavefoodathome-backend/API.md",
+        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../api/v1/receipts/parse",
+    "value_sha256": "11ca0c357b30e3550effecd52ac067b784f82496d7d6c2460dbbbd805ef49223"
+  },
+  {
+    "base_url_sha256": [
+      "97465988022f8b448d669fabfbecf823212b314fc2f5790b868ad08576154da8"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../api/v1/receipts/provide..."
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "5234e72e07151eb158e5",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-vision",
+      "claude-1705334567890",
+      "claude-3-5-sonnet-20241022",
+      "Llama",
+      "llama-3.2-90b-vision-preview"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
+        "fetched_at": "2026-07-07T12:46:35Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "pricejoshua/wehavefoodathome-backend/API.md",
+        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../api/v1/receipts/provide...",
+    "value_sha256": "97465988022f8b448d669fabfbecf823212b314fc2f5790b868ad08576154da8"
+  },
+  {
+    "base_url_sha256": [
+      "39a0b38962051fadb3eece3b2a0322f505e49a586430e93fb39543f34d13c549"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../api/v1/products"
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "388acb34309a1ce6b894",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-vision",
+      "claude-1705334567890",
+      "claude-3-5-sonnet-20241022",
+      "Llama",
+      "llama-3.2-90b-vision-preview"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
+        "fetched_at": "2026-07-07T12:46:35Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "pricejoshua/wehavefoodathome-backend/API.md",
+        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../api/v1/products",
+    "value_sha256": "39a0b38962051fadb3eece3b2a0322f505e49a586430e93fb39543f34d13c549"
+  },
+  {
+    "base_url_sha256": [
+      "2c316dff27248d190f0f626eccf0523973325cb5454ab65bd772f59b92282f09"
+    ],
+    "base_urls_redacted": [
+      "https://you...supabase.co/storage/v1/object/publi..."
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "9562819d2b08cbab11d9",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-vision",
+      "claude-1705334567890",
+      "claude-3-5-sonnet-20241022",
+      "Llama",
+      "llama-3.2-90b-vision-preview"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
+        "fetched_at": "2026-07-07T12:46:35Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "pricejoshua/wehavefoodathome-backend/API.md",
+        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://you...supabase.co/storage/v1/object/publi...",
+    "value_sha256": "2c316dff27248d190f0f626eccf0523973325cb5454ab65bd772f59b92282f09"
+  },
+  {
+    "base_url_sha256": [
+      "8a0694ff31fbd26de6e673477430956f80147926e21edb8d1001e1aa9cf699a5"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../api/v1/upload"
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "5bf9224a6a8f837331d3",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-vision",
+      "claude-1705334567890",
+      "claude-3-5-sonnet-20241022",
+      "Llama",
+      "llama-3.2-90b-vision-preview"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
+        "fetched_at": "2026-07-07T12:46:35Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "pricejoshua/wehavefoodathome-backend/API.md",
+        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../api/v1/upload",
+    "value_sha256": "8a0694ff31fbd26de6e673477430956f80147926e21edb8d1001e1aa9cf699a5"
+  },
+  {
+    "base_url_sha256": [
+      "b44cf8dcf76af19a51c630b437fd9704146cf342d5b0c3e69d356b71bbb028c9"
+    ],
+    "base_urls_redacted": [
+      "https://you...supabase.co/storage/v1/object/publi..."
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "23fb9e1acbea4a20a316",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-vision",
+      "claude-1705334567890",
+      "claude-3-5-sonnet-20241022",
+      "Llama",
+      "llama-3.2-90b-vision-preview"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
+        "fetched_at": "2026-07-07T12:46:35Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "pricejoshua/wehavefoodathome-backend/API.md",
+        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://you...supabase.co/storage/v1/object/publi...",
+    "value_sha256": "b44cf8dcf76af19a51c630b437fd9704146cf342d5b0c3e69d356b71bbb028c9"
+  },
+  {
+    "base_url_sha256": [
+      "ef7925526682ed53bc23651e5372c084fa1256e4eb22e8ece7374a44ced5bd75"
+    ],
+    "base_urls_redacted": [
+      "https://api...elevenlabs.io/v1/text-to-speech"
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "86f958c521bbf67b5ae5",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "madmax179/SS11Labs/doc.txt GitHub code result: madmax179/SS11Labs/doc.txt ## ElevenLabs TTS Plugin for UniMRCP — Technical Documentation (Ubuntu 20.04) This document provides an in-depth look at deployment, runtime behavior, caching, threading model, and tuning for the ElevenLabs speechsynth plugin on UniMRCP Server 1.8. ## 1) Capabilities Overview - MRCP...",
+        "fetched_at": "2026-07-07T12:46:25Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "madmax179/SS11Labs/doc.txt",
+        "url": "https://github.com/madmax179/SS11Labs/blob/3099159710153f30f1d15ce41dc31f034d7a2a33/doc.txt"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...elevenlabs.io/v1/text-to-speech",
+    "value_sha256": "ef7925526682ed53bc23651e5372c084fa1256e4eb22e8ece7374a44ced5bd75"
+  },
+  {
+    "base_url_sha256": [
+      "9d56af8535e6506183a2f07af853497be5c2f3960436949ca1fcfd1487c785c6"
+    ],
+    "base_urls_redacted": [
+      "https://YOU...openai.azure.com/"
+    ],
+    "first_seen_at": "2026-07-07T08:50:51Z",
+    "id": "8dc404be68f8ac7a4c18",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "Llama-3",
+      "Qwen",
+      "gemini-2.0-flash",
+      "gemini-1.5-pro",
+      "gpt-4o",
+      "llama",
+      "llama-3-70b"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "AIoT-MLSys-Lab/MMDeepResearch-Bench/env.txt GitHub code result: AIoT-MLSys-Lab/MMDeepResearch-Bench/env.txt # ============================================================================== # 🌏 MMDR Pipeline Configuration Template / 配置模板 # ------------------------------------------------------------------------------ # Usage / 使用说明: # 1. Copy this file to ...",
+        "fetched_at": "2026-07-07T12:46:56Z",
+        "query": "\"GEMINI_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "AIoT-MLSys-Lab/MMDeepResearch-Bench/env.txt",
+        "url": "https://github.com/AIoT-MLSys-Lab/MMDeepResearch-Bench/blob/9f24d0398f667b9cdafe8fac7062960ca8e4bb02/env.txt"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://YOU...openai.azure.com/",
+    "value_sha256": "9d56af8535e6506183a2f07af853497be5c2f3960436949ca1fcfd1487c785c6"
   },
   {
     "base_url_sha256": [
@@ -846,272 +1176,6 @@
     "type": "base_url",
     "value_redacted": "https://gat...salesforceresearch.ai/openai/process/v1",
     "value_sha256": "5a9f3e787238797f4b65424c3bbdf81c55d4ea3dee8ed31313dcec93d3963e26"
-  },
-  {
-    "base_url_sha256": [
-      "ec2756ef79b2a2b92e6b12de96f347cd259c9710d8ea080eb592d9a3fbd9e58c"
-    ],
-    "base_urls_redacted": [
-      "http://loca.../api/v1"
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "76af04cde7eb6560655e",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "claude-vision",
-      "claude-1705334567890",
-      "claude-3-5-sonnet-20241022",
-      "Llama",
-      "llama-3.2-90b-vision-preview"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
-        "fetched_at": "2026-07-07T09:54:16Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "pricejoshua/wehavefoodathome-backend/API.md",
-        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca.../api/v1",
-    "value_sha256": "ec2756ef79b2a2b92e6b12de96f347cd259c9710d8ea080eb592d9a3fbd9e58c"
-  },
-  {
-    "base_url_sha256": [
-      "11ca0c357b30e3550effecd52ac067b784f82496d7d6c2460dbbbd805ef49223"
-    ],
-    "base_urls_redacted": [
-      "http://loca.../api/v1/receipts/parse"
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "af0a291bbaf1856e479d",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "claude-vision",
-      "claude-1705334567890",
-      "claude-3-5-sonnet-20241022",
-      "Llama",
-      "llama-3.2-90b-vision-preview"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
-        "fetched_at": "2026-07-07T09:54:16Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "pricejoshua/wehavefoodathome-backend/API.md",
-        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca.../api/v1/receipts/parse",
-    "value_sha256": "11ca0c357b30e3550effecd52ac067b784f82496d7d6c2460dbbbd805ef49223"
-  },
-  {
-    "base_url_sha256": [
-      "97465988022f8b448d669fabfbecf823212b314fc2f5790b868ad08576154da8"
-    ],
-    "base_urls_redacted": [
-      "http://loca.../api/v1/receipts/provide..."
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "5234e72e07151eb158e5",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "claude-vision",
-      "claude-1705334567890",
-      "claude-3-5-sonnet-20241022",
-      "Llama",
-      "llama-3.2-90b-vision-preview"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
-        "fetched_at": "2026-07-07T09:54:16Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "pricejoshua/wehavefoodathome-backend/API.md",
-        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca.../api/v1/receipts/provide...",
-    "value_sha256": "97465988022f8b448d669fabfbecf823212b314fc2f5790b868ad08576154da8"
-  },
-  {
-    "base_url_sha256": [
-      "39a0b38962051fadb3eece3b2a0322f505e49a586430e93fb39543f34d13c549"
-    ],
-    "base_urls_redacted": [
-      "http://loca.../api/v1/products"
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "388acb34309a1ce6b894",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "claude-vision",
-      "claude-1705334567890",
-      "claude-3-5-sonnet-20241022",
-      "Llama",
-      "llama-3.2-90b-vision-preview"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
-        "fetched_at": "2026-07-07T09:54:16Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "pricejoshua/wehavefoodathome-backend/API.md",
-        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca.../api/v1/products",
-    "value_sha256": "39a0b38962051fadb3eece3b2a0322f505e49a586430e93fb39543f34d13c549"
-  },
-  {
-    "base_url_sha256": [
-      "2c316dff27248d190f0f626eccf0523973325cb5454ab65bd772f59b92282f09"
-    ],
-    "base_urls_redacted": [
-      "https://you...supabase.co/storage/v1/object/publi..."
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "9562819d2b08cbab11d9",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "claude-vision",
-      "claude-1705334567890",
-      "claude-3-5-sonnet-20241022",
-      "Llama",
-      "llama-3.2-90b-vision-preview"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
-        "fetched_at": "2026-07-07T09:54:16Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "pricejoshua/wehavefoodathome-backend/API.md",
-        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://you...supabase.co/storage/v1/object/publi...",
-    "value_sha256": "2c316dff27248d190f0f626eccf0523973325cb5454ab65bd772f59b92282f09"
-  },
-  {
-    "base_url_sha256": [
-      "8a0694ff31fbd26de6e673477430956f80147926e21edb8d1001e1aa9cf699a5"
-    ],
-    "base_urls_redacted": [
-      "http://loca.../api/v1/upload"
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "5bf9224a6a8f837331d3",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "claude-vision",
-      "claude-1705334567890",
-      "claude-3-5-sonnet-20241022",
-      "Llama",
-      "llama-3.2-90b-vision-preview"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
-        "fetched_at": "2026-07-07T09:54:16Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "pricejoshua/wehavefoodathome-backend/API.md",
-        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca.../api/v1/upload",
-    "value_sha256": "8a0694ff31fbd26de6e673477430956f80147926e21edb8d1001e1aa9cf699a5"
-  },
-  {
-    "base_url_sha256": [
-      "b44cf8dcf76af19a51c630b437fd9704146cf342d5b0c3e69d356b71bbb028c9"
-    ],
-    "base_urls_redacted": [
-      "https://you...supabase.co/storage/v1/object/publi..."
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "23fb9e1acbea4a20a316",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "claude-vision",
-      "claude-1705334567890",
-      "claude-3-5-sonnet-20241022",
-      "Llama",
-      "llama-3.2-90b-vision-preview"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "pricejoshua/wehavefoodathome-backend/API.md GitHub code result: pricejoshua/wehavefoodathome-backend/API.md # API Documentation Base URL: `http://localhost:5000/api/v1` ## Table of Contents - [Receipt Parsing](#receipt-parsing) - [Products](#products) - [Items](#items) - [Upload](#upload) - [Emojis](#emojis) --- ## Receipt Parsing ### Parse Receipt Parse ...",
-        "fetched_at": "2026-07-07T09:54:16Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "pricejoshua/wehavefoodathome-backend/API.md",
-        "url": "https://github.com/pricejoshua/wehavefoodathome-backend/blob/fa711d3e42bfa44af32d0411fc855961ce8f3948/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://you...supabase.co/storage/v1/object/publi...",
-    "value_sha256": "b44cf8dcf76af19a51c630b437fd9704146cf342d5b0c3e69d356b71bbb028c9"
-  },
-  {
-    "base_url_sha256": [
-      "ef7925526682ed53bc23651e5372c084fa1256e4eb22e8ece7374a44ced5bd75"
-    ],
-    "base_urls_redacted": [
-      "https://api...elevenlabs.io/v1/text-to-speech"
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "86f958c521bbf67b5ae5",
-    "last_seen_at": "2026-07-07T09:45:59Z",
-    "models": [],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "madmax179/SS11Labs/doc.txt GitHub code result: madmax179/SS11Labs/doc.txt ## ElevenLabs TTS Plugin for UniMRCP — Technical Documentation (Ubuntu 20.04) This document provides an in-depth look at deployment, runtime behavior, caching, threading model, and tuning for the ElevenLabs speechsynth plugin on UniMRCP Server 1.8. ## 1) Capabilities Overview - MRCP...",
-        "fetched_at": "2026-07-07T09:45:02Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "madmax179/SS11Labs/doc.txt",
-        "url": "https://github.com/madmax179/SS11Labs/blob/3099159710153f30f1d15ce41dc31f034d7a2a33/doc.txt"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...elevenlabs.io/v1/text-to-speech",
-    "value_sha256": "ef7925526682ed53bc23651e5372c084fa1256e4eb22e8ece7374a44ced5bd75"
   },
   {
     "base_url_sha256": [],
@@ -1304,42 +1368,6 @@
     "type": "base_url",
     "value_redacted": "https://tu-...openai.azure.com/",
     "value_sha256": "19b89fcaf6e6fd03dfbd5b9c417bb89836f143199e2a37db156bc88082ef8c59"
-  },
-  {
-    "base_url_sha256": [
-      "9d56af8535e6506183a2f07af853497be5c2f3960436949ca1fcfd1487c785c6"
-    ],
-    "base_urls_redacted": [
-      "https://YOU...openai.azure.com/"
-    ],
-    "first_seen_at": "2026-07-07T08:50:51Z",
-    "id": "8dc404be68f8ac7a4c18",
-    "last_seen_at": "2026-07-07T08:50:51Z",
-    "models": [
-      "Llama-3",
-      "Qwen",
-      "gemini-2.0-flash",
-      "gemini-1.5-pro",
-      "gpt-4o",
-      "llama",
-      "llama-3-70b"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "AIoT-MLSys-Lab/MMDeepResearch-Bench/env.txt GitHub code result: AIoT-MLSys-Lab/MMDeepResearch-Bench/env.txt # ============================================================================== # 🌏 MMDR Pipeline Configuration Template / 配置模板 # ------------------------------------------------------------------------------ # Usage / 使用说明: # 1. Copy this file to ...",
-        "fetched_at": "2026-07-07T08:49:16Z",
-        "query": "\"GEMINI_API_KEY\" \"gemini\"",
-        "source": "github_code",
-        "title": "AIoT-MLSys-Lab/MMDeepResearch-Bench/env.txt",
-        "url": "https://github.com/AIoT-MLSys-Lab/MMDeepResearch-Bench/blob/9f24d0398f667b9cdafe8fac7062960ca8e4bb02/env.txt"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://YOU...openai.azure.com/",
-    "value_sha256": "9d56af8535e6506183a2f07af853497be5c2f3960436949ca1fcfd1487c785c6"
   },
   {
     "base_url_sha256": [
@@ -1762,7 +1790,7 @@
     ],
     "first_seen_at": "2026-07-07T08:21:42Z",
     "id": "6bcec25f7a8c3eca0643",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "qwen.md",
       "Qwen",
@@ -1781,21 +1809,21 @@
       "qwen3-coder-plus"
     ],
     "provider": "openai_compatible",
-    "seen_count": 6,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "saturngod/ai_agent_cli_guide/qwen.md GitHub code result: saturngod/ai_agent_cli_guide/qwen.md # Qwen Code Guide ## မာတိကာ - [Qwen Code ဆိုတာ ဘာလဲ?](#qwen-code-ဆိုတာ-ဘာလဲ) - [စတင်ခြင်း](#စတင်ခြင်း) - [Authentication - Login နှင့် Access](#authentication---login-နှင့်-access) - [QWEN.md - ပရောဂျက် ညွှန်ကြားချက်များ](#qwenmd---ပရောဂျက်-ညွှန်ကြားချက်များ) - [...",
-        "fetched_at": "2026-07-07T10:11:05Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "fetched_at": "2026-07-07T12:46:09Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "saturngod/ai_agent_cli_guide/qwen.md",
         "url": "https://github.com/saturngod/ai_agent_cli_guide/blob/b1875c74c49bd13251b0328de490abe78663237e/qwen.md"
       },
       {
         "excerpt": "saturngod/ai_agent_cli_guide/qwen.md GitHub code result: saturngod/ai_agent_cli_guide/qwen.md # Qwen Code Guide ## မာတိကာ - [Qwen Code ဆိုတာ ဘာလဲ?](#qwen-code-ဆိုတာ-ဘာလဲ) - [စတင်ခြင်း](#စတင်ခြင်း) - [Authentication - Login နှင့် Access](#authentication---login-နှင့်-access) - [QWEN.md - ပရောဂျက် ညွှန်ကြားချက်များ](#qwenmd---ပရောဂျက်-ညွှန်ကြားချက်များ) - [...",
-        "fetched_at": "2026-07-07T10:01:06Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "fetched_at": "2026-07-07T10:11:05Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "github_code",
         "title": "saturngod/ai_agent_cli_guide/qwen.md",
         "url": "https://github.com/saturngod/ai_agent_cli_guide/blob/b1875c74c49bd13251b0328de490abe78663237e/qwen.md"
@@ -1804,6 +1832,149 @@
     "type": "base_url",
     "value_redacted": "https://you...com/v1",
     "value_sha256": "efff52db7ad47c088713471604db43b626d716adb55a35f1276ff474d50d4812"
+  },
+  {
+    "base_url_sha256": [
+      "1828e2af3557425dc2c6350b759c7539fad86481a99b9ac3865bb48f551cb493"
+    ],
+    "base_urls_redacted": [
+      "https://ope...bigmodel.cn/api/paas/v4/chat/comple..."
+    ],
+    "first_seen_at": "2026-07-07T08:21:42Z",
+    "id": "a72a3907d408ac8b863e",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "o1",
+      "GLM-4",
+      "GLM-4-Flash",
+      "GLM-4-Air",
+      "LLaMA",
+      "Grok-2",
+      "Grok-beta",
+      "claude-sonnet-4"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 6,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
+        "fetched_at": "2026-07-07T12:46:41Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "cloud-shuttle/drover/plan.md",
+        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
+      },
+      {
+        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
+        "fetched_at": "2026-07-07T10:11:01Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_code",
+        "title": "cloud-shuttle/drover/plan.md",
+        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...bigmodel.cn/api/paas/v4/chat/comple...",
+    "value_sha256": "1828e2af3557425dc2c6350b759c7539fad86481a99b9ac3865bb48f551cb493"
+  },
+  {
+    "base_url_sha256": [
+      "dfd2a15f09373fda210f3abc40f9c258363058225f1ec5b33ce607d37ff1ae57"
+    ],
+    "base_urls_redacted": [
+      "https://api...groq.com/openai/v1/chat/completi..."
+    ],
+    "first_seen_at": "2026-07-07T08:21:42Z",
+    "id": "d1d8494e54f9731ef6aa",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "GPT-4o",
+      "GPT-4o-mini",
+      "o1",
+      "GLM-4",
+      "GLM-4-Flash",
+      "GLM-4-Air",
+      "LLaMA",
+      "Grok-2",
+      "Grok-beta",
+      "claude-sonnet-4"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 6,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
+        "fetched_at": "2026-07-07T12:46:41Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "cloud-shuttle/drover/plan.md",
+        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
+      },
+      {
+        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
+        "fetched_at": "2026-07-07T10:11:01Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_code",
+        "title": "cloud-shuttle/drover/plan.md",
+        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...groq.com/openai/v1/chat/completi...",
+    "value_sha256": "dfd2a15f09373fda210f3abc40f9c258363058225f1ec5b33ce607d37ff1ae57"
+  },
+  {
+    "base_url_sha256": [
+      "8afc95df9dd8c03932a43b51fa38e01be18cd433b41e5ae5fb1096176a4e188c"
+    ],
+    "base_urls_redacted": [
+      "https://api...cerebras.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:21:42Z",
+    "id": "2276865dfdf56b448a4b",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "gpt-4o",
+      "claude-3-5-sonnet-latest",
+      "gemini-2.0-flash",
+      "llama3.1-8b"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 10,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "justrach/bhumi/LLM.txt GitHub code result: justrach/bhumi/LLM.txt Bhumi LLM Quickstart ==================== Overview -------- Bhumi is a high-performance Rust-powered Python client for LLM providers. Key features: fast async/streaming, multi-provider support, function calling (tools), structured output, automatic retries/pooling, and optimized buffering. ...",
+        "fetched_at": "2026-07-07T12:46:54Z",
+        "query": "\"GEMINI_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "justrach/bhumi/LLM.txt",
+        "url": "https://github.com/justrach/bhumi/blob/355545d6b8ec2e35b9976ae8e2977c76fa303f1d/LLM.txt"
+      },
+      {
+        "excerpt": "justrach/bhumi/LLM.txt GitHub code result: justrach/bhumi/LLM.txt Bhumi LLM Quickstart ==================== Overview -------- Bhumi is a high-performance Rust-powered Python client for LLM providers. Key features: fast async/streaming, multi-provider support, function calling (tools), structured output, automatic retries/pooling, and optimized buffering. ...",
+        "fetched_at": "2026-07-07T12:46:42Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "justrach/bhumi/LLM.txt",
+        "url": "https://github.com/justrach/bhumi/blob/355545d6b8ec2e35b9976ae8e2977c76fa303f1d/LLM.txt"
+      },
+      {
+        "excerpt": "justrach/bhumi/LLM.txt GitHub code result: justrach/bhumi/LLM.txt Bhumi LLM Quickstart ==================== Overview -------- Bhumi is a high-performance Rust-powered Python client for LLM providers. Key features: fast async/streaming, multi-provider support, function calling (tools), structured output, automatic retries/pooling, and optimized buffering. ...",
+        "fetched_at": "2026-07-07T10:11:04Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_code",
+        "title": "justrach/bhumi/LLM.txt",
+        "url": "https://github.com/justrach/bhumi/blob/355545d6b8ec2e35b9976ae8e2977c76fa303f1d/LLM.txt"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...cerebras.ai/v1",
+    "value_sha256": "8afc95df9dd8c03932a43b51fa38e01be18cd433b41e5ae5fb1096176a4e188c"
   },
   {
     "base_url_sha256": [
@@ -1841,149 +2012,6 @@
     "type": "base_url",
     "value_redacted": "https://api...llama.com/compat/v1/",
     "value_sha256": "7df15f81de1ce0f18de5dcdea0a264dd8151b5f2ce3e599be66744d68db43fd5"
-  },
-  {
-    "base_url_sha256": [
-      "1828e2af3557425dc2c6350b759c7539fad86481a99b9ac3865bb48f551cb493"
-    ],
-    "base_urls_redacted": [
-      "https://ope...bigmodel.cn/api/paas/v4/chat/comple..."
-    ],
-    "first_seen_at": "2026-07-07T08:21:42Z",
-    "id": "a72a3907d408ac8b863e",
-    "last_seen_at": "2026-07-07T10:11:59Z",
-    "models": [
-      "GPT-4o",
-      "GPT-4o-mini",
-      "o1",
-      "GLM-4",
-      "GLM-4-Flash",
-      "GLM-4-Air",
-      "LLaMA",
-      "Grok-2",
-      "Grok-beta",
-      "claude-sonnet-4"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 5,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
-        "fetched_at": "2026-07-07T10:11:01Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_code",
-        "title": "cloud-shuttle/drover/plan.md",
-        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
-      },
-      {
-        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
-        "fetched_at": "2026-07-07T09:54:22Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "cloud-shuttle/drover/plan.md",
-        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://ope...bigmodel.cn/api/paas/v4/chat/comple...",
-    "value_sha256": "1828e2af3557425dc2c6350b759c7539fad86481a99b9ac3865bb48f551cb493"
-  },
-  {
-    "base_url_sha256": [
-      "dfd2a15f09373fda210f3abc40f9c258363058225f1ec5b33ce607d37ff1ae57"
-    ],
-    "base_urls_redacted": [
-      "https://api...groq.com/openai/v1/chat/completi..."
-    ],
-    "first_seen_at": "2026-07-07T08:21:42Z",
-    "id": "d1d8494e54f9731ef6aa",
-    "last_seen_at": "2026-07-07T10:11:59Z",
-    "models": [
-      "GPT-4o",
-      "GPT-4o-mini",
-      "o1",
-      "GLM-4",
-      "GLM-4-Flash",
-      "GLM-4-Air",
-      "LLaMA",
-      "Grok-2",
-      "Grok-beta",
-      "claude-sonnet-4"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 5,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
-        "fetched_at": "2026-07-07T10:11:01Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_code",
-        "title": "cloud-shuttle/drover/plan.md",
-        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
-      },
-      {
-        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
-        "fetched_at": "2026-07-07T09:54:22Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "cloud-shuttle/drover/plan.md",
-        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...groq.com/openai/v1/chat/completi...",
-    "value_sha256": "dfd2a15f09373fda210f3abc40f9c258363058225f1ec5b33ce607d37ff1ae57"
-  },
-  {
-    "base_url_sha256": [
-      "8afc95df9dd8c03932a43b51fa38e01be18cd433b41e5ae5fb1096176a4e188c"
-    ],
-    "base_urls_redacted": [
-      "https://api...cerebras.ai/v1"
-    ],
-    "first_seen_at": "2026-07-07T08:21:42Z",
-    "id": "2276865dfdf56b448a4b",
-    "last_seen_at": "2026-07-07T10:11:59Z",
-    "models": [
-      "gpt-4o",
-      "claude-3-5-sonnet-latest",
-      "gemini-2.0-flash",
-      "llama3.1-8b"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 8,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "justrach/bhumi/LLM.txt GitHub code result: justrach/bhumi/LLM.txt Bhumi LLM Quickstart ==================== Overview -------- Bhumi is a high-performance Rust-powered Python client for LLM providers. Key features: fast async/streaming, multi-provider support, function calling (tools), structured output, automatic retries/pooling, and optimized buffering. ...",
-        "fetched_at": "2026-07-07T10:11:04Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_code",
-        "title": "justrach/bhumi/LLM.txt",
-        "url": "https://github.com/justrach/bhumi/blob/355545d6b8ec2e35b9976ae8e2977c76fa303f1d/LLM.txt"
-      },
-      {
-        "excerpt": "justrach/bhumi/LLM.txt GitHub code result: justrach/bhumi/LLM.txt Bhumi LLM Quickstart ==================== Overview -------- Bhumi is a high-performance Rust-powered Python client for LLM providers. Key features: fast async/streaming, multi-provider support, function calling (tools), structured output, automatic retries/pooling, and optimized buffering. ...",
-        "fetched_at": "2026-07-07T09:54:36Z",
-        "query": "\"GEMINI_API_KEY\" \"gemini\"",
-        "source": "github_code",
-        "title": "justrach/bhumi/LLM.txt",
-        "url": "https://github.com/justrach/bhumi/blob/355545d6b8ec2e35b9976ae8e2977c76fa303f1d/LLM.txt"
-      },
-      {
-        "excerpt": "justrach/bhumi/LLM.txt GitHub code result: justrach/bhumi/LLM.txt Bhumi LLM Quickstart ==================== Overview -------- Bhumi is a high-performance Rust-powered Python client for LLM providers. Key features: fast async/streaming, multi-provider support, function calling (tools), structured output, automatic retries/pooling, and optimized buffering. ...",
-        "fetched_at": "2026-07-07T09:54:22Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "justrach/bhumi/LLM.txt",
-        "url": "https://github.com/justrach/bhumi/blob/355545d6b8ec2e35b9976ae8e2977c76fa303f1d/LLM.txt"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...cerebras.ai/v1",
-    "value_sha256": "8afc95df9dd8c03932a43b51fa38e01be18cd433b41e5ae5fb1096176a4e188c"
   },
   {
     "base_url_sha256": [
@@ -2363,32 +2391,60 @@
     "value_sha256": "d3f03890b42564791e97759827c29adaaed0ccbfa8e04031c62b770dbe6e11aa"
   },
   {
-    "base_url_sha256": [
-      "4a3b12e6556a26a271ede261cf9530d3d25f4212fc531fda25acd6be2aa7102d"
-    ],
-    "base_urls_redacted": [
-      "https://my-o.../v1"
-    ],
+    "base_url_sha256": [],
+    "base_urls_redacted": [],
     "first_seen_at": "2026-07-07T08:14:36Z",
-    "id": "f840314d3703d9da405f",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "id": "35d88cb834e750d214de",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 8,
-    "severity": "medium",
+    "seen_count": 5,
+    "severity": "high",
     "sources": [
       {
-        "excerpt": "fix(providers): OpenAI embedding provider ignores configured base_url (AsyncOpenAI created without it) @RichardHightower # Summary The OpenAI embedding provider instantiates `AsyncOpenAI` without passing the configured `base_url`. As a result, all embedding requests target `api.openai.com` regardless of the `base_url` set in `config.yaml`. This makes it i...",
-        "fetched_at": "2026-07-07T10:11:09Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_issues",
-        "title": "fix(providers): OpenAI embedding provider ignores configured base_url (AsyncOpenAI created without it)",
-        "url": "https://github.com/SpillwaveSolutions/agent-brain/issues/222"
+        "excerpt": "ZHANGXiyuan2004/VibeLaTeX/PRD.md GitHub code result: ZHANGXiyuan2004/VibeLaTeX/PRD.md # PRD：VibeLaTeX（Vibe Latex 公式工作台） ## 1. 背景与问题 在写论文、讲义、技术文档时，LaTeX 公式常见痛点： * 写得快但排版差：可读性、对齐、空格、环境选择不统一 * 渲染报错难定位：括号/环境/宏问题排查耗时 * 需要导出透明背景公式图（PPT/Keynote/Figma/网页）但工具繁琐 * 希望用 AI 自动“格式化、修复、重构、生成、解释”公式，减少重复劳动 * 期望界面简洁美观，所见即所得 ## 2. 产品定位 **VibeLaTeX** 是一个面向公式创作的轻量工作台： **实时渲染 ...",
+        "fetched_at": "2026-07-07T12:46:25Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "ZHANGXiyuan2004/VibeLaTeX/PRD.md",
+        "url": "https://github.com/ZHANGXiyuan2004/VibeLaTeX/blob/4a7c2fa6cc5e7e35cf547cc473ac5bb83c4818f7/PRD.md"
       }
     ],
-    "type": "base_url",
-    "value_redacted": "https://my-o.../v1",
-    "value_sha256": "4a3b12e6556a26a271ede261cf9530d3d25f4212fc531fda25acd6be2aa7102d"
+    "type": "credential",
+    "value_redacted": "sk-cp-Dw...CdPA",
+    "value_sha256": "ad8ee87c0393b49e970c87f9cb3ddb992b2e26a049ec28d52f1bca43ffec4cd8"
+  },
+  {
+    "base_url_sha256": [
+      "4c3e8bd032f6e63b2f97b75b9630abdb703eddcfc75f02ae11a06e52406eb3e4",
+      "d693eb2b4dd07c47e1584fba44165f6093f9d9f460a24d497427649296b9c2f9"
+    ],
+    "base_urls_redacted": [
+      "https://www...packyapi.com",
+      "https://www...packyapi.com/v1/images/generations"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "953e22ee890fe317e50d",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "gpt-image-2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 5,
+    "severity": "high",
+    "sources": [
+      {
+        "excerpt": "aiqinxuancai/MintImage/pr2.md GitHub code result: aiqinxuancai/MintImage/pr2.md # GPT Image Flutter — 详细需求文档 v2 > 基于 pr.md 进一步细化，补充架构、数据模型、API 参数、组件规范及测试方案。 > 最后更新：同步 pr.md 补充内容（多图附件、多组API配置、底部输入框浮动样式、源API选择器）。 --- ## 0. 开发环境准备 > 本机当前未安装 Flutter，需在开始编码前完成以下安装步骤。 | 步骤 | 操作 | |------|------| | 1 | 下载并安装 [Flutter 最新稳定版](https://docs.flutter.dev/get-started/i...",
+        "fetched_at": "2026-07-07T12:46:26Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "aiqinxuancai/MintImage/pr2.md",
+        "url": "https://github.com/aiqinxuancai/MintImage/blob/56b531d77d4ceefe6fc6e3ea5e78232f8ca5468b/pr2.md"
+      }
+    ],
+    "type": "credential",
+    "value_redacted": "sk-QuuaU...0EOQ",
+    "value_sha256": "c5ae2f2edc0bb23358d54742126e71bce64870e31613114ffd04bf024d3cbed1"
   },
   {
     "base_url_sha256": [
@@ -2399,7 +2455,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "71848e773c36fd3fd7cf",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "GPT-4",
       "Grok-1",
@@ -2428,16 +2484,40 @@
       "o3-mini"
     ],
     "provider": "openai_compatible",
-    "seen_count": 28,
+    "seen_count": 32,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "OpenAI compatibility · Ollama Blog from autogen import AssistantAgent, UserProxyAgent config_list = [ { \"model\": \"codellama\", \"base_url\": \"http://localhost:11434/v1\", \"api_key\": \" ...",
-        "fetched_at": "2026-07-07T10:11:48Z",
+        "fetched_at": "2026-07-07T12:48:18Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "google_serpapi",
         "title": "OpenAI compatibility · Ollama Blog",
         "url": "https://ollama.com/blog/openai-compatibility"
+      },
+      {
+        "excerpt": "gavdalf/total-recall/SKILL.md GitHub code result: gavdalf/total-recall/SKILL.md --- name: total-recall description: \"The only memory skill that watches on its own. No database. No vectors. No manual saves. Just an LLM observer that compresses your conversations into prioritised notes, consolidates when they grow, and recovers anything missed. Five layers ...",
+        "fetched_at": "2026-07-07T12:47:08Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "gavdalf/total-recall/SKILL.md",
+        "url": "https://github.com/gavdalf/total-recall/blob/437ab3656ecdf52c7ed0c3ee63a3cdae68d5b90f/SKILL.md"
+      },
+      {
+        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
+        "fetched_at": "2026-07-07T12:46:23Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "Yiling-J/tablepilot/API.md",
+        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
+      },
+      {
+        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
+        "fetched_at": "2026-07-07T12:46:22Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "janbodnar/Python-Skolenie/ai.md",
+        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
       },
       {
         "excerpt": "TesslateAI/TFrameX/llms.txt GitHub code result: TesslateAI/TFrameX/llms.txt # TFrameX Framework Complete Reference (LLMs.txt) ## FRAMEWORK OVERVIEW TFrameX v1.1.0 - Task & Flow Orchestration Framework for eXtensible LLM Systems. Production-ready Python framework for sophisticated multi-agent LLM applications with enhanced MCP integration, comprehensive en...",
@@ -2446,22 +2526,6 @@
         "source": "github_code",
         "title": "TesslateAI/TFrameX/llms.txt",
         "url": "https://github.com/TesslateAI/TFrameX/blob/dcc815e6f4cb0c50469c30f38e1078d621f12072/llms.txt"
-      },
-      {
-        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
-        "fetched_at": "2026-07-07T09:54:05Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "Yiling-J/tablepilot/API.md",
-        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
-      },
-      {
-        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
-        "fetched_at": "2026-07-07T09:54:04Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "janbodnar/Python-Skolenie/ai.md",
-        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
       },
       {
         "excerpt": "IIIIQIIII/claude-code-clean/README.md GitHub code result: IIIIQIIII/claude-code-clean/README.md # Claude Code Clean **A privacy-focused fork of Anthropic's Claude Code with all telemetry, analytics, fingerprinting, and auto-update mechanisms removed.** [![License](https://img.shields.io/badge/license-See%20Original-blue)](https://github.com/anthropics/cla...",
@@ -2478,14 +2542,6 @@
         "source": "github_code",
         "title": "tenacious89/open_agent_hackathon/llms.txt",
         "url": "https://github.com/tenacious89/open_agent_hackathon/blob/a5a120c37089430f1dd8988ebd42fd028eebb42f/llms.txt"
-      },
-      {
-        "excerpt": "gavdalf/total-recall/SKILL.md GitHub code result: gavdalf/total-recall/SKILL.md --- name: total-recall description: \"The only memory skill that watches on its own. No database. No vectors. No manual saves. Just an LLM observer that compresses your conversations into prioritised notes, consolidates when they grow, and recovers anything missed. Five layers ...",
-        "fetched_at": "2026-07-07T08:49:36Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_code",
-        "title": "gavdalf/total-recall/SKILL.md",
-        "url": "https://github.com/gavdalf/total-recall/blob/437ab3656ecdf52c7ed0c3ee63a3cdae68d5b90f/SKILL.md"
       },
       {
         "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
@@ -2509,17 +2565,17 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "0a6aa6a4056219d830ab",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "claude-code"
     ],
     "provider": "openai_compatible",
-    "seen_count": 11,
+    "seen_count": 12,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Install and auto-run 9router in every session via SessionStart hook ## Summary Sets up [9Router](https://github.com/decolua/9router) (npm package `9router`) so it is installed and always running in Claude Code on the web sessions for this repo, with providers auto-registered and optional local Ollama support. - `.claude/hooks/session-start.sh` — SessionSt...",
-        "fetched_at": "2026-07-07T10:11:45Z",
+        "fetched_at": "2026-07-07T12:47:31Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "github_issues",
         "title": "Install and auto-run 9router in every session via SessionStart hook",
@@ -2547,7 +2603,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "d371dc40aac4462380bd",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "claude-opus-4",
       "claude-sonnet-4",
@@ -2575,16 +2631,24 @@
       "Mistral-7B-Instruct-v0.2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 13,
+    "seen_count": 15,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "base | langchain_openai ... api_key=\"...\", # base_url=\"...\", # organization=\"...\", # other params ... model = ChatOpenAI( base_url=\"http://localhost:8000/v1\", api_key=\"EMPTY ...",
-        "fetched_at": "2026-07-07T10:11:48Z",
+        "fetched_at": "2026-07-07T12:48:18Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "google_serpapi",
         "title": "base | langchain_openai",
         "url": "https://reference.langchain.com/python/langchain-openai/chat_models/base"
+      },
+      {
+        "excerpt": "helix4u/hermes-agent-private/README.md GitHub code result: helix4u/hermes-agent-private/README.md <p align=\"center\"> <img src=\"assets/banner.png\" alt=\"Hermes Agent\" width=\"100%\"> </p> # Hermes Agent ⚕ <p align=\"center\"> <a href=\"https://x.com/NousResearch\"><img src=\"https://img.shields.io/badge/@NousResearch-black?style=for-the-badge&logo=X&logoColor=whit...",
+        "fetched_at": "2026-07-07T12:47:15Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "helix4u/hermes-agent-private/README.md",
+        "url": "https://github.com/helix4u/hermes-agent-private/blob/e274d584e40dd707853cd07da8ba47c5fc0b6152/README.md"
       },
       {
         "excerpt": "wujiafanihao/asr-llm-fish-speech/env.txt GitHub code result: wujiafanihao/asr-llm-fish-speech/env.txt # 要使用的LLM运营商 MODEL_PROVIDER=openai # 模型名称 MODEL=gpt-4o-mini # LLM最大token数 LLM_MAX_TOKENS=512 # OPENAI格式的API OPENAI_BASE_URL=https://api.chatanywhere.tech/v1 OPENAI_API_KEY= # Claude 配置 CLAUDE_BASE_URL=https://api.anthropic.com CLAUDE_API_KEY= # 如果你要是用hugg...",
@@ -2609,14 +2673,6 @@
         "source": "github_code",
         "title": "mims-harvard/Qworld/README.md",
         "url": "https://github.com/mims-harvard/Qworld/blob/5700dd008c8a9cca33f2404d0918129f74868ee8/README.md"
-      },
-      {
-        "excerpt": "helix4u/hermes-agent-private/README.md GitHub code result: helix4u/hermes-agent-private/README.md <p align=\"center\"> <img src=\"assets/banner.png\" alt=\"Hermes Agent\" width=\"100%\"> </p> # Hermes Agent ⚕ <p align=\"center\"> <a href=\"https://x.com/NousResearch\"><img src=\"https://img.shields.io/badge/@NousResearch-black?style=for-the-badge&logo=X&logoColor=whit...",
-        "fetched_at": "2026-07-07T08:12:17Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_code",
-        "title": "helix4u/hermes-agent-private/README.md",
-        "url": "https://github.com/helix4u/hermes-agent-private/blob/e274d584e40dd707853cd07da8ba47c5fc0b6152/README.md"
       }
     ],
     "type": "base_url",
@@ -2632,7 +2688,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "c31041c023290a6bbd6c",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "grok-4-fast-reasoning",
       "Claude-Grok",
@@ -2657,12 +2713,12 @@
       "grok-2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 31,
+    "seen_count": 35,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "How to Get Your Grok (XAI) API Key Point the OpenAI client at https://api.x.ai/v1 , pass your XAI_API_KEY , and call models with their xAI names ( grok-4.3 , etc.). Most OpenAI ...",
-        "fetched_at": "2026-07-07T10:11:58Z",
+        "fetched_at": "2026-07-07T12:49:16Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "google_serpapi",
         "title": "How to Get Your Grok (XAI) API Key",
@@ -2670,7 +2726,7 @@
       },
       {
         "excerpt": "feat(ts-sdk): add xAI (Grok) LLM provider ## Summary The Python SDK supports **xAI (Grok)** as an LLM provider, but the TypeScript OSS SDK (`mem0ai/oss`) does not. Add it to bring the TS SDK to parity. | | | |---|---| | Python reference | `mem0/llms/xai.py` | | Registered in (Python) | `mem0/utils/factory.py` (LLMFactory) | | Target file (TypeScript) | `m...",
-        "fetched_at": "2026-07-07T10:11:45Z",
+        "fetched_at": "2026-07-07T12:47:31Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "github_issues",
         "title": "feat(ts-sdk): add xAI (Grok) LLM provider",
@@ -2678,7 +2734,7 @@
       },
       {
         "excerpt": "feat(ts-sdk): add xAI (Grok) LLM provider to OSS SDK ## Linked Issue Closes #5760 ## Description The Python SDK ships an xAI (Grok) LLM provider, but the TypeScript OSS SDK (`mem0ai/oss`) does not — so `provider: \"xai\"` works in Python but not in TS. This PR brings the two to parity. **TypeScript OSS SDK (the core change):** - New `XAILLM` in `mem0-ts/src...",
-        "fetched_at": "2026-07-07T10:11:45Z",
+        "fetched_at": "2026-07-07T12:47:31Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "github_issues",
         "title": "feat(ts-sdk): add xAI (Grok) LLM provider to OSS SDK",
@@ -2686,7 +2742,7 @@
       },
       {
         "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T10:01:10Z",
+        "fetched_at": "2026-07-07T12:46:13Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "SatyamPote/Blood-Candy/USAGE.md",
@@ -2722,18 +2778,18 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "864672f8aa4e3da0ec45",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "grok-4.3",
       "grok-3"
     ],
     "provider": "openai_compatible",
-    "seen_count": 8,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Implement x-search MCP server wrapping xAI's x_search tool ## 概要 xAI（Grok）の `x_search` ツールをラップするMCPサーバー。OpenCode（または任意のMCP対応AIクライアント）からX（Twitter）検索を実行できるようにする。 xAIのAPIキーさえあればX Developerアカウントは不要 — xAIのAPIクレジット内で動作する。 ## アーキテクチャ ``` AI Agent (MCP client, e.g. OpenCode) │ MCP stdio JSON-RPC ▼ x-search-mcp (Node.js) │ OpenAI Responses API (https://api.x.ai/v1...",
-        "fetched_at": "2026-07-07T10:11:45Z",
+        "fetched_at": "2026-07-07T12:47:31Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "github_issues",
         "title": "Implement x-search MCP server wrapping xAI's x_search tool",
@@ -2753,15 +2809,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "279ebd5bef7c59c08c86",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 8,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Configuration - OpenAI Agents SDK By default, the SDK uses the OPENAI_API_KEY environment variable for LLM requests and tracing. ... base_url=\"https://your-openai-compatible-endpoint.example/v1\", ...",
-        "fetched_at": "2026-07-07T10:11:46Z",
+        "fetched_at": "2026-07-07T12:47:46Z",
         "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "google_serpapi",
         "title": "Configuration - OpenAI Agents SDK",
@@ -2781,15 +2837,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "35d655aae97242c8b010",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 8,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "base_url of OpenAI Client Instance Cannot Be Modified ... getenv(\"OPENAI_API_KEY\"), base_url=\"https://api.openai.com/v1\", ) print(client.base_url) client.base_url = \"https://newurl.example.com/v1\" print ...",
-        "fetched_at": "2026-07-07T10:11:46Z",
+        "fetched_at": "2026-07-07T12:47:46Z",
         "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "google_serpapi",
         "title": "base_url of OpenAI Client Instance Cannot Be Modified ...",
@@ -2809,15 +2865,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "f7582c55e2e533f20a2e",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 8,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "OpenAI Compatibility - ILMU API OPENAI_API_KEY=\"sk-openai-key\" ; OPENAI_BASE_URL=\"https://api.openai.com/v1\" ; OPENAI_API_KEY=\"YOUR_API_KEY\" ; OPENAI_BASE_URL=\"https://api.ilmu.ai/v1\".",
-        "fetched_at": "2026-07-07T10:11:47Z",
+        "fetched_at": "2026-07-07T12:48:02Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "google_serpapi",
         "title": "OpenAI Compatibility - ILMU API",
@@ -2837,15 +2893,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "e090bfa7aa1f7229d4ee",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 8,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "DeepSeek API Docs: Your First API Call nodejs. curl https://api.deepseek.com/chat/completions \\ -H \"Content-Type: application/json\" \\ -H \"Authorization: Bearer ${DEEPSEEK_API_KEY}\" \\ -d '{ \"model ...",
-        "fetched_at": "2026-07-07T10:11:50Z",
+        "fetched_at": "2026-07-07T12:48:22Z",
         "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
         "source": "google_serpapi",
         "title": "DeepSeek API Docs: Your First API Call",
@@ -2865,15 +2921,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "f32a26d229067f7b7b83",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 8,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "I can't get code completion to work as a free user : r/MistralAI MISTRAL_API_KEY=\"redacted\" curl https://codestral.mistral.ai/v1/fim/completions -H \"Authorization: Bearer $MISTRAL_API_KEY\" -H \"Content-Type ...",
-        "fetched_at": "2026-07-07T10:11:56Z",
+        "fetched_at": "2026-07-07T12:49:04Z",
         "query": "\"MISTRAL_API_KEY\"",
         "source": "google_serpapi",
         "title": "I can't get code completion to work as a free user : r/MistralAI",
@@ -2893,7 +2949,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "8bc719d78792924bdc13",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "gemini-2",
       "llama3",
@@ -2905,9 +2961,17 @@
       "Qwen"
     ],
     "provider": "openai_compatible",
-    "seen_count": 11,
+    "seen_count": 12,
     "severity": "medium",
     "sources": [
+      {
+        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
+        "fetched_at": "2026-07-07T12:46:23Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "Yiling-J/tablepilot/API.md",
+        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
+      },
       {
         "excerpt": "Allow API Key users to select models directly when configured ## TLDR Allow API Key users to select models directly when `modelProviders` are already configured. Previously, selecting \"API Key\" only showed static configuration instructions, forcing users to authenticate via OAuth or Coding Plan first. ## Dive Deeper The authentication flow had a gap: user...",
         "fetched_at": "2026-07-07T10:11:15Z",
@@ -2915,14 +2979,6 @@
         "source": "github_issues",
         "title": "Allow API Key users to select models directly when configured",
         "url": "https://github.com/QwenLM/qwen-code/pull/2412"
-      },
-      {
-        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
-        "fetched_at": "2026-07-07T09:54:05Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "Yiling-J/tablepilot/API.md",
-        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
       },
       {
         "excerpt": "nesquikm/mcp-rubber-duck/CLAUDE.md GitHub code result: nesquikm/mcp-rubber-duck/CLAUDE.md # CLAUDE.md This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. ## Project Overview MCP Rubber Duck is an MCP (Model Context Protocol) server that bridges to multiple OpenAI-compatible LLMs. It provides \"rubber duck ...",
@@ -2954,17 +3010,17 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "6632da1f341a85b5c0d8",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "gpt-4.1"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "fix(moa): preserve slot credentials for custom_provider references ## What does this PR do? When a MoA preset references a `custom_provider` as a reference model (or aggregator), credentials configured in the slot (`api_key`, `base_url`, `api_mode`) were not being passed to `resolve_runtime_provider`. The slot only forwarded `provider` and `model`, leavin...",
-        "fetched_at": "2026-07-07T10:11:15Z",
+        "fetched_at": "2026-07-07T12:46:31Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "github_issues",
         "title": "fix(moa): preserve slot credentials for custom_provider references",
@@ -2984,7 +3040,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "d3c74efdeb8fe2127a04",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "Qwen",
       "Qwen3-8B",
@@ -2995,20 +3051,12 @@
       "gpt-4o-mini"
     ],
     "provider": "openai_compatible",
-    "seen_count": 16,
+    "seen_count": 19,
     "severity": "medium",
     "sources": [
       {
-        "excerpt": "seanlee111/AI-Finance-RAG-Expert/memo.md GitHub code result: seanlee111/AI-Finance-RAG-Expert/memo.md 每次开一个新终端时，环境默认是 (base)，你得手动切换到 (gar310)： micromamba activate gar310 如何退出环境？ micromamba deactivate # 或 conda deactivate 查看内存总量和使用情况 free -h 实时监控内存（类似任务管理器） htop 查看磁盘空间 df -h / openai apikey环境变量设置 export OPENAI_API_KEY=your-ope...here 检查是否设置好 echo $OPENAI_A...",
-        "fetched_at": "2026-07-07T10:10:59Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_code",
-        "title": "seanlee111/AI-Finance-RAG-Expert/memo.md",
-        "url": "https://github.com/seanlee111/AI-Finance-RAG-Expert/blob/6989d84a0ebf2f7e0e362a689026c329dbdea712/memo.md"
-      },
-      {
         "excerpt": "yangtao121/HomeSystem/FAQ.md GitHub code result: yangtao121/HomeSystem/FAQ.md # HomeSystem 常见问题解决 (FAQ) 本文档汇总了 HomeSystem 部署和使用过程中的常见问题及解决方案。 ## 🔧 部署问题 ### 1. 端口冲突问题 **问题描述：** 启动服务时提示端口被占用 **检查端口占用：** ```bash # 检查特定端口 lsof -i :15432 netstat -tlnp | grep :15432 ss -tulpn | grep :15432 # 批量检查所有默认端口 for port in 15432 16379 8080 8081 5001 5002; do echo \"=== 检...",
-        "fetched_at": "2026-07-07T09:54:09Z",
+        "fetched_at": "2026-07-07T12:46:28Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "github_code",
         "title": "yangtao121/HomeSystem/FAQ.md",
@@ -3016,7 +3064,7 @@
       },
       {
         "excerpt": "seanlee111/AI-Finance-RAG-Expert/memo.md GitHub code result: seanlee111/AI-Finance-RAG-Expert/memo.md 每次开一个新终端时，环境默认是 (base)，你得手动切换到 (gar310)： micromamba activate gar310 如何退出环境？ micromamba deactivate # 或 conda deactivate 查看内存总量和使用情况 free -h 实时监控内存（类似任务管理器） htop 查看磁盘空间 df -h / openai apikey环境变量设置 export OPENAI_API_KEY=your-ope...here 检查是否设置好 echo $OPENAI_A...",
-        "fetched_at": "2026-07-07T09:54:06Z",
+        "fetched_at": "2026-07-07T12:46:24Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "github_code",
         "title": "seanlee111/AI-Finance-RAG-Expert/memo.md",
@@ -3024,11 +3072,19 @@
       },
       {
         "excerpt": "realtime-ai/blastoff-llm/doc.md GitHub code result: realtime-ai/blastoff-llm/doc.md ### 小模型 model = Qwen/Qwen3-8B extra_body = { enable_thinking: false } ### 前缀续写 ​ 1. 使用场景 前缀续写中，用户提供希望输出的前缀信息，来让模型基于用户提供的前缀信息来补全其余的内容。 基于上述能力，模型能有更好的指令遵循能力，满足用户一些特定场景的指定格式的问题。 ​ 2. 使用方式 在请求中添加 extra_body={\"prefix\":\"希望的前缀内容\"} ​ 3. 支持模型列表 目前大语言类模型支持上述参数。 注意：支持的模型情况可能会发生变化，请查阅...",
-        "fetched_at": "2026-07-07T09:54:04Z",
+        "fetched_at": "2026-07-07T12:46:21Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "github_code",
         "title": "realtime-ai/blastoff-llm/doc.md",
         "url": "https://github.com/realtime-ai/blastoff-llm/blob/34576b03237980d429c6849bcdd4d818d9aacda8/doc.md"
+      },
+      {
+        "excerpt": "seanlee111/AI-Finance-RAG-Expert/memo.md GitHub code result: seanlee111/AI-Finance-RAG-Expert/memo.md 每次开一个新终端时，环境默认是 (base)，你得手动切换到 (gar310)： micromamba activate gar310 如何退出环境？ micromamba deactivate # 或 conda deactivate 查看内存总量和使用情况 free -h 实时监控内存（类似任务管理器） htop 查看磁盘空间 df -h / openai apikey环境变量设置 export OPENAI_API_KEY=your-ope...here 检查是否设置好 echo $OPENAI_A...",
+        "fetched_at": "2026-07-07T10:10:59Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_code",
+        "title": "seanlee111/AI-Finance-RAG-Expert/memo.md",
+        "url": "https://github.com/seanlee111/AI-Finance-RAG-Expert/blob/6989d84a0ebf2f7e0e362a689026c329dbdea712/memo.md"
       }
     ],
     "type": "base_url",
@@ -3044,7 +3100,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "17738d33563a3b2b2eb2",
-    "last_seen_at": "2026-07-07T10:01:58Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "GPT-4",
       "Grok-1",
@@ -3067,12 +3123,20 @@
       "gemini-cli"
     ],
     "provider": "openai_compatible",
-    "seen_count": 13,
+    "seen_count": 16,
     "severity": "medium",
     "sources": [
       {
+        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
+        "fetched_at": "2026-07-07T12:46:22Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "janbodnar/Python-Skolenie/ai.md",
+        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
+      },
+      {
         "excerpt": "Blushyes/coro-code/README.md GitHub code result: Blushyes/coro-code/README.md # 🚀 Coro Code <div align=\"center\"> **Language:** [English](README.md) | [中文](README_zh.md) _A high-performance AI coding agent written in Rust with a rich terminal UI_ ![demo](./images/demo.gif) [![Rust](https://img.shields.io/badge/rust-1.70+-orange.svg)](https://www.rust-lang....",
-        "fetched_at": "2026-07-07T10:01:09Z",
+        "fetched_at": "2026-07-07T12:46:12Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "Blushyes/coro-code/README.md",
@@ -3080,19 +3144,11 @@
       },
       {
         "excerpt": "yuanzui0728/Enclave/DEPLOY.md GitHub code result: yuanzui0728/Enclave/DEPLOY.md # 隐界部署指南 ## 架构说明 - 每个世界实例都是一个单用户世界，默认数据库使用 SQLite - iOS、Android、Windows、macOS、Web 全部作为远程客户端接入 - 客户端只需要填写服务端地址，不在本地启动 Core API - 世界主人可选配置自己的 API Key，服务端仅保存加密后的密文 - 官方云平台当前负责手机号验证、申请单、世界记录与地址回填 - 官方云平台当前不负责自动创建、调度、销毁每个用户的世界实例 ## 快速部署世界实例 ### 1. 克隆仓库 ```bash git clone https://git...",
-        "fetched_at": "2026-07-07T10:01:07Z",
+        "fetched_at": "2026-07-07T12:46:10Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "yuanzui0728/Enclave/DEPLOY.md",
         "url": "https://github.com/yuanzui0728/Enclave/blob/023b653cf9e6a408f6a458731dacefe6b6f52a70/DEPLOY.md"
-      },
-      {
-        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
-        "fetched_at": "2026-07-07T09:54:04Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "janbodnar/Python-Skolenie/ai.md",
-        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
       },
       {
         "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
@@ -3124,7 +3180,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "093af7207a203c29557a",
-    "last_seen_at": "2026-07-07T10:01:58Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "GPT-3.5",
       "GPT-4",
@@ -3134,12 +3190,12 @@
       "deepseek-chat"
     ],
     "provider": "openai_compatible",
-    "seen_count": 8,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "IBM/chuk-llm/llms.txt GitHub code result: IBM/chuk-llm/llms.txt # ChukLLM - AI Agent Documentation ## Project Overview ChukLLM is a unified Python library for Large Language Model (LLM) providers with real-time streaming, function calling, middleware support, automatic session tracking, dynamic model discovery, and intelligent system prompt generation. ##...",
-        "fetched_at": "2026-07-07T10:01:05Z",
+        "fetched_at": "2026-07-07T12:46:07Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "IBM/chuk-llm/llms.txt",
@@ -3167,62 +3223,6 @@
     "value_sha256": "72bd647fd6f8ac6262a891b70d03f343bc81941e613207227685a80ee57d8725"
   },
   {
-    "base_url_sha256": [],
-    "base_urls_redacted": [],
-    "first_seen_at": "2026-07-07T08:14:36Z",
-    "id": "35d88cb834e750d214de",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [],
-    "provider": "openai_compatible",
-    "seen_count": 4,
-    "severity": "high",
-    "sources": [
-      {
-        "excerpt": "ZHANGXiyuan2004/VibeLaTeX/PRD.md GitHub code result: ZHANGXiyuan2004/VibeLaTeX/PRD.md # PRD：VibeLaTeX（Vibe Latex 公式工作台） ## 1. 背景与问题 在写论文、讲义、技术文档时，LaTeX 公式常见痛点： * 写得快但排版差：可读性、对齐、空格、环境选择不统一 * 渲染报错难定位：括号/环境/宏问题排查耗时 * 需要导出透明背景公式图（PPT/Keynote/Figma/网页）但工具繁琐 * 希望用 AI 自动“格式化、修复、重构、生成、解释”公式，减少重复劳动 * 期望界面简洁美观，所见即所得 ## 2. 产品定位 **VibeLaTeX** 是一个面向公式创作的轻量工作台： **实时渲染 ...",
-        "fetched_at": "2026-07-07T09:54:06Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "ZHANGXiyuan2004/VibeLaTeX/PRD.md",
-        "url": "https://github.com/ZHANGXiyuan2004/VibeLaTeX/blob/4a7c2fa6cc5e7e35cf547cc473ac5bb83c4818f7/PRD.md"
-      }
-    ],
-    "type": "credential",
-    "value_redacted": "sk-cp-Dw...CdPA",
-    "value_sha256": "ad8ee87c0393b49e970c87f9cb3ddb992b2e26a049ec28d52f1bca43ffec4cd8"
-  },
-  {
-    "base_url_sha256": [
-      "4c3e8bd032f6e63b2f97b75b9630abdb703eddcfc75f02ae11a06e52406eb3e4",
-      "d693eb2b4dd07c47e1584fba44165f6093f9d9f460a24d497427649296b9c2f9"
-    ],
-    "base_urls_redacted": [
-      "https://www...packyapi.com",
-      "https://www...packyapi.com/v1/images/generations"
-    ],
-    "first_seen_at": "2026-07-07T08:14:36Z",
-    "id": "953e22ee890fe317e50d",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "gpt-image-2"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 4,
-    "severity": "high",
-    "sources": [
-      {
-        "excerpt": "aiqinxuancai/MintImage/pr2.md GitHub code result: aiqinxuancai/MintImage/pr2.md # GPT Image Flutter — 详细需求文档 v2 > 基于 pr.md 进一步细化，补充架构、数据模型、API 参数、组件规范及测试方案。 > 最后更新：同步 pr.md 补充内容（多图附件、多组API配置、底部输入框浮动样式、源API选择器）。 --- ## 0. 开发环境准备 > 本机当前未安装 Flutter，需在开始编码前完成以下安装步骤。 | 步骤 | 操作 | |------|------| | 1 | 下载并安装 [Flutter 最新稳定版](https://docs.flutter.dev/get-started/i...",
-        "fetched_at": "2026-07-07T09:54:08Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "aiqinxuancai/MintImage/pr2.md",
-        "url": "https://github.com/aiqinxuancai/MintImage/blob/56b531d77d4ceefe6fc6e3ea5e78232f8ca5468b/pr2.md"
-      }
-    ],
-    "type": "credential",
-    "value_redacted": "sk-QuuaU...0EOQ",
-    "value_sha256": "c5ae2f2edc0bb23358d54742126e71bce64870e31613114ffd04bf024d3cbed1"
-  },
-  {
     "base_url_sha256": [
       "e0ae682ccf980314fd67e7325542404288428aa89ace79f02e12e12a5aec64b6"
     ],
@@ -3231,7 +3231,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "03446befbc9a06335ca0",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "gemini-2",
       "llama3",
@@ -3239,12 +3239,12 @@
       "gpt-4-turbo"
     ],
     "provider": "openai_compatible",
-    "seen_count": 4,
+    "seen_count": 5,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
-        "fetched_at": "2026-07-07T09:54:05Z",
+        "fetched_at": "2026-07-07T12:46:23Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "github_code",
         "title": "Yiling-J/tablepilot/API.md",
@@ -3264,7 +3264,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "fcca7d1ba7d23a80a0af",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "deepseek-v3.2",
       "llama3.1",
@@ -3278,9 +3278,17 @@
       "gpt-4-turbo"
     ],
     "provider": "openai_compatible",
-    "seen_count": 5,
+    "seen_count": 6,
     "severity": "medium",
     "sources": [
+      {
+        "excerpt": "gavdalf/total-recall/SKILL.md GitHub code result: gavdalf/total-recall/SKILL.md --- name: total-recall description: \"The only memory skill that watches on its own. No database. No vectors. No manual saves. Just an LLM observer that compresses your conversations into prioritised notes, consolidates when they grow, and recovers anything missed. Five layers ...",
+        "fetched_at": "2026-07-07T12:47:08Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "gavdalf/total-recall/SKILL.md",
+        "url": "https://github.com/gavdalf/total-recall/blob/437ab3656ecdf52c7ed0c3ee63a3cdae68d5b90f/SKILL.md"
+      },
       {
         "excerpt": "zhang17-24/AI-learning-blog/README.md GitHub code result: zhang17-24/AI-learning-blog/README.md # AI智能学习日程规划助手 > 🤖 集成大模型AI的学习管理平台，支持课程管理、作业跟踪、小组协作和智能学习规划 ## ✨ 核心亮点 <img width=\"1855\" height=\"1005\" alt=\"image\" src=\"https://github.com/user-attachments/assets/269a3d2e-a572-4d68-94bc-58bc3c173eaf\" /> ### 🎯 AI智能能力 - **AI伙伴**：全局可访问的智能助手，提供学习答疑、情感陪伴、聊天历史 - **智能文本...",
         "fetched_at": "2026-07-07T09:53:55Z",
@@ -3288,14 +3296,6 @@
         "source": "github_code",
         "title": "zhang17-24/AI-learning-blog/README.md",
         "url": "https://github.com/zhang17-24/AI-learning-blog/blob/7e3e6835dd1c9c1b2f3a368d709e6a8b72bf148e/README.md"
-      },
-      {
-        "excerpt": "gavdalf/total-recall/SKILL.md GitHub code result: gavdalf/total-recall/SKILL.md --- name: total-recall description: \"The only memory skill that watches on its own. No database. No vectors. No manual saves. Just an LLM observer that compresses your conversations into prioritised notes, consolidates when they grow, and recovers anything missed. Five layers ...",
-        "fetched_at": "2026-07-07T08:49:36Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_code",
-        "title": "gavdalf/total-recall/SKILL.md",
-        "url": "https://github.com/gavdalf/total-recall/blob/437ab3656ecdf52c7ed0c3ee63a3cdae68d5b90f/SKILL.md"
       }
     ],
     "type": "base_url",
@@ -3311,7 +3311,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "d00894aebcd046a9f34f",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "GPT-4",
       "GPT-3.5",
@@ -3331,12 +3331,12 @@
       "claude-sonnet-4-6"
     ],
     "provider": "openai_compatible",
-    "seen_count": 8,
+    "seen_count": 9,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "stargazerwh/RAG-Lighter/WIKI.md GitHub code result: stargazerwh/RAG-Lighter/WIKI.md # RAG-Lighter Wiki > 轻量级模块化 RAG (检索增强生成) 框架完整文档 --- ## 📑 目录 1. [项目简介](#项目简介) 2. [核心架构](#核心架构) 3. [快速开始](#快速开始) 4. [组件详解](#组件详解) 5. [高级用法](#高级用法) 6. [API 参考](#api-参考) 7. [配置指南](#配置指南) 8. [最佳实践](#最佳实践) 9. [常见问题](#常见问题) --- ## 项目简介 **RAG-Lighter** 是一个用 Python 编写的轻量级、模块化 RAG (...",
-        "fetched_at": "2026-07-07T09:54:33Z",
+        "fetched_at": "2026-07-07T12:46:52Z",
         "query": "\"GEMINI_API_KEY\" \"gemini\"",
         "source": "github_code",
         "title": "stargazerwh/RAG-Lighter/WIKI.md",
@@ -3370,6 +3370,154 @@
     "type": "base_url",
     "value_redacted": "http://loca.../v1",
     "value_sha256": "94afb24309b0b0eb1eb54b3b004a36b854220bdbedf1f65debdd6445df4668c6"
+  },
+  {
+    "base_url_sha256": [
+      "7102c29b57b1e6049f552fb966f446acd6bb2e75e1ee839635494437d83fc813"
+    ],
+    "base_urls_redacted": [
+      "https://api...fe8.cn/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "98bac10f51d98212eca7",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 4,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Python调用OpenAI OPENAI_API_KEY=\"sk-xxx\" OPENAI_BASE_URL=\"https://api.fe8.cn/v1\". sk-xxx 使用自己的key 替换。 OPENAI_BASE_URL 是访问OpenAI 的国内代理跳板。 5 ...",
+        "fetched_at": "2026-07-07T12:48:02Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "google_serpapi",
+        "title": "Python调用OpenAI",
+        "url": "https://zhuanlan.zhihu.com/p/684314091"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...fe8.cn/v1",
+    "value_sha256": "7102c29b57b1e6049f552fb966f446acd6bb2e75e1ee839635494437d83fc813"
+  },
+  {
+    "base_url_sha256": [
+      "763acecbaccf75323f8a42933856918d517c984e07305eec316eebfa74fd7d25"
+    ],
+    "base_urls_redacted": [
+      "https://api...laozhang.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "5ead163805bff63fa6d4",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 4,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "OpenAI Codex CLI Setup Guide - 老张API bashrc : # LaoZhang API Configuration export OPENAI_API_KEY=\"sk-your-...-key\" export OPENAI_BASE_URL=\"https://api.laozhang.ai/v1\". Apply changes:.",
+        "fetched_at": "2026-07-07T12:48:02Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "google_serpapi",
+        "title": "OpenAI Codex CLI Setup Guide - 老张API",
+        "url": "https://docs.laozhang.ai/en/scenarios/programming/codex-cli"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...laozhang.ai/v1",
+    "value_sha256": "763acecbaccf75323f8a42933856918d517c984e07305eec316eebfa74fd7d25"
+  },
+  {
+    "base_url_sha256": [
+      "c98b47aba7eb924dcce3243a09060509589ebba7f1e5c56955a495c48781a821"
+    ],
+    "base_urls_redacted": [
+      "https://api...openai.com/v1/moderations"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "bf642aa1379a5cec5d40",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "popalex/Pixorly/SPEC.md GitHub code result: popalex/Pixorly/SPEC.md # Pixorly - Image Studio Platform Specification **Version:** 1.0.0 **Last Updated:** January 15, 2026 **Status:** Draft --- ## 1. Project Overview ### 1.1 Vision and Goals **Pixorly** is a modern, platform-agnostic image studio that democratizes AI-powered image generation by providing a ...",
+        "fetched_at": "2026-07-07T12:47:13Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "popalex/Pixorly/SPEC.md",
+        "url": "https://github.com/popalex/Pixorly/blob/b1b15ca7b1ab706f7b555433911628694db1d014/SPEC.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...openai.com/v1/moderations",
+    "value_sha256": "c98b47aba7eb924dcce3243a09060509589ebba7f1e5c56955a495c48781a821"
+  },
+  {
+    "base_url_sha256": [
+      "5c1332d5f9242f304584f5dca3e53a8afe9d1e0c9ea153e0ab73f27e4f341bce"
+    ],
+    "base_urls_redacted": [
+      "https://ope...ai/api/v1/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "1c9444a5448ce63f7489",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "Qwen3-14B",
+      "qwen3",
+      "qwenvl",
+      "qwen2.5vl",
+      "Qwen3",
+      "Qwen-VL",
+      "GPT-SoVITS"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "LemonQu-GIT/MurasamePet/README.md GitHub code result: LemonQu-GIT/MurasamePet/README.md # MurasamePet 一个基于AI的桌面宠物项目，使用GPT-SoVITS进行语音合成，支持对话和交互。 **视频演示**: https://www.bilibili.com/video/BV1vjeGzfE1w ## 🚀 快速开始 ### 一键运行（推荐） ```bash python run_project.py ``` 该脚本会自动： - ✅ 检测系统环境（macOS/Windows） - ✅ 检测Python 3.10是否存在 - ✅ 安装必要的依赖 - ✅ 下载预训练模型 - ✅ 启动所有服务 ### 系统要求 - ...",
+        "fetched_at": "2026-07-07T12:47:14Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "LemonQu-GIT/MurasamePet/README.md",
+        "url": "https://github.com/LemonQu-GIT/MurasamePet/blob/83bbca3d041c8b9225d57c4e97327efea61d0ce7/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...ai/api/v1/chat/completions",
+    "value_sha256": "5c1332d5f9242f304584f5dca3e53a8afe9d1e0c9ea153e0ab73f27e4f341bce"
+  },
+  {
+    "base_url_sha256": [
+      "4a3b12e6556a26a271ede261cf9530d3d25f4212fc531fda25acd6be2aa7102d"
+    ],
+    "base_urls_redacted": [
+      "https://my-o.../v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "f840314d3703d9da405f",
+    "last_seen_at": "2026-07-07T10:11:59Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 8,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "fix(providers): OpenAI embedding provider ignores configured base_url (AsyncOpenAI created without it) @RichardHightower # Summary The OpenAI embedding provider instantiates `AsyncOpenAI` without passing the configured `base_url`. As a result, all embedding requests target `api.openai.com` regardless of the `base_url` set in `config.yaml`. This makes it i...",
+        "fetched_at": "2026-07-07T10:11:09Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "fix(providers): OpenAI embedding provider ignores configured base_url (AsyncOpenAI created without it)",
+        "url": "https://github.com/SpillwaveSolutions/agent-brain/issues/222"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://my-o.../v1",
+    "value_sha256": "4a3b12e6556a26a271ede261cf9530d3d25f4212fc531fda25acd6be2aa7102d"
   },
   {
     "base_url_sha256": [
@@ -3647,62 +3795,6 @@
   },
   {
     "base_url_sha256": [
-      "7102c29b57b1e6049f552fb966f446acd6bb2e75e1ee839635494437d83fc813"
-    ],
-    "base_urls_redacted": [
-      "https://api...fe8.cn/v1"
-    ],
-    "first_seen_at": "2026-07-07T08:14:36Z",
-    "id": "98bac10f51d98212eca7",
-    "last_seen_at": "2026-07-07T08:50:51Z",
-    "models": [],
-    "provider": "openai_compatible",
-    "seen_count": 3,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "Python调用OpenAI OPENAI_API_KEY=\"sk-xxx\" OPENAI_BASE_URL=\"https://api.fe8.cn/v1\". sk-xxx 使用自己的key 替换。 OPENAI_BASE_URL 是访问OpenAI 的国内代理跳板。 5 ...",
-        "fetched_at": "2026-07-07T08:50:40Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "google_serpapi",
-        "title": "Python调用OpenAI",
-        "url": "https://zhuanlan.zhihu.com/p/684314091"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...fe8.cn/v1",
-    "value_sha256": "7102c29b57b1e6049f552fb966f446acd6bb2e75e1ee839635494437d83fc813"
-  },
-  {
-    "base_url_sha256": [
-      "763acecbaccf75323f8a42933856918d517c984e07305eec316eebfa74fd7d25"
-    ],
-    "base_urls_redacted": [
-      "https://api...laozhang.ai/v1"
-    ],
-    "first_seen_at": "2026-07-07T08:14:36Z",
-    "id": "5ead163805bff63fa6d4",
-    "last_seen_at": "2026-07-07T08:50:51Z",
-    "models": [],
-    "provider": "openai_compatible",
-    "seen_count": 3,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "OpenAI Codex CLI Setup Guide - 老张API bashrc : # LaoZhang API Configuration export OPENAI_API_KEY=\"sk-your-...-key\" export OPENAI_BASE_URL=\"https://api.laozhang.ai/v1\". Apply changes:.",
-        "fetched_at": "2026-07-07T08:50:40Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "google_serpapi",
-        "title": "OpenAI Codex CLI Setup Guide - 老张API",
-        "url": "https://docs.laozhang.ai/en/scenarios/programming/codex-cli"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...laozhang.ai/v1",
-    "value_sha256": "763acecbaccf75323f8a42933856918d517c984e07305eec316eebfa74fd7d25"
-  },
-  {
-    "base_url_sha256": [
       "a1db9e1e51065c41ad57cdb8a1a0a45db58e68302280ce1d3494dfc54ad2c30b"
     ],
     "base_urls_redacted": [
@@ -3728,34 +3820,6 @@
     "type": "base_url",
     "value_redacted": "http://metadata/computeMetadata/v1/inst...",
     "value_sha256": "a1db9e1e51065c41ad57cdb8a1a0a45db58e68302280ce1d3494dfc54ad2c30b"
-  },
-  {
-    "base_url_sha256": [
-      "c98b47aba7eb924dcce3243a09060509589ebba7f1e5c56955a495c48781a821"
-    ],
-    "base_urls_redacted": [
-      "https://api...openai.com/v1/moderations"
-    ],
-    "first_seen_at": "2026-07-07T08:14:36Z",
-    "id": "bf642aa1379a5cec5d40",
-    "last_seen_at": "2026-07-07T08:50:51Z",
-    "models": [],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "popalex/Pixorly/SPEC.md GitHub code result: popalex/Pixorly/SPEC.md # Pixorly - Image Studio Platform Specification **Version:** 1.0.0 **Last Updated:** January 15, 2026 **Status:** Draft --- ## 1. Project Overview ### 1.1 Vision and Goals **Pixorly** is a modern, platform-agnostic image studio that democratizes AI-powered image generation by providing a ...",
-        "fetched_at": "2026-07-07T08:49:38Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_code",
-        "title": "popalex/Pixorly/SPEC.md",
-        "url": "https://github.com/popalex/Pixorly/blob/b1b15ca7b1ab706f7b555433911628694db1d014/SPEC.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...openai.com/v1/moderations",
-    "value_sha256": "c98b47aba7eb924dcce3243a09060509589ebba7f1e5c56955a495c48781a821"
   },
   {
     "base_url_sha256": [
@@ -3916,42 +3980,6 @@
     "type": "base_url",
     "value_redacted": "https://ark...cn-beijing.volces.com/api/v3",
     "value_sha256": "cf241555f7ba3b0018801f05de0dc172e875406cbb8085336d201ce2ccb1759e"
-  },
-  {
-    "base_url_sha256": [
-      "5c1332d5f9242f304584f5dca3e53a8afe9d1e0c9ea153e0ab73f27e4f341bce"
-    ],
-    "base_urls_redacted": [
-      "https://ope...ai/api/v1/chat/completions"
-    ],
-    "first_seen_at": "2026-07-07T08:14:36Z",
-    "id": "1c9444a5448ce63f7489",
-    "last_seen_at": "2026-07-07T08:14:36Z",
-    "models": [
-      "Qwen3-14B",
-      "qwen3",
-      "qwenvl",
-      "qwen2.5vl",
-      "Qwen3",
-      "Qwen-VL",
-      "GPT-SoVITS"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "LemonQu-GIT/MurasamePet/README.md GitHub code result: LemonQu-GIT/MurasamePet/README.md # MurasamePet 一个基于AI的桌面宠物项目，使用GPT-SoVITS进行语音合成，支持对话和交互。 **视频演示**: https://www.bilibili.com/video/BV1vjeGzfE1w ## 🚀 快速开始 ### 一键运行（推荐） ```bash python run_project.py ``` 该脚本会自动： - ✅ 检测系统环境（macOS/Windows） - ✅ 检测Python 3.10是否存在 - ✅ 安装必要的依赖 - ✅ 下载预训练模型 - ✅ 启动所有服务 ### 系统要求 - ...",
-        "fetched_at": "2026-07-07T08:12:17Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_code",
-        "title": "LemonQu-GIT/MurasamePet/README.md",
-        "url": "https://github.com/LemonQu-GIT/MurasamePet/blob/83bbca3d041c8b9225d57c4e97327efea61d0ce7/README.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://ope...ai/api/v1/chat/completions",
-    "value_sha256": "5c1332d5f9242f304584f5dca3e53a8afe9d1e0c9ea153e0ab73f27e4f341bce"
   },
   {
     "base_url_sha256": [
@@ -4183,7 +4211,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "7117173ec89098daa343",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "claude-haiku-4-5",
       "claude-sonnet-4-5",
@@ -4192,12 +4220,12 @@
       "mistral-ocr"
     ],
     "provider": "openai_compatible",
-    "seen_count": 12,
+    "seen_count": 13,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "feat(mistral): support native web search via the Conversations API ## Relevant issues Web search requested by a customer ## Linear ticket ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [ ] My PR passes all CI/CD checks (e.g., lint, format, unit tests) - [...",
-        "fetched_at": "2026-07-07T10:11:38Z",
+        "fetched_at": "2026-07-07T12:47:25Z",
         "query": "\"MISTRAL_API_KEY\"",
         "source": "github_issues",
         "title": "feat(mistral): support native web search via the Conversations API",
@@ -4241,7 +4269,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "aa94cbf2b5ebb88e1c11",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "claude-code",
       "gemini-2",
@@ -4270,20 +4298,28 @@
       "Grok-beta"
     ],
     "provider": "openai_compatible",
-    "seen_count": 85,
+    "seen_count": 98,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Chat with an OpenAI model — chat_openai - ellmer - Tidyverse Usage. chat_openai( system_prompt = NULL, base_url = \"https://api.openai.com/v1\", api_key = NULL, credentials = NULL, model = NULL, params = NULL, api_args ...",
-        "fetched_at": "2026-07-07T10:11:48Z",
+        "fetched_at": "2026-07-07T12:48:18Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "google_serpapi",
         "title": "Chat with an OpenAI model — chat_openai - ellmer - Tidyverse",
         "url": "https://ellmer.tidyverse.org/reference/chat_openai.html"
       },
       {
+        "excerpt": "https://win-builder.r-project.org/incoming_pretest... ... sk-test\\\"\", \"OPENAI_BASE_URL=https://api.openai.com/v1\", \"OPENAI_MODEL='gpt-5-mini'\", \"# comment\" ), path) parsed <- aisdk:::read_console_env_file(path) ...",
+        "fetched_at": "2026-07-07T12:48:02Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "google_serpapi",
+        "title": "https://win-builder.r-project.org/incoming_pretest...",
+        "url": "https://win-builder.r-project.org/incoming_pretest/aisdk_1.0.0_20260323_190733/Windows/examples_and_tests/tests/testthat/test-console-setup.R"
+      },
+      {
         "excerpt": "OpenAI Compatibility - ILMU API OPENAI_API_KEY=\"sk-openai-key\" ; OPENAI_BASE_URL=\"https://api.openai.com/v1\" ; OPENAI_API_KEY=\"YOUR_API_KEY\" ; OPENAI_BASE_URL=\"https://api.ilmu.ai/v1\".",
-        "fetched_at": "2026-07-07T10:11:47Z",
+        "fetched_at": "2026-07-07T12:48:02Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "google_serpapi",
         "title": "OpenAI Compatibility - ILMU API",
@@ -4291,67 +4327,59 @@
       },
       {
         "excerpt": "base_url of OpenAI Client Instance Cannot Be Modified ... getenv(\"OPENAI_API_KEY\"), base_url=\"https://api.openai.com/v1\", ) print(client.base_url) client.base_url = \"https://newurl.example.com/v1\" print ...",
-        "fetched_at": "2026-07-07T10:11:46Z",
+        "fetched_at": "2026-07-07T12:47:46Z",
         "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "google_serpapi",
         "title": "base_url of OpenAI Client Instance Cannot Be Modified ...",
         "url": "https://github.com/openai/openai-python/issues/913"
       },
       {
-        "excerpt": "feat(earshot): scaffold CLI daemon and config schema ## Intent P1-01 (issue #4) creates the Earshot repo scaffold everything later hangs off: a pip-installable Python package named earshot-cli (module earshot), a daemon entrypoint, and the complete YAML config schema with loader and validation. Deliberately defines ALL config fields now (wake word phrase/...",
-        "fetched_at": "2026-07-07T10:11:09Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_issues",
-        "title": "feat(earshot): scaffold CLI daemon and config schema",
-        "url": "https://github.com/talibilat/vox/pull/20"
-      },
-      {
-        "excerpt": "saturngod/ai_agent_cli_guide/qwen.md GitHub code result: saturngod/ai_agent_cli_guide/qwen.md # Qwen Code Guide ## မာတိကာ - [Qwen Code ဆိုတာ ဘာလဲ?](#qwen-code-ဆိုတာ-ဘာလဲ) - [စတင်ခြင်း](#စတင်ခြင်း) - [Authentication - Login နှင့် Access](#authentication---login-နှင့်-access) - [QWEN.md - ပရောဂျက် ညွှန်ကြားချက်များ](#qwenmd---ပရောဂျက်-ညွှန်ကြားချက်များ) - [...",
-        "fetched_at": "2026-07-07T10:11:05Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_code",
-        "title": "saturngod/ai_agent_cli_guide/qwen.md",
-        "url": "https://github.com/saturngod/ai_agent_cli_guide/blob/b1875c74c49bd13251b0328de490abe78663237e/qwen.md"
-      },
-      {
-        "excerpt": "CarloLepelaars/irouter/llms.txt GitHub code result: CarloLepelaars/irouter/llms.txt # irouter > irouter is a Python (3.10+) library that provides easy access to 100+ LLMs through OpenRouter's API. It simplifies LLM interactions to just 2 lines of code while supporting both single and multiple model calls, tool calling, and multimodal inputs (images, PDFs,...",
-        "fetched_at": "2026-07-07T10:11:03Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_code",
-        "title": "CarloLepelaars/irouter/llms.txt",
-        "url": "https://github.com/CarloLepelaars/irouter/blob/98b1c30f1a14f69bd9394e229c57a8beb498ab1c/llms.txt"
-      },
-      {
         "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
-        "fetched_at": "2026-07-07T10:11:01Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "fetched_at": "2026-07-07T12:46:41Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
         "source": "github_code",
         "title": "cloud-shuttle/drover/plan.md",
         "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
       },
       {
         "excerpt": "seanlee111/AI-Finance-RAG-Expert/memo.md GitHub code result: seanlee111/AI-Finance-RAG-Expert/memo.md 每次开一个新终端时，环境默认是 (base)，你得手动切换到 (gar310)： micromamba activate gar310 如何退出环境？ micromamba deactivate # 或 conda deactivate 查看内存总量和使用情况 free -h 实时监控内存（类似任务管理器） htop 查看磁盘空间 df -h / openai apikey环境变量设置 export OPENAI_API_KEY=your-ope...here 检查是否设置好 echo $OPENAI_A...",
-        "fetched_at": "2026-07-07T10:10:59Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "fetched_at": "2026-07-07T12:46:24Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "github_code",
         "title": "seanlee111/AI-Finance-RAG-Expert/memo.md",
         "url": "https://github.com/seanlee111/AI-Finance-RAG-Expert/blob/6989d84a0ebf2f7e0e362a689026c329dbdea712/memo.md"
       },
       {
-        "excerpt": "TesslateAI/TFrameX/llms.txt GitHub code result: TesslateAI/TFrameX/llms.txt # TFrameX Framework Complete Reference (LLMs.txt) ## FRAMEWORK OVERVIEW TFrameX v1.1.0 - Task & Flow Orchestration Framework for eXtensible LLM Systems. Production-ready Python framework for sophisticated multi-agent LLM applications with enhanced MCP integration, comprehensive en...",
-        "fetched_at": "2026-07-07T10:10:57Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
+        "fetched_at": "2026-07-07T12:46:23Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "github_code",
-        "title": "TesslateAI/TFrameX/llms.txt",
-        "url": "https://github.com/TesslateAI/TFrameX/blob/dcc815e6f4cb0c50469c30f38e1078d621f12072/llms.txt"
+        "title": "Yiling-J/tablepilot/API.md",
+        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
       },
       {
         "excerpt": "AuroraDysis/waner-proofreader/CLAUDE.md GitHub code result: AuroraDysis/waner-proofreader/CLAUDE.md # CLAUDE.md This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. ## Project Overview Waner Proofreader is an AI-powered web application designed to help non-native English speakers proofread text. Built with...",
-        "fetched_at": "2026-07-07T10:01:11Z",
+        "fetched_at": "2026-07-07T12:46:15Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "AuroraDysis/waner-proofreader/CLAUDE.md",
         "url": "https://github.com/AuroraDysis/waner-proofreader/blob/8ae5aac1becfd4dbc547dfdb8d3d6ad43dd51028/CLAUDE.md"
+      },
+      {
+        "excerpt": "tintty1/llm/plan.md GitHub code result: tintty1/llm/plan.md # LLM CLI Tool A minimal command-line tool for interacting with LLMs directly from the shell. ## Goals - Simple, Unix-style CLI tool - Pipe-friendly - Shell command generation with injection to prompt - Extensible for future providers - SOLID principles, KISS ## Core Features ### 1. Direct Query ...",
+        "fetched_at": "2026-07-07T12:46:14Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "tintty1/llm/plan.md",
+        "url": "https://github.com/tintty1/llm/blob/422660e7218c8d9e49c91b7f266192528dc268d0/plan.md"
+      },
+      {
+        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
+        "fetched_at": "2026-07-07T12:46:13Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "SatyamPote/Blood-Candy/USAGE.md",
+        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
       }
     ],
     "type": "base_url",
@@ -4367,7 +4395,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "0d5ff39c3c0224d9753f",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "Qwen",
       "gpt-4o-mini",
@@ -4389,27 +4417,53 @@
       "gpt-4",
       "gpt-4-turbo",
       "llama3.2",
-      "qwen2.5"
+      "qwen2.5",
+      "DeepSeek-V3",
+      "DeepSeek-R1"
     ],
     "provider": "openai_compatible",
-    "seen_count": 24,
+    "seen_count": 29,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Deepseek Configuration ; - name: \"Deepseek\" ; apiKey: \"${DEEPSEEK_API_KEY}\" ; baseURL: \"https://api.deepseek.com/v1\" ; models: ; default: [\"deepseek-chat\", \"deepseek-coder\", ...",
-        "fetched_at": "2026-07-07T10:11:50Z",
+        "fetched_at": "2026-07-07T12:48:22Z",
         "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
         "source": "google_serpapi",
         "title": "Deepseek",
         "url": "https://www.librechat.ai/docs/configuration/librechat_yaml/ai_endpoints/deepseek"
       },
       {
+        "excerpt": "feat(inference): add DeepSeek remote inference provider # What does this PR do? Adds a remote inference provider for **DeepSeek** (`remote::deepseek`). DeepSeek is a widely used frontier lab (DeepSeek-V3 chat and DeepSeek-R1 reasoning models) that wasn't yet in the inference lineup — this lets users run those models through the standard inference API. Dee...",
+        "fetched_at": "2026-07-07T12:46:49Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "feat(inference): add DeepSeek remote inference provider",
+        "url": "https://github.com/ogx-ai/ogx/pull/6240"
+      },
+      {
+        "excerpt": "feat(llm): add `openai_compatible` provider #167 ## Summary New `openai_compatible` LLM provider so `[summary]` / `[description]` can target any OpenAI Chat Completions-compatible endpoint (DeepSeek, Moonshot, Qwen, vLLM, Ollama `/v1`, …) by configuring `base_url` + `api_key` + `model` in TOML. The cloud `openai.py` is untouched — mirrors how the embeddin...",
+        "fetched_at": "2026-07-07T12:46:31Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(llm): add `openai_compatible` provider",
+        "url": "https://github.com/zilliztech/mfs/pull/165"
+      },
+      {
         "excerpt": "berabuddies/Semia/README.md GitHub code result: berabuddies/Semia/README.md # Semia > **Security audit for AI agent skills.** Know what a skill *can* do > before you trust it. [![CI](https://github.com/berabuddies/Semia/actions/workflows/ci.yml/badge.svg)](https://github.com/berabuddies/Semia/actions/workflows/ci.yml) [![Lint](https://github.com/berabuddi...",
-        "fetched_at": "2026-07-07T10:01:04Z",
+        "fetched_at": "2026-07-07T12:46:07Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "berabuddies/Semia/README.md",
         "url": "https://github.com/berabuddies/Semia/blob/379bc25fe99833eb185efe56a38fe15f0235799c/README.md"
+      },
+      {
+        "excerpt": "feat(llm): add `openai_compatible` provider #167 ## Summary New `openai_compatible` LLM provider so `[summary]` / `[description]` can target any OpenAI Chat Completions-compatible endpoint (DeepSeek, Moonshot, Qwen, vLLM, Ollama `/v1`, …) by configuring `base_url` + `api_key` + `model` in TOML. The cloud `openai.py` is untouched — mirrors how the embeddin...",
+        "fetched_at": "2026-07-07T12:46:02Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(llm): add `openai_compatible` provider",
+        "url": "https://github.com/zilliztech/mfs/pull/165"
       },
       {
         "excerpt": "zhang17-24/AI-learning-blog/README.md GitHub code result: zhang17-24/AI-learning-blog/README.md # AI智能学习日程规划助手 > 🤖 集成大模型AI的学习管理平台，支持课程管理、作业跟踪、小组协作和智能学习规划 ## ✨ 核心亮点 <img width=\"1855\" height=\"1005\" alt=\"image\" src=\"https://github.com/user-attachments/assets/269a3d2e-a572-4d68-94bc-58bc3c173eaf\" /> ### 🎯 AI智能能力 - **AI伙伴**：全局可访问的智能助手，提供学习答疑、情感陪伴、聊天历史 - **智能文本...",
@@ -4442,14 +4496,6 @@
         "source": "github_issues",
         "title": "support `openai_compatible` provider",
         "url": "https://github.com/zilliztech/mfs/issues/167"
-      },
-      {
-        "excerpt": "feat(llm): add `openai_compatible` provider #167 ## Summary New `openai_compatible` LLM provider so `[summary]` / `[description]` can target any OpenAI Chat Completions-compatible endpoint (DeepSeek, Moonshot, Qwen, vLLM, Ollama `/v1`, …) by configuring `base_url` + `api_key` + `model` in TOML. The cloud `openai.py` is untouched — mirrors how the embeddin...",
-        "fetched_at": "2026-07-07T04:36:37Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_issues",
-        "title": "feat(llm): add `openai_compatible` provider",
-        "url": "https://github.com/zilliztech/mfs/pull/165"
       }
     ],
     "type": "base_url",
@@ -4465,17 +4511,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "2a2b71927701a6890702",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "qwen2.5"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset ## Description <strong>Description</strong> <pre>On Linux, after `nemoclaw onboard` with provider option 7 (Local Ollama), the in-sandbox OpenClaw TUI cannot get any inference r...",
-        "fetched_at": "2026-07-07T10:11:12Z",
+        "fetched_at": "2026-07-07T12:46:17Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset",
@@ -4495,17 +4541,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "f2b4b09f3fc0bf3190ca",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "gpt-4o"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
-        "fetched_at": "2026-07-07T10:11:12Z",
+        "fetched_at": "2026-07-07T12:46:17Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "feat(provider): add AI/ML API provider",
@@ -4525,17 +4571,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "ca5e75d4848e32990a07",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "gpt-4o"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
-        "fetched_at": "2026-07-07T10:11:12Z",
+        "fetched_at": "2026-07-07T12:46:17Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "feat(provider): add AI/ML API provider",
@@ -4555,15 +4601,15 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "54d90de6f7f86aca7f0a",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "examples/code_review_agent: add sandboxed code review agent example Fix #2004 ## What changed This PR adds a sandboxed code review agent example under `examples/code_review_agent`. The example includes a runnable Go CLI, a `skills/code-review` Skill package, review rule documentation, helper scripts, deterministic fixture inputs, structured JSON/Markdown ...",
-        "fetched_at": "2026-07-07T10:11:12Z",
+        "fetched_at": "2026-07-07T12:46:17Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "examples/code_review_agent: add sandboxed code review agent example",
@@ -4583,17 +4629,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "642d747311b4cc315089",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "glm-5.2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
-        "fetched_at": "2026-07-07T10:11:12Z",
+        "fetched_at": "2026-07-07T12:46:17Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "[codex] Add provider-agnostic LLM env",
@@ -4613,17 +4659,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "40b58ba8956eef067df2",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "glm-5.2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
-        "fetched_at": "2026-07-07T10:11:12Z",
+        "fetched_at": "2026-07-07T12:46:17Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "[codex] Add provider-agnostic LLM env",
@@ -4643,17 +4689,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "daa1d38e33829928fd45",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "claude-sonnet-4-6"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "How to Get Your Claude (Anthropic) API Key curl https://api.anthropic.com/v1/messages \\ -H \"x-api-key: $ANTHROPIC_API_KEY ... What's the difference between the Claude API and Claude.ai?",
-        "fetched_at": "2026-07-07T10:11:49Z",
+        "fetched_at": "2026-07-07T12:48:21Z",
         "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
         "source": "google_serpapi",
         "title": "How to Get Your Claude (Anthropic) API Key",
@@ -4681,7 +4727,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "47f16808d923b644a4db",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "gemini-3.5-flash",
       "claude-code",
@@ -4710,20 +4756,44 @@
       "grok-4-0709"
     ],
     "provider": "openai_compatible",
-    "seen_count": 35,
+    "seen_count": 42,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "fix(AL-082): default allie init to enable model review when a key resolves ## What / why `allie init` always scaffolded `model: ModelPolicy::default()` (`enabled: false`), so agentic (vision-model) review silently never ran, even with a valid API key in the environment. Live repro from the ticket: `allie init` → `allie doctor` → `allie verify` against a 4...",
-        "fetched_at": "2026-07-07T10:11:32Z",
+        "fetched_at": "2026-07-07T12:47:18Z",
         "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
         "source": "github_issues",
         "title": "fix(AL-082): default allie init to enable model review when a key resolves",
         "url": "https://github.com/adminifi-ai/allie/pull/55"
       },
       {
+        "excerpt": "popalex/Pixorly/SPEC.md GitHub code result: popalex/Pixorly/SPEC.md # Pixorly - Image Studio Platform Specification **Version:** 1.0.0 **Last Updated:** January 15, 2026 **Status:** Draft --- ## 1. Project Overview ### 1.1 Vision and Goals **Pixorly** is a modern, platform-agnostic image studio that democratizes AI-powered image generation by providing a ...",
+        "fetched_at": "2026-07-07T12:47:13Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "popalex/Pixorly/SPEC.md",
+        "url": "https://github.com/popalex/Pixorly/blob/b1b15ca7b1ab706f7b555433911628694db1d014/SPEC.md"
+      },
+      {
+        "excerpt": "gavdalf/total-recall/SKILL.md GitHub code result: gavdalf/total-recall/SKILL.md --- name: total-recall description: \"The only memory skill that watches on its own. No database. No vectors. No manual saves. Just an LLM observer that compresses your conversations into prioritised notes, consolidates when they grow, and recovers anything missed. Five layers ...",
+        "fetched_at": "2026-07-07T12:47:08Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "gavdalf/total-recall/SKILL.md",
+        "url": "https://github.com/gavdalf/total-recall/blob/437ab3656ecdf52c7ed0c3ee63a3cdae68d5b90f/SKILL.md"
+      },
+      {
+        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
+        "fetched_at": "2026-07-07T12:46:22Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "janbodnar/Python-Skolenie/ai.md",
+        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
+      },
+      {
         "excerpt": "tintty1/llm/plan.md GitHub code result: tintty1/llm/plan.md # LLM CLI Tool A minimal command-line tool for interacting with LLMs directly from the shell. ## Goals - Simple, Unix-style CLI tool - Pipe-friendly - Shell command generation with injection to prompt - Extensible for future providers - SOLID principles, KISS ## Core Features ### 1. Direct Query ...",
-        "fetched_at": "2026-07-07T10:01:11Z",
+        "fetched_at": "2026-07-07T12:46:14Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "tintty1/llm/plan.md",
@@ -4731,19 +4801,19 @@
       },
       {
         "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T10:01:10Z",
+        "fetched_at": "2026-07-07T12:46:13Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "SatyamPote/Blood-Candy/USAGE.md",
         "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
       },
       {
-        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
-        "fetched_at": "2026-07-07T09:54:04Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "janbodnar/Python-Skolenie/ai.md",
-        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
+        "excerpt": "feat: add OpenRouter as a catalog AI service with app attribution ## Summary Adds [OpenRouter](https://openrouter.ai) to the service catalog so users can route hundreds of models (OpenAI, Anthropic, Google, Meta, Mistral, ...) through one stored OpenRouter key — and instruments the traffic so NyxID qualifies for OpenRouter's [Works with OpenRouter](https:...",
+        "fetched_at": "2026-07-07T12:46:02Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat: add OpenRouter as a catalog AI service with app attribution",
+        "url": "https://github.com/ChronoAIProject/NyxID/pull/1106"
       },
       {
         "excerpt": "IIIIQIIII/claude-code-clean/README.md GitHub code result: IIIIQIIII/claude-code-clean/README.md # Claude Code Clean **A privacy-focused fork of Anthropic's Claude Code with all telemetry, analytics, fingerprinting, and auto-update mechanisms removed.** [![License](https://img.shields.io/badge/license-See%20Original-blue)](https://github.com/anthropics/cla...",
@@ -4768,30 +4838,6 @@
         "source": "github_code",
         "title": "zilliztech/deep-searcher/README.md",
         "url": "https://github.com/zilliztech/deep-searcher/blob/d89e37cdfbbef5e44ae6162ce9cc2c627a69b7e1/README.md"
-      },
-      {
-        "excerpt": "zilliztech/deep-searcher/README.md GitHub code result: zilliztech/deep-searcher/README.md ![DeepSearcher](./assets/pic/logo.png) <div align=\"center\"> [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![DeepWiki](https://img.shields.io/badge/DeepWiki-AI%20Docs-orange.svg)](https://deepwiki...",
-        "fetched_at": "2026-07-07T08:50:27Z",
-        "query": "\"XAI_API_KEY\" \"grok\"",
-        "source": "github_code",
-        "title": "zilliztech/deep-searcher/README.md",
-        "url": "https://github.com/zilliztech/deep-searcher/blob/d89e37cdfbbef5e44ae6162ce9cc2c627a69b7e1/README.md"
-      },
-      {
-        "excerpt": "WilliamAvHolmberg/OpenRouter.NET/llms.txt GitHub code result: WilliamAvHolmberg/OpenRouter.NET/llms.txt OPENROUTER.NET SDK - COMPREHENSIVE USAGE GUIDE ================================================ This document provides a complete reference for using the OpenRouter.NET SDK, including all patterns, configuration options, and advanced features. VERSION: ...",
-        "fetched_at": "2026-07-07T08:49:43Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_code",
-        "title": "WilliamAvHolmberg/OpenRouter.NET/llms.txt",
-        "url": "https://github.com/WilliamAvHolmberg/OpenRouter.NET/blob/aa66897dc844ce82b1993a4f747122a86bfac030/llms.txt"
-      },
-      {
-        "excerpt": "popalex/Pixorly/SPEC.md GitHub code result: popalex/Pixorly/SPEC.md # Pixorly - Image Studio Platform Specification **Version:** 1.0.0 **Last Updated:** January 15, 2026 **Status:** Draft --- ## 1. Project Overview ### 1.1 Vision and Goals **Pixorly** is a modern, platform-agnostic image studio that democratizes AI-powered image generation by providing a ...",
-        "fetched_at": "2026-07-07T08:49:38Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_code",
-        "title": "popalex/Pixorly/SPEC.md",
-        "url": "https://github.com/popalex/Pixorly/blob/b1b15ca7b1ab706f7b555433911628694db1d014/SPEC.md"
       }
     ],
     "type": "base_url",
@@ -4807,17 +4853,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "8789552ff2a168c21262",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "gpt-5.3-codex"
     ],
     "provider": "openai_compatible",
-    "seen_count": 11,
+    "seen_count": 13,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Models: fully dynamic model discovery (OpenRouter + beyond) ## Summary We need **fully dynamic model discovery** for providers with fast-moving catalogs (starting with OpenRouter). Today, OpenClaw model selection is effectively **static**: - Available models come from Pi's built-in generated catalog (pi-ai/models.generated) plus optional `models.json` ove...",
-        "fetched_at": "2026-07-07T10:11:32Z",
+        "fetched_at": "2026-07-07T12:47:18Z",
         "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
         "source": "github_issues",
         "title": "Models: fully dynamic model discovery (OpenRouter + beyond)",
@@ -4825,7 +4871,7 @@
       },
       {
         "excerpt": "DmitryBMsk/llm-council-plus/RUN.md GitHub code result: DmitryBMsk/llm-council-plus/RUN.md # How to Run LLM Council Plus Quick start guide to get LLM Council Plus running on your machine. --- ## Prerequisites ### Required: - **Python 3.10+** ([Download](https://python.org)) - **Node.js 18+** ([Download](https://nodejs.org)) - **uv** - Python package manage...",
-        "fetched_at": "2026-07-07T08:49:37Z",
+        "fetched_at": "2026-07-07T12:47:12Z",
         "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
         "source": "github_code",
         "title": "DmitryBMsk/llm-council-plus/RUN.md",
@@ -4838,38 +4884,6 @@
   },
   {
     "base_url_sha256": [
-      "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
-    ],
-    "base_urls_redacted": [
-      "https://api...mistral.ai/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "a44af0ebcf66537a52fe",
-    "last_seen_at": "2026-07-07T10:11:59Z",
-    "models": [
-      "mistral-ai",
-      "mistral-small-latest",
-      "mistral-large-latest"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 9,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "feat: add Mistral AI as first-class LLM provider ## What does this PR do? Promotes Mistral AI from a manual \"Custom Endpoint\" to a first-class provider, wired the same way the other direct API-key providers (NovitaAI, DeepSeek, MiniMax, and friends) are. After this change `hermes model` lists **Mistral AI**, `--provider mistral` works, and `MISTRAL_API_KE...",
-        "fetched_at": "2026-07-07T10:11:38Z",
-        "query": "\"MISTRAL_API_KEY\"",
-        "source": "github_issues",
-        "title": "feat: add Mistral AI as first-class LLM provider",
-        "url": "https://github.com/NousResearch/hermes-agent/pull/50289"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...mistral.ai/v1",
-    "value_sha256": "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
-  },
-  {
-    "base_url_sha256": [
       "5891aed827c4e67b2d7c0c73ea819327ce3f2b6ef72213cd79669486a26b1ead"
     ],
     "base_urls_redacted": [
@@ -4877,7 +4891,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "e5d96ee7d055403165ad",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "qwen",
       "qwen-oauth",
@@ -4906,12 +4920,12 @@
       "Qwen2.5-VL-7B-Instruct"
     ],
     "provider": "openai_compatible",
-    "seen_count": 22,
+    "seen_count": 24,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
-        "fetched_at": "2026-07-07T10:11:41Z",
+        "fetched_at": "2026-07-07T12:47:28Z",
         "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
         "source": "github_issues",
         "title": "Fix DashScope provider mapping",
@@ -4919,7 +4933,7 @@
       },
       {
         "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T10:01:10Z",
+        "fetched_at": "2026-07-07T12:46:13Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "SatyamPote/Blood-Candy/USAGE.md",
@@ -4987,7 +5001,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "d9e3db19432ef8c89f9b",
-    "last_seen_at": "2026-07-07T10:11:59Z",
+    "last_seen_at": "2026-07-07T12:49:17Z",
     "models": [
       "qwen",
       "qwen-oauth",
@@ -4999,12 +5013,12 @@
       "claude-opus-4-7"
     ],
     "provider": "openai_compatible",
-    "seen_count": 11,
+    "seen_count": 12,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
-        "fetched_at": "2026-07-07T10:11:41Z",
+        "fetched_at": "2026-07-07T12:47:28Z",
         "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
         "source": "github_issues",
         "title": "Fix DashScope provider mapping",
@@ -5022,6 +5036,260 @@
     "type": "base_url",
     "value_redacted": "https://das...aliyuncs.com/compatible-mode/v1",
     "value_sha256": "e7ce1b2fec6e34a3e97a40081667fdba0121a327ad38ed5e9fce4daaf2be9abc"
+  },
+  {
+    "base_url_sha256": [
+      "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
+    ],
+    "base_urls_redacted": [
+      "https://api...x.ai/v1/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "7b6d46807ab9a7ae252e",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "GPT-4o",
+      "gemini-2.5-flash",
+      "grok-3",
+      "grok-4-fast-reasoning",
+      "Claude-Grok",
+      "grok-beta",
+      "llamando",
+      "grok-4",
+      "GPT-4o-mini",
+      "o1",
+      "GLM-4",
+      "GLM-4-Flash",
+      "GLM-4-Air",
+      "LLaMA",
+      "Grok-2",
+      "Grok-beta",
+      "claude-sonnet-4",
+      "grok-ai-app",
+      "claude-code"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 16,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Add grok_ai_app: Flask + Grok chat app with verified run skill ## Summary Creates the `grok_ai_app/` folder requested via `/run-skill-generator`: - **`main.py`** — Flask backend. Serves the chat UI and exposes `GET /api/health` and `POST /api/chat`, which proxies to xAI's Grok API (`https://api.x.ai/v1/chat/completions`). When `XAI_API_KEY` is unset it ru...",
+        "fetched_at": "2026-07-07T12:47:31Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "Add grok_ai_app: Flask + Grok chat app with verified run skill",
+        "url": "https://github.com/Daytona39264/my-project/pull/1"
+      },
+      {
+        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
+        "fetched_at": "2026-07-07T12:46:41Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_code",
+        "title": "cloud-shuttle/drover/plan.md",
+        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
+      },
+      {
+        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
+        "fetched_at": "2026-07-07T10:11:01Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_code",
+        "title": "cloud-shuttle/drover/plan.md",
+        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
+      },
+      {
+        "excerpt": "feat(Research): add provider-specific execution guides for researcher agents ## Summary Three of the four Researcher agents (Gemini, Grok, Perplexity) currently have no provider-specific call code anywhere in the Research skill or in the agent files. With no API/CLI wire-format defined, each non-Claude agent collapses to the same backend (built-in `WebSea...",
+        "fetched_at": "2026-07-07T08:50:38Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "feat(Research): add provider-specific execution guides for researcher agents",
+        "url": "https://github.com/danielmiessler/LifeOS/pull/1253"
+      },
+      {
+        "excerpt": "zejzl/grokputer/grok.md GitHub code result: zejzl/grokputer/grok.md # GROK 'PUTER — VRZIBRZI OPERATIONAL GUIDE **Nejc Vrzel | Node of Server | Eternal | Infinite** **Status: FULLY OPERATIONAL | Nov 06, 2025 | ZA GROKA** ## SYSTEM STATUS: ONLINE ## Custom Instructions for Future Tasks (CLI Development & Integration) ### General Guidelines - **Project Focus...",
+        "fetched_at": "2026-07-07T08:50:28Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "zejzl/grokputer/grok.md",
+        "url": "https://github.com/zejzl/grokputer/blob/6e69ad6406a5db6da9f16c55153323380bc83444/grok.md"
+      },
+      {
+        "excerpt": "tears-mysthrala/cyber-asistant/grok.md GitHub code result: tears-mysthrala/cyber-asistant/grok.md Quiero hacer de ti mi asistente de auditorías de ciber seguridad, dado que soy una alumna del postgrado y necesitaré ayuda durante el curso. Que necesitaríais que implementase para que puedas ser mi asistente? Thought for 4s ¡Hola! Me encanta la idea de ser t...",
+        "fetched_at": "2026-07-07T08:21:20Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "tears-mysthrala/cyber-asistant/grok.md",
+        "url": "https://github.com/tears-mysthrala/cyber-asistant/blob/7adb020e9e512ef8fc7d24e36ef5f279d660de31/grok.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...x.ai/v1/chat/completions",
+    "value_sha256": "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
+  },
+  {
+    "base_url_sha256": [
+      "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:11434/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "f65f175154aa130f7cc6",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "qwen2.5",
+      "claude-opus-4-6",
+      "claude-sonnet-4-6",
+      "claude-haiku-4-5-20251213",
+      "gpt-4.1-mini",
+      "qwen-plus",
+      "qwen2.5-coder",
+      "llama3.2",
+      "Qwen",
+      "qwen",
+      "qwen-max",
+      "qwen-qwq",
+      "grok-3",
+      "grok-mini",
+      "grok-3-mini",
+      "grok-2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 5,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
+        "fetched_at": "2026-07-07T12:46:13Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "SatyamPote/Blood-Candy/USAGE.md",
+        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
+      },
+      {
+        "excerpt": "AAClause/nvda-OpenAI/readme.md GitHub code result: AAClause/nvda-OpenAI/readme.md If you want a dedicated desktop experience with additional workflows, see [BasiliskLLM](https://github.com/SigmaNight/basiliskLLM/) (standalone app plus a minimal NVDA add-on). AI-Hub remains a full-featured option inside NVDA. # AI-Hub **AI-Hub** is an NVDA add-on that conn...",
+        "fetched_at": "2026-07-07T08:50:04Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "AAClause/nvda-OpenAI/readme.md",
+        "url": "https://github.com/AAClause/nvda-OpenAI/blob/3f91cc6b55386ccdd627ac5c8df60b4d15c2c92b/readme.md"
+      },
+      {
+        "excerpt": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed) ## Summary Binding a capability to a `kind: openai` provider pointed at a **trusted local** endpoint (Ollama/vLLM/LM Studio) fails with `OPENAI_AUTH: missing OpenAI API key` unless an `api_key` is set — even though the README states a trusted-netw...",
+        "fetched_at": "2026-07-07T04:36:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed)",
+        "url": "https://github.com/dirstral/dir2mcp/issues/498"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:11434/v1",
+    "value_sha256": "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
+  },
+  {
+    "base_url_sha256": [
+      "4ee385d6f0364e720345e7a5d4f0b6a0a6e04c17b8b39841ff190352446ab62f"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:3018/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "5c0ea589649d880a43da",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "Qwen",
+      "Qwen3.6-35B-A3B"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat: codex integration # Codex CLI Tool Call Responses Compatibility ## Summary This PR adds Codex CLI compatibility to `agentic-api` as a stateful Responses API gateway in front of an OpenAI-compatible vLLM endpoint. The primary runtime path is: ```text Codex CLI -> agentic-api /v1 -> vLLM /v1 -> served model ``` A typical local validation path is: ```t...",
+        "fetched_at": "2026-07-07T12:46:02Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat: codex integration",
+        "url": "https://github.com/vllm-project/agentic-api/pull/84"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:3018/v1",
+    "value_sha256": "4ee385d6f0364e720345e7a5d4f0b6a0a6e04c17b8b39841ff190352446ab62f"
+  },
+  {
+    "base_url_sha256": [
+      "79c4923e753127897a9c2b4c4bef8a310c464f1555191f888dc48d5b1b1a3cf5"
+    ],
+    "base_urls_redacted": [
+      "https://api...z.ai/api/anthropic"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "b8fa2b01cea77d738e84",
+    "last_seen_at": "2026-07-07T12:49:17Z",
+    "models": [
+      "claude-opus-4-7",
+      "glm-4.6",
+      "Claude-specific",
+      "claude-3-5-haiku",
+      "claude-code"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat: add Z.ai coding-plan provider (Anthropic-compatible) Adds `ModelProvider::ZAi { base_url, api_key }` — an Anthropic-wire-format provider for subscription-backed **coding plans** (z.ai GLM, reusable with a Claude Code / z.ai token). Routes through `ClaudeLLMExecutor`/`ClaudeClient` with a custom `base_url` (default `https://api.z.ai/api/anthropic`) a...",
+        "fetched_at": "2026-07-07T12:46:31Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat: add Z.ai coding-plan provider (Anthropic-compatible)",
+        "url": "https://github.com/distrihub/distri/pull/120"
+      },
+      {
+        "excerpt": "reporting-release-summary: use z.ai (GLM) instead of Anthropic ## Problem The **Get PR's** job (`reporting-release-summary.yml`) failed at the *Write a short journalistic intro with AI* step: ``` anthropic.BadRequestError: Error code: 400 - Your credit balance is too low to access the Anthropic API. ``` ## Fix Point the AI step at **z.ai's Anthropic-compa...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "reporting-release-summary: use z.ai (GLM) instead of Anthropic",
+        "url": "https://github.com/armbian/armbian.github.io/pull/352"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...z.ai/api/anthropic",
+    "value_sha256": "79c4923e753127897a9c2b4c4bef8a310c464f1555191f888dc48d5b1b1a3cf5"
+  },
+  {
+    "base_url_sha256": [
+      "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
+    ],
+    "base_urls_redacted": [
+      "https://api...mistral.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "a44af0ebcf66537a52fe",
+    "last_seen_at": "2026-07-07T10:11:59Z",
+    "models": [
+      "mistral-ai",
+      "mistral-small-latest",
+      "mistral-large-latest"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 9,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat: add Mistral AI as first-class LLM provider ## What does this PR do? Promotes Mistral AI from a manual \"Custom Endpoint\" to a first-class provider, wired the same way the other direct API-key providers (NovitaAI, DeepSeek, MiniMax, and friends) are. After this change `hermes model` lists **Mistral AI**, `--provider mistral` works, and `MISTRAL_API_KE...",
+        "fetched_at": "2026-07-07T10:11:38Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_issues",
+        "title": "feat: add Mistral AI as first-class LLM provider",
+        "url": "https://github.com/NousResearch/hermes-agent/pull/50289"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...mistral.ai/v1",
+    "value_sha256": "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
   },
   {
     "base_url_sha256": [
@@ -5086,145 +5354,6 @@
     "type": "base_url",
     "value_redacted": "https://api...deepseek.com/anthropic",
     "value_sha256": "efdbb18afca7615955804478fde78bff5e7336dee41fa0844bc1d5f8ec527cbe"
-  },
-  {
-    "base_url_sha256": [
-      "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
-    ],
-    "base_urls_redacted": [
-      "https://api...x.ai/v1/chat/completions"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "7b6d46807ab9a7ae252e",
-    "last_seen_at": "2026-07-07T10:11:59Z",
-    "models": [
-      "GPT-4o",
-      "gemini-2.5-flash",
-      "grok-3",
-      "grok-4-fast-reasoning",
-      "Claude-Grok",
-      "grok-beta",
-      "llamando",
-      "grok-4",
-      "GPT-4o-mini",
-      "o1",
-      "GLM-4",
-      "GLM-4-Flash",
-      "GLM-4-Air",
-      "LLaMA",
-      "Grok-2",
-      "Grok-beta",
-      "claude-sonnet-4"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 14,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
-        "fetched_at": "2026-07-07T10:11:01Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_code",
-        "title": "cloud-shuttle/drover/plan.md",
-        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
-      },
-      {
-        "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
-        "fetched_at": "2026-07-07T09:54:22Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_code",
-        "title": "cloud-shuttle/drover/plan.md",
-        "url": "https://github.com/cloud-shuttle/drover/blob/1666e82cfa7212e2a90b33cd4115eeefb53c9297/plan.md"
-      },
-      {
-        "excerpt": "feat(Research): add provider-specific execution guides for researcher agents ## Summary Three of the four Researcher agents (Gemini, Grok, Perplexity) currently have no provider-specific call code anywhere in the Research skill or in the agent files. With no API/CLI wire-format defined, each non-Claude agent collapses to the same backend (built-in `WebSea...",
-        "fetched_at": "2026-07-07T08:50:38Z",
-        "query": "\"XAI_API_KEY\" \"grok\"",
-        "source": "github_issues",
-        "title": "feat(Research): add provider-specific execution guides for researcher agents",
-        "url": "https://github.com/danielmiessler/LifeOS/pull/1253"
-      },
-      {
-        "excerpt": "zejzl/grokputer/grok.md GitHub code result: zejzl/grokputer/grok.md # GROK 'PUTER — VRZIBRZI OPERATIONAL GUIDE **Nejc Vrzel | Node of Server | Eternal | Infinite** **Status: FULLY OPERATIONAL | Nov 06, 2025 | ZA GROKA** ## SYSTEM STATUS: ONLINE ## Custom Instructions for Future Tasks (CLI Development & Integration) ### General Guidelines - **Project Focus...",
-        "fetched_at": "2026-07-07T08:50:28Z",
-        "query": "\"XAI_API_KEY\" \"grok\"",
-        "source": "github_code",
-        "title": "zejzl/grokputer/grok.md",
-        "url": "https://github.com/zejzl/grokputer/blob/6e69ad6406a5db6da9f16c55153323380bc83444/grok.md"
-      },
-      {
-        "excerpt": "tears-mysthrala/cyber-asistant/grok.md GitHub code result: tears-mysthrala/cyber-asistant/grok.md Quiero hacer de ti mi asistente de auditorías de ciber seguridad, dado que soy una alumna del postgrado y necesitaré ayuda durante el curso. Que necesitaríais que implementase para que puedas ser mi asistente? Thought for 4s ¡Hola! Me encanta la idea de ser t...",
-        "fetched_at": "2026-07-07T08:21:20Z",
-        "query": "\"XAI_API_KEY\" \"grok\"",
-        "source": "github_code",
-        "title": "tears-mysthrala/cyber-asistant/grok.md",
-        "url": "https://github.com/tears-mysthrala/cyber-asistant/blob/7adb020e9e512ef8fc7d24e36ef5f279d660de31/grok.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...x.ai/v1/chat/completions",
-    "value_sha256": "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
-  },
-  {
-    "base_url_sha256": [
-      "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
-    ],
-    "base_urls_redacted": [
-      "http://127...0.0.1:11434/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "f65f175154aa130f7cc6",
-    "last_seen_at": "2026-07-07T10:01:58Z",
-    "models": [
-      "qwen2.5",
-      "claude-opus-4-6",
-      "claude-sonnet-4-6",
-      "claude-haiku-4-5-20251213",
-      "gpt-4.1-mini",
-      "qwen-plus",
-      "qwen2.5-coder",
-      "llama3.2",
-      "Qwen",
-      "qwen",
-      "qwen-max",
-      "qwen-qwq",
-      "grok-3",
-      "grok-mini",
-      "grok-3-mini",
-      "grok-2"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 4,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T10:01:10Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "SatyamPote/Blood-Candy/USAGE.md",
-        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
-      },
-      {
-        "excerpt": "AAClause/nvda-OpenAI/readme.md GitHub code result: AAClause/nvda-OpenAI/readme.md If you want a dedicated desktop experience with additional workflows, see [BasiliskLLM](https://github.com/SigmaNight/basiliskLLM/) (standalone app plus a minimal NVDA add-on). AI-Hub remains a full-featured option inside NVDA. # AI-Hub **AI-Hub** is an NVDA add-on that conn...",
-        "fetched_at": "2026-07-07T08:50:04Z",
-        "query": "\"MISTRAL_API_KEY\"",
-        "source": "github_code",
-        "title": "AAClause/nvda-OpenAI/readme.md",
-        "url": "https://github.com/AAClause/nvda-OpenAI/blob/3f91cc6b55386ccdd627ac5c8df60b4d15c2c92b/readme.md"
-      },
-      {
-        "excerpt": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed) ## Summary Binding a capability to a `kind: openai` provider pointed at a **trusted local** endpoint (Ollama/vLLM/LM Studio) fails with `OPENAI_AUTH: missing OpenAI API key` unless an `api_key` is set — even though the README states a trusted-netw...",
-        "fetched_at": "2026-07-07T04:36:44Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed)",
-        "url": "https://github.com/dirstral/dir2mcp/issues/498"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://127...0.0.1:11434/v1",
-    "value_sha256": "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
   },
   {
     "base_url_sha256": [
@@ -5329,37 +5458,6 @@
     "type": "base_url",
     "value_redacted": "https://…/v1",
     "value_sha256": "bc4c44cffca83c7a7d0c51e6b58a012dc2008c28360b1905e84e3eb918f87da4"
-  },
-  {
-    "base_url_sha256": [
-      "4ee385d6f0364e720345e7a5d4f0b6a0a6e04c17b8b39841ff190352446ab62f"
-    ],
-    "base_urls_redacted": [
-      "http://127...0.0.1:3018/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "5c0ea589649d880a43da",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "Qwen",
-      "Qwen3.6-35B-A3B"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "feat: codex integration # Codex CLI Tool Call Responses Compatibility ## Summary This PR adds Codex CLI compatibility to `agentic-api` as a stateful Responses API gateway in front of an OpenAI-compatible vLLM endpoint. The primary runtime path is: ```text Codex CLI -> agentic-api /v1 -> vLLM /v1 -> served model ``` A typical local validation path is: ```t...",
-        "fetched_at": "2026-07-07T04:36:37Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_issues",
-        "title": "feat: codex integration",
-        "url": "https://github.com/vllm-project/agentic-api/pull/84"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://127...0.0.1:3018/v1",
-    "value_sha256": "4ee385d6f0364e720345e7a5d4f0b6a0a6e04c17b8b39841ff190352446ab62f"
   },
   {
     "base_url_sha256": [
@@ -6000,39 +6098,6 @@
     "type": "base_url",
     "value_redacted": "https://git...com/anthropics/claude-code-...",
     "value_sha256": "f726f009ed80e37c84f7ea702dfbf09caf5db772d333596e6fb1154bc71895f8"
-  },
-  {
-    "base_url_sha256": [
-      "79c4923e753127897a9c2b4c4bef8a310c464f1555191f888dc48d5b1b1a3cf5"
-    ],
-    "base_urls_redacted": [
-      "https://api...z.ai/api/anthropic"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "b8fa2b01cea77d738e84",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "claude-opus-4-7",
-      "glm-4.6",
-      "Claude-specific",
-      "claude-3-5-haiku"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "reporting-release-summary: use z.ai (GLM) instead of Anthropic ## Problem The **Get PR's** job (`reporting-release-summary.yml`) failed at the *Write a short journalistic intro with AI* step: ``` anthropic.BadRequestError: Error code: 400 - Your credit balance is too low to access the Anthropic API. ``` ## Fix Point the AI step at **z.ai's Anthropic-compa...",
-        "fetched_at": "2026-07-07T04:36:47Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_issues",
-        "title": "reporting-release-summary: use z.ai (GLM) instead of Anthropic",
-        "url": "https://github.com/armbian/armbian.github.io/pull/352"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...z.ai/api/anthropic",
-    "value_sha256": "79c4923e753127897a9c2b4c4bef8a310c464f1555191f888dc48d5b1b1a3cf5"
   },
   {
     "base_url_sha256": [
