@@ -92,6 +92,20 @@ PLACEHOLDER_HINTS = (
     ">",
 )
 
+REFERENCE_VALUE_HINTS = (
+    "api_key",
+    "_key",
+    "secret_key",
+    "access_token",
+    "bearer_token",
+    "os.environ",
+    "process.env",
+    "getenv",
+    "env:",
+    "settings.",
+    "config.",
+)
+
 AI_CONTEXT_TERMS = (
     "openai",
     "anthropic",
@@ -144,6 +158,10 @@ def clean_url(value: str) -> str:
 def looks_like_secret(value: str) -> bool:
     low = value.lower()
     if len(value) < 16 or any(hint in low for hint in PLACEHOLDER_HINTS):
+        return False
+    if any(hint in low for hint in REFERENCE_VALUE_HINTS):
+        return False
+    if re.fullmatch(r"[A-Z0-9_]+", value) and value.endswith("_KEY"):
         return False
     if value.startswith(("http://", "https://")):
         return False
