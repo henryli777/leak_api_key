@@ -19,6 +19,8 @@ on:
 permissions:
   contents: write
   actions: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: leak-api-key-monitor
@@ -88,3 +90,15 @@ jobs:
           name: leak-monitor-report
           path: dist
           if-no-files-found: warn
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

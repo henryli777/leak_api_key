@@ -144,6 +144,7 @@ targets:
 
 ## 输出
 
+- GitHub Pages: `https://henryli777.github.io/leak_api_key/`
 - `data/findings.json`：脱敏后的持久化历史，Actions 会回写提交。
 - `data/last_run.json`：最近一次运行健康状态。
 - `dist/index.html`：本轮 HTML 报告，Actions 上传为 artifact。
