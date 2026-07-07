@@ -60,6 +60,8 @@ jobs:
           DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
           DINGTALK_TOKEN: ${{ secrets.DINGTALK_TOKEN }}
           DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
+          PRIVATE_REPORT_USER: ${{ secrets.PRIVATE_REPORT_USER }}
+          PRIVATE_REPORT_PASSWORD: ${{ secrets.PRIVATE_REPORT_PASSWORD }}
         run: |
           SOURCES="${{ github.event.inputs.sources || 'github,google' }}"
           MAX_QUERIES="${{ github.event.inputs.max_queries || '24' }}"

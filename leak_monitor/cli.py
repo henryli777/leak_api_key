@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -9,6 +10,7 @@ from .config import build_queries, load_config
 from .detectors import analyze_hit
 from .models import SearchHit
 from .notify import notify_dingtalk
+from .private_report import emit_private_report
 from .report import build_health, emit_report
 from .sources import run_sources, utc_now
 from .storage import merge_findings, read_json, write_json
@@ -51,8 +53,12 @@ def run_scan(args: argparse.Namespace) -> int:
 
     now_iso = utc_now()
     incoming: list[dict[str, Any]] = []
+    private_incoming: list[dict[str, Any]] = []
+    private_report_enabled = bool(os.getenv("PRIVATE_REPORT_PASSWORD", "").strip())
     for hit in hits:
         incoming.extend(analyze_hit(hit, now_iso))
+        if private_report_enabled:
+            private_incoming.extend(analyze_hit(hit, now_iso, include_raw=True))
     print(f"detected_findings={len(incoming)}")
 
     data_dir = Path(args.data_dir)
@@ -67,6 +73,10 @@ def run_scan(args: argparse.Namespace) -> int:
         write_json(Path(args.output_dir) / "health.json", health)
         write_json(Path(args.output_dir) / "findings.json", merged)
         emit_report(args.output_dir, merged, new_findings, health)
+        if private_report_enabled:
+            private_findings, _ = merge_findings([], private_incoming)
+            generated = emit_private_report(args.output_dir, private_findings, health)
+            print(f"private_report_generated={generated}")
     else:
         print("dry_run=true; not writing data")
 

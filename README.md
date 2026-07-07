@@ -7,6 +7,7 @@
 - 从 GitHub Code / Issues 和 Google SerpAPI 结果里发现疑似泄露线索。
 - 识别 AI 相关 `API_KEY`、`base_url`、`OPENAI_BASE_URL`、`model` 等配置。
 - 输出脱敏后的 `data/findings.json`、`dist/health.json`、`dist/findings.json` 和 HTML 报告。
+- 可选生成 `dist/private.html` 独立明文页，输入账号和密码后在浏览器本地解密查看完整值。
 - 对新增中高风险线索发送钉钉通知。
 - 支持后续通过 `config/targets.yml` 或 GitHub Secret `TARGETS_YAML` 设定品牌、域名、仓库、项目名等目标。
 
@@ -16,7 +17,8 @@
 
 - 不验证泄露密钥是否可用。
 - 不调用泄露的 base_url 或模型接口。
-- 不在仓库里保存完整密钥。
+- 默认不在仓库里保存完整密钥。
+- `dist/private.html` 不写入明文，只写入加密密文；需要 `PRIVATE_REPORT_PASSWORD` 才会生成。
 - 默认不抓取 Google 结果页面正文，只分析 SerpAPI 返回的标题和摘要；如需正文抓取，请仅在授权监测范围内把 `sources.google.fetch_pages` 设为 `true`。
 
 建议仓库保持 private，因为脱敏结果仍会包含来源 URL 和排查线索。
@@ -39,11 +41,22 @@ export GITHUB_TOKEN=ghp_xxx
 python main.py scan --sources github --max-queries 4
 ```
 
-Google 搜索需要 SerpAPI：
+Google 搜索需要 SerpAPI，支持单个、多行或逗号分隔：
 
 ```bash
-export SERPAPI_KEY=xxx
+export SERPAPI_KEY='key1
+key2
+key3'
 python main.py scan --sources google --max-queries 4
+```
+
+本地生成明文登录页：
+
+```bash
+export PRIVATE_REPORT_USER=admin
+export PRIVATE_REPORT_PASSWORD='your-strong-password'
+python main.py scan --sources github --max-queries 4
+open dist/private.html
 ```
 
 ## 目标配置
@@ -74,12 +87,17 @@ targets:
 仓库 Settings -> Secrets and variables -> Actions：
 
 - `TARGETS_YAML`：可选，完整 YAML 配置；设置后 Actions 会覆盖本地 `config/targets.yml`。
-- `SERPAPI_KEY` 或 `SERPAPI_KEYS`：可选，启用 Google 搜索。
+- `SERPAPI_KEY`：可选，启用 Google 搜索；支持多行，每行一个 SerpAPI key。
+- `SERPAPI_KEYS`：可选，兼容旧配置；也支持多行或逗号分隔。
 - `DINGTALK_WEBHOOK`：可选，完整钉钉机器人 webhook。
 - `DINGTALK_TOKEN`：可选，只填 access token 时自动拼接 webhook。
 - `DINGTALK_SECRET`：可选，钉钉加签密钥。
+- `PRIVATE_REPORT_USER`：可选，明文页登录账号，默认 `admin`。
+- `PRIVATE_REPORT_PASSWORD`：可选，明文页解密密码；设置后 Actions artifact 里会生成 `private.html`。
 
 `GITHUB_TOKEN` 使用 Actions 自动注入的 `github.token`，不需要手动配置。
+
+`private.html` 是静态加密页面，不依赖服务器会话。页面源码里只有 AES-GCM 密文，账号匹配且密码正确后，浏览器本地解密显示完整值。
 
 ## 钉钉通知内容
 
@@ -108,5 +126,6 @@ targets:
 - `data/findings.json`：脱敏后的持久化历史，Actions 会回写提交。
 - `data/last_run.json`：最近一次运行健康状态。
 - `dist/index.html`：本轮 HTML 报告，Actions 上传为 artifact。
+- `dist/private.html`：可选明文登录页，只有设置 `PRIVATE_REPORT_PASSWORD` 时生成。
 - `dist/health.json`：统计摘要。
 - `dist/findings.json`：脱敏后的报告数据。

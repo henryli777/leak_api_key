@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 import os
+import re
 import time
 from datetime import datetime, timezone
 from typing import Any, Iterable
@@ -216,13 +217,17 @@ class GoogleSerpApiSource:
 def load_serpapi_keys() -> list[str]:
     keys: list[str] = []
     if os.getenv("SERPAPI_KEYS"):
-        keys.extend(part.strip() for part in os.getenv("SERPAPI_KEYS", "").replace("\n", ",").split(",") if part.strip())
+        keys.extend(_split_secret_keys(os.getenv("SERPAPI_KEYS", "")))
     if os.getenv("SERPAPI_KEY"):
-        keys.append(os.getenv("SERPAPI_KEY", "").strip())
+        keys.extend(_split_secret_keys(os.getenv("SERPAPI_KEY", "")))
     for idx in range(1, 11):
         if os.getenv(f"SERPAPI_KEY_{idx}"):
-            keys.append(os.getenv(f"SERPAPI_KEY_{idx}", "").strip())
+            keys.extend(_split_secret_keys(os.getenv(f"SERPAPI_KEY_{idx}", "")))
     return list(dict.fromkeys(k for k in keys if k))
+
+
+def _split_secret_keys(value: str) -> list[str]:
+    return [part.strip() for part in re.split(r"[\s,;]+", value or "") if part.strip()]
 
 
 def run_sources(cfg: AppConfig, queries: list[str], requested_sources: set[str]) -> tuple[list[SearchHit], list[SourceStats]]:

@@ -182,9 +182,10 @@ def looks_like_generic_secret(value: str) -> bool:
     return True
 
 
-def normalize_excerpt(text: str, max_len: int = 360) -> str:
+def normalize_excerpt(text: str, max_len: int = 360, mask: bool = True) -> str:
     clean = re.sub(r"\s+", " ", text or "").strip()
-    clean = mask_sensitive_text(clean)
+    if mask:
+        clean = mask_sensitive_text(clean)
     if len(clean) > max_len:
         clean = clean[: max_len - 3] + "..."
     return html.unescape(clean)
@@ -217,7 +218,7 @@ def _dedup(values: list[str], limit: int = 20) -> list[str]:
     return list(dict.fromkeys(v for v in values if v))[:limit]
 
 
-def analyze_hit(hit: SearchHit, now_iso: str | None = None) -> list[dict[str, Any]]:
+def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = False) -> list[dict[str, Any]]:
     now_iso = now_iso or datetime.utcnow().isoformat(timespec="seconds") + "Z"
     text = "\n".join(part for part in [hit.title, hit.snippet, hit.content] if part)
     low_text = text.lower()
@@ -249,7 +250,7 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None) -> list[dict[str, An
     if severity == "low" and not models:
         return []
 
-    excerpt = normalize_excerpt(text)
+    excerpt = normalize_excerpt(text, mask=not include_raw)
     base_url_redacted = [redact_url(u) for u in base_urls]
     base_url_hashes = [sha256_text(u) for u in base_urls]
     findings: list[dict[str, Any]] = []
@@ -258,8 +259,7 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None) -> list[dict[str, An
         provider_name, raw_value = packed.split("\0", 1)
         value_hash = sha256_text(raw_value)
         finding_id = sha256_text(f"credential:{provider_name}:{value_hash}")[:20]
-        findings.append(
-            {
+        finding = {
                 "id": finding_id,
                 "type": "credential",
                 "provider": provider_name,
@@ -283,14 +283,16 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None) -> list[dict[str, An
                     }
                 ],
             }
-        )
+        if include_raw:
+            finding["raw_value"] = raw_value
+            finding["raw_base_urls"] = base_urls
+        findings.append(finding)
 
     if base_urls and not findings:
         for raw_url in base_urls:
             value_hash = sha256_text(raw_url)
             finding_id = sha256_text(f"base_url:{value_hash}")[:20]
-            findings.append(
-                {
+            finding = {
                     "id": finding_id,
                     "type": "base_url",
                     "provider": "openai_compatible",
@@ -314,6 +316,9 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None) -> list[dict[str, An
                         }
                     ],
                 }
-            )
+            if include_raw:
+                finding["raw_value"] = raw_url
+                finding["raw_base_urls"] = [raw_url]
+            findings.append(finding)
 
     return findings
