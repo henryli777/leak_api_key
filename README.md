@@ -13,6 +13,7 @@
 - 密钥线索按 `key + base_url` 配对输出；如果同一线索缺少 base_url，会用历史已收集的 base_url 生成备选验证组合并标记为历史备选。
 - 公开泄露 findings 不做未授权 live test；报告会给出公开证据强度，只有你主动配置授权凭据的目标才会进入后台真实验证。
 - 总览页提供 `findings.csv` 下载，内容为脱敏证据、哈希、配对来源和公开证据强度。
+- `private.html` 登录解密后提供“下载明文CSV”，CSV 在浏览器本地生成，不作为公开文件发布。
 - 对新增中高风险线索发送钉钉通知。
 - 支持后续通过 `config/targets.yml` 或 GitHub Secret `TARGETS_YAML` 设定品牌、域名、仓库、项目名等目标。
 
@@ -24,6 +25,7 @@
 - 不调用泄露的 base_url 或模型接口。
 - 默认不在仓库里保存完整密钥。
 - `dist/private.html` 不写入明文，只写入加密密文；需要 `PRIVATE_REPORT_PASSWORD` 才会生成。
+- 明文 CSV 只在 `private.html` 解密成功后由浏览器本地生成，不会写入 `dist/` 或 GitHub Pages 的静态文件列表。
 - 默认不抓取 Google 结果页面正文，只分析 SerpAPI 返回的标题和摘要；如需正文抓取，请仅在授权监测范围内把 `sources.google.fetch_pages` 设为 `true`。
 - 模型可用性测试是真实后台验证，只读取 `AUTHORIZED_VALIDATION_TARGETS_JSON` 中你主动配置的凭据，不会用泄露 findings 里的 key 发请求。
 - 历史 base_url 备选配对只用于生成候选组合；公开 JSON 仍只保存脱敏 base_url 和哈希，明文值只会进入加密的 `private.html`。
