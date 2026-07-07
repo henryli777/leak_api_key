@@ -1,0 +1,37 @@
+{
+  "build_time_cn": "2026-07-07T12:30:25+08:00",
+  "build_time_utc": "2026-07-07T04:30:25Z",
+  "new_findings": 81,
+  "query_count": 12,
+  "severity_counts": {
+    "high": 4,
+    "medium": 77
+  },
+  "source_hits": {
+    "github": 252,
+    "google_serpapi": 0
+  },
+  "source_stats": [
+    {
+      "errors": 3,
+      "hits": 252,
+      "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22DASHSCOPE_API_KEY%22+%22qwen%22&sort=indexed&order=desc&per_page=12",
+      "queries": 12,
+      "skipped": false,
+      "source": "github"
+    },
+    {
+      "errors": 0,
+      "hits": 0,
+      "message": "SERPAPI_KEY or SERPAPI_KEYS not configured; skip Google search",
+      "queries": 0,
+      "skipped": true,
+      "source": "google_serpapi"
+    }
+  ],
+  "total_findings": 81,
+  "type_counts": {
+    "base_url": 77,
+    "credential": 4
+  }
+}
