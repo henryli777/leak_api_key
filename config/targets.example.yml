@@ -1,0 +1,51 @@
+# Copy this file to config/targets.yml locally, or set GitHub Secret TARGETS_YAML.
+# Keep targets focused on your own brands, domains, repos, project names, or customer identifiers.
+
+timezone: Asia/Shanghai
+max_queries: 24
+
+targets:
+  keywords: []
+  domains: []
+  owners: []
+  repos: []
+
+queries:
+  templates:
+    - '"OPENAI_API_KEY" "base_url"'
+    - '"OPENAI_BASE_URL" "sk-"'
+    - '"api_key" "model" "base_url"'
+    - '"ANTHROPIC_API_KEY" "claude"'
+    - '"DEEPSEEK_API_KEY" "deepseek"'
+    - '"GEMINI_API_KEY" "gemini"'
+    - '"GOOGLE_API_KEY" "gemini"'
+    - '"OPENROUTER_API_KEY" "sk-or-v1"'
+    - '"GROQ_API_KEY" "gsk_"'
+    - '"MISTRAL_API_KEY"'
+    - '"DASHSCOPE_API_KEY" "qwen"'
+    - '"XAI_API_KEY" "grok"'
+  target_templates:
+    - '"{target}" "OPENAI_API_KEY"'
+    - '"{target}" "OPENAI_BASE_URL"'
+    - '"{target}" "base_url" "sk-"'
+    - '"{target}" "api_key" "model"'
+    - '"{target}" "ANTHROPIC_API_KEY"'
+    - '"{target}" "DEEPSEEK_API_KEY"'
+    - '"{target}" "GEMINI_API_KEY"'
+    - '"{target}" "OPENROUTER_API_KEY"'
+
+sources:
+  github:
+    enabled: true
+    per_query: 12
+    delay_seconds: 1.2
+  google:
+    enabled: true
+    per_query: 10
+    delay_seconds: 1.0
+    # false means only SerpAPI titles/snippets are analyzed.
+    # Set true only for authorized monitoring scopes where fetching result pages is acceptable.
+    fetch_pages: false
+
+notify:
+  min_severity: medium

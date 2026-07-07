@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+*.pyc
+*.log
+
+# Local runtime state. The GitHub Action commits selected redacted data files.
+config/targets.yml
+data/*.tmp
+data/raw/
+dist/
+
+# Never store real keys or webhook material in the repository.
+keys
+*.secret
