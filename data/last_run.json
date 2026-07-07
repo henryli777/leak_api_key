@@ -1,11 +1,11 @@
 {
-  "build_time_cn": "2026-07-07T18:01:59+08:00",
-  "build_time_utc": "2026-07-07T10:01:59Z",
-  "new_findings": 0,
+  "build_time_cn": "2026-07-07T18:11:59+08:00",
+  "build_time_utc": "2026-07-07T10:11:59Z",
+  "new_findings": 1,
   "query_count": 12,
   "severity_counts": {
     "high": 8,
-    "medium": 165
+    "medium": 166
   },
   "source_hits": {
     "github": 156,
@@ -29,9 +29,9 @@
       "source": "google_serpapi"
     }
   ],
-  "total_findings": 173,
+  "total_findings": 174,
   "type_counts": {
-    "base_url": 165,
+    "base_url": 166,
     "credential": 8
   }
 }
