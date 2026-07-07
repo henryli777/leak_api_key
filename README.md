@@ -8,7 +8,7 @@
 - 识别 AI 相关 `API_KEY`、`base_url`、`OPENAI_BASE_URL`、`model` 等配置。
 - 输出脱敏后的 `data/findings.json`、`dist/health.json`、`dist/findings.json` 和 HTML 报告。
 - 可选生成 `dist/private.html` 独立明文页，输入账号和密码后在浏览器本地解密查看完整值。
-- 可选对你显式授权配置的 base_url/key 做 `/models` 拉取和模型可用性测试。
+- 生成 `dist/validation.html` 模型验证页；配置授权目标后会对你显式授权的 base_url/key 做 `/models` 拉取和模型可用性测试。
 - 对新增中高风险线索发送钉钉通知。
 - 支持后续通过 `config/targets.yml` 或 GitHub Secret `TARGETS_YAML` 设定品牌、域名、仓库、项目名等目标。
 
@@ -148,7 +148,7 @@ targets:
 - `data/last_run.json`：最近一次运行健康状态。
 - `dist/index.html`：本轮 HTML 报告，Actions 上传为 artifact。
 - `dist/private.html`：可选明文登录页，只有设置 `PRIVATE_REPORT_PASSWORD` 时生成。
-- `dist/validation.html`：可选授权模型可用性测试页，只有设置 `AUTHORIZED_VALIDATION_TARGETS_JSON` 时生成。
+- `dist/validation.html`：授权模型可用性测试页；未配置授权目标时显示空状态和默认模型库。
 - `dist/validation.json`：授权模型可用性测试数据，不包含 key。
 - `dist/health.json`：统计摘要。
 - `dist/findings.json`：脱敏后的报告数据。

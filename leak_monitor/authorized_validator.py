@@ -60,11 +60,12 @@ class ValidationTarget:
 def run_authorized_validation_from_env(output_dir: str | Path) -> bool:
     raw = os.getenv("AUTHORIZED_VALIDATION_TARGETS_JSON", "").strip()
     if not raw:
-        return False
-    targets = load_targets(raw)
+        targets: list[ValidationTarget] = []
+    else:
+        targets = load_targets(raw)
     report = validate_targets(targets)
     emit_validation_report(output_dir, report)
-    return True
+    return bool(targets)
 
 
 def load_targets(raw_json: str) -> list[ValidationTarget]:
@@ -269,6 +270,7 @@ def render_validation_html(report: dict[str, Any]) -> str:
                 "</tr>"
             )
         endpoint = result.get("models_endpoint", {})
+        test_rows = "".join(tests) or '<tr><td colspan="5">未测试</td></tr>'
         sections.append(
             "<section>"
             f"<h2>{escape(result.get('name'))}</h2>"
@@ -277,7 +279,7 @@ def render_validation_html(report: dict[str, Any]) -> str:
             f"<strong>/models:</strong> {'成功' if endpoint.get('ok') else '失败'} | "
             f"<strong>可用模型:</strong> {escape(', '.join(result.get('ok_models') or []))}</p>"
             "<table><thead><tr><th>模型</th><th>状态</th><th>HTTP</th><th>耗时 ms</th><th>错误</th></tr></thead>"
-            f"<tbody>{''.join(tests) or '<tr><td colspan=\"5\">未测试</td></tr>'}</tbody></table>"
+            f"<tbody>{test_rows}</tbody></table>"
             "</section>"
         )
     return f"""<!doctype html>
