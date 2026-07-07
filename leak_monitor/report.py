@@ -8,6 +8,7 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 from .models import SourceStats
+from .storage import finding_sort_key
 
 
 def build_health(
@@ -48,22 +49,31 @@ def build_health(
     }
 
 
-def emit_report(output_dir: str | Path, findings: list[dict[str, Any]], new_findings: list[dict[str, Any]], health: dict[str, Any]) -> None:
+def emit_report(
+    output_dir: str | Path,
+    findings: list[dict[str, Any]],
+    new_findings: list[dict[str, Any]],
+    health: dict[str, Any],
+    validation_report: dict[str, Any] | None = None,
+) -> None:
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
-    _write_text(out / "index.html", render_html(findings, health))
+    _write_text(out / "index.html", render_html(findings, health, validation_report))
     _write_text(out / "README.txt", "AI leak monitor report. Values are redacted; use source URLs for manual triage.\n")
 
 
-def render_html(findings: list[dict[str, Any]], health: dict[str, Any]) -> str:
+def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validation_report: dict[str, Any] | None = None) -> str:
     rows = []
-    for item in findings[:250]:
+    sorted_findings = sorted(findings, key=finding_sort_key, reverse=True)
+    for item in sorted_findings[:250]:
         source = (item.get("sources") or [{}])[0]
         source_url = html.escape(source.get("url") or "")
         title = html.escape(source.get("title") or source_url)
         excerpt = html.escape(source.get("excerpt") or "")
         models = html.escape(", ".join(item.get("models") or []))
         value = html.escape(item.get("value_redacted") or ", ".join(item.get("base_urls_redacted") or []))
+        first_seen = html.escape(str(item.get("first_seen_at") or ""))
+        last_seen = html.escape(str(item.get("last_seen_at") or ""))
         rows.append(
             "<tr>"
             f"<td><span class='sev {html.escape(str(item.get('severity')))}'>{html.escape(str(item.get('severity')))}</span></td>"
@@ -72,9 +82,11 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any]) -> str:
             f"<td><code>{value}</code></td>"
             f"<td>{models}</td>"
             f"<td><a href='{source_url}'>{title}</a><div class='excerpt'>{excerpt}</div></td>"
-            f"<td>{html.escape(str(item.get('last_seen_at') or ''))}</td>"
+            f"<td>{first_seen}</td>"
+            f"<td>{last_seen}</td>"
             "</tr>"
         )
+    validation_summary = render_validation_summary(validation_report)
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -86,6 +98,9 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any]) -> str:
     header {{ padding: 24px 28px; background: #102a43; color: white; }}
     h1 {{ margin: 0 0 8px; font-size: 24px; }}
     main {{ padding: 22px 28px; }}
+    .actions {{ display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }}
+    .button {{ display: inline-flex; align-items: center; height: 34px; border-radius: 4px; padding: 0 12px; background: #0b63ce; color: white; font-weight: 650; text-decoration: none; }}
+    .button.secondary {{ background: #486581; }}
     .summary {{ display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }}
     .metric {{ background: white; border: 1px solid #d9e2ec; border-radius: 6px; padding: 10px 12px; min-width: 140px; }}
     .metric strong {{ display: block; font-size: 22px; }}
@@ -107,20 +122,43 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any]) -> str:
     <div>生成时间: {html.escape(str(health.get("build_time_cn") or health.get("build_time_utc")))}</div>
   </header>
   <main>
+    <nav class="actions">
+      <a class="button" href="validation.html">模型验证结果</a>
+      <a class="button secondary" href="private.html">明文页</a>
+      <a class="button secondary" href="https://github.com/henryli777/leak_api_key/actions/workflows/leak-monitor.yml">重新验证</a>
+    </nav>
     <section class="summary">
       <div class="metric"><span>总线索</span><strong>{health.get("total_findings", 0)}</strong></div>
       <div class="metric"><span>本轮新增</span><strong>{health.get("new_findings", 0)}</strong></div>
       <div class="metric"><span>高危</span><strong>{(health.get("severity_counts") or {}).get("high", 0)}</strong></div>
       <div class="metric"><span>中危</span><strong>{(health.get("severity_counts") or {}).get("medium", 0)}</strong></div>
     </section>
+    {validation_summary}
     <table>
-      <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>脱敏值</th><th>模型</th><th>来源</th><th>最后发现</th></tr></thead>
-      <tbody>{''.join(rows) or '<tr><td colspan="7">暂无线索</td></tr>'}</tbody>
+      <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>脱敏值</th><th>模型</th><th>来源</th><th>发现时间</th><th>最后出现</th></tr></thead>
+      <tbody>{''.join(rows) or '<tr><td colspan="8">暂无线索</td></tr>'}</tbody>
     </table>
   </main>
 </body>
 </html>
 """
+
+
+def render_validation_summary(validation_report: dict[str, Any] | None) -> str:
+    if not validation_report:
+        return ""
+    target_count = validation_report.get("target_count", 0)
+    ok_targets = validation_report.get("ok_targets", 0)
+    tested_models = sum(int(item.get("tested_models") or 0) for item in validation_report.get("results", []))
+    ok_models = sum(len(item.get("ok_models") or []) for item in validation_report.get("results", []))
+    return (
+        '<section class="summary">'
+        f'<div class="metric"><span>验证目标</span><strong>{target_count}</strong></div>'
+        f'<div class="metric"><span>可用目标</span><strong>{ok_targets}</strong></div>'
+        f'<div class="metric"><span>测试模型</span><strong>{tested_models}</strong></div>'
+        f'<div class="metric"><span>可用模型</span><strong>{ok_models}</strong></div>'
+        "</section>"
+    )
 
 
 def _write_text(path: Path, text: str) -> None:

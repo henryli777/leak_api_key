@@ -49,8 +49,16 @@ def merge_findings(existing: list[dict[str, Any]], incoming: list[dict[str, Any]
         current["base_url_sha256"] = _merge_list(current.get("base_url_sha256", []), item.get("base_url_sha256", []), 50)
         current["sources"] = _merge_sources(current.get("sources", []), item.get("sources", []))
 
-    merged = sorted(by_id.values(), key=lambda x: (severity_rank(x.get("severity")), x.get("last_seen_at", "")), reverse=True)
+    merged = sorted(by_id.values(), key=finding_sort_key, reverse=True)
     return merged, new_items
+
+
+def finding_sort_key(item: dict[str, Any]) -> tuple[str, str, int]:
+    return (
+        str(item.get("first_seen_at") or item.get("last_seen_at") or ""),
+        str(item.get("last_seen_at") or ""),
+        severity_rank(item.get("severity")),
+    )
 
 
 def severity_rank(value: str | None) -> int:

@@ -58,14 +58,19 @@ class ValidationTarget:
 
 
 def run_authorized_validation_from_env(output_dir: str | Path) -> bool:
+    report, configured = build_authorized_validation_report_from_env()
+    emit_validation_report(output_dir, report)
+    return configured
+
+
+def build_authorized_validation_report_from_env() -> tuple[dict[str, Any], bool]:
     raw = os.getenv("AUTHORIZED_VALIDATION_TARGETS_JSON", "").strip()
     if not raw:
         targets: list[ValidationTarget] = []
     else:
         targets = load_targets(raw)
     report = validate_targets(targets)
-    emit_validation_report(output_dir, report)
-    return bool(targets)
+    return report, bool(targets)
 
 
 def load_targets(raw_json: str) -> list[ValidationTarget]:
@@ -104,11 +109,15 @@ def load_targets(raw_json: str) -> list[ValidationTarget]:
 def validate_targets(targets: list[ValidationTarget]) -> dict[str, Any]:
     started_at = utc_now()
     results = [validate_target(target) for target in targets]
+    ok_models_total = sum(len(item.get("ok_models") or []) for item in results)
+    tested_models_total = sum(int(item.get("tested_models") or 0) for item in results)
     return {
         "started_at": started_at,
         "finished_at": utc_now(),
         "target_count": len(targets),
         "ok_targets": sum(1 for item in results if item.get("ok")),
+        "tested_models": tested_models_total,
+        "ok_models": ok_models_total,
         "results": results,
         "default_model_library": DEFAULT_MODEL_LIBRARY,
     }
@@ -255,10 +264,10 @@ def emit_validation_report(output_dir: str | Path, report: dict[str, Any]) -> No
 
 def render_validation_html(report: dict[str, Any]) -> str:
     sections = []
-    for result in report.get("results", []):
+    for result in sorted(report.get("results", []), key=lambda item: (bool(item.get("ok")), len(item.get("ok_models") or []), item.get("name", "")), reverse=True):
         tests = []
-        for item in result.get("tests", []):
-            status = "可用" if item.get("ok") else "失败"
+        for item in sorted(result.get("tests", []), key=lambda row: (bool(row.get("ok")), row.get("elapsed_ms") or 999999), reverse=True):
+            status = '<span class="badge ok">可用</span>' if item.get("ok") else '<span class="badge fail">失败</span>'
             err = item.get("error", "")
             tests.append(
                 "<tr>"
@@ -282,6 +291,12 @@ def render_validation_html(report: dict[str, Any]) -> str:
             f"<tbody>{test_rows}</tbody></table>"
             "</section>"
         )
+    default_models = "".join(f"<code>{escape(model)}</code>" for model in report.get("default_model_library", []))
+    empty_state = (
+        '<section><h2>未配置授权验证目标</h2>'
+        '<p>配置 <code>AUTHORIZED_VALIDATION_TARGETS_JSON</code> 后，页面会显示 /models 拉取结果和模型可用性测试结果。</p>'
+        "</section>"
+    )
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -293,6 +308,17 @@ def render_validation_html(report: dict[str, Any]) -> str:
     header {{ padding: 22px 26px; background: #102a43; color: white; }}
     main {{ padding: 22px 26px; }}
     section {{ margin-bottom: 22px; }}
+    .actions {{ display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }}
+    .button {{ display: inline-flex; align-items: center; height: 34px; border-radius: 4px; padding: 0 12px; background: #0b63ce; color: white; font-weight: 650; text-decoration: none; }}
+    .button.secondary {{ background: #486581; }}
+    .summary {{ display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }}
+    .metric {{ background: white; border: 1px solid #d9e2ec; border-radius: 6px; padding: 10px 12px; min-width: 140px; }}
+    .metric strong {{ display: block; font-size: 22px; }}
+    .badge {{ display: inline-block; border-radius: 4px; padding: 2px 7px; color: white; font-size: 12px; }}
+    .badge.ok {{ background: #207227; }}
+    .badge.fail {{ background: #ba2525; }}
+    .library {{ display: flex; flex-wrap: wrap; gap: 8px; }}
+    .library code {{ background: white; border: 1px solid #d9e2ec; border-radius: 4px; padding: 4px 7px; }}
     table {{ width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }}
     th, td {{ padding: 9px 10px; border-bottom: 1px solid #e6edf3; text-align: left; vertical-align: top; }}
     th {{ background: #eef3f8; }}
@@ -304,7 +330,23 @@ def render_validation_html(report: dict[str, Any]) -> str:
     <h1>授权模型可用性测试</h1>
     <div>完成时间: {escape(report.get("finished_at"))} | 目标: {escape(report.get("target_count"))} | 可用目标: {escape(report.get("ok_targets"))}</div>
   </header>
-  <main>{''.join(sections) or '<p>未配置授权验证目标。</p>'}</main>
+  <main>
+    <nav class="actions">
+      <a class="button" href="index.html">返回总览</a>
+      <a class="button secondary" href="https://github.com/henryli777/leak_api_key/actions/workflows/leak-monitor.yml">重新验证</a>
+    </nav>
+    <section class="summary">
+      <div class="metric"><span>验证目标</span><strong>{escape(report.get("target_count", 0))}</strong></div>
+      <div class="metric"><span>可用目标</span><strong>{escape(report.get("ok_targets", 0))}</strong></div>
+      <div class="metric"><span>测试模型</span><strong>{escape(report.get("tested_models", 0))}</strong></div>
+      <div class="metric"><span>可用模型</span><strong>{escape(report.get("ok_models", 0))}</strong></div>
+    </section>
+    {''.join(sections) or empty_state}
+    <section>
+      <h2>默认模型库</h2>
+      <div class="library">{default_models}</div>
+    </section>
+  </main>
 </body>
 </html>
 """

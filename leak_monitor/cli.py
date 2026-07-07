@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import build_queries, load_config
-from .authorized_validator import run_authorized_validation_from_env
+from .authorized_validator import build_authorized_validation_report_from_env, emit_validation_report
 from .detectors import analyze_hit
 from .models import SearchHit
 from .notify import notify_dingtalk
@@ -69,17 +69,18 @@ def run_scan(args: argparse.Namespace) -> int:
     health = build_health(merged, new_findings, source_stats, len(queries), cfg.timezone)
 
     if not args.dry_run:
+        validation_report, validation_configured = build_authorized_validation_report_from_env()
         write_json(findings_path, merged)
         write_json(data_dir / "last_run.json", health)
         write_json(Path(args.output_dir) / "health.json", health)
         write_json(Path(args.output_dir) / "findings.json", merged)
-        emit_report(args.output_dir, merged, new_findings, health)
+        emit_report(args.output_dir, merged, new_findings, health, validation_report)
+        emit_validation_report(args.output_dir, validation_report)
         if private_report_enabled:
             private_findings, _ = merge_findings([], private_incoming)
             generated = emit_private_report(args.output_dir, private_findings, health)
             print(f"private_report_generated={generated}")
-        validation_generated = run_authorized_validation_from_env(args.output_dir)
-        print(f"authorized_validation_generated={validation_generated}")
+        print(f"authorized_validation_generated={validation_configured}")
     else:
         print("dry_run=true; not writing data")
 
