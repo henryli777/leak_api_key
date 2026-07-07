@@ -222,12 +222,12 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None) -> list[dict[str, An
     text = "\n".join(part for part in [hit.title, hit.snippet, hit.content] if part)
     low_text = text.lower()
 
-    secret_matches: list[tuple[str, str]] = []
+    secret_matches_by_value: dict[str, str] = {}
     for provider, pattern in SECRET_PATTERNS:
         for match in pattern.finditer(text):
             value = match.group(0)
             if looks_like_secret(value):
-                secret_matches.append((provider, value))
+                secret_matches_by_value.setdefault(value, provider)
 
     for match in ASSIGNMENT_RE.finditer(text):
         value = match.group("value").strip().strip(",")
@@ -235,7 +235,9 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None) -> list[dict[str, An
             provider = PROVIDER_BY_NAME.get(match.group("name").upper(), "unknown")
             if provider == "unknown" and not looks_like_generic_secret(value):
                 continue
-            secret_matches.append((provider, value))
+            secret_matches_by_value.setdefault(value, provider)
+
+    secret_matches = [(provider, value) for value, provider in secret_matches_by_value.items()]
 
     base_urls = [clean_url(m.group("url")) for m in BASE_URL_RE.finditer(text)]
     if any(term in low_text for term in AI_CONTEXT_TERMS):
