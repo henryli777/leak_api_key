@@ -1,0 +1,24 @@
+{
+  "started_at": "2026-07-07T09:46:00Z",
+  "finished_at": "2026-07-07T09:46:00Z",
+  "target_count": 0,
+  "ok_targets": 0,
+  "results": [],
+  "default_model_library": [
+    "gpt-4o-mini",
+    "gpt-4o",
+    "gpt-4.1-mini",
+    "gpt-4.1",
+    "claude-3-5-haiku-latest",
+    "claude-3-5-sonnet-latest",
+    "deepseek-chat",
+    "deepseek-reasoner",
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
+    "qwen-plus",
+    "qwen-turbo",
+    "llama-3.1-8b-instant",
+    "mistral-small-latest",
+    "grok-3-mini"
+  ]
+}
