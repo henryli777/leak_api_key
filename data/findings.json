@@ -222,7 +222,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "7117173ec89098daa343",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "claude-haiku-4-5",
       "claude-sonnet-4-5",
@@ -231,12 +231,12 @@
       "mistral-ocr"
     ],
     "provider": "openai_compatible",
-    "seen_count": 10,
+    "seen_count": 11,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "feat(mistral): support native web search via the Conversations API ## Relevant issues Web search requested by a customer ## Linear ticket ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [ ] My PR passes all CI/CD checks (e.g., lint, format, unit tests) - [...",
-        "fetched_at": "2026-07-07T09:55:09Z",
+        "fetched_at": "2026-07-07T10:01:39Z",
         "query": "\"MISTRAL_API_KEY\"",
         "source": "github_issues",
         "title": "feat(mistral): support native web search via the Conversations API",
@@ -280,7 +280,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "aa94cbf2b5ebb88e1c11",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "claude-code",
       "gemini-2",
@@ -309,12 +309,12 @@
       "Grok-beta"
     ],
     "provider": "openai_compatible",
-    "seen_count": 68,
+    "seen_count": 76,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Chat with an OpenAI model — chat_openai - ellmer - Tidyverse Usage. chat_openai( system_prompt = NULL, base_url = \"https://api.openai.com/v1\", api_key = NULL, credentials = NULL, model = NULL, params = NULL, api_args ...",
-        "fetched_at": "2026-07-07T09:55:18Z",
+        "fetched_at": "2026-07-07T10:01:48Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "google_serpapi",
         "title": "Chat with an OpenAI model — chat_openai - ellmer - Tidyverse",
@@ -322,7 +322,7 @@
       },
       {
         "excerpt": "OpenAI Compatibility - ILMU API OPENAI_API_KEY=\"sk-openai-key\" ; OPENAI_BASE_URL=\"https://api.openai.com/v1\" ; OPENAI_API_KEY=\"YOUR_API_KEY\" ; OPENAI_BASE_URL=\"https://api.ilmu.ai/v1\".",
-        "fetched_at": "2026-07-07T09:55:17Z",
+        "fetched_at": "2026-07-07T10:01:47Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "google_serpapi",
         "title": "OpenAI Compatibility - ILMU API",
@@ -330,11 +330,51 @@
       },
       {
         "excerpt": "base_url of OpenAI Client Instance Cannot Be Modified ... getenv(\"OPENAI_API_KEY\"), base_url=\"https://api.openai.com/v1\", ) print(client.base_url) client.base_url = \"https://newurl.example.com/v1\" print ...",
-        "fetched_at": "2026-07-07T09:55:16Z",
+        "fetched_at": "2026-07-07T10:01:46Z",
         "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "google_serpapi",
         "title": "base_url of OpenAI Client Instance Cannot Be Modified ...",
         "url": "https://github.com/openai/openai-python/issues/913"
+      },
+      {
+        "excerpt": "AuroraDysis/waner-proofreader/CLAUDE.md GitHub code result: AuroraDysis/waner-proofreader/CLAUDE.md # CLAUDE.md This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. ## Project Overview Waner Proofreader is an AI-powered web application designed to help non-native English speakers proofread text. Built with...",
+        "fetched_at": "2026-07-07T10:01:11Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "AuroraDysis/waner-proofreader/CLAUDE.md",
+        "url": "https://github.com/AuroraDysis/waner-proofreader/blob/8ae5aac1becfd4dbc547dfdb8d3d6ad43dd51028/CLAUDE.md"
+      },
+      {
+        "excerpt": "tintty1/llm/plan.md GitHub code result: tintty1/llm/plan.md # LLM CLI Tool A minimal command-line tool for interacting with LLMs directly from the shell. ## Goals - Simple, Unix-style CLI tool - Pipe-friendly - Shell command generation with injection to prompt - Extensible for future providers - SOLID principles, KISS ## Core Features ### 1. Direct Query ...",
+        "fetched_at": "2026-07-07T10:01:11Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "tintty1/llm/plan.md",
+        "url": "https://github.com/tintty1/llm/blob/422660e7218c8d9e49c91b7f266192528dc268d0/plan.md"
+      },
+      {
+        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
+        "fetched_at": "2026-07-07T10:01:10Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "SatyamPote/Blood-Candy/USAGE.md",
+        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
+      },
+      {
+        "excerpt": "re-memo/re-memo/SETUP.md GitHub code result: re-memo/re-memo/SETUP.md # re:memo Setup Guide This guide will walk you through setting up re:memo on your system. Choose the deployment option that best fits your privacy preferences and technical requirements. ## Prerequisites - Docker & Docker Compose - (Optional) NVIDIA GPU for local LLM support > [!TIP] > ...",
+        "fetched_at": "2026-07-07T10:01:08Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "re-memo/re-memo/SETUP.md",
+        "url": "https://github.com/re-memo/re-memo/blob/7735cb5bd2a7df73fb0100e528994c791f739d8c/SETUP.md"
+      },
+      {
+        "excerpt": "saturngod/ai_agent_cli_guide/qwen.md GitHub code result: saturngod/ai_agent_cli_guide/qwen.md # Qwen Code Guide ## မာတိကာ - [Qwen Code ဆိုတာ ဘာလဲ?](#qwen-code-ဆိုတာ-ဘာလဲ) - [စတင်ခြင်း](#စတင်ခြင်း) - [Authentication - Login နှင့် Access](#authentication---login-နှင့်-access) - [QWEN.md - ပရောဂျက် ညွှန်ကြားချက်များ](#qwenmd---ပရောဂျက်-ညွှန်ကြားချက်များ) - [...",
+        "fetched_at": "2026-07-07T10:01:06Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "saturngod/ai_agent_cli_guide/qwen.md",
+        "url": "https://github.com/saturngod/ai_agent_cli_guide/blob/b1875c74c49bd13251b0328de490abe78663237e/qwen.md"
       },
       {
         "excerpt": "cloud-shuttle/drover/plan.md GitHub code result: cloud-shuttle/drover/plan.md # LLM Proxy Mode Implementation Plan ## Overview Implement a flexible LLM proxy system that routes requests through a central proxy server, enabling unified API access, rate limiting, cost tracking, and request logging across multiple providers. ## Providers to Implement 1. **An...",
@@ -351,46 +391,6 @@
         "source": "github_code",
         "title": "seanlee111/AI-Finance-RAG-Expert/memo.md",
         "url": "https://github.com/seanlee111/AI-Finance-RAG-Expert/blob/6989d84a0ebf2f7e0e362a689026c329dbdea712/memo.md"
-      },
-      {
-        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
-        "fetched_at": "2026-07-07T09:54:05Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "Yiling-J/tablepilot/API.md",
-        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
-      },
-      {
-        "excerpt": "zhang17-24/AI-learning-blog/README.md GitHub code result: zhang17-24/AI-learning-blog/README.md # AI智能学习日程规划助手 > 🤖 集成大模型AI的学习管理平台，支持课程管理、作业跟踪、小组协作和智能学习规划 ## ✨ 核心亮点 <img width=\"1855\" height=\"1005\" alt=\"image\" src=\"https://github.com/user-attachments/assets/269a3d2e-a572-4d68-94bc-58bc3c173eaf\" /> ### 🎯 AI智能能力 - **AI伙伴**：全局可访问的智能助手，提供学习答疑、情感陪伴、聊天历史 - **智能文本...",
-        "fetched_at": "2026-07-07T09:53:55Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "zhang17-24/AI-learning-blog/README.md",
-        "url": "https://github.com/zhang17-24/AI-learning-blog/blob/7e3e6835dd1c9c1b2f3a368d709e6a8b72bf148e/README.md"
-      },
-      {
-        "excerpt": "IIIIQIIII/claude-code-clean/README.md GitHub code result: IIIIQIIII/claude-code-clean/README.md # Claude Code Clean **A privacy-focused fork of Anthropic's Claude Code with all telemetry, analytics, fingerprinting, and auto-update mechanisms removed.** [![License](https://img.shields.io/badge/license-See%20Original-blue)](https://github.com/anthropics/cla...",
-        "fetched_at": "2026-07-07T09:53:53Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "IIIIQIIII/claude-code-clean/README.md",
-        "url": "https://github.com/IIIIQIIII/claude-code-clean/blob/4d880790c2b7af00106d4a17af1bb2fc5020c1cd/README.md"
-      },
-      {
-        "excerpt": "afx-team/petercat/README.md GitHub code result: afx-team/petercat/README.md ![Frame 303](https://github.com/user-attachments/assets/01cf3bb2-650a-47a4-88b3-a63f961ae5e2) ![image](https://github.com/user-attachments/assets/77670023-4fab-4ac9-bbe1-c7ea36363e02) <h1 align=\"center\"> PeterCat</h1> <div align=\"center\"> <img src=\"https://gw.alipayobjects.com/zos...",
-        "fetched_at": "2026-07-07T09:53:52Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "afx-team/petercat/README.md",
-        "url": "https://github.com/afx-team/petercat/blob/87be0b84b5dfd98b7812f9c232be31d52aaf12ad/README.md"
-      },
-      {
-        "excerpt": "smallnest/notex/README.md GitHub code result: smallnest/notex/README.md # Notex English | [中文](./README_CN.md) | [繁體中文](./README_zh-tw.md) <div align=\"center\"> **A privacy-first, open-source alternative to NotebookLM** [![Go](https://img.shields.io/badge/Go-1.23+-00ADD8?style=flat&logo=go)](https://golang.org/) [![License](https://img.shields.io/badge/lic...",
-        "fetched_at": "2026-07-07T09:53:50Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "smallnest/notex/README.md",
-        "url": "https://github.com/smallnest/notex/blob/be5469be6974376df9e9b24793b61407e1ec318a/README.md"
       }
     ],
     "type": "base_url",
@@ -406,7 +406,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "0d5ff39c3c0224d9753f",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "Qwen",
       "gpt-4o-mini",
@@ -431,16 +431,24 @@
       "qwen2.5"
     ],
     "provider": "openai_compatible",
-    "seen_count": 21,
+    "seen_count": 23,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Deepseek Configuration ; - name: \"Deepseek\" ; apiKey: \"${DEEPSEEK_API_KEY}\" ; baseURL: \"https://api.deepseek.com/v1\" ; models: ; default: [\"deepseek-chat\", \"deepseek-coder\", ...",
-        "fetched_at": "2026-07-07T09:55:20Z",
+        "fetched_at": "2026-07-07T10:01:50Z",
         "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
         "source": "google_serpapi",
         "title": "Deepseek",
         "url": "https://www.librechat.ai/docs/configuration/librechat_yaml/ai_endpoints/deepseek"
+      },
+      {
+        "excerpt": "berabuddies/Semia/README.md GitHub code result: berabuddies/Semia/README.md # Semia > **Security audit for AI agent skills.** Know what a skill *can* do > before you trust it. [![CI](https://github.com/berabuddies/Semia/actions/workflows/ci.yml/badge.svg)](https://github.com/berabuddies/Semia/actions/workflows/ci.yml) [![Lint](https://github.com/berabuddi...",
+        "fetched_at": "2026-07-07T10:01:04Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "berabuddies/Semia/README.md",
+        "url": "https://github.com/berabuddies/Semia/blob/379bc25fe99833eb185efe56a38fe15f0235799c/README.md"
       },
       {
         "excerpt": "zhang17-24/AI-learning-blog/README.md GitHub code result: zhang17-24/AI-learning-blog/README.md # AI智能学习日程规划助手 > 🤖 集成大模型AI的学习管理平台，支持课程管理、作业跟踪、小组协作和智能学习规划 ## ✨ 核心亮点 <img width=\"1855\" height=\"1005\" alt=\"image\" src=\"https://github.com/user-attachments/assets/269a3d2e-a572-4d68-94bc-58bc3c173eaf\" /> ### 🎯 AI智能能力 - **AI伙伴**：全局可访问的智能助手，提供学习答疑、情感陪伴、聊天历史 - **智能文本...",
@@ -457,14 +465,6 @@
         "source": "github_code",
         "title": "IIIIQIIII/claude-code-clean/README.md",
         "url": "https://github.com/IIIIQIIII/claude-code-clean/blob/4d880790c2b7af00106d4a17af1bb2fc5020c1cd/README.md"
-      },
-      {
-        "excerpt": "berabuddies/Semia/README.md GitHub code result: berabuddies/Semia/README.md # Semia > **Security audit for AI agent skills.** Know what a skill *can* do > before you trust it. [![CI](https://github.com/berabuddies/Semia/actions/workflows/ci.yml/badge.svg)](https://github.com/berabuddies/Semia/actions/workflows/ci.yml) [![Lint](https://github.com/berabuddi...",
-        "fetched_at": "2026-07-07T09:53:51Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "berabuddies/Semia/README.md",
-        "url": "https://github.com/berabuddies/Semia/blob/379bc25fe99833eb185efe56a38fe15f0235799c/README.md"
       },
       {
         "excerpt": "smallnest/notex/README.md GitHub code result: smallnest/notex/README.md # Notex English | [中文](./README_CN.md) | [繁體中文](./README_zh-tw.md) <div align=\"center\"> **A privacy-first, open-source alternative to NotebookLM** [![Go](https://img.shields.io/badge/Go-1.23+-00ADD8?style=flat&logo=go)](https://golang.org/) [![License](https://img.shields.io/badge/lic...",
@@ -504,17 +504,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "2a2b71927701a6890702",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "qwen2.5"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset ## Description <strong>Description</strong> <pre>On Linux, after `nemoclaw onboard` with provider option 7 (Local Ollama), the in-sandbox OpenClaw TUI cannot get any inference r...",
-        "fetched_at": "2026-07-07T09:53:59Z",
+        "fetched_at": "2026-07-07T10:01:14Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset",
@@ -534,17 +534,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "f2b4b09f3fc0bf3190ca",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "gpt-4o"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
-        "fetched_at": "2026-07-07T09:53:59Z",
+        "fetched_at": "2026-07-07T10:01:14Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "feat(provider): add AI/ML API provider",
@@ -564,17 +564,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "ca5e75d4848e32990a07",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "gpt-4o"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
-        "fetched_at": "2026-07-07T09:53:59Z",
+        "fetched_at": "2026-07-07T10:01:14Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "feat(provider): add AI/ML API provider",
@@ -594,15 +594,15 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "54d90de6f7f86aca7f0a",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "examples/code_review_agent: add sandboxed code review agent example Fix #2004 ## What changed This PR adds a sandboxed code review agent example under `examples/code_review_agent`. The example includes a runnable Go CLI, a `skills/code-review` Skill package, review rule documentation, helper scripts, deterministic fixture inputs, structured JSON/Markdown ...",
-        "fetched_at": "2026-07-07T09:53:59Z",
+        "fetched_at": "2026-07-07T10:01:14Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "examples/code_review_agent: add sandboxed code review agent example",
@@ -622,17 +622,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "642d747311b4cc315089",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "glm-5.2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
-        "fetched_at": "2026-07-07T09:53:59Z",
+        "fetched_at": "2026-07-07T10:01:14Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "[codex] Add provider-agnostic LLM env",
@@ -652,17 +652,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "40b58ba8956eef067df2",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "glm-5.2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
-        "fetched_at": "2026-07-07T09:53:59Z",
+        "fetched_at": "2026-07-07T10:01:14Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_issues",
         "title": "[codex] Add provider-agnostic LLM env",
@@ -682,17 +682,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "daa1d38e33829928fd45",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "claude-sonnet-4-6"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "How to Get Your Claude (Anthropic) API Key curl https://api.anthropic.com/v1/messages \\ -H \"x-api-key: $ANTHROPIC_API_KEY ... What's the difference between the Claude API and Claude.ai?",
-        "fetched_at": "2026-07-07T09:55:19Z",
+        "fetched_at": "2026-07-07T10:01:49Z",
         "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
         "source": "google_serpapi",
         "title": "How to Get Your Claude (Anthropic) API Key",
@@ -720,7 +720,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "47f16808d923b644a4db",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "gemini-3.5-flash",
       "claude-code",
@@ -749,16 +749,32 @@
       "grok-4-0709"
     ],
     "provider": "openai_compatible",
-    "seen_count": 31,
+    "seen_count": 34,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "fix(AL-082): default allie init to enable model review when a key resolves ## What / why `allie init` always scaffolded `model: ModelPolicy::default()` (`enabled: false`), so agentic (vision-model) review silently never ran, even with a valid API key in the environment. Live repro from the ticket: `allie init` → `allie doctor` → `allie verify` against a 4...",
-        "fetched_at": "2026-07-07T09:55:02Z",
+        "fetched_at": "2026-07-07T10:01:32Z",
         "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
         "source": "github_issues",
         "title": "fix(AL-082): default allie init to enable model review when a key resolves",
         "url": "https://github.com/adminifi-ai/allie/pull/55"
+      },
+      {
+        "excerpt": "tintty1/llm/plan.md GitHub code result: tintty1/llm/plan.md # LLM CLI Tool A minimal command-line tool for interacting with LLMs directly from the shell. ## Goals - Simple, Unix-style CLI tool - Pipe-friendly - Shell command generation with injection to prompt - Extensible for future providers - SOLID principles, KISS ## Core Features ### 1. Direct Query ...",
+        "fetched_at": "2026-07-07T10:01:11Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "tintty1/llm/plan.md",
+        "url": "https://github.com/tintty1/llm/blob/422660e7218c8d9e49c91b7f266192528dc268d0/plan.md"
+      },
+      {
+        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
+        "fetched_at": "2026-07-07T10:01:10Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "SatyamPote/Blood-Candy/USAGE.md",
+        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
       },
       {
         "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
@@ -791,22 +807,6 @@
         "source": "github_code",
         "title": "zilliztech/deep-searcher/README.md",
         "url": "https://github.com/zilliztech/deep-searcher/blob/d89e37cdfbbef5e44ae6162ce9cc2c627a69b7e1/README.md"
-      },
-      {
-        "excerpt": "tintty1/llm/plan.md GitHub code result: tintty1/llm/plan.md # LLM CLI Tool A minimal command-line tool for interacting with LLMs directly from the shell. ## Goals - Simple, Unix-style CLI tool - Pipe-friendly - Shell command generation with injection to prompt - Extensible for future providers - SOLID principles, KISS ## Core Features ### 1. Direct Query ...",
-        "fetched_at": "2026-07-07T09:37:17Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "tintty1/llm/plan.md",
-        "url": "https://github.com/tintty1/llm/blob/422660e7218c8d9e49c91b7f266192528dc268d0/plan.md"
-      },
-      {
-        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T09:37:17Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "SatyamPote/Blood-Candy/USAGE.md",
-        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
       },
       {
         "excerpt": "zilliztech/deep-searcher/README.md GitHub code result: zilliztech/deep-searcher/README.md ![DeepSearcher](./assets/pic/logo.png) <div align=\"center\"> [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![DeepWiki](https://img.shields.io/badge/DeepWiki-AI%20Docs-orange.svg)](https://deepwiki...",
@@ -846,17 +846,17 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "8789552ff2a168c21262",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "gpt-5.3-codex"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Models: fully dynamic model discovery (OpenRouter + beyond) ## Summary We need **fully dynamic model discovery** for providers with fast-moving catalogs (starting with OpenRouter). Today, OpenClaw model selection is effectively **static**: - Available models come from Pi's built-in generated catalog (pi-ai/models.generated) plus optional `models.json` ove...",
-        "fetched_at": "2026-07-07T09:55:02Z",
+        "fetched_at": "2026-07-07T10:01:32Z",
         "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
         "source": "github_issues",
         "title": "Models: fully dynamic model discovery (OpenRouter + beyond)",
@@ -884,19 +884,19 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "a44af0ebcf66537a52fe",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "mistral-ai",
       "mistral-small-latest",
       "mistral-large-latest"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "feat: add Mistral AI as first-class LLM provider ## What does this PR do? Promotes Mistral AI from a manual \"Custom Endpoint\" to a first-class provider, wired the same way the other direct API-key providers (NovitaAI, DeepSeek, MiniMax, and friends) are. After this change `hermes model` lists **Mistral AI**, `--provider mistral` works, and `MISTRAL_API_KE...",
-        "fetched_at": "2026-07-07T09:55:09Z",
+        "fetched_at": "2026-07-07T10:01:39Z",
         "query": "\"MISTRAL_API_KEY\"",
         "source": "github_issues",
         "title": "feat: add Mistral AI as first-class LLM provider",
@@ -916,7 +916,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "e5d96ee7d055403165ad",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "qwen",
       "qwen-oauth",
@@ -945,16 +945,24 @@
       "Qwen2.5-VL-7B-Instruct"
     ],
     "provider": "openai_compatible",
-    "seen_count": 19,
+    "seen_count": 21,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
-        "fetched_at": "2026-07-07T09:55:12Z",
+        "fetched_at": "2026-07-07T10:01:42Z",
         "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
         "source": "github_issues",
         "title": "Fix DashScope provider mapping",
         "url": "https://github.com/fathah/hermes-desktop/pull/825"
+      },
+      {
+        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
+        "fetched_at": "2026-07-07T10:01:10Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "SatyamPote/Blood-Candy/USAGE.md",
+        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
       },
       {
         "excerpt": "Yrrrrrf/azathoth/keys.md GitHub code result: Yrrrrrf/azathoth/keys.md # AI Provider Consoles Quick reference for developer consoles, API key pages, docs, and base URLs. ## TL;DR | Provider | Console | API Keys | Docs | | -------------- | -------------------------------------------------------------------- | ------------------------------------------------...",
@@ -989,14 +997,6 @@
         "url": "https://github.com/cooragent/ClarityFinance/blob/89acf447aac35d618b45aa07ea69e8b952b05bfe/README.md"
       },
       {
-        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T09:37:17Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "SatyamPote/Blood-Candy/USAGE.md",
-        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
-      },
-      {
         "excerpt": "juemimgcd/fastapi_newsApp/README.md GitHub code result: juemimgcd/fastapi_newsApp/README.md # Review Backend 基于 FastAPI + PostgreSQL + Redis 构建的资讯平台后端服务，面向“新闻浏览、用户互动、后台运营分析”场景设计。项目覆盖用户端与管理端两条业务链路，不仅实现了常规内容查询，还补充了登录留痕、收藏排行、连续登录统计，以及基于 Qwen embedding 的个性化推荐等更贴近真实业务的数据能力。 ## 项目定位 这个项目是一个强调“业务闭环 + 工程化落地”的异步后端服务： - 面向资讯类产品，完成了分类浏览、详情查询、收藏、历史记录、个人中心等用户功能。 - 额外实...",
         "fetched_at": "2026-07-07T08:50:23Z",
         "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
@@ -1026,7 +1026,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "d9e3db19432ef8c89f9b",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "qwen",
       "qwen-oauth",
@@ -1038,12 +1038,12 @@
       "claude-opus-4-7"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
-        "fetched_at": "2026-07-07T09:55:12Z",
+        "fetched_at": "2026-07-07T10:01:42Z",
         "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
         "source": "github_issues",
         "title": "Fix DashScope provider mapping",
@@ -1071,15 +1071,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "f840314d3703d9da405f",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 6,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "fix(providers): OpenAI embedding provider ignores configured base_url (AsyncOpenAI created without it) @RichardHightower # Summary The OpenAI embedding provider instantiates `AsyncOpenAI` without passing the configured `base_url`. As a result, all embedding requests target `api.openai.com` regardless of the `base_url` set in `config.yaml`. This makes it i...",
-        "fetched_at": "2026-07-07T09:53:47Z",
+        "fetched_at": "2026-07-07T10:01:00Z",
         "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "github_issues",
         "title": "fix(providers): OpenAI embedding provider ignores configured base_url (AsyncOpenAI created without it)",
@@ -1099,7 +1099,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "71848e773c36fd3fd7cf",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "GPT-4",
       "Grok-1",
@@ -1128,12 +1128,12 @@
       "o3-mini"
     ],
     "provider": "openai_compatible",
-    "seen_count": 25,
+    "seen_count": 26,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "OpenAI compatibility · Ollama Blog from autogen import AssistantAgent, UserProxyAgent config_list = [ { \"model\": \"codellama\", \"base_url\": \"http://localhost:11434/v1\", \"api_key\": \" ...",
-        "fetched_at": "2026-07-07T09:55:18Z",
+        "fetched_at": "2026-07-07T10:01:48Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "google_serpapi",
         "title": "OpenAI compatibility · Ollama Blog",
@@ -1209,17 +1209,17 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "0a6aa6a4056219d830ab",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "claude-code"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Install and auto-run 9router in every session via SessionStart hook ## Summary Sets up [9Router](https://github.com/decolua/9router) (npm package `9router`) so it is installed and always running in Claude Code on the web sessions for this repo, with providers auto-registered and optional local Ollama support. - `.claude/hooks/session-start.sh` — SessionSt...",
-        "fetched_at": "2026-07-07T09:55:15Z",
+        "fetched_at": "2026-07-07T10:01:45Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "github_issues",
         "title": "Install and auto-run 9router in every session via SessionStart hook",
@@ -1247,7 +1247,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "d371dc40aac4462380bd",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "claude-opus-4",
       "claude-sonnet-4",
@@ -1275,12 +1275,12 @@
       "Mistral-7B-Instruct-v0.2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 11,
+    "seen_count": 12,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "base | langchain_openai ... api_key=\"...\", # base_url=\"...\", # organization=\"...\", # other params ... model = ChatOpenAI( base_url=\"http://localhost:8000/v1\", api_key=\"EMPTY ...",
-        "fetched_at": "2026-07-07T09:55:18Z",
+        "fetched_at": "2026-07-07T10:01:48Z",
         "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "google_serpapi",
         "title": "base | langchain_openai",
@@ -1332,7 +1332,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "c31041c023290a6bbd6c",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "grok-4-fast-reasoning",
       "Claude-Grok",
@@ -1357,12 +1357,12 @@
       "grok-2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 24,
+    "seen_count": 28,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "How to Get Your Grok (XAI) API Key Point the OpenAI client at https://api.x.ai/v1 , pass your XAI_API_KEY , and call models with their xAI names ( grok-4.3 , etc.). Most OpenAI ...",
-        "fetched_at": "2026-07-07T09:55:27Z",
+        "fetched_at": "2026-07-07T10:01:57Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "google_serpapi",
         "title": "How to Get Your Grok (XAI) API Key",
@@ -1370,7 +1370,7 @@
       },
       {
         "excerpt": "feat(ts-sdk): add xAI (Grok) LLM provider ## Summary The Python SDK supports **xAI (Grok)** as an LLM provider, but the TypeScript OSS SDK (`mem0ai/oss`) does not. Add it to bring the TS SDK to parity. | | | |---|---| | Python reference | `mem0/llms/xai.py` | | Registered in (Python) | `mem0/utils/factory.py` (LLMFactory) | | Target file (TypeScript) | `m...",
-        "fetched_at": "2026-07-07T09:55:15Z",
+        "fetched_at": "2026-07-07T10:01:45Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "github_issues",
         "title": "feat(ts-sdk): add xAI (Grok) LLM provider",
@@ -1378,7 +1378,7 @@
       },
       {
         "excerpt": "feat(ts-sdk): add xAI (Grok) LLM provider to OSS SDK ## Linked Issue Closes #5760 ## Description The Python SDK ships an xAI (Grok) LLM provider, but the TypeScript OSS SDK (`mem0ai/oss`) does not — so `provider: \"xai\"` works in Python but not in TS. This PR brings the two to parity. **TypeScript OSS SDK (the core change):** - New `XAILLM` in `mem0-ts/src...",
-        "fetched_at": "2026-07-07T09:55:15Z",
+        "fetched_at": "2026-07-07T10:01:45Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "github_issues",
         "title": "feat(ts-sdk): add xAI (Grok) LLM provider to OSS SDK",
@@ -1386,7 +1386,7 @@
       },
       {
         "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T09:37:17Z",
+        "fetched_at": "2026-07-07T10:01:10Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "SatyamPote/Blood-Candy/USAGE.md",
@@ -1422,18 +1422,18 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "864672f8aa4e3da0ec45",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "grok-4.3",
       "grok-3"
     ],
     "provider": "openai_compatible",
-    "seen_count": 6,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Implement x-search MCP server wrapping xAI's x_search tool ## 概要 xAI（Grok）の `x_search` ツールをラップするMCPサーバー。OpenCode（または任意のMCP対応AIクライアント）からX（Twitter）検索を実行できるようにする。 xAIのAPIキーさえあればX Developerアカウントは不要 — xAIのAPIクレジット内で動作する。 ## アーキテクチャ ``` AI Agent (MCP client, e.g. OpenCode) │ MCP stdio JSON-RPC ▼ x-search-mcp (Node.js) │ OpenAI Responses API (https://api.x.ai/v1...",
-        "fetched_at": "2026-07-07T09:55:15Z",
+        "fetched_at": "2026-07-07T10:01:45Z",
         "query": "\"XAI_API_KEY\" \"grok\"",
         "source": "github_issues",
         "title": "Implement x-search MCP server wrapping xAI's x_search tool",
@@ -1453,15 +1453,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "279ebd5bef7c59c08c86",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 6,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Configuration - OpenAI Agents SDK By default, the SDK uses the OPENAI_API_KEY environment variable for LLM requests and tracing. ... base_url=\"https://your-openai-compatible-endpoint.example/v1\", ...",
-        "fetched_at": "2026-07-07T09:55:16Z",
+        "fetched_at": "2026-07-07T10:01:46Z",
         "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "google_serpapi",
         "title": "Configuration - OpenAI Agents SDK",
@@ -1481,15 +1481,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "35d655aae97242c8b010",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 6,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "base_url of OpenAI Client Instance Cannot Be Modified ... getenv(\"OPENAI_API_KEY\"), base_url=\"https://api.openai.com/v1\", ) print(client.base_url) client.base_url = \"https://newurl.example.com/v1\" print ...",
-        "fetched_at": "2026-07-07T09:55:16Z",
+        "fetched_at": "2026-07-07T10:01:46Z",
         "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "google_serpapi",
         "title": "base_url of OpenAI Client Instance Cannot Be Modified ...",
@@ -1509,15 +1509,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "f7582c55e2e533f20a2e",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 6,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "OpenAI Compatibility - ILMU API OPENAI_API_KEY=\"sk-openai-key\" ; OPENAI_BASE_URL=\"https://api.openai.com/v1\" ; OPENAI_API_KEY=\"YOUR_API_KEY\" ; OPENAI_BASE_URL=\"https://api.ilmu.ai/v1\".",
-        "fetched_at": "2026-07-07T09:55:17Z",
+        "fetched_at": "2026-07-07T10:01:47Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "google_serpapi",
         "title": "OpenAI Compatibility - ILMU API",
@@ -1537,15 +1537,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "e090bfa7aa1f7229d4ee",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 6,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "DeepSeek API Docs: Your First API Call nodejs. curl https://api.deepseek.com/chat/completions \\ -H \"Content-Type: application/json\" \\ -H \"Authorization: Bearer ${DEEPSEEK_API_KEY}\" \\ -d '{ \"model ...",
-        "fetched_at": "2026-07-07T09:55:20Z",
+        "fetched_at": "2026-07-07T10:01:50Z",
         "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
         "source": "google_serpapi",
         "title": "DeepSeek API Docs: Your First API Call",
@@ -1565,15 +1565,15 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "f32a26d229067f7b7b83",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 6,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "I can't get code completion to work as a free user : r/MistralAI MISTRAL_API_KEY=\"redacted\" curl https://codestral.mistral.ai/v1/fim/completions -H \"Authorization: Bearer $MISTRAL_API_KEY\" -H \"Content-Type ...",
-        "fetched_at": "2026-07-07T09:55:25Z",
+        "fetched_at": "2026-07-07T10:01:55Z",
         "query": "\"MISTRAL_API_KEY\"",
         "source": "google_serpapi",
         "title": "I can't get code completion to work as a free user : r/MistralAI",
@@ -1593,7 +1593,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "17738d33563a3b2b2eb2",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "GPT-4",
       "Grok-1",
@@ -1616,20 +1616,12 @@
       "gemini-cli"
     ],
     "provider": "openai_compatible",
-    "seen_count": 11,
+    "seen_count": 13,
     "severity": "medium",
     "sources": [
       {
-        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
-        "fetched_at": "2026-07-07T09:54:04Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_code",
-        "title": "janbodnar/Python-Skolenie/ai.md",
-        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
-      },
-      {
         "excerpt": "Blushyes/coro-code/README.md GitHub code result: Blushyes/coro-code/README.md # 🚀 Coro Code <div align=\"center\"> **Language:** [English](README.md) | [中文](README_zh.md) _A high-performance AI coding agent written in Rust with a rich terminal UI_ ![demo](./images/demo.gif) [![Rust](https://img.shields.io/badge/rust-1.70+-orange.svg)](https://www.rust-lang....",
-        "fetched_at": "2026-07-07T09:53:55Z",
+        "fetched_at": "2026-07-07T10:01:09Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "Blushyes/coro-code/README.md",
@@ -1637,11 +1629,19 @@
       },
       {
         "excerpt": "yuanzui0728/Enclave/DEPLOY.md GitHub code result: yuanzui0728/Enclave/DEPLOY.md # 隐界部署指南 ## 架构说明 - 每个世界实例都是一个单用户世界，默认数据库使用 SQLite - iOS、Android、Windows、macOS、Web 全部作为远程客户端接入 - 客户端只需要填写服务端地址，不在本地启动 Core API - 世界主人可选配置自己的 API Key，服务端仅保存加密后的密文 - 官方云平台当前负责手机号验证、申请单、世界记录与地址回填 - 官方云平台当前不负责自动创建、调度、销毁每个用户的世界实例 ## 快速部署世界实例 ### 1. 克隆仓库 ```bash git clone https://git...",
-        "fetched_at": "2026-07-07T09:37:13Z",
+        "fetched_at": "2026-07-07T10:01:07Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "yuanzui0728/Enclave/DEPLOY.md",
         "url": "https://github.com/yuanzui0728/Enclave/blob/023b653cf9e6a408f6a458731dacefe6b6f52a70/DEPLOY.md"
+      },
+      {
+        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
+        "fetched_at": "2026-07-07T09:54:04Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "janbodnar/Python-Skolenie/ai.md",
+        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
       },
       {
         "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
@@ -1673,7 +1673,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "8bc719d78792924bdc13",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "gemini-2",
       "llama3",
@@ -1685,9 +1685,17 @@
       "Qwen"
     ],
     "provider": "openai_compatible",
-    "seen_count": 9,
+    "seen_count": 10,
     "severity": "medium",
     "sources": [
+      {
+        "excerpt": "Allow API Key users to select models directly when configured ## TLDR Allow API Key users to select models directly when `modelProviders` are already configured. Previously, selecting \"API Key\" only showed static configuration instructions, forcing users to authenticate via OAuth or Coding Plan first. ## Dive Deeper The authentication flow had a gap: user...",
+        "fetched_at": "2026-07-07T10:01:17Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "Allow API Key users to select models directly when configured",
+        "url": "https://github.com/QwenLM/qwen-code/pull/2412"
+      },
       {
         "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
         "fetched_at": "2026-07-07T09:54:05Z",
@@ -1695,14 +1703,6 @@
         "source": "github_code",
         "title": "Yiling-J/tablepilot/API.md",
         "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
-      },
-      {
-        "excerpt": "Allow API Key users to select models directly when configured ## TLDR Allow API Key users to select models directly when `modelProviders` are already configured. Previously, selecting \"API Key\" only showed static configuration instructions, forcing users to authenticate via OAuth or Coding Plan first. ## Dive Deeper The authentication flow had a gap: user...",
-        "fetched_at": "2026-07-07T09:45:07Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "Allow API Key users to select models directly when configured",
-        "url": "https://github.com/QwenLM/qwen-code/pull/2412"
       },
       {
         "excerpt": "nesquikm/mcp-rubber-duck/CLAUDE.md GitHub code result: nesquikm/mcp-rubber-duck/CLAUDE.md # CLAUDE.md This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. ## Project Overview MCP Rubber Duck is an MCP (Model Context Protocol) server that bridges to multiple OpenAI-compatible LLMs. It provides \"rubber duck ...",
@@ -1734,7 +1734,7 @@
     ],
     "first_seen_at": "2026-07-07T08:14:36Z",
     "id": "093af7207a203c29557a",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "GPT-3.5",
       "GPT-4",
@@ -1744,12 +1744,12 @@
       "deepseek-chat"
     ],
     "provider": "openai_compatible",
-    "seen_count": 7,
+    "seen_count": 8,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "IBM/chuk-llm/llms.txt GitHub code result: IBM/chuk-llm/llms.txt # ChukLLM - AI Agent Documentation ## Project Overview ChukLLM is a unified Python library for Large Language Model (LLM) providers with real-time streaming, function calling, middleware support, automatic session tracking, dynamic model discovery, and intelligent system prompt generation. ##...",
-        "fetched_at": "2026-07-07T09:53:56Z",
+        "fetched_at": "2026-07-07T10:01:05Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "IBM/chuk-llm/llms.txt",
@@ -1785,18 +1785,18 @@
     ],
     "first_seen_at": "2026-07-07T08:50:51Z",
     "id": "3f7ab780e55ea34fd61d",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "claude-code",
       "claude-opus-4-5"
     ],
     "provider": "openai_compatible",
-    "seen_count": 4,
+    "seen_count": 5,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "open-compress/claw-compactor/SKILL.md GitHub code result: open-compress/claw-compactor/SKILL.md --- name: claw-compactor version: \"1.0.0\" description: > Claw Compactor — 6-layer token compression skill for OpenClaw agents. Cuts workspace token spend by 50–97% using deterministic rule-engines plus Engram: a real-time, LLM-driven Observational Memory system...",
-        "fetched_at": "2026-07-07T09:53:57Z",
+        "fetched_at": "2026-07-07T10:01:03Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "open-compress/claw-compactor/SKILL.md",
@@ -1816,7 +1816,7 @@
     ],
     "first_seen_at": "2026-07-07T08:50:51Z",
     "id": "3cf61c2ae9f09fc163cc",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [
       "claude-code",
       "claude-opus-4-5",
@@ -1827,24 +1827,24 @@
       "llama2"
     ],
     "provider": "openai_compatible",
-    "seen_count": 5,
+    "seen_count": 7,
     "severity": "medium",
     "sources": [
       {
-        "excerpt": "open-compress/claw-compactor/SKILL.md GitHub code result: open-compress/claw-compactor/SKILL.md --- name: claw-compactor version: \"1.0.0\" description: > Claw Compactor — 6-layer token compression skill for OpenClaw agents. Cuts workspace token spend by 50–97% using deterministic rule-engines plus Engram: a real-time, LLM-driven Observational Memory system...",
-        "fetched_at": "2026-07-07T09:53:57Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "open-compress/claw-compactor/SKILL.md",
-        "url": "https://github.com/open-compress/claw-compactor/blob/c1b936d40b1145c7a257bd6e34a17994f467495f/SKILL.md"
-      },
-      {
         "excerpt": "re-memo/re-memo/SETUP.md GitHub code result: re-memo/re-memo/SETUP.md # re:memo Setup Guide This guide will walk you through setting up re:memo on your system. Choose the deployment option that best fits your privacy preferences and technical requirements. ## Prerequisites - Docker & Docker Compose - (Optional) NVIDIA GPU for local LLM support > [!TIP] > ...",
-        "fetched_at": "2026-07-07T09:37:13Z",
+        "fetched_at": "2026-07-07T10:01:08Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "github_code",
         "title": "re-memo/re-memo/SETUP.md",
         "url": "https://github.com/re-memo/re-memo/blob/7735cb5bd2a7df73fb0100e528994c791f739d8c/SETUP.md"
+      },
+      {
+        "excerpt": "open-compress/claw-compactor/SKILL.md GitHub code result: open-compress/claw-compactor/SKILL.md --- name: claw-compactor version: \"1.0.0\" description: > Claw Compactor — 6-layer token compression skill for OpenClaw agents. Cuts workspace token spend by 50–97% using deterministic rule-engines plus Engram: a real-time, LLM-driven Observational Memory system...",
+        "fetched_at": "2026-07-07T10:01:03Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "open-compress/claw-compactor/SKILL.md",
+        "url": "https://github.com/open-compress/claw-compactor/blob/c1b936d40b1145c7a257bd6e34a17994f467495f/SKILL.md"
       }
     ],
     "type": "base_url",
@@ -1860,15 +1860,15 @@
     ],
     "first_seen_at": "2026-07-07T09:39:42Z",
     "id": "21af8011ea6dfec3a342",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 5,
+    "seen_count": 6,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "docs: add Doubleword as an OpenAI-compatible provider ## Summary - Adds Doubleword to the OpenAI-compatible providers section in `docs/models/openai.md` - Adds Doubleword to the provider list in `docs/models/overview.md` Doubleword exposes an OpenAI-compatible API at `https://api.doubleword.ai/v1` and can be used with `OpenAIProvider` and `OpenAIChatModel...",
-        "fetched_at": "2026-07-07T09:54:29Z",
+        "fetched_at": "2026-07-07T10:01:23Z",
         "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
         "source": "github_issues",
         "title": "docs: add Doubleword as an OpenAI-compatible provider",
@@ -1896,15 +1896,15 @@
     ],
     "first_seen_at": "2026-07-07T09:39:42Z",
     "id": "1ffa8f0acdaca1628b34",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 3,
+    "seen_count": 4,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Sample Configuration – Codex # openai_base_url = \"https://us.api.openai.com/v1\" # Restrict ChatGPT ... sk-example\" # optional dev-only direct bearer token # # http_headers = { \"X ...",
-        "fetched_at": "2026-07-07T09:55:17Z",
+        "fetched_at": "2026-07-07T10:01:47Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "google_serpapi",
         "title": "Sample Configuration – Codex",
@@ -1924,15 +1924,15 @@
     ],
     "first_seen_at": "2026-07-07T09:39:42Z",
     "id": "2fd73375d6d30b0824b7",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 3,
+    "seen_count": 4,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Route OpenAI Codex CLI traffic through AI Gateway - Kong Docs export OPENAI_API_KEY=sk-xxx export OPENAI_BASE_URL=http://localhost:8000/codex. Copied! export OPENAI_API_KEY=sk-xxx export OPENAI_BASE_URL=$KONNECT_PROXY_URL/ ...",
-        "fetched_at": "2026-07-07T09:55:17Z",
+        "fetched_at": "2026-07-07T10:01:47Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "google_serpapi",
         "title": "Route OpenAI Codex CLI traffic through AI Gateway - Kong Docs",
@@ -1952,15 +1952,15 @@
     ],
     "first_seen_at": "2026-07-07T09:39:42Z",
     "id": "10f2c8bfd843036c36d2",
-    "last_seen_at": "2026-07-07T09:55:28Z",
+    "last_seen_at": "2026-07-07T10:01:58Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 3,
+    "seen_count": 4,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "Setting API Keys, Base, Version environ['OPENAI_BASE_URL'] = \"https://your_host/v1\". Setting Project ... anthropic_key = \"sk-AnthropicKey\" response = litellm.completion ...",
-        "fetched_at": "2026-07-07T09:55:17Z",
+        "fetched_at": "2026-07-07T10:01:47Z",
         "query": "\"OPENAI_BASE_URL\" \"sk-\"",
         "source": "google_serpapi",
         "title": "Setting API Keys, Base, Version",
@@ -1970,6 +1970,477 @@
     "type": "base_url",
     "value_redacted": "https://your.../v1",
     "value_sha256": "bd68e48e10fb6b5a3050ecd2fc43b31f4d210abfa831f3b317552c5d61370359"
+  },
+  {
+    "base_url_sha256": [
+      "4ee7f7c473cebea9d7cb9ad37a4f54d442faf2c4168343b0208b96e0688dc8d5"
+    ],
+    "base_urls_redacted": [
+      "https://dou...example.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "6632da1f341a85b5c0d8",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "gpt-4.1"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 6,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "fix(moa): preserve slot credentials for custom_provider references ## What does this PR do? When a MoA preset references a `custom_provider` as a reference model (or aggregator), credentials configured in the slot (`api_key`, `base_url`, `api_mode`) were not being passed to `resolve_runtime_provider`. The slot only forwarded `provider` and `model`, leavin...",
+        "fetched_at": "2026-07-07T10:01:17Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "fix(moa): preserve slot credentials for custom_provider references",
+        "url": "https://github.com/NousResearch/hermes-agent/pull/60082"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://dou...example.com/v1",
+    "value_sha256": "4ee7f7c473cebea9d7cb9ad37a4f54d442faf2c4168343b0208b96e0688dc8d5"
+  },
+  {
+    "base_url_sha256": [
+      "efdbb18afca7615955804478fde78bff5e7336dee41fa0844bc1d5f8ec527cbe"
+    ],
+    "base_urls_redacted": [
+      "https://api...deepseek.com/anthropic"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "15a6e2e7ae6f34217cc7",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "deepseek-v4-pro",
+      "deepseek-chat",
+      "deepseek-reasoner",
+      "deepseek-ai",
+      "DeepSeek-V4-Pro",
+      "deepseek-v4-flash",
+      "Claude-name",
+      "claude-opus-4-8",
+      "claude-sonnet-5",
+      "claude-haiku-4-5",
+      "glm-4.6"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 8,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API ## 背景 规格见 `docs/design-model-config.md`（§1-§2 与 M1）。现状：`llm_endpoints` 一行绑一个模型、provider 概念缺失、内置别名硬编码。目标：provider → model 两级体系，模型引用统一为 `provider/model` 字符串（协议零改动）。 ## ⚠️ 最高优先约束 **`resolveModel`（`packages/server/src/services/spawn.ts:56`）是 dogfood 流水线的命脉**——流水线 def 正在用裸 `c...",
+        "fetched_at": "2026-07-07T10:01:23Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API",
+        "url": "https://github.com/JavaZeroo/code-orchestrator/issues/61"
+      },
+      {
+        "excerpt": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API ## 背景 规格见 `docs/design-model-config.md`（§1-§2 与 M1）。现状：`llm_endpoints` 一行绑一个模型、provider 概念缺失、内置别名硬编码。目标：provider → model 两级体系，模型引用统一为 `provider/model` 字符串（协议零改动）。 ## ⚠️ 最高优先约束 **`resolveModel`（`packages/server/src/services/spawn.ts:56`）是 dogfood 流水线的命脉**——流水线 def 正在用裸 `c...",
+        "fetched_at": "2026-07-07T10:01:17Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API",
+        "url": "https://github.com/JavaZeroo/code-orchestrator/issues/61"
+      },
+      {
+        "excerpt": "feat(gateway): support DeepSeek Anthropic-compatible route for Claude Code-style agents Parent: #3006 Why: DeepSeek officially documents an Anthropic-compatible API at `https://api.deepseek.com/anthropic` and gives Claude Code environment examples. fak can use that to front Claude Code-style agents through the same adjudication gateway, but the compatibil...",
+        "fetched_at": "2026-07-07T04:36:50Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "feat(gateway): support DeepSeek Anthropic-compatible route for Claude Code-style agents",
+        "url": "https://github.com/anthony-chaudhary/fak/issues/3010"
+      },
+      {
+        "excerpt": "docs(deepseek): publish V4 Pro runbook, route examples, and alias migration warning Parent: #3006 Why: Once the support spine exists, users need exact commands and honest limitations. The docs must not imply old aliases are stable, and must distinguish hosted DeepSeek, Anthropic-compatible Claude Code use, and self-hosted vLLM/SGLang routes. Source facts:...",
+        "fetched_at": "2026-07-07T04:36:50Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "docs(deepseek): publish V4 Pro runbook, route examples, and alias migration warning",
+        "url": "https://github.com/anthony-chaudhary/fak/issues/3012"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...deepseek.com/anthropic",
+    "value_sha256": "efdbb18afca7615955804478fde78bff5e7336dee41fa0844bc1d5f8ec527cbe"
+  },
+  {
+    "base_url_sha256": [
+      "1e90246348f66dd206b4bcbd68e0dff9657bfda32df9ae69b9b2ee7e164251ce"
+    ],
+    "base_urls_redacted": [
+      "https://ope...bigmodel.cn/api/anthropic"
+    ],
+    "first_seen_at": "2026-07-07T09:45:59Z",
+    "id": "14dcabef9f551bc329d9",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "claude-opus-4-8",
+      "claude-sonnet-5",
+      "claude-haiku-4-5",
+      "deepseek-chat",
+      "deepseek-reasoner",
+      "glm-4.6"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 6,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API ## 背景 规格见 `docs/design-model-config.md`（§1-§2 与 M1）。现状：`llm_endpoints` 一行绑一个模型、provider 概念缺失、内置别名硬编码。目标：provider → model 两级体系，模型引用统一为 `provider/model` 字符串（协议零改动）。 ## ⚠️ 最高优先约束 **`resolveModel`（`packages/server/src/services/spawn.ts:56`）是 dogfood 流水线的命脉**——流水线 def 正在用裸 `c...",
+        "fetched_at": "2026-07-07T10:01:23Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API",
+        "url": "https://github.com/JavaZeroo/code-orchestrator/issues/61"
+      },
+      {
+        "excerpt": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API ## 背景 规格见 `docs/design-model-config.md`（§1-§2 与 M1）。现状：`llm_endpoints` 一行绑一个模型、provider 概念缺失、内置别名硬编码。目标：provider → model 两级体系，模型引用统一为 `provider/model` 字符串（协议零改动）。 ## ⚠️ 最高优先约束 **`resolveModel`（`packages/server/src/services/spawn.ts:56`）是 dogfood 流水线的命脉**——流水线 def 正在用裸 `c...",
+        "fetched_at": "2026-07-07T10:01:17Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API",
+        "url": "https://github.com/JavaZeroo/code-orchestrator/issues/61"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...bigmodel.cn/api/anthropic",
+    "value_sha256": "1e90246348f66dd206b4bcbd68e0dff9657bfda32df9ae69b9b2ee7e164251ce"
+  },
+  {
+    "base_url_sha256": [
+      "efff52db7ad47c088713471604db43b626d716adb55a35f1276ff474d50d4812"
+    ],
+    "base_urls_redacted": [
+      "https://you...com/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:21:42Z",
+    "id": "6bcec25f7a8c3eca0643",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "qwen.md",
+      "Qwen",
+      "qwen-code-",
+      "QWEN.md",
+      "qwenmd---",
+      "Qwen3-Coder",
+      "qwen-code-assets.oss-cn-hangzhou.aliyuncs.com",
+      "qwen.sh",
+      "qwen.bat",
+      "qwen-code",
+      "qwen",
+      "gpt-4",
+      "GPT-4",
+      "claude-sonnet-4-20250514",
+      "qwen3-coder-plus"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 5,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "saturngod/ai_agent_cli_guide/qwen.md GitHub code result: saturngod/ai_agent_cli_guide/qwen.md # Qwen Code Guide ## မာတိကာ - [Qwen Code ဆိုတာ ဘာလဲ?](#qwen-code-ဆိုတာ-ဘာလဲ) - [စတင်ခြင်း](#စတင်ခြင်း) - [Authentication - Login နှင့် Access](#authentication---login-နှင့်-access) - [QWEN.md - ပရောဂျက် ညွှန်ကြားချက်များ](#qwenmd---ပရောဂျက်-ညွှန်ကြားချက်များ) - [...",
+        "fetched_at": "2026-07-07T10:01:06Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "saturngod/ai_agent_cli_guide/qwen.md",
+        "url": "https://github.com/saturngod/ai_agent_cli_guide/blob/b1875c74c49bd13251b0328de490abe78663237e/qwen.md"
+      },
+      {
+        "excerpt": "saturngod/ai_agent_cli_guide/qwen.md GitHub code result: saturngod/ai_agent_cli_guide/qwen.md # Qwen Code Guide ## မာတိကာ - [Qwen Code ဆိုတာ ဘာလဲ?](#qwen-code-ဆိုတာ-ဘာလဲ) - [စတင်ခြင်း](#စတင်ခြင်း) - [Authentication - Login နှင့် Access](#authentication---login-နှင့်-access) - [QWEN.md - ပရောဂျက် ညွှန်ကြားချက်များ](#qwenmd---ပရောဂျက်-ညွှန်ကြားချက်များ) - [...",
+        "fetched_at": "2026-07-07T09:53:44Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_code",
+        "title": "saturngod/ai_agent_cli_guide/qwen.md",
+        "url": "https://github.com/saturngod/ai_agent_cli_guide/blob/b1875c74c49bd13251b0328de490abe78663237e/qwen.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://you...com/v1",
+    "value_sha256": "efff52db7ad47c088713471604db43b626d716adb55a35f1276ff474d50d4812"
+  },
+  {
+    "base_url_sha256": [
+      "a76d8c3e94eba61fc46b5cc05fc51e5f6df1d0f46d901d32e9c27bb251f155ae"
+    ],
+    "base_urls_redacted": [
+      "http://loca..."
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "361628c468a441607d0f",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "gemini-cli",
+      "llama.cpp",
+      "claude-code",
+      "llamacpp"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "teabranch/open-responses-server/index.md GitHub code result: teabranch/open-responses-server/index.md --- title: Home nav_order: 0 permalink: / --- # Open Responses Server A plug-and-play server that speaks OpenAI's Responses API — no matter which AI backend you're running. <p><em>Find this useful? Star the repo to follow updates and show support!</em> <i...",
+        "fetched_at": "2026-07-07T10:01:06Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "teabranch/open-responses-server/index.md",
+        "url": "https://github.com/teabranch/open-responses-server/blob/0d4353cc274604236bdaece6734b42fddec6f970/index.md"
+      },
+      {
+        "excerpt": "hoangsonww/AI-Agents-Orchestrator/SETUP.md GitHub code result: hoangsonww/AI-Agents-Orchestrator/SETUP.md # Setup Guide > [!NOTE] > **Project Structure Note:** This project has two independent systems: > - **Orchestrator** (`orchestrator/`) — workflow-based multi-agent coordination > - **Agentic Team** (`agentic_team/`) — role-based team collaboration > >...",
+        "fetched_at": "2026-07-07T09:54:56Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "hoangsonww/AI-Agents-Orchestrator/SETUP.md",
+        "url": "https://github.com/hoangsonww/AI-Agents-Orchestrator/blob/af2d5e175f5901bddbd0ec655b1fd36f6180191c/SETUP.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca...",
+    "value_sha256": "a76d8c3e94eba61fc46b5cc05fc51e5f6df1d0f46d901d32e9c27bb251f155ae"
+  },
+  {
+    "base_url_sha256": [
+      "6f5367cf2e07aa9cec3e6dc4141bf07a43989258083c7134569f608b3b2d7b92"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../v1/models"
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "b7061dfb0de8c74e088d",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "gemini-cli",
+      "llama.cpp",
+      "claude-code",
+      "llamacpp"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "teabranch/open-responses-server/index.md GitHub code result: teabranch/open-responses-server/index.md --- title: Home nav_order: 0 permalink: / --- # Open Responses Server A plug-and-play server that speaks OpenAI's Responses API — no matter which AI backend you're running. <p><em>Find this useful? Star the repo to follow updates and show support!</em> <i...",
+        "fetched_at": "2026-07-07T10:01:06Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "teabranch/open-responses-server/index.md",
+        "url": "https://github.com/teabranch/open-responses-server/blob/0d4353cc274604236bdaece6734b42fddec6f970/index.md"
+      },
+      {
+        "excerpt": "hoangsonww/AI-Agents-Orchestrator/SETUP.md GitHub code result: hoangsonww/AI-Agents-Orchestrator/SETUP.md # Setup Guide > [!NOTE] > **Project Structure Note:** This project has two independent systems: > - **Orchestrator** (`orchestrator/`) — workflow-based multi-agent coordination > - **Agentic Team** (`agentic_team/`) — role-based team collaboration > >...",
+        "fetched_at": "2026-07-07T09:54:56Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "hoangsonww/AI-Agents-Orchestrator/SETUP.md",
+        "url": "https://github.com/hoangsonww/AI-Agents-Orchestrator/blob/af2d5e175f5901bddbd0ec655b1fd36f6180191c/SETUP.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../v1/models",
+    "value_sha256": "6f5367cf2e07aa9cec3e6dc4141bf07a43989258083c7134569f608b3b2d7b92"
+  },
+  {
+    "base_url_sha256": [
+      "bb2812b6ba340ccb3f41082e772ad84ce8777d828c9f331eefee75cfab4a6c95"
+    ],
+    "base_urls_redacted": [
+      "http://my-e.../v1"
+    ],
+    "first_seen_at": "2026-07-07T09:55:28Z",
+    "id": "435131d68455c76d6556",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "Qwen",
+      "gpt-5.5",
+      "gpt-5.x"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[Bug]: custom_providers[].extra_body silently dropped on gateway/messaging paths (CLI works) # Bug: `custom_providers[].extra_body` silently dropped on gateway/messaging paths (CLI works) ## Summary `custom_providers[].extra_body` (documented in [AI Providers](https://hermes-agent.nousresearch.com/docs/integrations/providers) and merged at init time by `_...",
+        "fetched_at": "2026-07-07T10:01:17Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "[Bug]: custom_providers[].extra_body silently dropped on gateway/messaging paths (CLI works)",
+        "url": "https://github.com/NousResearch/hermes-agent/issues/54922"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://my-e.../v1",
+    "value_sha256": "bb2812b6ba340ccb3f41082e772ad84ce8777d828c9f331eefee75cfab4a6c95"
+  },
+  {
+    "base_url_sha256": [
+      "143347299031f30ddbf478757683c5c06b6c44e89bb92cb2e990876ecea8e84d"
+    ],
+    "base_urls_redacted": [
+      "https://api...z.ai/api/coding/paas/v4"
+    ],
+    "first_seen_at": "2026-07-07T09:55:28Z",
+    "id": "6aa18e7c8a2652f5b862",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "glm-5.2",
+      "GLM-5.x"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[Bug]: Z.ai 429/code 1305 persists on chat/completions path — #47685 fix only covers anthropic adapter ## Summary Issue #47685 was closed as COMPLETED, but the prompt-sensitive 429/1305 from Z.ai Coding Plan **still reproduces** on the OpenAI chat/completions code path (the path `zai` provider uses by default). The existing mitigation only covers the Anth...",
+        "fetched_at": "2026-07-07T10:01:17Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "[Bug]: Z.ai 429/code 1305 persists on chat/completions path — #47685 fix only covers anthropic adapter",
+        "url": "https://github.com/NousResearch/hermes-agent/issues/53002"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...z.ai/api/coding/paas/v4",
+    "value_sha256": "143347299031f30ddbf478757683c5c06b6c44e89bb92cb2e990876ecea8e84d"
+  },
+  {
+    "base_url_sha256": [
+      "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:11434/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "f65f175154aa130f7cc6",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "qwen2.5",
+      "claude-opus-4-6",
+      "claude-sonnet-4-6",
+      "claude-haiku-4-5-20251213",
+      "gpt-4.1-mini",
+      "qwen-plus",
+      "qwen2.5-coder",
+      "llama3.2",
+      "Qwen",
+      "qwen",
+      "qwen-max",
+      "qwen-qwq",
+      "grok-3",
+      "grok-mini",
+      "grok-3-mini",
+      "grok-2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 4,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
+        "fetched_at": "2026-07-07T10:01:10Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "SatyamPote/Blood-Candy/USAGE.md",
+        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
+      },
+      {
+        "excerpt": "AAClause/nvda-OpenAI/readme.md GitHub code result: AAClause/nvda-OpenAI/readme.md If you want a dedicated desktop experience with additional workflows, see [BasiliskLLM](https://github.com/SigmaNight/basiliskLLM/) (standalone app plus a minimal NVDA add-on). AI-Hub remains a full-featured option inside NVDA. # AI-Hub **AI-Hub** is an NVDA add-on that conn...",
+        "fetched_at": "2026-07-07T08:50:04Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "AAClause/nvda-OpenAI/readme.md",
+        "url": "https://github.com/AAClause/nvda-OpenAI/blob/3f91cc6b55386ccdd627ac5c8df60b4d15c2c92b/readme.md"
+      },
+      {
+        "excerpt": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed) ## Summary Binding a capability to a `kind: openai` provider pointed at a **trusted local** endpoint (Ollama/vLLM/LM Studio) fails with `OPENAI_AUTH: missing OpenAI API key` unless an `api_key` is set — even though the README states a trusted-netw...",
+        "fetched_at": "2026-07-07T04:36:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed)",
+        "url": "https://github.com/dirstral/dir2mcp/issues/498"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:11434/v1",
+    "value_sha256": "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
+  },
+  {
+    "base_url_sha256": [
+      "0121783acd70272b07eae5af255f4fbf2362a61e32e0ef38b460878f5159104f"
+    ],
+    "base_urls_redacted": [
+      "http://loca..."
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "6febf0ec84801be743b0",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "llama3.2",
+      "gpt-4o",
+      "claude-3-5-sonnet-20241022"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "axon011/rag-eval-system/API.md GitHub code result: axon011/rag-eval-system/API.md # RAG Q&A System - API Endpoints ## Base URL ``` http://localhost:8000 ``` ## Interactive Documentation - **Swagger UI**: http://localhost:8000/docs - **ReDoc**: http://localhost:8000/redoc --- ## LLM Provider Configuration The system supports multiple LLM providers. Configu...",
+        "fetched_at": "2026-07-07T10:01:08Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "axon011/rag-eval-system/API.md",
+        "url": "https://github.com/axon011/rag-eval-system/blob/d18ced17865686ec4c15d1cbd0a6bb172f1f1d5d/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca...",
+    "value_sha256": "0121783acd70272b07eae5af255f4fbf2362a61e32e0ef38b460878f5159104f"
+  },
+  {
+    "base_url_sha256": [
+      "87459d11adee7bce23cb37e9d210800e77403ecd52229858300b9215af0ed0fd"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:8000/v1"
+    ],
+    "first_seen_at": "2026-07-07T09:39:42Z",
+    "id": "afdffc5329f14a63929d",
+    "last_seen_at": "2026-07-07T10:01:58Z",
+    "models": [
+      "claude-opus-4-6",
+      "claude-sonnet-4-6",
+      "claude-haiku-4-5-20251213",
+      "gpt-4.1-mini",
+      "qwen-plus",
+      "qwen2.5-coder",
+      "llama3.2",
+      "Qwen",
+      "qwen",
+      "qwen-max",
+      "qwen-qwq",
+      "grok-3",
+      "grok-mini",
+      "grok-3-mini",
+      "grok-2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
+        "fetched_at": "2026-07-07T10:01:10Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_code",
+        "title": "SatyamPote/Blood-Candy/USAGE.md",
+        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:8000/v1",
+    "value_sha256": "87459d11adee7bce23cb37e9d210800e77403ecd52229858300b9215af0ed0fd"
   },
   {
     "base_url_sha256": [
@@ -2030,36 +2501,6 @@
     "type": "base_url",
     "value_redacted": "https://api...siliconflow.cn/v1",
     "value_sha256": "dcfb966d818ddf8f4d10f7397ce546e86d3fcb8afe26371506405f6978c6f661"
-  },
-  {
-    "base_url_sha256": [
-      "4ee7f7c473cebea9d7cb9ad37a4f54d442faf2c4168343b0208b96e0688dc8d5"
-    ],
-    "base_urls_redacted": [
-      "https://dou...example.com/v1"
-    ],
-    "first_seen_at": "2026-07-07T08:14:36Z",
-    "id": "6632da1f341a85b5c0d8",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "gpt-4.1"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 5,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "fix(moa): preserve slot credentials for custom_provider references ## What does this PR do? When a MoA preset references a `custom_provider` as a reference model (or aggregator), credentials configured in the slot (`api_key`, `base_url`, `api_mode`) were not being passed to `resolve_runtime_provider`. The slot only forwarded `provider` and `model`, leavin...",
-        "fetched_at": "2026-07-07T09:54:12Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "fix(moa): preserve slot credentials for custom_provider references",
-        "url": "https://github.com/NousResearch/hermes-agent/pull/60082"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://dou...example.com/v1",
-    "value_sha256": "4ee7f7c473cebea9d7cb9ad37a4f54d442faf2c4168343b0208b96e0688dc8d5"
   },
   {
     "base_url_sha256": [
@@ -2322,247 +2763,6 @@
     "type": "base_url",
     "value_redacted": "https://gat...salesforceresearch.ai/openai/process/v1",
     "value_sha256": "5a9f3e787238797f4b65424c3bbdf81c55d4ea3dee8ed31313dcec93d3963e26"
-  },
-  {
-    "base_url_sha256": [
-      "efdbb18afca7615955804478fde78bff5e7336dee41fa0844bc1d5f8ec527cbe"
-    ],
-    "base_urls_redacted": [
-      "https://api...deepseek.com/anthropic"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "15a6e2e7ae6f34217cc7",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "deepseek-v4-pro",
-      "deepseek-chat",
-      "deepseek-reasoner",
-      "deepseek-ai",
-      "DeepSeek-V4-Pro",
-      "deepseek-v4-flash",
-      "Claude-name",
-      "claude-opus-4-8",
-      "claude-sonnet-5",
-      "claude-haiku-4-5",
-      "glm-4.6"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 6,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API ## 背景 规格见 `docs/design-model-config.md`（§1-§2 与 M1）。现状：`llm_endpoints` 一行绑一个模型、provider 概念缺失、内置别名硬编码。目标：provider → model 两级体系，模型引用统一为 `provider/model` 字符串（协议零改动）。 ## ⚠️ 最高优先约束 **`resolveModel`（`packages/server/src/services/spawn.ts:56`）是 dogfood 流水线的命脉**——流水线 def 正在用裸 `c...",
-        "fetched_at": "2026-07-07T09:54:29Z",
-        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
-        "source": "github_issues",
-        "title": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API",
-        "url": "https://github.com/JavaZeroo/code-orchestrator/issues/61"
-      },
-      {
-        "excerpt": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API ## 背景 规格见 `docs/design-model-config.md`（§1-§2 与 M1）。现状：`llm_endpoints` 一行绑一个模型、provider 概念缺失、内置别名硬编码。目标：provider → model 两级体系，模型引用统一为 `provider/model` 字符串（协议零改动）。 ## ⚠️ 最高优先约束 **`resolveModel`（`packages/server/src/services/spawn.ts:56`）是 dogfood 流水线的命脉**——流水线 def 正在用裸 `c...",
-        "fetched_at": "2026-07-07T09:54:12Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API",
-        "url": "https://github.com/JavaZeroo/code-orchestrator/issues/61"
-      },
-      {
-        "excerpt": "feat(gateway): support DeepSeek Anthropic-compatible route for Claude Code-style agents Parent: #3006 Why: DeepSeek officially documents an Anthropic-compatible API at `https://api.deepseek.com/anthropic` and gives Claude Code environment examples. fak can use that to front Claude Code-style agents through the same adjudication gateway, but the compatibil...",
-        "fetched_at": "2026-07-07T04:36:50Z",
-        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
-        "source": "github_issues",
-        "title": "feat(gateway): support DeepSeek Anthropic-compatible route for Claude Code-style agents",
-        "url": "https://github.com/anthony-chaudhary/fak/issues/3010"
-      },
-      {
-        "excerpt": "docs(deepseek): publish V4 Pro runbook, route examples, and alias migration warning Parent: #3006 Why: Once the support spine exists, users need exact commands and honest limitations. The docs must not imply old aliases are stable, and must distinguish hosted DeepSeek, Anthropic-compatible Claude Code use, and self-hosted vLLM/SGLang routes. Source facts:...",
-        "fetched_at": "2026-07-07T04:36:50Z",
-        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
-        "source": "github_issues",
-        "title": "docs(deepseek): publish V4 Pro runbook, route examples, and alias migration warning",
-        "url": "https://github.com/anthony-chaudhary/fak/issues/3012"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...deepseek.com/anthropic",
-    "value_sha256": "efdbb18afca7615955804478fde78bff5e7336dee41fa0844bc1d5f8ec527cbe"
-  },
-  {
-    "base_url_sha256": [
-      "1e90246348f66dd206b4bcbd68e0dff9657bfda32df9ae69b9b2ee7e164251ce"
-    ],
-    "base_urls_redacted": [
-      "https://ope...bigmodel.cn/api/anthropic"
-    ],
-    "first_seen_at": "2026-07-07T09:45:59Z",
-    "id": "14dcabef9f551bc329d9",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "claude-opus-4-8",
-      "claude-sonnet-5",
-      "claude-haiku-4-5",
-      "deepseek-chat",
-      "deepseek-reasoner",
-      "glm-4.6"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 4,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API ## 背景 规格见 `docs/design-model-config.md`（§1-§2 与 M1）。现状：`llm_endpoints` 一行绑一个模型、provider 概念缺失、内置别名硬编码。目标：provider → model 两级体系，模型引用统一为 `provider/model` 字符串（协议零改动）。 ## ⚠️ 最高优先约束 **`resolveModel`（`packages/server/src/services/spawn.ts:56`）是 dogfood 流水线的命脉**——流水线 def 正在用裸 `c...",
-        "fetched_at": "2026-07-07T09:54:29Z",
-        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
-        "source": "github_issues",
-        "title": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API",
-        "url": "https://github.com/JavaZeroo/code-orchestrator/issues/61"
-      },
-      {
-        "excerpt": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API ## 背景 规格见 `docs/design-model-config.md`（§1-§2 与 M1）。现状：`llm_endpoints` 一行绑一个模型、provider 概念缺失、内置别名硬编码。目标：provider → model 两级体系，模型引用统一为 `provider/model` 字符串（协议零改动）。 ## ⚠️ 最高优先约束 **`resolveModel`（`packages/server/src/services/spawn.ts:56`）是 dogfood 流水线的命脉**——流水线 def 正在用裸 `c...",
-        "fetched_at": "2026-07-07T09:54:12Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "[dogfood] 模型配置M1：llm_providers 表 + resolveModel v2（provider/model 解析，全向后兼容）+ CRUD API",
-        "url": "https://github.com/JavaZeroo/code-orchestrator/issues/61"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://ope...bigmodel.cn/api/anthropic",
-    "value_sha256": "1e90246348f66dd206b4bcbd68e0dff9657bfda32df9ae69b9b2ee7e164251ce"
-  },
-  {
-    "base_url_sha256": [
-      "efff52db7ad47c088713471604db43b626d716adb55a35f1276ff474d50d4812"
-    ],
-    "base_urls_redacted": [
-      "https://you...com/v1"
-    ],
-    "first_seen_at": "2026-07-07T08:21:42Z",
-    "id": "6bcec25f7a8c3eca0643",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "qwen.md",
-      "Qwen",
-      "qwen-code-",
-      "QWEN.md",
-      "qwenmd---",
-      "Qwen3-Coder",
-      "qwen-code-assets.oss-cn-hangzhou.aliyuncs.com",
-      "qwen.sh",
-      "qwen.bat",
-      "qwen-code",
-      "qwen",
-      "gpt-4",
-      "GPT-4",
-      "claude-sonnet-4-20250514",
-      "qwen3-coder-plus"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 4,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "saturngod/ai_agent_cli_guide/qwen.md GitHub code result: saturngod/ai_agent_cli_guide/qwen.md # Qwen Code Guide ## မာတိကာ - [Qwen Code ဆိုတာ ဘာလဲ?](#qwen-code-ဆိုတာ-ဘာလဲ) - [စတင်ခြင်း](#စတင်ခြင်း) - [Authentication - Login နှင့် Access](#authentication---login-နှင့်-access) - [QWEN.md - ပရောဂျက် ညွှန်ကြားချက်များ](#qwenmd---ပရောဂျက်-ညွှန်ကြားချက်များ) - [...",
-        "fetched_at": "2026-07-07T09:53:44Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_code",
-        "title": "saturngod/ai_agent_cli_guide/qwen.md",
-        "url": "https://github.com/saturngod/ai_agent_cli_guide/blob/b1875c74c49bd13251b0328de490abe78663237e/qwen.md"
-      },
-      {
-        "excerpt": "saturngod/ai_agent_cli_guide/qwen.md GitHub code result: saturngod/ai_agent_cli_guide/qwen.md # Qwen Code Guide ## မာတိကာ - [Qwen Code ဆိုတာ ဘာလဲ?](#qwen-code-ဆိုတာ-ဘာလဲ) - [စတင်ခြင်း](#စတင်ခြင်း) - [Authentication - Login နှင့် Access](#authentication---login-နှင့်-access) - [QWEN.md - ပရောဂျက် ညွှန်ကြားချက်များ](#qwenmd---ပရောဂျက်-ညွှန်ကြားချက်များ) - [...",
-        "fetched_at": "2026-07-07T09:37:12Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "saturngod/ai_agent_cli_guide/qwen.md",
-        "url": "https://github.com/saturngod/ai_agent_cli_guide/blob/b1875c74c49bd13251b0328de490abe78663237e/qwen.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://you...com/v1",
-    "value_sha256": "efff52db7ad47c088713471604db43b626d716adb55a35f1276ff474d50d4812"
-  },
-  {
-    "base_url_sha256": [
-      "a76d8c3e94eba61fc46b5cc05fc51e5f6df1d0f46d901d32e9c27bb251f155ae"
-    ],
-    "base_urls_redacted": [
-      "http://loca..."
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "361628c468a441607d0f",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "gemini-cli",
-      "llama.cpp",
-      "claude-code",
-      "llamacpp"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "hoangsonww/AI-Agents-Orchestrator/SETUP.md GitHub code result: hoangsonww/AI-Agents-Orchestrator/SETUP.md # Setup Guide > [!NOTE] > **Project Structure Note:** This project has two independent systems: > - **Orchestrator** (`orchestrator/`) — workflow-based multi-agent coordination > - **Agentic Team** (`agentic_team/`) — role-based team collaboration > >...",
-        "fetched_at": "2026-07-07T09:54:56Z",
-        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
-        "source": "github_code",
-        "title": "hoangsonww/AI-Agents-Orchestrator/SETUP.md",
-        "url": "https://github.com/hoangsonww/AI-Agents-Orchestrator/blob/af2d5e175f5901bddbd0ec655b1fd36f6180191c/SETUP.md"
-      },
-      {
-        "excerpt": "teabranch/open-responses-server/index.md GitHub code result: teabranch/open-responses-server/index.md --- title: Home nav_order: 0 permalink: / --- # Open Responses Server A plug-and-play server that speaks OpenAI's Responses API — no matter which AI backend you're running. <p><em>Find this useful? Star the repo to follow updates and show support!</em> <i...",
-        "fetched_at": "2026-07-07T09:37:11Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "teabranch/open-responses-server/index.md",
-        "url": "https://github.com/teabranch/open-responses-server/blob/0d4353cc274604236bdaece6734b42fddec6f970/index.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca...",
-    "value_sha256": "a76d8c3e94eba61fc46b5cc05fc51e5f6df1d0f46d901d32e9c27bb251f155ae"
-  },
-  {
-    "base_url_sha256": [
-      "6f5367cf2e07aa9cec3e6dc4141bf07a43989258083c7134569f608b3b2d7b92"
-    ],
-    "base_urls_redacted": [
-      "http://loca.../v1/models"
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "b7061dfb0de8c74e088d",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "gemini-cli",
-      "llama.cpp",
-      "claude-code",
-      "llamacpp"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "hoangsonww/AI-Agents-Orchestrator/SETUP.md GitHub code result: hoangsonww/AI-Agents-Orchestrator/SETUP.md # Setup Guide > [!NOTE] > **Project Structure Note:** This project has two independent systems: > - **Orchestrator** (`orchestrator/`) — workflow-based multi-agent coordination > - **Agentic Team** (`agentic_team/`) — role-based team collaboration > >...",
-        "fetched_at": "2026-07-07T09:54:56Z",
-        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
-        "source": "github_code",
-        "title": "hoangsonww/AI-Agents-Orchestrator/SETUP.md",
-        "url": "https://github.com/hoangsonww/AI-Agents-Orchestrator/blob/af2d5e175f5901bddbd0ec655b1fd36f6180191c/SETUP.md"
-      },
-      {
-        "excerpt": "teabranch/open-responses-server/index.md GitHub code result: teabranch/open-responses-server/index.md --- title: Home nav_order: 0 permalink: / --- # Open Responses Server A plug-and-play server that speaks OpenAI's Responses API — no matter which AI backend you're running. <p><em>Find this useful? Star the repo to follow updates and show support!</em> <i...",
-        "fetched_at": "2026-07-07T09:37:11Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "teabranch/open-responses-server/index.md",
-        "url": "https://github.com/teabranch/open-responses-server/blob/0d4353cc274604236bdaece6734b42fddec6f970/index.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca.../v1/models",
-    "value_sha256": "6f5367cf2e07aa9cec3e6dc4141bf07a43989258083c7134569f608b3b2d7b92"
   },
   {
     "base_url_sha256": [
@@ -3249,69 +3449,6 @@
   },
   {
     "base_url_sha256": [
-      "bb2812b6ba340ccb3f41082e772ad84ce8777d828c9f331eefee75cfab4a6c95"
-    ],
-    "base_urls_redacted": [
-      "http://my-e.../v1"
-    ],
-    "first_seen_at": "2026-07-07T09:55:28Z",
-    "id": "435131d68455c76d6556",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "Qwen",
-      "gpt-5.5",
-      "gpt-5.x"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "[Bug]: custom_providers[].extra_body silently dropped on gateway/messaging paths (CLI works) # Bug: `custom_providers[].extra_body` silently dropped on gateway/messaging paths (CLI works) ## Summary `custom_providers[].extra_body` (documented in [AI Providers](https://hermes-agent.nousresearch.com/docs/integrations/providers) and merged at init time by `_...",
-        "fetched_at": "2026-07-07T09:54:12Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "[Bug]: custom_providers[].extra_body silently dropped on gateway/messaging paths (CLI works)",
-        "url": "https://github.com/NousResearch/hermes-agent/issues/54922"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://my-e.../v1",
-    "value_sha256": "bb2812b6ba340ccb3f41082e772ad84ce8777d828c9f331eefee75cfab4a6c95"
-  },
-  {
-    "base_url_sha256": [
-      "143347299031f30ddbf478757683c5c06b6c44e89bb92cb2e990876ecea8e84d"
-    ],
-    "base_urls_redacted": [
-      "https://api...z.ai/api/coding/paas/v4"
-    ],
-    "first_seen_at": "2026-07-07T09:55:28Z",
-    "id": "6aa18e7c8a2652f5b862",
-    "last_seen_at": "2026-07-07T09:55:28Z",
-    "models": [
-      "glm-5.2",
-      "GLM-5.x"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "[Bug]: Z.ai 429/code 1305 persists on chat/completions path — #47685 fix only covers anthropic adapter ## Summary Issue #47685 was closed as COMPLETED, but the prompt-sensitive 429/1305 from Z.ai Coding Plan **still reproduces** on the OpenAI chat/completions code path (the path `zai` provider uses by default). The existing mitigation only covers the Anth...",
-        "fetched_at": "2026-07-07T09:54:12Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "[Bug]: Z.ai 429/code 1305 persists on chat/completions path — #47685 fix only covers anthropic adapter",
-        "url": "https://github.com/NousResearch/hermes-agent/issues/53002"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...z.ai/api/coding/paas/v4",
-    "value_sha256": "143347299031f30ddbf478757683c5c06b6c44e89bb92cb2e990876ecea8e84d"
-  },
-  {
-    "base_url_sha256": [
       "7866d63830422cd421667c95360eaf1d8819f6f603bd2d479450e06cf01cb023"
     ],
     "base_urls_redacted": [
@@ -3967,143 +4104,6 @@
     "type": "base_url",
     "value_redacted": "https://das...aliyuncs.com/compatible-mode/v1",
     "value_sha256": "d3f03890b42564791e97759827c29adaaed0ccbfa8e04031c62b770dbe6e11aa"
-  },
-  {
-    "base_url_sha256": [
-      "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
-    ],
-    "base_urls_redacted": [
-      "http://127...0.0.1:11434/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "f65f175154aa130f7cc6",
-    "last_seen_at": "2026-07-07T09:39:42Z",
-    "models": [
-      "qwen2.5",
-      "claude-opus-4-6",
-      "claude-sonnet-4-6",
-      "claude-haiku-4-5-20251213",
-      "gpt-4.1-mini",
-      "qwen-plus",
-      "qwen2.5-coder",
-      "llama3.2",
-      "Qwen",
-      "qwen",
-      "qwen-max",
-      "qwen-qwq",
-      "grok-3",
-      "grok-mini",
-      "grok-3-mini",
-      "grok-2"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 3,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T09:37:17Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "SatyamPote/Blood-Candy/USAGE.md",
-        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
-      },
-      {
-        "excerpt": "AAClause/nvda-OpenAI/readme.md GitHub code result: AAClause/nvda-OpenAI/readme.md If you want a dedicated desktop experience with additional workflows, see [BasiliskLLM](https://github.com/SigmaNight/basiliskLLM/) (standalone app plus a minimal NVDA add-on). AI-Hub remains a full-featured option inside NVDA. # AI-Hub **AI-Hub** is an NVDA add-on that conn...",
-        "fetched_at": "2026-07-07T08:50:04Z",
-        "query": "\"MISTRAL_API_KEY\"",
-        "source": "github_code",
-        "title": "AAClause/nvda-OpenAI/readme.md",
-        "url": "https://github.com/AAClause/nvda-OpenAI/blob/3f91cc6b55386ccdd627ac5c8df60b4d15c2c92b/readme.md"
-      },
-      {
-        "excerpt": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed) ## Summary Binding a capability to a `kind: openai` provider pointed at a **trusted local** endpoint (Ollama/vLLM/LM Studio) fails with `OPENAI_AUTH: missing OpenAI API key` unless an `api_key` is set — even though the README states a trusted-netw...",
-        "fetched_at": "2026-07-07T04:36:44Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
-        "source": "github_issues",
-        "title": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed)",
-        "url": "https://github.com/dirstral/dir2mcp/issues/498"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://127...0.0.1:11434/v1",
-    "value_sha256": "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
-  },
-  {
-    "base_url_sha256": [
-      "0121783acd70272b07eae5af255f4fbf2362a61e32e0ef38b460878f5159104f"
-    ],
-    "base_urls_redacted": [
-      "http://loca..."
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "6febf0ec84801be743b0",
-    "last_seen_at": "2026-07-07T09:39:42Z",
-    "models": [
-      "llama3.2",
-      "gpt-4o",
-      "claude-3-5-sonnet-20241022"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "axon011/rag-eval-system/API.md GitHub code result: axon011/rag-eval-system/API.md # RAG Q&A System - API Endpoints ## Base URL ``` http://localhost:8000 ``` ## Interactive Documentation - **Swagger UI**: http://localhost:8000/docs - **ReDoc**: http://localhost:8000/redoc --- ## LLM Provider Configuration The system supports multiple LLM providers. Configu...",
-        "fetched_at": "2026-07-07T09:37:14Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "axon011/rag-eval-system/API.md",
-        "url": "https://github.com/axon011/rag-eval-system/blob/d18ced17865686ec4c15d1cbd0a6bb172f1f1d5d/API.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://loca...",
-    "value_sha256": "0121783acd70272b07eae5af255f4fbf2362a61e32e0ef38b460878f5159104f"
-  },
-  {
-    "base_url_sha256": [
-      "87459d11adee7bce23cb37e9d210800e77403ecd52229858300b9215af0ed0fd"
-    ],
-    "base_urls_redacted": [
-      "http://127...0.0.1:8000/v1"
-    ],
-    "first_seen_at": "2026-07-07T09:39:42Z",
-    "id": "afdffc5329f14a63929d",
-    "last_seen_at": "2026-07-07T09:39:42Z",
-    "models": [
-      "claude-opus-4-6",
-      "claude-sonnet-4-6",
-      "claude-haiku-4-5-20251213",
-      "gpt-4.1-mini",
-      "qwen-plus",
-      "qwen2.5-coder",
-      "llama3.2",
-      "Qwen",
-      "qwen",
-      "qwen-max",
-      "qwen-qwq",
-      "grok-3",
-      "grok-mini",
-      "grok-3-mini",
-      "grok-2"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "SatyamPote/Blood-Candy/USAGE.md GitHub code result: SatyamPote/Blood-Candy/USAGE.md # Claw Code Usage This guide covers the current Rust workspace under `rust/` and the `bloodcandy` CLI binary. If you are brand new, make the doctor health check your first run: start `bloodcandy`, then run `/doctor`. ## Quick-start health check Run this before prompts, ses...",
-        "fetched_at": "2026-07-07T09:37:17Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_code",
-        "title": "SatyamPote/Blood-Candy/USAGE.md",
-        "url": "https://github.com/SatyamPote/Blood-Candy/blob/a1d339610443b5175e70444d4d7aecc86362598c/USAGE.md"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://127...0.0.1:8000/v1",
-    "value_sha256": "87459d11adee7bce23cb37e9d210800e77403ecd52229858300b9215af0ed0fd"
   },
   {
     "base_url_sha256": [
