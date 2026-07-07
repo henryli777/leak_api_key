@@ -48,6 +48,19 @@ def merge_findings(existing: list[dict[str, Any]], incoming: list[dict[str, Any]
         current["base_urls_redacted"] = _merge_list(current.get("base_urls_redacted", []), item.get("base_urls_redacted", []), 25)
         current["base_url_sha256"] = _merge_list(current.get("base_url_sha256", []), item.get("base_url_sha256", []), 50)
         current["sources"] = _merge_sources(current.get("sources", []), item.get("sources", []))
+        current["base_url_sources"] = _merge_sources(current.get("base_url_sources", []), item.get("base_url_sources", []))
+        for field in ("key_redacted", "key_sha256", "base_url_redacted", "raw_value", "raw_base_url"):
+            if item.get(field) and not current.get(field):
+                current[field] = item[field]
+        if item.get("raw_base_urls") and not current.get("raw_base_urls"):
+            current["raw_base_urls"] = item["raw_base_urls"]
+        current["validation_candidate"] = bool(current.get("validation_candidate") or item.get("validation_candidate"))
+        current["has_raw_validation_material"] = bool(
+            current.get("has_raw_validation_material") or item.get("has_raw_validation_material")
+        )
+        if _base_url_source_rank(item.get("base_url_source")) > _base_url_source_rank(current.get("base_url_source")):
+            current["base_url_source"] = item.get("base_url_source")
+            current["is_fallback_base_url"] = bool(item.get("is_fallback_base_url"))
 
     merged = sorted(by_id.values(), key=finding_sort_key, reverse=True)
     return merged, new_items
@@ -85,3 +98,7 @@ def _merge_sources(left: list[dict[str, Any]], right: list[dict[str, Any]], limi
         if len(merged) >= limit:
             break
     return merged
+
+
+def _base_url_source_rank(value: str | None) -> int:
+    return {"historical_fallback": 1, "same_hit": 2}.get(str(value or ""), 0)

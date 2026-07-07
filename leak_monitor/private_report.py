@@ -142,13 +142,17 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
       const findings = payload.findings || [];
       const rows = findings.map((item) => {{
         const source = (item.sources || [{{}}])[0];
-        const value = item.raw_value || item.value_redacted || (item.raw_base_urls || []).join(", ");
+        const keyValue = item.raw_value || item.key_redacted || (item.type !== "base_url" ? item.value_redacted : "");
+        const baseUrl = item.raw_base_url || item.base_url_redacted || (item.raw_base_urls || []).join(", ") || (item.base_urls_redacted || []).join(", ") || (item.type === "base_url" ? item.value_redacted : "");
+        const pairSource = item.base_url_source === "same_hit" ? "同一线索发现" : (item.base_url_source === "historical_fallback" ? "历史 base_url 备选" : "");
+        const evidence = item.public_evidence_label || "";
         const models = (item.models || []).join(", ");
         return `<tr>
           <td>${{escapeHtml(item.severity)}}</td>
           <td>${{escapeHtml(item.type)}}</td>
           <td>${{escapeHtml(item.provider)}}</td>
-          <td><code>${{escapeHtml(value)}}</code></td>
+          <td><code>${{escapeHtml(keyValue)}}</code></td>
+          <td><code>${{escapeHtml(baseUrl)}}</code><div class="excerpt">${{escapeHtml(pairSource)}}</div><div class="excerpt">${{escapeHtml(evidence)}}</div></td>
           <td>${{escapeHtml(models)}}</td>
           <td><a href="${{escapeHtml(source.url)}}">${{escapeHtml(source.title || source.url)}}</a><div class="excerpt">${{escapeHtml(source.excerpt || "")}}</div></td>
           <td>${{escapeHtml(item.last_seen_at || "")}}</td>
@@ -161,8 +165,8 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
           <div class="metric"><span>生成时间</span><strong style="font-size:15px">${{escapeHtml(health.build_time_cn || health.build_time_utc || "")}}</strong></div>
         </div>
         <table>
-          <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>明文值</th><th>模型</th><th>来源</th><th>最后发现</th></tr></thead>
-          <tbody>${{rows || '<tr><td colspan="7">暂无线索</td></tr>'}}</tbody>
+          <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>密钥</th><th>base_url</th><th>模型</th><th>来源</th><th>最后发现</th></tr></thead>
+          <tbody>${{rows || '<tr><td colspan="8">暂无线索</td></tr>'}}</tbody>
         </table>`;
       document.getElementById("login").classList.add("hidden");
       document.getElementById("report").classList.remove("hidden");

@@ -4,7 +4,6 @@ import base64
 import os
 import re
 import time
-from datetime import datetime, timezone
 from typing import Any, Iterable
 from urllib.parse import quote_plus
 
@@ -12,6 +11,7 @@ import requests
 
 from .config import AppConfig
 from .models import SearchHit, SourceStats
+from .timeutils import DEFAULT_TIMEZONE, now_iso
 
 
 DEFAULT_UA = (
@@ -21,10 +21,11 @@ DEFAULT_UA = (
 
 
 class GitHubSource:
-    def __init__(self, token: str | None, per_query: int, delay_seconds: float) -> None:
+    def __init__(self, token: str | None, per_query: int, delay_seconds: float, timezone_name: str = DEFAULT_TIMEZONE) -> None:
         self.token = token
         self.per_query = per_query
         self.delay_seconds = delay_seconds
+        self.timezone_name = timezone_name
         self.session = requests.Session()
         self.session.headers.update(
             {
@@ -82,7 +83,7 @@ class GitHubSource:
                     title=title,
                     snippet=f"GitHub code result: {title}",
                     content=content,
-                    fetched_at=utc_now(),
+                    fetched_at=utc_now(self.timezone_name),
                     metadata={"repo": repo, "path": path},
                 )
             )
@@ -129,7 +130,7 @@ class GitHubSource:
                     title=item.get("title") or "",
                     snippet=item.get("body") or "",
                     content="",
-                    fetched_at=utc_now(),
+                    fetched_at=utc_now(self.timezone_name),
                     metadata={"state": item.get("state"), "updated_at": item.get("updated_at")},
                 )
             )
@@ -137,11 +138,19 @@ class GitHubSource:
 
 
 class GoogleSerpApiSource:
-    def __init__(self, api_keys: list[str], per_query: int, delay_seconds: float, fetch_pages: bool = False) -> None:
+    def __init__(
+        self,
+        api_keys: list[str],
+        per_query: int,
+        delay_seconds: float,
+        fetch_pages: bool = False,
+        timezone_name: str = DEFAULT_TIMEZONE,
+    ) -> None:
         self.api_keys = api_keys
         self.per_query = per_query
         self.delay_seconds = delay_seconds
         self.fetch_pages = fetch_pages
+        self.timezone_name = timezone_name
         self.key_index = 0
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": DEFAULT_UA, "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"})
@@ -189,7 +198,7 @@ class GoogleSerpApiSource:
                         title=item.get("title") or "",
                         snippet=item.get("snippet") or "",
                         content=content,
-                        fetched_at=utc_now(),
+                        fetched_at=utc_now(self.timezone_name),
                         metadata={"position": item.get("position"), "displayed_link": item.get("displayed_link")},
                     )
                 )
@@ -235,13 +244,19 @@ def run_sources(cfg: AppConfig, queries: list[str], requested_sources: set[str])
     stats: list[SourceStats] = []
 
     if "github" in requested_sources and cfg.github.enabled:
-        source = GitHubSource(os.getenv("GITHUB_TOKEN"), cfg.github.per_query, cfg.github.delay_seconds)
+        source = GitHubSource(os.getenv("GITHUB_TOKEN"), cfg.github.per_query, cfg.github.delay_seconds, cfg.timezone)
         source_hits, source_stats = source.search(queries)
         hits.extend(source_hits)
         stats.append(source_stats)
 
     if "google" in requested_sources and cfg.google.enabled:
-        source = GoogleSerpApiSource(load_serpapi_keys(), cfg.google.per_query, cfg.google.delay_seconds, cfg.google.fetch_pages)
+        source = GoogleSerpApiSource(
+            load_serpapi_keys(),
+            cfg.google.per_query,
+            cfg.google.delay_seconds,
+            cfg.google.fetch_pages,
+            cfg.timezone,
+        )
         source_hits, source_stats = source.search(queries)
         hits.extend(source_hits)
         stats.append(source_stats)
@@ -249,8 +264,8 @@ def run_sources(cfg: AppConfig, queries: list[str], requested_sources: set[str])
     return hits, stats
 
 
-def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+def utc_now(timezone_name: str = DEFAULT_TIMEZONE) -> str:
+    return now_iso(timezone_name)
 
 
 def github_search_url(query: str) -> str:

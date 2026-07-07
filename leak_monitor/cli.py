@@ -11,6 +11,7 @@ from .authorized_validator import build_authorized_validation_report_from_env, e
 from .detectors import analyze_hit
 from .models import SearchHit
 from .notify import notify_dingtalk
+from .pairing import collect_base_url_candidates, normalize_finding_timezones, pair_credential_findings, prepare_findings
 from .private_report import emit_private_report
 from .report import build_health, emit_report
 from .sources import run_sources, utc_now
@@ -52,7 +53,7 @@ def run_scan(args: argparse.Namespace) -> int:
     hits, source_stats = run_sources(cfg, queries, requested_sources)
     print(f"hits={len(hits)}")
 
-    now_iso = utc_now()
+    now_iso = utc_now(cfg.timezone)
     incoming: list[dict[str, Any]] = []
     private_incoming: list[dict[str, Any]] = []
     private_report_enabled = bool(os.getenv("PRIVATE_REPORT_PASSWORD", "").strip())
@@ -64,7 +65,10 @@ def run_scan(args: argparse.Namespace) -> int:
 
     data_dir = Path(args.data_dir)
     findings_path = data_dir / "findings.json"
-    existing = read_json(findings_path, [])
+    existing = prepare_findings(read_json(findings_path, []), cfg.timezone)
+    incoming = normalize_finding_timezones(incoming, cfg.timezone)
+    fallback_candidates = collect_base_url_candidates([*existing, *incoming])
+    incoming = pair_credential_findings(incoming, fallback_candidates)
     merged, new_findings = merge_findings(existing, incoming)
     health = build_health(merged, new_findings, source_stats, len(queries), cfg.timezone)
 
@@ -77,6 +81,9 @@ def run_scan(args: argparse.Namespace) -> int:
         emit_report(args.output_dir, merged, new_findings, health, validation_report)
         emit_validation_report(args.output_dir, validation_report)
         if private_report_enabled:
+            private_incoming = normalize_finding_timezones(private_incoming, cfg.timezone)
+            private_fallback_candidates = collect_base_url_candidates([*private_incoming, *existing])
+            private_incoming = pair_credential_findings(private_incoming, private_fallback_candidates)
             private_findings, _ = merge_findings([], private_incoming)
             generated = emit_private_report(args.output_dir, private_findings, health)
             print(f"private_report_generated={generated}")

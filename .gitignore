@@ -14,3 +14,12 @@ dist/
 # Never store real keys or webhook material in the repository.
 keys
 *.secret
+
+# Local live validation inputs/history may contain sensitive material.
+authorized-targets.csv
+secrets.csv
+base-url-library.csv
+validation-history.json
+validation-results.json
+validation-results.csv
+validation-available.csv

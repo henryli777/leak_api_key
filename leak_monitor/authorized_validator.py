@@ -5,12 +5,13 @@ import json
 import os
 import time
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin
 
 import requests
+
+from .timeutils import DEFAULT_TIMEZONE, now_iso
 
 
 DEFAULT_MODEL_LIBRARY = [
@@ -111,19 +112,25 @@ def validate_targets(targets: list[ValidationTarget]) -> dict[str, Any]:
     results = [validate_target(target) for target in targets]
     ok_models_total = sum(len(item.get("ok_models") or []) for item in results)
     tested_models_total = sum(int(item.get("tested_models") or 0) for item in results)
+    failed_models_total = max(tested_models_total - ok_models_total, 0)
     return {
+        "validation_mode": "authorized_backend_live_test",
+        "real_backend_validation": True,
+        "uses_leaked_findings": False,
         "started_at": started_at,
         "finished_at": utc_now(),
         "target_count": len(targets),
         "ok_targets": sum(1 for item in results if item.get("ok")),
         "tested_models": tested_models_total,
         "ok_models": ok_models_total,
+        "failed_models": failed_models_total,
         "results": results,
         "default_model_library": DEFAULT_MODEL_LIBRARY,
     }
 
 
 def validate_target(target: ValidationTarget) -> dict[str, Any]:
+    validation_started_at = utc_now()
     session = requests.Session()
     session.headers.update(
         {
@@ -151,20 +158,26 @@ def validate_target(target: ValidationTarget) -> dict[str, Any]:
         time.sleep(0.2)
 
     ok_models = [item["model"] for item in tests if item.get("ok")]
+    failed_models = [item["model"] for item in tests if not item.get("ok")]
     return {
         "name": target.name,
         "base_url": base_url,
+        "validated_by_backend": True,
+        "validation_started_at": validation_started_at,
+        "validation_finished_at": utc_now(),
         "models_endpoint": model_result,
         "model_source": model_source,
         "tested_models": len(tests),
         "ok": bool(ok_models),
         "ok_models": ok_models,
+        "failed_models": failed_models,
         "tests": tests,
     }
 
 
 def fetch_models(session: requests.Session, base_url: str, timeout_seconds: int) -> dict[str, Any]:
     url = api_url(base_url, "models")
+    checked_at = utc_now()
     try:
         resp = session.get(url, timeout=timeout_seconds)
         elapsed_ms = round(resp.elapsed.total_seconds() * 1000)
@@ -172,6 +185,7 @@ def fetch_models(session: requests.Session, base_url: str, timeout_seconds: int)
             return {
                 "ok": False,
                 "source": "default_library",
+                "checked_at": checked_at,
                 "status_code": resp.status_code,
                 "elapsed_ms": elapsed_ms,
                 "error": summarize_error(resp.text),
@@ -182,6 +196,7 @@ def fetch_models(session: requests.Session, base_url: str, timeout_seconds: int)
         return {
             "ok": True,
             "source": "models_endpoint",
+            "checked_at": checked_at,
             "status_code": resp.status_code,
             "elapsed_ms": elapsed_ms,
             "models": models,
@@ -190,6 +205,7 @@ def fetch_models(session: requests.Session, base_url: str, timeout_seconds: int)
         return {
             "ok": False,
             "source": "default_library",
+            "checked_at": checked_at,
             "error": str(exc)[:300],
             "models": [],
         }
@@ -197,6 +213,7 @@ def fetch_models(session: requests.Session, base_url: str, timeout_seconds: int)
 
 def test_model(session: requests.Session, base_url: str, model: str, timeout_seconds: int) -> dict[str, Any]:
     url = api_url(base_url, "chat/completions")
+    tested_at = utc_now()
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": "ping"}],
@@ -211,6 +228,7 @@ def test_model(session: requests.Session, base_url: str, model: str, timeout_sec
             return {
                 "model": model,
                 "ok": False,
+                "tested_at": tested_at,
                 "status_code": resp.status_code,
                 "elapsed_ms": elapsed_ms,
                 "error": summarize_error(resp.text),
@@ -219,6 +237,7 @@ def test_model(session: requests.Session, base_url: str, model: str, timeout_sec
         return {
             "model": model,
             "ok": True,
+            "tested_at": tested_at,
             "status_code": resp.status_code,
             "elapsed_ms": elapsed_ms,
             "response_id": data.get("id", ""),
@@ -227,6 +246,7 @@ def test_model(session: requests.Session, base_url: str, model: str, timeout_sec
         return {
             "model": model,
             "ok": False,
+            "tested_at": tested_at,
             "error": str(exc)[:300],
         }
 
@@ -267,27 +287,33 @@ def render_validation_html(report: dict[str, Any]) -> str:
     for result in sorted(report.get("results", []), key=lambda item: (bool(item.get("ok")), len(item.get("ok_models") or []), item.get("name", "")), reverse=True):
         tests = []
         for item in sorted(result.get("tests", []), key=lambda row: (bool(row.get("ok")), row.get("elapsed_ms") or 999999), reverse=True):
-            status = '<span class="badge ok">可用</span>' if item.get("ok") else '<span class="badge fail">失败</span>'
+            status = '<span class="badge ok">可用</span>' if item.get("ok") else '<span class="badge fail">不可用</span>'
             err = item.get("error", "")
             tests.append(
                 "<tr>"
                 f"<td>{escape(item.get('model'))}</td>"
                 f"<td>{status}</td>"
+                f"<td>{escape(item.get('tested_at', ''))}</td>"
                 f"<td>{escape(item.get('status_code', ''))}</td>"
                 f"<td>{escape(item.get('elapsed_ms', ''))}</td>"
                 f"<td>{escape(err)}</td>"
                 "</tr>"
             )
         endpoint = result.get("models_endpoint", {})
-        test_rows = "".join(tests) or '<tr><td colspan="5">未测试</td></tr>'
+        test_rows = "".join(tests) or '<tr><td colspan="6">未测试</td></tr>'
+        ok_models_text = escape(", ".join(result.get("ok_models") or []) or "无")
+        failed_models_text = escape(", ".join(result.get("failed_models") or []) or "无")
         sections.append(
             "<section>"
             f"<h2>{escape(result.get('name'))}</h2>"
             f"<p><strong>base_url:</strong> <code>{escape(result.get('base_url'))}</code></p>"
+            f"<p><strong>后台验证时间:</strong> {escape(result.get('validation_started_at'))} 至 {escape(result.get('validation_finished_at'))}</p>"
             f"<p><strong>模型来源:</strong> {escape(result.get('model_source'))} | "
             f"<strong>/models:</strong> {'成功' if endpoint.get('ok') else '失败'} | "
-            f"<strong>可用模型:</strong> {escape(', '.join(result.get('ok_models') or []))}</p>"
-            "<table><thead><tr><th>模型</th><th>状态</th><th>HTTP</th><th>耗时 ms</th><th>错误</th></tr></thead>"
+            f"<strong>/models 验证时间:</strong> {escape(endpoint.get('checked_at', ''))}</p>"
+            f"<p><strong>可用模型:</strong> {ok_models_text}</p>"
+            f"<p><strong>不可用模型:</strong> {failed_models_text}</p>"
+            "<table><thead><tr><th>模型</th><th>状态</th><th>验证时间</th><th>HTTP</th><th>耗时 ms</th><th>错误</th></tr></thead>"
             f"<tbody>{test_rows}</tbody></table>"
             "</section>"
         )
@@ -302,7 +328,7 @@ def render_validation_html(report: dict[str, Any]) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>授权模型可用性测试</title>
+  <title>后台真实模型验证结果</title>
   <style>
     body {{ margin: 0; font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f8fa; color: #1f2933; }}
     header {{ padding: 22px 26px; background: #102a43; color: white; }}
@@ -327,8 +353,8 @@ def render_validation_html(report: dict[str, Any]) -> str:
 </head>
 <body>
   <header>
-    <h1>授权模型可用性测试</h1>
-    <div>完成时间: {escape(report.get("finished_at"))} | 目标: {escape(report.get("target_count"))} | 可用目标: {escape(report.get("ok_targets"))}</div>
+    <h1>后台真实模型验证结果</h1>
+    <div>验证时间: {escape(report.get("started_at"))} 至 {escape(report.get("finished_at"))} | 目标: {escape(report.get("target_count"))} | 可用目标: {escape(report.get("ok_targets"))} | 模式: 授权后台实测</div>
   </header>
   <main>
     <nav class="actions">
@@ -340,6 +366,7 @@ def render_validation_html(report: dict[str, Any]) -> str:
       <div class="metric"><span>可用目标</span><strong>{escape(report.get("ok_targets", 0))}</strong></div>
       <div class="metric"><span>测试模型</span><strong>{escape(report.get("tested_models", 0))}</strong></div>
       <div class="metric"><span>可用模型</span><strong>{escape(report.get("ok_models", 0))}</strong></div>
+      <div class="metric"><span>不可用模型</span><strong>{escape(report.get("failed_models", 0))}</strong></div>
     </section>
     {''.join(sections) or empty_state}
     <section>
@@ -376,7 +403,7 @@ def summarize_error(text: str) -> str:
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    return now_iso(DEFAULT_TIMEZONE)
 
 
 def escape(value: Any) -> str:

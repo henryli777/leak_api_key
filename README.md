@@ -8,7 +8,11 @@
 - 识别 AI 相关 `API_KEY`、`base_url`、`OPENAI_BASE_URL`、`model` 等配置。
 - 输出脱敏后的 `data/findings.json`、`dist/health.json`、`dist/findings.json` 和 HTML 报告。
 - 可选生成 `dist/private.html` 独立明文页，输入账号和密码后在浏览器本地解密查看完整值。
-- 生成 `dist/validation.html` 模型验证页；配置授权目标后会对你显式授权的 base_url/key 做 `/models` 拉取和模型可用性测试。
+- 生成 `dist/validation.html` 后台真实模型验证结果页；配置授权目标后会对你显式授权的 base_url/key 发起真实后台请求，拉取 `/models` 并测试模型可用性，同时保留验证时间。
+- 时间统一按东八区 `Asia/Shanghai` 输出。
+- 密钥线索按 `key + base_url` 配对输出；如果同一线索缺少 base_url，会用历史已收集的 base_url 生成备选验证组合并标记为历史备选。
+- 公开泄露 findings 不做未授权 live test；报告会给出公开证据强度，只有你主动配置授权凭据的目标才会进入后台真实验证。
+- 总览页提供 `findings.csv` 下载，内容为脱敏证据、哈希、配对来源和公开证据强度。
 - 对新增中高风险线索发送钉钉通知。
 - 支持后续通过 `config/targets.yml` 或 GitHub Secret `TARGETS_YAML` 设定品牌、域名、仓库、项目名等目标。
 
@@ -21,7 +25,8 @@
 - 默认不在仓库里保存完整密钥。
 - `dist/private.html` 不写入明文，只写入加密密文；需要 `PRIVATE_REPORT_PASSWORD` 才会生成。
 - 默认不抓取 Google 结果页面正文，只分析 SerpAPI 返回的标题和摘要；如需正文抓取，请仅在授权监测范围内把 `sources.google.fetch_pages` 设为 `true`。
-- 模型可用性测试只读取 `AUTHORIZED_VALIDATION_TARGETS_JSON` 中你主动配置的凭据，不会用泄露 findings 里的 key 发请求。
+- 模型可用性测试是真实后台验证，只读取 `AUTHORIZED_VALIDATION_TARGETS_JSON` 中你主动配置的凭据，不会用泄露 findings 里的 key 发请求。
+- 历史 base_url 备选配对只用于生成候选组合；公开 JSON 仍只保存脱敏 base_url 和哈希，明文值只会进入加密的 `private.html`。
 
 建议仓库保持 private，因为脱敏结果仍会包含来源 URL 和排查线索。
 
@@ -78,6 +83,42 @@ open dist/validation.html
 ```
 
 `models` 可省略。省略时会先拉 `{base_url}/models`，如果拉不到模型列表，就使用内置默认模型库测试。
+
+本地授权 CSV 验证：
+
+```bash
+cat > secrets.csv <<'CSV'
+name,api_key,key_sha256,base_url,base_url_sha256,models,max_models,timeout_seconds
+my-key,YOUR_AUTHORIZED_API_KEY,,https://api.example.com/v1,,gpt-4o-mini,8,20
+CSV
+
+./scripts/validate_authorized_models.py findings.csv \
+  --secrets-csv secrets.csv \
+  --base-url-library base-url-library.csv \
+  --history-json validation-history.json \
+  --i-am-authorized
+```
+
+输出：
+
+- `validation-results.json`：完整后台真实验证结果，不包含明文 key。
+- `validation-results.csv`：目标级摘要，不包含 key。
+- `validation-available.csv`：只包含可用组合，包含验证时间、脱敏密钥、key 哈希、可用 base_url、可用模型。
+- `validation-history.json`：本地历史记录，重复候选默认跳过。
+- `base-url-library.csv`：本地明文 base_url 基础库，会合并保存 `secrets.csv` 中出现过的 base_url。
+
+`findings.csv` 负责提供哈希索引和模型/来源信息；`secrets.csv` 负责提供本地明文 key，脚本通过 `key_sha256` 对齐。`secrets.csv` 里缺少 `key_sha256` 时会本地自动计算。某条 key 缺少可匹配 base_url 时，脚本会遍历 `base-url-library.csv` 里的 base_url 作为候选。重复验证过的 `key + base_url + models` 组合会从 `validation-history.json` 跳过；需要全量重验时加：
+
+```bash
+./scripts/validate_authorized_models.py findings.csv \
+  --secrets-csv secrets.csv \
+  --base-url-library base-url-library.csv \
+  --history-json validation-history.json \
+  --revalidate-all \
+  --i-am-authorized
+```
+
+脚本只应用于你有权验证的 `base_url + api_key`。网页下载的 `findings.csv` 不包含明文 key，不能单独作为验证输入。
 
 ## 目标配置
 
@@ -149,7 +190,8 @@ targets:
 - `data/last_run.json`：最近一次运行健康状态。
 - `dist/index.html`：本轮 HTML 报告，Actions 上传为 artifact。
 - `dist/private.html`：可选明文登录页，只有设置 `PRIVATE_REPORT_PASSWORD` 时生成。
-- `dist/validation.html`：授权模型可用性测试页；未配置授权目标时显示空状态和默认模型库。
+- `dist/validation.html`：后台真实模型验证结果页；展示可用/不可用模型和验证时间，未配置授权目标时显示空状态和默认模型库。
 - `dist/validation.json`：授权模型可用性测试数据，不包含 key。
+- `dist/findings.csv`：脱敏证据 CSV，可从总览页下载。
 - `dist/health.json`：统计摘要。
-- `dist/findings.json`：脱敏后的报告数据。
+- `dist/findings.json`：脱敏后的报告数据；credential 会规范成 `credential_pair`，包含密钥和 base_url 的一组候选。
