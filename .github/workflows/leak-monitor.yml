@@ -62,6 +62,7 @@ jobs:
           DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
           PRIVATE_REPORT_USER: ${{ secrets.PRIVATE_REPORT_USER }}
           PRIVATE_REPORT_PASSWORD: ${{ secrets.PRIVATE_REPORT_PASSWORD }}
+          AUTHORIZED_VALIDATION_TARGETS_JSON: ${{ secrets.AUTHORIZED_VALIDATION_TARGETS_JSON }}
         run: |
           SOURCES="${{ github.event.inputs.sources || 'github,google' }}"
           MAX_QUERIES="${{ github.event.inputs.max_queries || '24' }}"

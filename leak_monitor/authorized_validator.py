@@ -1,0 +1,339 @@
+from __future__ import annotations
+
+import html
+import json
+import os
+import time
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+from urllib.parse import urljoin
+
+import requests
+
+
+DEFAULT_MODEL_LIBRARY = [
+    "gpt-4o-mini",
+    "gpt-4o",
+    "gpt-4.1-mini",
+    "gpt-4.1",
+    "claude-3-5-haiku-latest",
+    "claude-3-5-sonnet-latest",
+    "deepseek-chat",
+    "deepseek-reasoner",
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
+    "qwen-plus",
+    "qwen-turbo",
+    "llama-3.1-8b-instant",
+    "mistral-small-latest",
+    "grok-3-mini",
+]
+
+
+CHAT_HINTS = (
+    "gpt",
+    "chat",
+    "claude",
+    "deepseek",
+    "gemini",
+    "qwen",
+    "llama",
+    "mistral",
+    "grok",
+    "glm",
+    "kimi",
+)
+
+
+@dataclass(slots=True)
+class ValidationTarget:
+    name: str
+    base_url: str
+    api_key: str
+    models: list[str]
+    timeout_seconds: int = 20
+    max_models: int = 12
+
+
+def run_authorized_validation_from_env(output_dir: str | Path) -> bool:
+    raw = os.getenv("AUTHORIZED_VALIDATION_TARGETS_JSON", "").strip()
+    if not raw:
+        return False
+    targets = load_targets(raw)
+    report = validate_targets(targets)
+    emit_validation_report(output_dir, report)
+    return True
+
+
+def load_targets(raw_json: str) -> list[ValidationTarget]:
+    data = json.loads(raw_json)
+    if isinstance(data, dict):
+        data = data.get("targets", [])
+    if not isinstance(data, list):
+        raise ValueError("AUTHORIZED_VALIDATION_TARGETS_JSON must be a list or an object with targets")
+
+    targets: list[ValidationTarget] = []
+    for idx, item in enumerate(data, 1):
+        if not isinstance(item, dict):
+            continue
+        base_url = str(item.get("base_url") or "").strip()
+        api_key = str(item.get("api_key") or "").strip()
+        if not base_url or not api_key:
+            continue
+        models_raw = item.get("models") or []
+        if isinstance(models_raw, str):
+            models = [part.strip() for part in models_raw.replace("\n", ",").split(",") if part.strip()]
+        else:
+            models = [str(model).strip() for model in models_raw if str(model).strip()]
+        targets.append(
+            ValidationTarget(
+                name=str(item.get("name") or f"target-{idx}").strip(),
+                base_url=base_url,
+                api_key=api_key,
+                models=models,
+                timeout_seconds=int(item.get("timeout_seconds") or 20),
+                max_models=int(item.get("max_models") or 12),
+            )
+        )
+    return targets
+
+
+def validate_targets(targets: list[ValidationTarget]) -> dict[str, Any]:
+    started_at = utc_now()
+    results = [validate_target(target) for target in targets]
+    return {
+        "started_at": started_at,
+        "finished_at": utc_now(),
+        "target_count": len(targets),
+        "ok_targets": sum(1 for item in results if item.get("ok")),
+        "results": results,
+        "default_model_library": DEFAULT_MODEL_LIBRARY,
+    }
+
+
+def validate_target(target: ValidationTarget) -> dict[str, Any]:
+    session = requests.Session()
+    session.headers.update(
+        {
+            "Authorization": f"Bearer {target.api_key}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "leak-api-key-authorized-validator/1.0",
+        }
+    )
+    base_url = normalize_base_url(target.base_url)
+    model_result = fetch_models(session, base_url, target.timeout_seconds)
+    model_ids = target.models or model_result.get("models") or []
+    model_source = "configured" if target.models else model_result.get("source", "models_endpoint")
+    if not model_ids:
+        model_ids = DEFAULT_MODEL_LIBRARY
+        model_source = "default_library"
+    model_ids = filter_chat_models(model_ids)[: target.max_models]
+    if not model_ids:
+        model_ids = DEFAULT_MODEL_LIBRARY[: target.max_models]
+        model_source = "default_library"
+
+    tests = []
+    for model in model_ids:
+        tests.append(test_model(session, base_url, model, target.timeout_seconds))
+        time.sleep(0.2)
+
+    ok_models = [item["model"] for item in tests if item.get("ok")]
+    return {
+        "name": target.name,
+        "base_url": base_url,
+        "models_endpoint": model_result,
+        "model_source": model_source,
+        "tested_models": len(tests),
+        "ok": bool(ok_models),
+        "ok_models": ok_models,
+        "tests": tests,
+    }
+
+
+def fetch_models(session: requests.Session, base_url: str, timeout_seconds: int) -> dict[str, Any]:
+    url = api_url(base_url, "models")
+    try:
+        resp = session.get(url, timeout=timeout_seconds)
+        elapsed_ms = round(resp.elapsed.total_seconds() * 1000)
+        if resp.status_code >= 400:
+            return {
+                "ok": False,
+                "source": "default_library",
+                "status_code": resp.status_code,
+                "elapsed_ms": elapsed_ms,
+                "error": summarize_error(resp.text),
+                "models": [],
+            }
+        data = resp.json()
+        models = parse_model_ids(data)
+        return {
+            "ok": True,
+            "source": "models_endpoint",
+            "status_code": resp.status_code,
+            "elapsed_ms": elapsed_ms,
+            "models": models,
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "source": "default_library",
+            "error": str(exc)[:300],
+            "models": [],
+        }
+
+
+def test_model(session: requests.Session, base_url: str, model: str, timeout_seconds: int) -> dict[str, Any]:
+    url = api_url(base_url, "chat/completions")
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": "ping"}],
+        "temperature": 0,
+        "max_tokens": 1,
+        "stream": False,
+    }
+    try:
+        resp = session.post(url, json=payload, timeout=timeout_seconds)
+        elapsed_ms = round(resp.elapsed.total_seconds() * 1000)
+        if resp.status_code >= 400:
+            return {
+                "model": model,
+                "ok": False,
+                "status_code": resp.status_code,
+                "elapsed_ms": elapsed_ms,
+                "error": summarize_error(resp.text),
+            }
+        data = resp.json()
+        return {
+            "model": model,
+            "ok": True,
+            "status_code": resp.status_code,
+            "elapsed_ms": elapsed_ms,
+            "response_id": data.get("id", ""),
+        }
+    except Exception as exc:
+        return {
+            "model": model,
+            "ok": False,
+            "error": str(exc)[:300],
+        }
+
+
+def parse_model_ids(data: Any) -> list[str]:
+    raw_items = data.get("data", []) if isinstance(data, dict) else data
+    models: list[str] = []
+    if not isinstance(raw_items, list):
+        return models
+    for item in raw_items:
+        if isinstance(item, str):
+            models.append(item)
+        elif isinstance(item, dict) and item.get("id"):
+            models.append(str(item["id"]))
+    return list(dict.fromkeys(models))
+
+
+def filter_chat_models(models: list[str]) -> list[str]:
+    out: list[str] = []
+    for model in models:
+        low = model.lower()
+        if any(skip in low for skip in ("embedding", "embed", "rerank", "tts", "whisper", "image", "audio", "moderation")):
+            continue
+        if any(hint in low for hint in CHAT_HINTS):
+            out.append(model)
+    return list(dict.fromkeys(out))
+
+
+def emit_validation_report(output_dir: str | Path, report: dict[str, Any]) -> None:
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "validation.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    (out / "validation.html").write_text(render_validation_html(report), encoding="utf-8")
+
+
+def render_validation_html(report: dict[str, Any]) -> str:
+    sections = []
+    for result in report.get("results", []):
+        tests = []
+        for item in result.get("tests", []):
+            status = "可用" if item.get("ok") else "失败"
+            err = item.get("error", "")
+            tests.append(
+                "<tr>"
+                f"<td>{escape(item.get('model'))}</td>"
+                f"<td>{status}</td>"
+                f"<td>{escape(item.get('status_code', ''))}</td>"
+                f"<td>{escape(item.get('elapsed_ms', ''))}</td>"
+                f"<td>{escape(err)}</td>"
+                "</tr>"
+            )
+        endpoint = result.get("models_endpoint", {})
+        sections.append(
+            "<section>"
+            f"<h2>{escape(result.get('name'))}</h2>"
+            f"<p><strong>base_url:</strong> <code>{escape(result.get('base_url'))}</code></p>"
+            f"<p><strong>模型来源:</strong> {escape(result.get('model_source'))} | "
+            f"<strong>/models:</strong> {'成功' if endpoint.get('ok') else '失败'} | "
+            f"<strong>可用模型:</strong> {escape(', '.join(result.get('ok_models') or []))}</p>"
+            "<table><thead><tr><th>模型</th><th>状态</th><th>HTTP</th><th>耗时 ms</th><th>错误</th></tr></thead>"
+            f"<tbody>{''.join(tests) or '<tr><td colspan=\"5\">未测试</td></tr>'}</tbody></table>"
+            "</section>"
+        )
+    return f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>授权模型可用性测试</title>
+  <style>
+    body {{ margin: 0; font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f8fa; color: #1f2933; }}
+    header {{ padding: 22px 26px; background: #102a43; color: white; }}
+    main {{ padding: 22px 26px; }}
+    section {{ margin-bottom: 22px; }}
+    table {{ width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }}
+    th, td {{ padding: 9px 10px; border-bottom: 1px solid #e6edf3; text-align: left; vertical-align: top; }}
+    th {{ background: #eef3f8; }}
+    code {{ word-break: break-all; }}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>授权模型可用性测试</h1>
+    <div>完成时间: {escape(report.get("finished_at"))} | 目标: {escape(report.get("target_count"))} | 可用目标: {escape(report.get("ok_targets"))}</div>
+  </header>
+  <main>{''.join(sections) or '<p>未配置授权验证目标。</p>'}</main>
+</body>
+</html>
+"""
+
+
+def normalize_base_url(base_url: str) -> str:
+    return base_url.strip().rstrip("/") + "/"
+
+
+def api_url(base_url: str, path: str) -> str:
+    return urljoin(base_url, path)
+
+
+def summarize_error(text: str) -> str:
+    try:
+        data = json.loads(text)
+        if isinstance(data, dict):
+            error = data.get("error")
+            if isinstance(error, dict):
+                return str(error.get("message") or error.get("code") or error)[:300]
+            if error:
+                return str(error)[:300]
+            return json.dumps(data, ensure_ascii=False)[:300]
+    except Exception:
+        pass
+    return (text or "").replace("\n", " ")[:300]
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+
+
+def escape(value: Any) -> str:
+    return html.escape(str(value if value is not None else ""))

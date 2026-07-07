@@ -8,6 +8,7 @@
 - 识别 AI 相关 `API_KEY`、`base_url`、`OPENAI_BASE_URL`、`model` 等配置。
 - 输出脱敏后的 `data/findings.json`、`dist/health.json`、`dist/findings.json` 和 HTML 报告。
 - 可选生成 `dist/private.html` 独立明文页，输入账号和密码后在浏览器本地解密查看完整值。
+- 可选对你显式授权配置的 base_url/key 做 `/models` 拉取和模型可用性测试。
 - 对新增中高风险线索发送钉钉通知。
 - 支持后续通过 `config/targets.yml` 或 GitHub Secret `TARGETS_YAML` 设定品牌、域名、仓库、项目名等目标。
 
@@ -20,6 +21,7 @@
 - 默认不在仓库里保存完整密钥。
 - `dist/private.html` 不写入明文，只写入加密密文；需要 `PRIVATE_REPORT_PASSWORD` 才会生成。
 - 默认不抓取 Google 结果页面正文，只分析 SerpAPI 返回的标题和摘要；如需正文抓取，请仅在授权监测范围内把 `sources.google.fetch_pages` 设为 `true`。
+- 模型可用性测试只读取 `AUTHORIZED_VALIDATION_TARGETS_JSON` 中你主动配置的凭据，不会用泄露 findings 里的 key 发请求。
 
 建议仓库保持 private，因为脱敏结果仍会包含来源 URL 和排查线索。
 
@@ -59,6 +61,24 @@ python main.py scan --sources github --max-queries 4
 open dist/private.html
 ```
 
+授权模型可用性测试：
+
+```bash
+export AUTHORIZED_VALIDATION_TARGETS_JSON='[
+  {
+    "name": "my-openai-compatible",
+    "base_url": "https://api.example.com/v1",
+    "api_key": "YOUR_AUTHORIZED_API_KEY",
+    "models": ["gpt-4o-mini"],
+    "max_models": 8
+  }
+]'
+python main.py scan --sources github --max-queries 1
+open dist/validation.html
+```
+
+`models` 可省略。省略时会先拉 `{base_url}/models`，如果拉不到模型列表，就使用内置默认模型库测试。
+
 ## 目标配置
 
 复制 `config/targets.example.yml` 为 `config/targets.yml` 后填写：
@@ -94,6 +114,7 @@ targets:
 - `DINGTALK_SECRET`：可选，钉钉加签密钥。
 - `PRIVATE_REPORT_USER`：可选，明文页登录账号，默认 `admin`。
 - `PRIVATE_REPORT_PASSWORD`：可选，明文页解密密码；设置后 Actions artifact 里会生成 `private.html`。
+- `AUTHORIZED_VALIDATION_TARGETS_JSON`：可选，授权验证目标 JSON。只用于你自己的 base_url/key，不从泄露结果里取 key。
 
 `GITHUB_TOKEN` 使用 Actions 自动注入的 `github.token`，不需要手动配置。
 
@@ -127,5 +148,7 @@ targets:
 - `data/last_run.json`：最近一次运行健康状态。
 - `dist/index.html`：本轮 HTML 报告，Actions 上传为 artifact。
 - `dist/private.html`：可选明文登录页，只有设置 `PRIVATE_REPORT_PASSWORD` 时生成。
+- `dist/validation.html`：可选授权模型可用性测试页，只有设置 `AUTHORIZED_VALIDATION_TARGETS_JSON` 时生成。
+- `dist/validation.json`：授权模型可用性测试数据，不包含 key。
 - `dist/health.json`：统计摘要。
 - `dist/findings.json`：脱敏后的报告数据。

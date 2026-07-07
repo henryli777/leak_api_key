@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import build_queries, load_config
+from .authorized_validator import run_authorized_validation_from_env
 from .detectors import analyze_hit
 from .models import SearchHit
 from .notify import notify_dingtalk
@@ -77,6 +78,8 @@ def run_scan(args: argparse.Namespace) -> int:
             private_findings, _ = merge_findings([], private_incoming)
             generated = emit_private_report(args.output_dir, private_findings, health)
             print(f"private_report_generated={generated}")
+        validation_generated = run_authorized_validation_from_env(args.output_dir)
+        print(f"authorized_validation_generated={validation_generated}")
     else:
         print("dry_run=true; not writing data")
 
