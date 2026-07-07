@@ -100,6 +100,8 @@ jobs:
           cp -R dist/. /tmp/leak-api-key-pages/
           cd /tmp/leak-api-key-pages
           git init -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "chore(pages): publish leak monitor report"
           git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
