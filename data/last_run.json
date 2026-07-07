@@ -1,20 +1,20 @@
 {
-  "build_time": "2026-07-07T21:59:17+08:00",
-  "build_time_cn": "2026-07-07T21:59:17+08:00",
-  "new_findings": 464,
+  "build_time": "2026-07-07T22:08:26+08:00",
+  "build_time_cn": "2026-07-07T22:08:26+08:00",
+  "new_findings": 0,
   "query_count": 12,
   "severity_counts": {
     "high": 1881,
     "medium": 167
   },
   "source_hits": {
-    "github": 204,
+    "github": 216,
     "google_serpapi": 109
   },
   "source_stats": [
     {
-      "errors": 7,
-      "hits": 204,
+      "errors": 6,
+      "hits": 216,
       "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22XAI_API_KEY%22+%22grok%22&sort=indexed&order=desc&per_page=12",
       "queries": 12,
       "skipped": false,
