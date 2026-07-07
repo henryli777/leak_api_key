@@ -1,5 +1,85 @@
 [
   {
+    "base_url_sha256": [],
+    "base_urls_redacted": [],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "35d88cb834e750d214de",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "high",
+    "sources": [
+      {
+        "excerpt": "ZHANGXiyuan2004/VibeLaTeX/PRD.md GitHub code result: ZHANGXiyuan2004/VibeLaTeX/PRD.md # PRD：VibeLaTeX（Vibe Latex 公式工作台） ## 1. 背景与问题 在写论文、讲义、技术文档时，LaTeX 公式常见痛点： * 写得快但排版差：可读性、对齐、空格、环境选择不统一 * 渲染报错难定位：括号/环境/宏问题排查耗时 * 需要导出透明背景公式图（PPT/Keynote/Figma/网页）但工具繁琐 * 希望用 AI 自动“格式化、修复、重构、生成、解释”公式，减少重复劳动 * 期望界面简洁美观，所见即所得 ## 2. 产品定位 **VibeLaTeX** 是一个面向公式创作的轻量工作台： **实时渲染 ...",
+        "fetched_at": "2026-07-07T08:11:38Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "ZHANGXiyuan2004/VibeLaTeX/PRD.md",
+        "url": "https://github.com/ZHANGXiyuan2004/VibeLaTeX/blob/4a7c2fa6cc5e7e35cf547cc473ac5bb83c4818f7/PRD.md"
+      }
+    ],
+    "type": "credential",
+    "value_redacted": "sk-cp-Dw...CdPA",
+    "value_sha256": "ad8ee87c0393b49e970c87f9cb3ddb992b2e26a049ec28d52f1bca43ffec4cd8"
+  },
+  {
+    "base_url_sha256": [
+      "4c3e8bd032f6e63b2f97b75b9630abdb703eddcfc75f02ae11a06e52406eb3e4",
+      "d693eb2b4dd07c47e1584fba44165f6093f9d9f460a24d497427649296b9c2f9"
+    ],
+    "base_urls_redacted": [
+      "https://www...packyapi.com",
+      "https://www...packyapi.com/v1/images/generations"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "953e22ee890fe317e50d",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-image-2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "high",
+    "sources": [
+      {
+        "excerpt": "aiqinxuancai/MintImage/pr2.md GitHub code result: aiqinxuancai/MintImage/pr2.md # GPT Image Flutter — 详细需求文档 v2 > 基于 pr.md 进一步细化，补充架构、数据模型、API 参数、组件规范及测试方案。 > 最后更新：同步 pr.md 补充内容（多图附件、多组API配置、底部输入框浮动样式、源API选择器）。 --- ## 0. 开发环境准备 > 本机当前未安装 Flutter，需在开始编码前完成以下安装步骤。 | 步骤 | 操作 | |------|------| | 1 | 下载并安装 [Flutter 最新稳定版](https://docs.flutter.dev/get-started/i...",
+        "fetched_at": "2026-07-07T08:11:40Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "aiqinxuancai/MintImage/pr2.md",
+        "url": "https://github.com/aiqinxuancai/MintImage/blob/56b531d77d4ceefe6fc6e3ea5e78232f8ca5468b/pr2.md"
+      }
+    ],
+    "type": "credential",
+    "value_redacted": "sk-QuuaU...0EOQ",
+    "value_sha256": "c5ae2f2edc0bb23358d54742126e71bce64870e31613114ffd04bf024d3cbed1"
+  },
+  {
+    "base_url_sha256": [],
+    "base_urls_redacted": [],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "96836e479e84686d3140",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "groq",
+    "seen_count": 1,
+    "severity": "high",
+    "sources": [
+      {
+        "excerpt": "aviaryan/voice-writing-electron/README.md GitHub code result: aviaryan/voice-writing-electron/README.md # 🗣️📝 VoiceWriting VoiceWriting is a Whisper based Desktop application to write using your voice. It works in real-time and even fixes common grammatical, punctuation and other issues in your speech. Give it a try by following the instructions below, or...",
+        "fetched_at": "2026-07-07T08:12:31Z",
+        "query": "\"GROQ_API_KEY\" \"gsk_\"",
+        "source": "github_code",
+        "title": "aviaryan/voice-writing-electron/README.md",
+        "url": "https://github.com/aviaryan/voice-writing-electron/blob/32f962afc102f130327605925d3a7eba570e2483/README.md"
+      }
+    ],
+    "type": "credential",
+    "value_redacted": "gsk_abcd...kssd",
+    "value_sha256": "d8bc42bef83aa903812750ee39a7ff6bb452367d0d90045ecc3fae2dbdf1dad8"
+  },
+  {
     "base_url_sha256": [
       "5def5a0df183d83bced3adf5b8103be0e59b75fd1fe8623dd998f14fc9755047"
     ],
@@ -8,24 +88,24 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "567bbc14b532ac39788d",
-    "last_seen_at": "2026-07-07T04:37:14Z",
+    "last_seen_at": "2026-07-07T08:14:36Z",
     "models": [],
     "provider": "openai_compatible",
-    "seen_count": 2,
+    "seen_count": 3,
     "severity": "medium",
     "sources": [
       {
         "excerpt": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints ## Relevant issues Closes #12367 ## Linear ticket N/A ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [x] My PR passes all unit tests on [`make test-uni...",
-        "fetched_at": "2026-07-07T04:36:44Z",
-        "query": "\"api_key\" \"model\" \"base_url\"",
+        "fetched_at": "2026-07-07T08:11:27Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
         "source": "github_issues",
         "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
         "url": "https://github.com/BerriAI/litellm/pull/31026"
       },
       {
         "excerpt": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints ## Relevant issues Closes #12367 ## Linear ticket N/A ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [x] My PR passes all unit tests on [`make test-uni...",
-        "fetched_at": "2026-07-07T04:36:37Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "fetched_at": "2026-07-07T04:36:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
         "source": "github_issues",
         "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
         "url": "https://github.com/BerriAI/litellm/pull/31026"
@@ -44,7 +124,7 @@
     ],
     "first_seen_at": "2026-07-07T04:37:14Z",
     "id": "7117173ec89098daa343",
-    "last_seen_at": "2026-07-07T04:37:14Z",
+    "last_seen_at": "2026-07-07T08:14:36Z",
     "models": [
       "claude-haiku-4-5",
       "claude-sonnet-4-5",
@@ -53,9 +133,17 @@
       "mistral-ocr"
     ],
     "provider": "openai_compatible",
-    "seen_count": 4,
+    "seen_count": 5,
     "severity": "medium",
     "sources": [
+      {
+        "excerpt": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints ## Relevant issues Closes #12367 ## Linear ticket N/A ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [x] My PR passes all unit tests on [`make test-uni...",
+        "fetched_at": "2026-07-07T08:11:27Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
+        "url": "https://github.com/BerriAI/litellm/pull/31026"
+      },
       {
         "excerpt": "feat(mistral): support native web search via the Conversations API ## Relevant issues Web search requested by a customer ## Linear ticket ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [ ] My PR passes all CI/CD checks (e.g., lint, format, unit tests) - [...",
         "fetched_at": "2026-07-07T04:37:06Z",
@@ -79,19 +167,2157 @@
         "source": "github_issues",
         "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
         "url": "https://github.com/BerriAI/litellm/pull/31026"
-      },
-      {
-        "excerpt": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints ## Relevant issues Closes #12367 ## Linear ticket N/A ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [x] My PR passes all unit tests on [`make test-uni...",
-        "fetched_at": "2026-07-07T04:36:37Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_issues",
-        "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
-        "url": "https://github.com/BerriAI/litellm/pull/31026"
       }
     ],
     "type": "base_url",
     "value_redacted": "http://loca.../v1/chat/completions",
     "value_sha256": "d300590920ca54e81cdc1eb686f17eb2c40630352156cdd64a2c5fc07e2600e2"
+  },
+  {
+    "base_url_sha256": [
+      "d9617135d6fdd0a2cde722d637a1dfcc3da37515708b3ea5d66ae607c8ac785e"
+    ],
+    "base_urls_redacted": [
+      "https://api...openai.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "aa94cbf2b5ebb88e1c11",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "claude-code",
+      "gemini-2",
+      "llama3",
+      "gpt-4",
+      "gpt-4-turbo",
+      "deepseek-chat",
+      "deepseek-v3",
+      "gpt-4o-mini",
+      "gpt-5-mini"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 7,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Chat with an OpenAI model — chat_openai - ellmer - Tidyverse Usage. chat_openai( system_prompt = NULL, base_url = \"https://api.openai.com/v1\", api_key = NULL, credentials = NULL, model = NULL, params = NULL, api_args ...",
+        "fetched_at": "2026-07-07T08:13:25Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "google_serpapi",
+        "title": "Chat with an OpenAI model — chat_openai - ellmer - Tidyverse",
+        "url": "https://ellmer.tidyverse.org/reference/chat_openai.html"
+      },
+      {
+        "excerpt": "https://win-builder.r-project.org/incoming_pretest... ... sk-test\\\"\", \"OPENAI_BASE_URL=https://api.openai.com/v1\", \"OPENAI_MODEL='gpt-5-mini'\", \"# comment\" ), path) parsed <- aisdk:::read_console_env_file(path) ...",
+        "fetched_at": "2026-07-07T08:13:16Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "google_serpapi",
+        "title": "https://win-builder.r-project.org/incoming_pretest...",
+        "url": "https://win-builder.r-project.org/incoming_pretest/aisdk_1.0.0_20260323_190733/Windows/examples_and_tests/tests/testthat/test-console-setup.R"
+      },
+      {
+        "excerpt": "OpenAI Compatibility - ILMU API OPENAI_API_KEY=\"sk-openai-key\" ; OPENAI_BASE_URL=\"https://api.openai.com/v1\" ; OPENAI_API_KEY=\"YOUR_API_KEY\" ; OPENAI_BASE_URL=\"https://api.ilmu.ai/v1\".",
+        "fetched_at": "2026-07-07T08:13:16Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "google_serpapi",
+        "title": "OpenAI Compatibility - ILMU API",
+        "url": "https://docs.ilmu.ai/docs/developer-tools/openai-compatibility"
+      },
+      {
+        "excerpt": "base_url of OpenAI Client Instance Cannot Be Modified ... getenv(\"OPENAI_API_KEY\"), base_url=\"https://api.openai.com/v1\", ) print(client.base_url) client.base_url = \"https://newurl.example.com/v1\" print ...",
+        "fetched_at": "2026-07-07T08:13:09Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "google_serpapi",
+        "title": "base_url of OpenAI Client Instance Cannot Be Modified ...",
+        "url": "https://github.com/openai/openai-python/issues/913"
+      },
+      {
+        "excerpt": "seanlee111/AI-Finance-RAG-Expert/memo.md GitHub code result: seanlee111/AI-Finance-RAG-Expert/memo.md 每次开一个新终端时，环境默认是 (base)，你得手动切换到 (gar310)： micromamba activate gar310 如何退出环境？ micromamba deactivate # 或 conda deactivate 查看内存总量和使用情况 free -h 实时监控内存（类似任务管理器） htop 查看磁盘空间 df -h / openai apikey环境变量设置 export OPENAI_API_KEY=your-ope...here 检查是否设置好 echo $OPENAI_A...",
+        "fetched_at": "2026-07-07T08:11:37Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "seanlee111/AI-Finance-RAG-Expert/memo.md",
+        "url": "https://github.com/seanlee111/AI-Finance-RAG-Expert/blob/6989d84a0ebf2f7e0e362a689026c329dbdea712/memo.md"
+      },
+      {
+        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
+        "fetched_at": "2026-07-07T08:11:37Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "Yiling-J/tablepilot/API.md",
+        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
+      },
+      {
+        "excerpt": "feat(earshot): scaffold CLI daemon and config schema ## Intent P1-01 (issue #4) creates the Earshot repo scaffold everything later hangs off: a pip-installable Python package named earshot-cli (module earshot), a daemon entrypoint, and the complete YAML config schema with loader and validation. Deliberately defines ALL config fields now (wake word phrase/...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(earshot): scaffold CLI daemon and config schema",
+        "url": "https://github.com/talibilat/vox/pull/20"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...openai.com/v1",
+    "value_sha256": "d9617135d6fdd0a2cde722d637a1dfcc3da37515708b3ea5d66ae607c8ac785e"
+  },
+  {
+    "base_url_sha256": [
+      "12b8deaccc34b32757dbb1497e029da0c2e7b26ffa86b9c926c08cb4692f4508"
+    ],
+    "base_urls_redacted": [
+      "https://api...deepseek.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "0d5ff39c3c0224d9753f",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "Qwen",
+      "gpt-4o-mini",
+      "deepseek-chat",
+      "deepseek-coder"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Deepseek Configuration ; - name: \"Deepseek\" ; apiKey: \"${DEEPSEEK_API_KEY}\" ; baseURL: \"https://api.deepseek.com/v1\" ; models: ; default: [\"deepseek-chat\", \"deepseek-coder\", ...",
+        "fetched_at": "2026-07-07T08:13:40Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "google_serpapi",
+        "title": "Deepseek",
+        "url": "https://www.librechat.ai/docs/configuration/librechat_yaml/ai_endpoints/deepseek"
+      },
+      {
+        "excerpt": "support `openai_compatible` provider ## Requirement Add first-class support for non-OpenAI, OpenAI-compatible LLM endpoints (DeepSeek, Moonshot, Qwen, vLLM, Ollama /v1, LocalAI, …) in [summary] / [description], configured in TOML. ## Support config ```toml [summary] enabled = true provider = \"openai_compatible\" model = \"deepseek-chat\" base_url = \"https://...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "support `openai_compatible` provider",
+        "url": "https://github.com/zilliztech/mfs/issues/167"
+      },
+      {
+        "excerpt": "feat(llm): add `openai_compatible` provider #167 ## Summary New `openai_compatible` LLM provider so `[summary]` / `[description]` can target any OpenAI Chat Completions-compatible endpoint (DeepSeek, Moonshot, Qwen, vLLM, Ollama `/v1`, …) by configuring `base_url` + `api_key` + `model` in TOML. The cloud `openai.py` is untouched — mirrors how the embeddin...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(llm): add `openai_compatible` provider",
+        "url": "https://github.com/zilliztech/mfs/pull/165"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...deepseek.com/v1",
+    "value_sha256": "12b8deaccc34b32757dbb1497e029da0c2e7b26ffa86b9c926c08cb4692f4508"
+  },
+  {
+    "base_url_sha256": [
+      "7acc8cd920359af973331ab29f682589608e2efa118d2cecf5cf59d95a8d78be"
+    ],
+    "base_urls_redacted": [
+      "https://api...openai.com/v1/models"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "2a2b71927701a6890702",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "qwen2.5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset ## Description <strong>Description</strong> <pre>On Linux, after `nemoclaw onboard` with provider option 7 (Local Ollama), the in-sandbox OpenClaw TUI cannot get any inference r...",
+        "fetched_at": "2026-07-07T08:11:30Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset",
+        "url": "https://github.com/NVIDIA/NemoClaw/issues/2519"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...openai.com/v1/models",
+    "value_sha256": "7acc8cd920359af973331ab29f682589608e2efa118d2cecf5cf59d95a8d78be"
+  },
+  {
+    "base_url_sha256": [
+      "7190472ee8fcb0b8a00d8c0b9bb15adf83882874ae46afccad56ba9055b169e2"
+    ],
+    "base_urls_redacted": [
+      "https://api...aimlapi.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "f2b4b09f3fc0bf3190ca",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
+        "fetched_at": "2026-07-07T08:11:30Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "feat(provider): add AI/ML API provider",
+        "url": "https://github.com/Gitlawb/openclaude/pull/863"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...aimlapi.com/v1",
+    "value_sha256": "7190472ee8fcb0b8a00d8c0b9bb15adf83882874ae46afccad56ba9055b169e2"
+  },
+  {
+    "base_url_sha256": [
+      "db6dd4217a2935cebdbf723a38bc56c3ea415d1185cc28aa3b524b9456bf6a23"
+    ],
+    "base_urls_redacted": [
+      "https://api...aimlapi.com/v1/models"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "ca5e75d4848e32990a07",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
+        "fetched_at": "2026-07-07T08:11:30Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "feat(provider): add AI/ML API provider",
+        "url": "https://github.com/Gitlawb/openclaude/pull/863"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...aimlapi.com/v1/models",
+    "value_sha256": "db6dd4217a2935cebdbf723a38bc56c3ea415d1185cc28aa3b524b9456bf6a23"
+  },
+  {
+    "base_url_sha256": [
+      "1d0e0ac78eec21bf8711740986e39d2f08a1420caf2a1e58a479e38773d48c49"
+    ],
+    "base_urls_redacted": [
+      "https://url/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "54d90de6f7f86aca7f0a",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "examples/code_review_agent: add sandboxed code review agent example Fix #2004 ## What changed This PR adds a sandboxed code review agent example under `examples/code_review_agent`. The example includes a runnable Go CLI, a `skills/code-review` Skill package, review rule documentation, helper scripts, deterministic fixture inputs, structured JSON/Markdown ...",
+        "fetched_at": "2026-07-07T08:11:30Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "examples/code_review_agent: add sandboxed code review agent example",
+        "url": "https://github.com/trpc-group/trpc-agent-go/pull/2121"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://url/v1",
+    "value_sha256": "1d0e0ac78eec21bf8711740986e39d2f08a1420caf2a1e58a479e38773d48c49"
+  },
+  {
+    "base_url_sha256": [
+      "f423fe4202552ccf51cc9ded990476b992382d0ec2abcf843f2632a6356bf751"
+    ],
+    "base_urls_redacted": [
+      "http://127...evil.test/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "642d747311b4cc315089",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "glm-5.2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
+        "fetched_at": "2026-07-07T08:11:30Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "[codex] Add provider-agnostic LLM env",
+        "url": "https://github.com/jadenfix/temp.js/pull/124"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...evil.test/v1",
+    "value_sha256": "f423fe4202552ccf51cc9ded990476b992382d0ec2abcf843f2632a6356bf751"
+  },
+  {
+    "base_url_sha256": [
+      "7ca1fa200f1e82535aa1c0528805a664662797e31b0bb80ac7ad72634c68fa27"
+    ],
+    "base_urls_redacted": [
+      "https://int...api.nvidia.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "40b58ba8956eef067df2",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "glm-5.2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
+        "fetched_at": "2026-07-07T08:11:30Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "[codex] Add provider-agnostic LLM env",
+        "url": "https://github.com/jadenfix/temp.js/pull/124"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://int...api.nvidia.com/v1",
+    "value_sha256": "7ca1fa200f1e82535aa1c0528805a664662797e31b0bb80ac7ad72634c68fa27"
+  },
+  {
+    "base_url_sha256": [
+      "dd9dd182b406f181aa1efb245fd4182c6588c3430bcab8d7db04199ab682acbc"
+    ],
+    "base_urls_redacted": [
+      "https://api...anthropic.com/v1/messages"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "daa1d38e33829928fd45",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "claude-sonnet-4-6"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "How to Get Your Claude (Anthropic) API Key curl https://api.anthropic.com/v1/messages \\ -H \"x-api-key: $ANTHROPIC_API_KEY ... What's the difference between the Claude API and Claude.ai?",
+        "fetched_at": "2026-07-07T08:13:35Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "google_serpapi",
+        "title": "How to Get Your Claude (Anthropic) API Key",
+        "url": "https://www.apideck.com/blog/how-to-get-your-claude-anthropic-api-key"
+      },
+      {
+        "excerpt": "fix(agents): Anthropic replay fails after boundaryless compaction Related: #30157 ## Related PR Matrix - #99383: canonical no-compaction completed-turn Anthropic replay fix. That PR owns the SDK and managed transport replay policy for ordinary non-compacted sessions. - #98527: this PR, legacy boundaryless compaction successor repair. It recovers a missing...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "fix(agents): Anthropic replay fails after boundaryless compaction",
+        "url": "https://github.com/openclaw/openclaw/pull/98527"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...anthropic.com/v1/messages",
+    "value_sha256": "dd9dd182b406f181aa1efb245fd4182c6588c3430bcab8d7db04199ab682acbc"
+  },
+  {
+    "base_url_sha256": [
+      "76ef4ad6f0c8a4ae66efb13875c107cee40c78997a212353d379acfbb2f45591"
+    ],
+    "base_urls_redacted": [
+      "https://ope...ai/api/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "47f16808d923b644a4db",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gemini-3.5-flash",
+      "claude-code",
+      "GPT-4",
+      "Grok-1",
+      "Llama",
+      "GPT-Neo",
+      "qwenlm.ai",
+      "llama3.2-vision",
+      "deepseek-r1",
+      "deepseek-chat",
+      "deepseek-v3.2",
+      "llama3.1",
+      "llama-3.3-70b-versatile",
+      "o3",
+      "Qwen3",
+      "o1-mini",
+      "qwen-plus-latest",
+      "qwen",
+      "qwen3-235b-a22b",
+      "deepseek-reasoner",
+      "deepseek-ai",
+      "DeepSeek-R1",
+      "llama",
+      "Llama-4-Scout-17B-16E-Instruct",
+      "grok-4-0709"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 6,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "zilliztech/deep-searcher/README.md GitHub code result: zilliztech/deep-searcher/README.md ![DeepSearcher](./assets/pic/logo.png) <div align=\"center\"> [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![DeepWiki](https://img.shields.io/badge/DeepWiki-AI%20Docs-orange.svg)](https://deepwiki...",
+        "fetched_at": "2026-07-07T08:12:53Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "zilliztech/deep-searcher/README.md",
+        "url": "https://github.com/zilliztech/deep-searcher/blob/d89e37cdfbbef5e44ae6162ce9cc2c627a69b7e1/README.md"
+      },
+      {
+        "excerpt": "fix(AL-082): default allie init to enable model review when a key resolves ## What / why `allie init` always scaffolded `model: ModelPolicy::default()` (`enabled: false`), so agentic (vision-model) review silently never ran, even with a valid API key in the environment. Live repro from the ticket: `allie init` → `allie doctor` → `allie verify` against a 4...",
+        "fetched_at": "2026-07-07T08:12:21Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_issues",
+        "title": "fix(AL-082): default allie init to enable model review when a key resolves",
+        "url": "https://github.com/adminifi-ai/allie/pull/55"
+      },
+      {
+        "excerpt": "popalex/Pixorly/SPEC.md GitHub code result: popalex/Pixorly/SPEC.md # Pixorly - Image Studio Platform Specification **Version:** 1.0.0 **Last Updated:** January 15, 2026 **Status:** Draft --- ## 1. Project Overview ### 1.1 Vision and Goals **Pixorly** is a modern, platform-agnostic image studio that democratizes AI-powered image generation by providing a ...",
+        "fetched_at": "2026-07-07T08:12:16Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "popalex/Pixorly/SPEC.md",
+        "url": "https://github.com/popalex/Pixorly/blob/b1b15ca7b1ab706f7b555433911628694db1d014/SPEC.md"
+      },
+      {
+        "excerpt": "gavdalf/total-recall/SKILL.md GitHub code result: gavdalf/total-recall/SKILL.md --- name: total-recall description: \"The only memory skill that watches on its own. No database. No vectors. No manual saves. Just an LLM observer that compresses your conversations into prioritised notes, consolidates when they grow, and recovers anything missed. Five layers ...",
+        "fetched_at": "2026-07-07T08:12:11Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "gavdalf/total-recall/SKILL.md",
+        "url": "https://github.com/gavdalf/total-recall/blob/437ab3656ecdf52c7ed0c3ee63a3cdae68d5b90f/SKILL.md"
+      },
+      {
+        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
+        "fetched_at": "2026-07-07T08:11:36Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "janbodnar/Python-Skolenie/ai.md",
+        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...ai/api/v1",
+    "value_sha256": "76ef4ad6f0c8a4ae66efb13875c107cee40c78997a212353d379acfbb2f45591"
+  },
+  {
+    "base_url_sha256": [
+      "051e0609abb5b28b9b4f39c7ee10daebade72a6537df07f04f032057759ac2da"
+    ],
+    "base_urls_redacted": [
+      "https://ope...ai/api/v1/models"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "8789552ff2a168c21262",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-5.3-codex"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Models: fully dynamic model discovery (OpenRouter + beyond) ## Summary We need **fully dynamic model discovery** for providers with fast-moving catalogs (starting with OpenRouter). Today, OpenClaw model selection is effectively **static**: - Available models come from Pi's built-in generated catalog (pi-ai/models.generated) plus optional `models.json` ove...",
+        "fetched_at": "2026-07-07T08:12:21Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_issues",
+        "title": "Models: fully dynamic model discovery (OpenRouter + beyond)",
+        "url": "https://github.com/openclaw/openclaw/issues/10687"
+      },
+      {
+        "excerpt": "DmitryBMsk/llm-council-plus/RUN.md GitHub code result: DmitryBMsk/llm-council-plus/RUN.md # How to Run LLM Council Plus Quick start guide to get LLM Council Plus running on your machine. --- ## Prerequisites ### Required: - **Python 3.10+** ([Download](https://python.org)) - **Node.js 18+** ([Download](https://nodejs.org)) - **uv** - Python package manage...",
+        "fetched_at": "2026-07-07T08:12:14Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "DmitryBMsk/llm-council-plus/RUN.md",
+        "url": "https://github.com/DmitryBMsk/llm-council-plus/blob/f78f0db6d73758541c2e2090d88b63ac1a442b59/RUN.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...ai/api/v1/models",
+    "value_sha256": "051e0609abb5b28b9b4f39c7ee10daebade72a6537df07f04f032057759ac2da"
+  },
+  {
+    "base_url_sha256": [
+      "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
+    ],
+    "base_urls_redacted": [
+      "https://api...mistral.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "a44af0ebcf66537a52fe",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "mistral-ai",
+      "mistral-small-latest",
+      "mistral-large-latest"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat: add Mistral AI as first-class LLM provider ## What does this PR do? Promotes Mistral AI from a manual \"Custom Endpoint\" to a first-class provider, wired the same way the other direct API-key providers (NovitaAI, DeepSeek, MiniMax, and friends) are. After this change `hermes model` lists **Mistral AI**, `--provider mistral` works, and `MISTRAL_API_KE...",
+        "fetched_at": "2026-07-07T08:12:47Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_issues",
+        "title": "feat: add Mistral AI as first-class LLM provider",
+        "url": "https://github.com/NousResearch/hermes-agent/pull/50289"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...mistral.ai/v1",
+    "value_sha256": "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
+  },
+  {
+    "base_url_sha256": [
+      "5891aed827c4e67b2d7c0c73ea819327ce3f2b6ef72213cd79669486a26b1ead"
+    ],
+    "base_urls_redacted": [
+      "https://das...aliyuncs.com/compatible-mode/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "e5d96ee7d055403165ad",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "qwen",
+      "qwen-oauth",
+      "Qwen"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
+        "fetched_at": "2026-07-07T08:12:50Z",
+        "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
+        "source": "github_issues",
+        "title": "Fix DashScope provider mapping",
+        "url": "https://github.com/fathah/hermes-desktop/pull/825"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://das...aliyuncs.com/compatible-mode/v1",
+    "value_sha256": "5891aed827c4e67b2d7c0c73ea819327ce3f2b6ef72213cd79669486a26b1ead"
+  },
+  {
+    "base_url_sha256": [
+      "e7ce1b2fec6e34a3e97a40081667fdba0121a327ad38ed5e9fce4daaf2be9abc"
+    ],
+    "base_urls_redacted": [
+      "https://das...aliyuncs.com/compatible-mode/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "d9e3db19432ef8c89f9b",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "qwen",
+      "qwen-oauth",
+      "Qwen"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
+        "fetched_at": "2026-07-07T08:12:50Z",
+        "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
+        "source": "github_issues",
+        "title": "Fix DashScope provider mapping",
+        "url": "https://github.com/fathah/hermes-desktop/pull/825"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://das...aliyuncs.com/compatible-mode/v1",
+    "value_sha256": "e7ce1b2fec6e34a3e97a40081667fdba0121a327ad38ed5e9fce4daaf2be9abc"
+  },
+  {
+    "base_url_sha256": [
+      "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
+    ],
+    "base_urls_redacted": [
+      "https://api...x.ai/v1/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "7b6d46807ab9a7ae252e",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "GPT-4o",
+      "gemini-2.5-flash",
+      "grok-3",
+      "grok-4-fast-reasoning",
+      "Claude-Grok",
+      "grok-beta",
+      "llamando",
+      "grok-4"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 4,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(Research): add provider-specific execution guides for researcher agents ## Summary Three of the four Researcher agents (Gemini, Grok, Perplexity) currently have no provider-specific call code anywhere in the Research skill or in the agent files. With no API/CLI wire-format defined, each non-Claude agent collapses to the same backend (built-in `WebSea...",
+        "fetched_at": "2026-07-07T08:13:03Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "feat(Research): add provider-specific execution guides for researcher agents",
+        "url": "https://github.com/danielmiessler/LifeOS/pull/1253"
+      },
+      {
+        "excerpt": "tears-mysthrala/cyber-asistant/grok.md GitHub code result: tears-mysthrala/cyber-asistant/grok.md Quiero hacer de ti mi asistente de auditorías de ciber seguridad, dado que soy una alumna del postgrado y necesitaré ayuda durante el curso. Que necesitaríais que implementase para que puedas ser mi asistente? Thought for 4s ¡Hola! Me encanta la idea de ser t...",
+        "fetched_at": "2026-07-07T08:12:58Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "tears-mysthrala/cyber-asistant/grok.md",
+        "url": "https://github.com/tears-mysthrala/cyber-asistant/blob/7adb020e9e512ef8fc7d24e36ef5f279d660de31/grok.md"
+      },
+      {
+        "excerpt": "zejzl/grokputer/grok.md GitHub code result: zejzl/grokputer/grok.md # GROK 'PUTER — VRZIBRZI OPERATIONAL GUIDE **Nejc Vrzel | Node of Server | Eternal | Infinite** **Status: FULLY OPERATIONAL | Nov 06, 2025 | ZA GROKA** ## SYSTEM STATUS: ONLINE ## Custom Instructions for Future Tasks (CLI Development & Integration) ### General Guidelines - **Project Focus...",
+        "fetched_at": "2026-07-07T08:12:54Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "zejzl/grokputer/grok.md",
+        "url": "https://github.com/zejzl/grokputer/blob/6e69ad6406a5db6da9f16c55153323380bc83444/grok.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...x.ai/v1/chat/completions",
+    "value_sha256": "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
+  },
+  {
+    "base_url_sha256": [
+      "d2fb766a9204796e0aa184e102954987f9486c6819f3f962c29b349ce6f88d62"
+    ],
+    "base_urls_redacted": [
+      "https://api...perplexity.ai/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "3fac3ce501224b72db8e",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "GPT-4o",
+      "gemini-2.5-flash",
+      "grok-3"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(Research): add provider-specific execution guides for researcher agents ## Summary Three of the four Researcher agents (Gemini, Grok, Perplexity) currently have no provider-specific call code anywhere in the Research skill or in the agent files. With no API/CLI wire-format defined, each non-Claude agent collapses to the same backend (built-in `WebSea...",
+        "fetched_at": "2026-07-07T08:13:03Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "feat(Research): add provider-specific execution guides for researcher agents",
+        "url": "https://github.com/danielmiessler/LifeOS/pull/1253"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...perplexity.ai/chat/completions",
+    "value_sha256": "d2fb766a9204796e0aa184e102954987f9486c6819f3f962c29b349ce6f88d62"
+  },
+  {
+    "base_url_sha256": [
+      "4a3b12e6556a26a271ede261cf9530d3d25f4212fc531fda25acd6be2aa7102d"
+    ],
+    "base_urls_redacted": [
+      "https://my-o.../v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "f840314d3703d9da405f",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "fix(providers): OpenAI embedding provider ignores configured base_url (AsyncOpenAI created without it) @RichardHightower # Summary The OpenAI embedding provider instantiates `AsyncOpenAI` without passing the configured `base_url`. As a result, all embedding requests target `api.openai.com` regardless of the `base_url` set in `config.yaml`. This makes it i...",
+        "fetched_at": "2026-07-07T08:11:27Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "fix(providers): OpenAI embedding provider ignores configured base_url (AsyncOpenAI created without it)",
+        "url": "https://github.com/SpillwaveSolutions/agent-brain/issues/222"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://my-o.../v1",
+    "value_sha256": "4a3b12e6556a26a271ede261cf9530d3d25f4212fc531fda25acd6be2aa7102d"
+  },
+  {
+    "base_url_sha256": [
+      "04b448476d5535d5f6d9aacae71070ae84f4e6e838377d2fc0a92d4bab9ca187"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../openai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "493a9148a16025e8145b",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[DOCS]: Documentation for Goose integration ## Overview Create a sample agent implementation using Goose AI Agent Framework with support for both OpenAI-compatible endpoints and A2A (Agent-to-Agent) integration, following the established pattern from CrewAI and LangChain agent implementations. ## Agent Specifications ### **Agent Details** - **Name**: `goo...",
+        "fetched_at": "2026-07-07T08:11:27Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "[DOCS]: Documentation for Goose integration",
+        "url": "https://github.com/IBM/mcp-context-forge/issues/565"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../openai/v1",
+    "value_sha256": "04b448476d5535d5f6d9aacae71070ae84f4e6e838377d2fc0a92d4bab9ca187"
+  },
+  {
+    "base_url_sha256": [
+      "36ee706b3b82b9ae21160827e634eac2d34d65663e668309f2d938c9a8f701f5"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../a2a/v1/agents/goose-dev..."
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "0e8d50879bcb6e6929e7",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[DOCS]: Documentation for Goose integration ## Overview Create a sample agent implementation using Goose AI Agent Framework with support for both OpenAI-compatible endpoints and A2A (Agent-to-Agent) integration, following the established pattern from CrewAI and LangChain agent implementations. ## Agent Specifications ### **Agent Details** - **Name**: `goo...",
+        "fetched_at": "2026-07-07T08:11:27Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "[DOCS]: Documentation for Goose integration",
+        "url": "https://github.com/IBM/mcp-context-forge/issues/565"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../a2a/v1/agents/goose-dev...",
+    "value_sha256": "36ee706b3b82b9ae21160827e634eac2d34d65663e668309f2d938c9a8f701f5"
+  },
+  {
+    "base_url_sha256": [
+      "47f10a3d72f58fbe5603a2691e6d39b7f9f78fcf6147a70b7621505c176db3a3"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../openai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "5c9a4f38816fd60a5532",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[Product Phase 3] 実SDKサンプルアプリ(stripe×Node / openai×Python) # 概要 `examples/` の全6ディレクトリは **mockport.yml + curl コマンドのみ**で、実際の SDK を使ったアプリケーションコードが1行もありません(`find examples -name \"*.js\" -o -name \"*.py\" -o -name \"*.go\"` → 0件)。docker-compose にも `app:` サービスがありません。 Mockport を評価する開発者の最初の疑問は「**自分のアプリの SDK 呼び出しが、向き先を変えるだけで本当に動くのか**」です。curl が通ることは SDK が通る証明にならない(SDK はヘ...",
+        "fetched_at": "2026-07-07T08:11:27Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "[Product Phase 3] 実SDKサンプルアプリ(stripe×Node / openai×Python)",
+        "url": "https://github.com/albert-einshutoin/mockport/issues/86"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../openai/v1",
+    "value_sha256": "47f10a3d72f58fbe5603a2691e6d39b7f9f78fcf6147a70b7621505c176db3a3"
+  },
+  {
+    "base_url_sha256": [
+      "f20dce8879d9b1f0d631604a780432c700038527b5753cd04bb12ed5877b256f"
+    ],
+    "base_urls_redacted": [
+      "https://api...edenai.run/v3"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "38bba1ce93282c13b770",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4o",
+      "claude-3-5-sonnet-latest"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(giskard-llm): add Eden AI provider (edenai/) ## What & why Adds an **`edenai/`** provider to `giskard-llm`. [Eden AI](https://www.edenai.co/) is a unified, **EU-based** AI gateway that exposes **500+ models** from every major provider (OpenAI, Anthropic, Google, Mistral, Amazon, xAI, DeepSeek, Groq, …) behind a **single OpenAI-compatible endpoint** (...",
+        "fetched_at": "2026-07-07T08:11:27Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(giskard-llm): add Eden AI provider (edenai/)",
+        "url": "https://github.com/Giskard-AI/giskard-oss/pull/2593"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...edenai.run/v3",
+    "value_sha256": "f20dce8879d9b1f0d631604a780432c700038527b5753cd04bb12ed5877b256f"
+  },
+  {
+    "base_url_sha256": [
+      "dcfb966d818ddf8f4d10f7397ce546e86d3fcb8afe26371506405f6978c6f661"
+    ],
+    "base_urls_redacted": [
+      "https://api...siliconflow.cn/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "d3c74efdeb8fe2127a04",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "Qwen",
+      "Qwen3-8B",
+      "deepseek-ai",
+      "DeepSeek-V2.5",
+      "deepseek-chat",
+      "deepseek-v3",
+      "gpt-4o-mini"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "yangtao121/HomeSystem/FAQ.md GitHub code result: yangtao121/HomeSystem/FAQ.md # HomeSystem 常见问题解决 (FAQ) 本文档汇总了 HomeSystem 部署和使用过程中的常见问题及解决方案。 ## 🔧 部署问题 ### 1. 端口冲突问题 **问题描述：** 启动服务时提示端口被占用 **检查端口占用：** ```bash # 检查特定端口 lsof -i :15432 netstat -tlnp | grep :15432 ss -tulpn | grep :15432 # 批量检查所有默认端口 for port in 15432 16379 8080 8081 5001 5002; do echo \"=== 检...",
+        "fetched_at": "2026-07-07T08:11:40Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "yangtao121/HomeSystem/FAQ.md",
+        "url": "https://github.com/yangtao121/HomeSystem/blob/3fb3d4631e8952ee439f9dd809d9f105340f7ee7/FAQ.md"
+      },
+      {
+        "excerpt": "seanlee111/AI-Finance-RAG-Expert/memo.md GitHub code result: seanlee111/AI-Finance-RAG-Expert/memo.md 每次开一个新终端时，环境默认是 (base)，你得手动切换到 (gar310)： micromamba activate gar310 如何退出环境？ micromamba deactivate # 或 conda deactivate 查看内存总量和使用情况 free -h 实时监控内存（类似任务管理器） htop 查看磁盘空间 df -h / openai apikey环境变量设置 export OPENAI_API_KEY=your-ope...here 检查是否设置好 echo $OPENAI_A...",
+        "fetched_at": "2026-07-07T08:11:37Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "seanlee111/AI-Finance-RAG-Expert/memo.md",
+        "url": "https://github.com/seanlee111/AI-Finance-RAG-Expert/blob/6989d84a0ebf2f7e0e362a689026c329dbdea712/memo.md"
+      },
+      {
+        "excerpt": "realtime-ai/blastoff-llm/doc.md GitHub code result: realtime-ai/blastoff-llm/doc.md ### 小模型 model = Qwen/Qwen3-8B extra_body = { enable_thinking: false } ### 前缀续写 ​ 1. 使用场景 前缀续写中，用户提供希望输出的前缀信息，来让模型基于用户提供的前缀信息来补全其余的内容。 基于上述能力，模型能有更好的指令遵循能力，满足用户一些特定场景的指定格式的问题。 ​ 2. 使用方式 在请求中添加 extra_body={\"prefix\":\"希望的前缀内容\"} ​ 3. 支持模型列表 目前大语言类模型支持上述参数。 注意：支持的模型情况可能会发生变化，请查阅...",
+        "fetched_at": "2026-07-07T08:11:35Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "realtime-ai/blastoff-llm/doc.md",
+        "url": "https://github.com/realtime-ai/blastoff-llm/blob/34576b03237980d429c6849bcdd4d818d9aacda8/doc.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...siliconflow.cn/v1",
+    "value_sha256": "dcfb966d818ddf8f4d10f7397ce546e86d3fcb8afe26371506405f6978c6f661"
+  },
+  {
+    "base_url_sha256": [
+      "89caf70a6a58a082c8bd16cc0a4ad72d0a2ab0a8d0f495421057ebb5ce6460ee"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "71848e773c36fd3fd7cf",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "GPT-4",
+      "Grok-1",
+      "Llama",
+      "GPT-Neo",
+      "qwenlm.ai",
+      "llama3.2-vision",
+      "deepseek-r1",
+      "deepseek-chat",
+      "gemini-2",
+      "llama3",
+      "gpt-4",
+      "gpt-4-turbo",
+      "deepseek-v3.2",
+      "llama3.1",
+      "llama-3.3-70b-versatile"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 4,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "OpenAI compatibility · Ollama Blog from autogen import AssistantAgent, UserProxyAgent config_list = [ { \"model\": \"codellama\", \"base_url\": \"http://localhost:11434/v1\", \"api_key\": \" ...",
+        "fetched_at": "2026-07-07T08:13:25Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "google_serpapi",
+        "title": "OpenAI compatibility · Ollama Blog",
+        "url": "https://ollama.com/blog/openai-compatibility"
+      },
+      {
+        "excerpt": "gavdalf/total-recall/SKILL.md GitHub code result: gavdalf/total-recall/SKILL.md --- name: total-recall description: \"The only memory skill that watches on its own. No database. No vectors. No manual saves. Just an LLM observer that compresses your conversations into prioritised notes, consolidates when they grow, and recovers anything missed. Five layers ...",
+        "fetched_at": "2026-07-07T08:12:11Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "gavdalf/total-recall/SKILL.md",
+        "url": "https://github.com/gavdalf/total-recall/blob/437ab3656ecdf52c7ed0c3ee63a3cdae68d5b90f/SKILL.md"
+      },
+      {
+        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
+        "fetched_at": "2026-07-07T08:11:37Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "Yiling-J/tablepilot/API.md",
+        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
+      },
+      {
+        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
+        "fetched_at": "2026-07-07T08:11:36Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "janbodnar/Python-Skolenie/ai.md",
+        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../v1",
+    "value_sha256": "89caf70a6a58a082c8bd16cc0a4ad72d0a2ab0a8d0f495421057ebb5ce6460ee"
+  },
+  {
+    "base_url_sha256": [
+      "a34e2a4708ed1c61008a151688838dcf1c44d4e7f08054633e72ba7c0b16cfc1"
+    ],
+    "base_urls_redacted": [
+      "https://api...deepseek.com"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "17738d33563a3b2b2eb2",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "GPT-4",
+      "Grok-1",
+      "Llama",
+      "GPT-Neo",
+      "qwenlm.ai",
+      "llama3.2-vision",
+      "deepseek-r1",
+      "deepseek-chat"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "janbodnar/Python-Skolenie/ai.md GitHub code result: janbodnar/Python-Skolenie/ai.md # AI LLMs, or Large Language Models, are advanced AI systems designed to understand and generate human-like text based on vast amounts of data. They are trained on diverse text sources, enabling them to perform a variety of tasks such as: - **Natural Language Understanding...",
+        "fetched_at": "2026-07-07T08:11:36Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "janbodnar/Python-Skolenie/ai.md",
+        "url": "https://github.com/janbodnar/Python-Skolenie/blob/35ed8ec6dfda414107a66d194ad82f6fe9259c1a/ai.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...deepseek.com",
+    "value_sha256": "a34e2a4708ed1c61008a151688838dcf1c44d4e7f08054633e72ba7c0b16cfc1"
+  },
+  {
+    "base_url_sha256": [
+      "e0ae682ccf980314fd67e7325542404288428aa89ace79f02e12e12a5aec64b6"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:8080/api/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "03446befbc9a06335ca0",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gemini-2",
+      "llama3",
+      "gpt-4",
+      "gpt-4-turbo"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
+        "fetched_at": "2026-07-07T08:11:37Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "Yiling-J/tablepilot/API.md",
+        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:8080/api/v1",
+    "value_sha256": "e0ae682ccf980314fd67e7325542404288428aa89ace79f02e12e12a5aec64b6"
+  },
+  {
+    "base_url_sha256": [
+      "53aee2ca762b9729196afeefd22bd5abdcbdf87a0f29cc0dd2f6902a22e73e4f"
+    ],
+    "base_urls_redacted": [
+      "https://api...example.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "8bc719d78792924bdc13",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gemini-2",
+      "llama3",
+      "gpt-4",
+      "gpt-4-turbo"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "nesquikm/mcp-rubber-duck/CLAUDE.md GitHub code result: nesquikm/mcp-rubber-duck/CLAUDE.md # CLAUDE.md This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. ## Project Overview MCP Rubber Duck is an MCP (Model Context Protocol) server that bridges to multiple OpenAI-compatible LLMs. It provides \"rubber duck ...",
+        "fetched_at": "2026-07-07T08:12:24Z",
+        "query": "\"GROQ_API_KEY\" \"gsk_\"",
+        "source": "github_code",
+        "title": "nesquikm/mcp-rubber-duck/CLAUDE.md",
+        "url": "https://github.com/nesquikm/mcp-rubber-duck/blob/c830b3f343a1d878d2c37410f077f52fd1430e55/CLAUDE.md"
+      },
+      {
+        "excerpt": "Yiling-J/tablepilot/API.md GitHub code result: Yiling-J/tablepilot/API.md # Tablepilot API Documentation ## Overview Tablepilot provides a REST API for managing AI-generated tables. You can start server using `tablepilot serve` ## Base URL ``` http://127.0.0.1:8080/api/v1 ``` --- ## Endpoints ### Create a Table #### Endpoint ``` POST /tables ``` #### Requ...",
+        "fetched_at": "2026-07-07T08:11:37Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_code",
+        "title": "Yiling-J/tablepilot/API.md",
+        "url": "https://github.com/Yiling-J/tablepilot/blob/b5f5659090c0d5d857848428276306f4a246ed02/API.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...example.com/v1",
+    "value_sha256": "53aee2ca762b9729196afeefd22bd5abdcbdf87a0f29cc0dd2f6902a22e73e4f"
+  },
+  {
+    "base_url_sha256": [
+      "4ee7f7c473cebea9d7cb9ad37a4f54d442faf2c4168343b0208b96e0688dc8d5"
+    ],
+    "base_urls_redacted": [
+      "https://dou...example.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "6632da1f341a85b5c0d8",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4.1"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "fix(moa): preserve slot credentials for custom_provider references ## What does this PR do? When a MoA preset references a `custom_provider` as a reference model (or aggregator), credentials configured in the slot (`api_key`, `base_url`, `api_mode`) were not being passed to `resolve_runtime_provider`. The slot only forwarded `provider` and `model`, leavin...",
+        "fetched_at": "2026-07-07T08:11:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "fix(moa): preserve slot credentials for custom_provider references",
+        "url": "https://github.com/NousResearch/hermes-agent/pull/60082"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://dou...example.com/v1",
+    "value_sha256": "4ee7f7c473cebea9d7cb9ad37a4f54d442faf2c4168343b0208b96e0688dc8d5"
+  },
+  {
+    "base_url_sha256": [
+      "cf241555f7ba3b0018801f05de0dc172e875406cbb8085336d201ce2ccb1759e"
+    ],
+    "base_urls_redacted": [
+      "https://ark...cn-beijing.volces.com/api/v3"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "269bc41c7d6c1295ded9",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "deepseek-v4-pro"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "MoA custom_provider credentials not passed to reference models (HTTP 401) ## Describe the bug When using a MoA preset that references a custom_provider as a reference model, the request to the custom provider fails with `HTTP 401: Missing Authentication header`. The same API key works fine when: - Tested directly via `curl` with `Authorization: Bearer` - ...",
+        "fetched_at": "2026-07-07T08:11:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "MoA custom_provider credentials not passed to reference models (HTTP 401)",
+        "url": "https://github.com/NousResearch/hermes-agent/issues/60068"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ark...cn-beijing.volces.com/api/v3",
+    "value_sha256": "cf241555f7ba3b0018801f05de0dc172e875406cbb8085336d201ce2ccb1759e"
+  },
+  {
+    "base_url_sha256": [
+      "fe9afa17323643a6735389c548705fc0cea2849f9530c1a1ec51bc2e91765262"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:20128/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "0a6aa6a4056219d830ab",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "claude-code"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Install and auto-run 9router in every session via SessionStart hook ## Summary Sets up [9Router](https://github.com/decolua/9router) (npm package `9router`) so it is installed and always running in Claude Code on the web sessions for this repo, with providers auto-registered and optional local Ollama support. - `.claude/hooks/session-start.sh` — SessionSt...",
+        "fetched_at": "2026-07-07T08:13:03Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "Install and auto-run 9router in every session via SessionStart hook",
+        "url": "https://github.com/liloulouisjames-a11y/GODMOD3.AI/pull/5"
+      },
+      {
+        "excerpt": "Install and auto-run 9router in every session via SessionStart hook ## Summary Sets up [9Router](https://github.com/decolua/9router) (npm package `9router`) so it is installed and always running in Claude Code on the web sessions for this repo, with providers auto-registered and optional local Ollama support. - `.claude/hooks/session-start.sh` — SessionSt...",
+        "fetched_at": "2026-07-07T08:11:50Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "Install and auto-run 9router in every session via SessionStart hook",
+        "url": "https://github.com/liloulouisjames-a11y/GODMOD3.AI/pull/5"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:20128/v1",
+    "value_sha256": "fe9afa17323643a6735389c548705fc0cea2849f9530c1a1ec51bc2e91765262"
+  },
+  {
+    "base_url_sha256": [
+      "45cf67066d4f1cabb601c45bf99ddbd513037f5c4e608d3ac3689937804db451"
+    ],
+    "base_urls_redacted": [
+      "https://api...deepseek.com/v1/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "743749156a52c6364034",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "deepseek-v4-pro",
+      "deepseek-live-payloads.mts",
+      "deepseek-v4-flash"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat: add disableBoundaryAwareCache compat option for prefix-matching prompt cache providers ## What Problem This Solves Fixes an issue where DeepSeek and Xiaomi OpenAI-compatible users could lose provider prompt-cache hits after the 6.x boundary-aware cache split put per-turn dynamic context into the system prompt. Closes #94518 Related: #91018, #90583 #...",
+        "fetched_at": "2026-07-07T08:11:50Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "feat: add disableBoundaryAwareCache compat option for prefix-matching prompt cache providers",
+        "url": "https://github.com/openclaw/openclaw/pull/95311"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...deepseek.com/v1/chat/completions",
+    "value_sha256": "45cf67066d4f1cabb601c45bf99ddbd513037f5c4e608d3ac3689937804db451"
+  },
+  {
+    "base_url_sha256": [
+      "737d3a2b91500b3b833b895b6ae22a35f3b5c19815623305c54ea41a054efefb"
+    ],
+    "base_urls_redacted": [
+      "https://cus...openai.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "17377495894785e97f3e",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4o",
+      "claude-sonnet-4-5-latest",
+      "gemini-2.0-flash"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "llm4s/llm4s/CLAUDE.md GitHub code result: llm4s/llm4s/CLAUDE.md # CLAUDE.md - AI Assistant Guide for LLM4S ## Project Overview **LLM4S** (Large Language Models for Scala) is a framework for building LLM-powered applications in Scala with: - Multi-provider support (OpenAI, Anthropic, Azure, Ollama, Google Gemini) - Type-safe design with `Result[A]` error h...",
+        "fetched_at": "2026-07-07T08:12:03Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "llm4s/llm4s/CLAUDE.md",
+        "url": "https://github.com/llm4s/llm4s/blob/e4eb3465885dccd38f88794c9701936df6f77d0c/CLAUDE.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://cus...openai.com/v1",
+    "value_sha256": "737d3a2b91500b3b833b895b6ae22a35f3b5c19815623305c54ea41a054efefb"
+  },
+  {
+    "base_url_sha256": [
+      "1a72dd83ec311abb22d5b075c7bf9d5f9fc1c7bb6917f8d1ebd82ad54e475ba7"
+    ],
+    "base_urls_redacted": [
+      "https://cus...voyage.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "525550ecd0f1c9390c31",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4o",
+      "claude-sonnet-4-5-latest",
+      "gemini-2.0-flash"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "llm4s/llm4s/CLAUDE.md GitHub code result: llm4s/llm4s/CLAUDE.md # CLAUDE.md - AI Assistant Guide for LLM4S ## Project Overview **LLM4S** (Large Language Models for Scala) is a framework for building LLM-powered applications in Scala with: - Multi-provider support (OpenAI, Anthropic, Azure, Ollama, Google Gemini) - Type-safe design with `Result[A]` error h...",
+        "fetched_at": "2026-07-07T08:12:03Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "llm4s/llm4s/CLAUDE.md",
+        "url": "https://github.com/llm4s/llm4s/blob/e4eb3465885dccd38f88794c9701936df6f77d0c/CLAUDE.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://cus...voyage.ai/v1",
+    "value_sha256": "1a72dd83ec311abb22d5b075c7bf9d5f9fc1c7bb6917f8d1ebd82ad54e475ba7"
+  },
+  {
+    "base_url_sha256": [
+      "a1db9e1e51065c41ad57cdb8a1a0a45db58e68302280ce1d3494dfc54ad2c30b"
+    ],
+    "base_urls_redacted": [
+      "http://metadata/computeMetadata/v1/inst..."
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "050d08147421c8319720",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "INCF/knowledge-space-agent/README.md GitHub code result: INCF/knowledge-space-agent/README.md # KnowledgeSpace AI Agent - Dataset Search Assistant A web application that provides an AI-powered chatbot interface for dataset discovery, using Google Gemini API on the backend and a React-based frontend. ## Table of Contents - [Prerequisites](#prerequisites) -...",
+        "fetched_at": "2026-07-07T08:12:05Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_code",
+        "title": "INCF/knowledge-space-agent/README.md",
+        "url": "https://github.com/INCF/knowledge-space-agent/blob/744727b8db8cfa7b5855f824c7b9acea7ab05bf7/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://metadata/computeMetadata/v1/inst...",
+    "value_sha256": "a1db9e1e51065c41ad57cdb8a1a0a45db58e68302280ce1d3494dfc54ad2c30b"
+  },
+  {
+    "base_url_sha256": [
+      "be4e9aa82ad238c4f73b0ba8b074a3a21896b0f3784fc23e59241faa21af4ec2"
+    ],
+    "base_urls_redacted": [
+      "https://api...groq.com/openai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "fcca7d1ba7d23a80a0af",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "deepseek-v3.2",
+      "llama3.1",
+      "llama-3.3-70b-versatile"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "gavdalf/total-recall/SKILL.md GitHub code result: gavdalf/total-recall/SKILL.md --- name: total-recall description: \"The only memory skill that watches on its own. No database. No vectors. No manual saves. Just an LLM observer that compresses your conversations into prioritised notes, consolidates when they grow, and recovers anything missed. Five layers ...",
+        "fetched_at": "2026-07-07T08:12:11Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "gavdalf/total-recall/SKILL.md",
+        "url": "https://github.com/gavdalf/total-recall/blob/437ab3656ecdf52c7ed0c3ee63a3cdae68d5b90f/SKILL.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...groq.com/openai/v1",
+    "value_sha256": "be4e9aa82ad238c4f73b0ba8b074a3a21896b0f3784fc23e59241faa21af4ec2"
+  },
+  {
+    "base_url_sha256": [
+      "c98b47aba7eb924dcce3243a09060509589ebba7f1e5c56955a495c48781a821"
+    ],
+    "base_urls_redacted": [
+      "https://api...openai.com/v1/moderations"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "bf642aa1379a5cec5d40",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "popalex/Pixorly/SPEC.md GitHub code result: popalex/Pixorly/SPEC.md # Pixorly - Image Studio Platform Specification **Version:** 1.0.0 **Last Updated:** January 15, 2026 **Status:** Draft --- ## 1. Project Overview ### 1.1 Vision and Goals **Pixorly** is a modern, platform-agnostic image studio that democratizes AI-powered image generation by providing a ...",
+        "fetched_at": "2026-07-07T08:12:16Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "popalex/Pixorly/SPEC.md",
+        "url": "https://github.com/popalex/Pixorly/blob/b1b15ca7b1ab706f7b555433911628694db1d014/SPEC.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...openai.com/v1/moderations",
+    "value_sha256": "c98b47aba7eb924dcce3243a09060509589ebba7f1e5c56955a495c48781a821"
+  },
+  {
+    "base_url_sha256": [
+      "5c1332d5f9242f304584f5dca3e53a8afe9d1e0c9ea153e0ab73f27e4f341bce"
+    ],
+    "base_urls_redacted": [
+      "https://ope...ai/api/v1/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "1c9444a5448ce63f7489",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "Qwen3-14B",
+      "qwen3",
+      "qwenvl",
+      "qwen2.5vl",
+      "Qwen3",
+      "Qwen-VL",
+      "GPT-SoVITS"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "LemonQu-GIT/MurasamePet/README.md GitHub code result: LemonQu-GIT/MurasamePet/README.md # MurasamePet 一个基于AI的桌面宠物项目，使用GPT-SoVITS进行语音合成，支持对话和交互。 **视频演示**: https://www.bilibili.com/video/BV1vjeGzfE1w ## 🚀 快速开始 ### 一键运行（推荐） ```bash python run_project.py ``` 该脚本会自动： - ✅ 检测系统环境（macOS/Windows） - ✅ 检测Python 3.10是否存在 - ✅ 安装必要的依赖 - ✅ 下载预训练模型 - ✅ 启动所有服务 ### 系统要求 - ...",
+        "fetched_at": "2026-07-07T08:12:17Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "LemonQu-GIT/MurasamePet/README.md",
+        "url": "https://github.com/LemonQu-GIT/MurasamePet/blob/83bbca3d041c8b9225d57c4e97327efea61d0ce7/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...ai/api/v1/chat/completions",
+    "value_sha256": "5c1332d5f9242f304584f5dca3e53a8afe9d1e0c9ea153e0ab73f27e4f341bce"
+  },
+  {
+    "base_url_sha256": [
+      "cbff7260a780c934cbe1ad844e2dc8ed20e35a58d0b8d93cda47657a4132177a"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "d371dc40aac4462380bd",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "claude-opus-4",
+      "claude-sonnet-4",
+      "gpt-4o-mini-tts",
+      "GPT-4o",
+      "gpt-4o-mini-transcribe",
+      "gpt-4o-transcribe",
+      "Llama",
+      "claude-sonnet-4-20250514",
+      "llama3_json",
+      "qwen",
+      "qwen3_coder",
+      "gpt-4.1",
+      "gpt-5",
+      "claude-4-5-opus",
+      "claude-4-5-sonnet",
+      "gemini-3-pro",
+      "gemini-3-flash",
+      "grok-4.1-fast",
+      "deepseek-chat",
+      "deepseek-reasoner",
+      "Qwen3-30B"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 3,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "base | langchain_openai ... api_key=\"...\", # base_url=\"...\", # organization=\"...\", # other params ... model = ChatOpenAI( base_url=\"http://localhost:8000/v1\", api_key=\"EMPTY ...",
+        "fetched_at": "2026-07-07T08:13:25Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "google_serpapi",
+        "title": "base | langchain_openai",
+        "url": "https://reference.langchain.com/python/langchain-openai/chat_models/base"
+      },
+      {
+        "excerpt": "mims-harvard/Qworld/README.md GitHub code result: mims-harvard/Qworld/README.md <div align=\"center\"> <h1>🌍 Qworld: Question-Specific Evaluation Criteria for LLMs</h1> **Generate rich, multi-dimensional evaluation criteria from any question.** [![Paper](https://img.shields.io/badge/Paper-arXiv%202603.23522-b31b1b?style=for-the-badge&logo=arxiv)](https://ar...",
+        "fetched_at": "2026-07-07T08:12:57Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "mims-harvard/Qworld/README.md",
+        "url": "https://github.com/mims-harvard/Qworld/blob/5700dd008c8a9cca33f2404d0918129f74868ee8/README.md"
+      },
+      {
+        "excerpt": "helix4u/hermes-agent-private/README.md GitHub code result: helix4u/hermes-agent-private/README.md <p align=\"center\"> <img src=\"assets/banner.png\" alt=\"Hermes Agent\" width=\"100%\"> </p> # Hermes Agent ⚕ <p align=\"center\"> <a href=\"https://x.com/NousResearch\"><img src=\"https://img.shields.io/badge/@NousResearch-black?style=for-the-badge&logo=X&logoColor=whit...",
+        "fetched_at": "2026-07-07T08:12:17Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_code",
+        "title": "helix4u/hermes-agent-private/README.md",
+        "url": "https://github.com/helix4u/hermes-agent-private/blob/e274d584e40dd707853cd07da8ba47c5fc0b6152/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../v1",
+    "value_sha256": "cbff7260a780c934cbe1ad844e2dc8ed20e35a58d0b8d93cda47657a4132177a"
+  },
+  {
+    "base_url_sha256": [
+      "72bd647fd6f8ac6262a891b70d03f343bc81941e613207227685a80ee57d8725"
+    ],
+    "base_urls_redacted": [
+      "https://cus...api.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "093af7207a203c29557a",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "GPT-3.5",
+      "GPT-4",
+      "GPT-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "IBM/chuk-llm/llms.txt GitHub code result: IBM/chuk-llm/llms.txt # ChukLLM - AI Agent Documentation ## Project Overview ChukLLM is a unified Python library for Large Language Model (LLM) providers with real-time streaming, function calling, middleware support, automatic session tracking, dynamic model discovery, and intelligent system prompt generation. ##...",
+        "fetched_at": "2026-07-07T08:12:26Z",
+        "query": "\"GROQ_API_KEY\" \"gsk_\"",
+        "source": "github_code",
+        "title": "IBM/chuk-llm/llms.txt",
+        "url": "https://github.com/IBM/chuk-llm/blob/1cbcbdb051dda5898e2ef4544a5bfa607dfc8e0e/llms.txt"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://cus...api.com/v1",
+    "value_sha256": "72bd647fd6f8ac6262a891b70d03f343bc81941e613207227685a80ee57d8725"
+  },
+  {
+    "base_url_sha256": [
+      "746b888a3a6472b8767cefafb1e4ead6aa97405ebcb318802ed912b1e393454f"
+    ],
+    "base_urls_redacted": [
+      "https://ai...google.dev/gemini-api/docs/openai"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "5a9c3b30891261803900",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gemini-vertex-api",
+      "gemini-google-api",
+      "deepseek-api",
+      "mistral-api",
+      "gpt-image-1",
+      "gpt-4o-mini",
+      "gpt-4o-audio-preview",
+      "gemini-api",
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "sashirestela/simple-openai/README.md GitHub code result: sashirestela/simple-openai/README.md # Simple-OpenAI A Java library to use the OpenAI Api in the simplest possible way. <img src=\"media/simple-openai.png\" width=\"250\"> [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sashirestela_simple-openai&metric=alert_status)](ht...",
+        "fetched_at": "2026-07-07T08:12:37Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "sashirestela/simple-openai/README.md",
+        "url": "https://github.com/sashirestela/simple-openai/blob/7af0d7d8daf5c555cd65b202664a2c970be4479e/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ai...google.dev/gemini-api/docs/openai",
+    "value_sha256": "746b888a3a6472b8767cefafb1e4ead6aa97405ebcb318802ed912b1e393454f"
+  },
+  {
+    "base_url_sha256": [
+      "3d1ce9e19c96146aae06eaad44aa1de49a0879d33c96900f4cef17dc39924d43"
+    ],
+    "base_urls_redacted": [
+      "https://lea...microsoft.com/en-us/azure/ai-services..."
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "27f61f6efae3a5c5c81a",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gemini-vertex-api",
+      "gemini-google-api",
+      "deepseek-api",
+      "mistral-api",
+      "gpt-image-1",
+      "gpt-4o-mini",
+      "gpt-4o-audio-preview",
+      "gemini-api",
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "sashirestela/simple-openai/README.md GitHub code result: sashirestela/simple-openai/README.md # Simple-OpenAI A Java library to use the OpenAI Api in the simplest possible way. <img src=\"media/simple-openai.png\" width=\"250\"> [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sashirestela_simple-openai&metric=alert_status)](ht...",
+        "fetched_at": "2026-07-07T08:12:37Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "sashirestela/simple-openai/README.md",
+        "url": "https://github.com/sashirestela/simple-openai/blob/7af0d7d8daf5c555cd65b202664a2c970be4479e/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://lea...microsoft.com/en-us/azure/ai-services...",
+    "value_sha256": "3d1ce9e19c96146aae06eaad44aa1de49a0879d33c96900f4cef17dc39924d43"
+  },
+  {
+    "base_url_sha256": [
+      "0cb630bfaf3c3332709064856108c2eb57853e502dca6b485734d857601061db"
+    ],
+    "base_urls_redacted": [
+      "https://lea...microsoft.com/en-us/azure/ai-services..."
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "d70d7872c5810fc94061",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gemini-vertex-api",
+      "gemini-google-api",
+      "deepseek-api",
+      "mistral-api",
+      "gpt-image-1",
+      "gpt-4o-mini",
+      "gpt-4o-audio-preview",
+      "gemini-api",
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "sashirestela/simple-openai/README.md GitHub code result: sashirestela/simple-openai/README.md # Simple-OpenAI A Java library to use the OpenAI Api in the simplest possible way. <img src=\"media/simple-openai.png\" width=\"250\"> [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sashirestela_simple-openai&metric=alert_status)](ht...",
+        "fetched_at": "2026-07-07T08:12:37Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "sashirestela/simple-openai/README.md",
+        "url": "https://github.com/sashirestela/simple-openai/blob/7af0d7d8daf5c555cd65b202664a2c970be4479e/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://lea...microsoft.com/en-us/azure/ai-services...",
+    "value_sha256": "0cb630bfaf3c3332709064856108c2eb57853e502dca6b485734d857601061db"
+  },
+  {
+    "base_url_sha256": [
+      "61380628268f784cf9d8ad4614b61ddc5ec6078571a86ab977c901f3ace8f924"
+    ],
+    "base_urls_redacted": [
+      "https://lea...microsoft.com/en-us/azure/ai-services..."
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "01a1cfc69d8ac2ea9290",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gemini-vertex-api",
+      "gemini-google-api",
+      "deepseek-api",
+      "mistral-api",
+      "gpt-image-1",
+      "gpt-4o-mini",
+      "gpt-4o-audio-preview",
+      "gemini-api",
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "sashirestela/simple-openai/README.md GitHub code result: sashirestela/simple-openai/README.md # Simple-OpenAI A Java library to use the OpenAI Api in the simplest possible way. <img src=\"media/simple-openai.png\" width=\"250\"> [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sashirestela_simple-openai&metric=alert_status)](ht...",
+        "fetched_at": "2026-07-07T08:12:37Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "sashirestela/simple-openai/README.md",
+        "url": "https://github.com/sashirestela/simple-openai/blob/7af0d7d8daf5c555cd65b202664a2c970be4479e/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://lea...microsoft.com/en-us/azure/ai-services...",
+    "value_sha256": "61380628268f784cf9d8ad4614b61ddc5ec6078571a86ab977c901f3ace8f924"
+  },
+  {
+    "base_url_sha256": [
+      "dc77d8eb9b69745ce3ef6b5778e858767447dadd839c757b90f77e12afa78efa"
+    ],
+    "base_urls_redacted": [
+      "https://YOU...openai.azure.com/openai/deployments/YOUR..."
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "2f75800b86dcba1947ef",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gemini-vertex-api",
+      "gemini-google-api",
+      "deepseek-api",
+      "mistral-api",
+      "gpt-image-1",
+      "gpt-4o-mini",
+      "gpt-4o-audio-preview",
+      "gemini-api",
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "sashirestela/simple-openai/README.md GitHub code result: sashirestela/simple-openai/README.md # Simple-OpenAI A Java library to use the OpenAI Api in the simplest possible way. <img src=\"media/simple-openai.png\" width=\"250\"> [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sashirestela_simple-openai&metric=alert_status)](ht...",
+        "fetched_at": "2026-07-07T08:12:37Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "sashirestela/simple-openai/README.md",
+        "url": "https://github.com/sashirestela/simple-openai/blob/7af0d7d8daf5c555cd65b202664a2c970be4479e/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://YOU...openai.azure.com/openai/deployments/YOUR...",
+    "value_sha256": "dc77d8eb9b69745ce3ef6b5778e858767447dadd839c757b90f77e12afa78efa"
+  },
+  {
+    "base_url_sha256": [
+      "94afb24309b0b0eb1eb54b3b004a36b854220bdbedf1f65debdd6445df4668c6"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "d00894aebcd046a9f34f",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "GPT-4",
+      "GPT-3.5",
+      "llama3.1",
+      "gpt-4",
+      "deepseek-chat",
+      "deepseek-reasoner",
+      "kimi-k2.5",
+      "gemini-pro",
+      "mistral-large-latest"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "stargazerwh/RAG-Lighter/WIKI.md GitHub code result: stargazerwh/RAG-Lighter/WIKI.md # RAG-Lighter Wiki > 轻量级模块化 RAG (检索增强生成) 框架完整文档 --- ## 📑 目录 1. [项目简介](#项目简介) 2. [核心架构](#核心架构) 3. [快速开始](#快速开始) 4. [组件详解](#组件详解) 5. [高级用法](#高级用法) 6. [API 参考](#api-参考) 7. [配置指南](#配置指南) 8. [最佳实践](#最佳实践) 9. [常见问题](#常见问题) --- ## 项目简介 **RAG-Lighter** 是一个用 Python 编写的轻量级、模块化 RAG (...",
+        "fetched_at": "2026-07-07T08:12:40Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "stargazerwh/RAG-Lighter/WIKI.md",
+        "url": "https://github.com/stargazerwh/RAG-Lighter/blob/d7fb5b710b9a7c8de827e8147e2fc577ab991895/WIKI.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../v1",
+    "value_sha256": "94afb24309b0b0eb1eb54b3b004a36b854220bdbedf1f65debdd6445df4668c6"
+  },
+  {
+    "base_url_sha256": [
+      "1e7762e443da198c78683b44c74cd0b1c76c502bde98a2cf0453e65985f043a3"
+    ],
+    "base_urls_redacted": [
+      "https://api...moonshot.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "9ed491d21ab7fa6aa818",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "Llama",
+      "claude-sonnet-4-5-20250929"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "coollabsio/openclaw/README.md GitHub code result: coollabsio/openclaw/README.md # Openclaw Automated Build ## Quick Start ### Minimal (`docker run`) ```bash docker run -d \\ --name openclaw \\ -p 8080:8080 \\ -e ANTHROPIC_API_KEY=sk-ant-... \\ -e AUTH_PASSWORD=changeme \\ -e OPENCLAW_GATEWAY_TOKEN=my-secret-token \\ -e OPENCLAW_ALLOWED_ORIGINS=http://localhost:...",
+        "fetched_at": "2026-07-07T08:12:42Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "coollabsio/openclaw/README.md",
+        "url": "https://github.com/coollabsio/openclaw/blob/dd32ff61491c39cf240ace7a23dab494607b899f/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...moonshot.ai/v1",
+    "value_sha256": "1e7762e443da198c78683b44c74cd0b1c76c502bde98a2cf0453e65985f043a3"
+  },
+  {
+    "base_url_sha256": [
+      "f0be788e0abd38b7a346579415230e36a43e5cfc1c09172800a1226929179e47"
+    ],
+    "base_urls_redacted": [
+      "https://api...moonshot.ai/anthropic"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "91624cd43f5001623655",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "Llama",
+      "claude-sonnet-4-5-20250929"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "coollabsio/openclaw/README.md GitHub code result: coollabsio/openclaw/README.md # Openclaw Automated Build ## Quick Start ### Minimal (`docker run`) ```bash docker run -d \\ --name openclaw \\ -p 8080:8080 \\ -e ANTHROPIC_API_KEY=sk-ant-... \\ -e AUTH_PASSWORD=changeme \\ -e OPENCLAW_GATEWAY_TOKEN=my-secret-token \\ -e OPENCLAW_ALLOWED_ORIGINS=http://localhost:...",
+        "fetched_at": "2026-07-07T08:12:42Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_code",
+        "title": "coollabsio/openclaw/README.md",
+        "url": "https://github.com/coollabsio/openclaw/blob/dd32ff61491c39cf240ace7a23dab494607b899f/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...moonshot.ai/anthropic",
+    "value_sha256": "f0be788e0abd38b7a346579415230e36a43e5cfc1c09172800a1226929179e47"
+  },
+  {
+    "base_url_sha256": [
+      "1636d167e0ed39c968f04ecb39ec8ee82ed3a8af6d5df0447030ba6d81985e22"
+    ],
+    "base_urls_redacted": [
+      "https://pla...openai.com/docs/models"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "ccafe8a71543bbf620cb",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "o3",
+      "Qwen3",
+      "Llama",
+      "o1-mini",
+      "qwen-plus-latest",
+      "qwen",
+      "qwen3-235b-a22b",
+      "deepseek-reasoner",
+      "deepseek-ai",
+      "DeepSeek-R1",
+      "llama",
+      "Llama-4-Scout-17B-16E-Instruct",
+      "grok-4-0709",
+      "claude-sonnet-4-0",
+      "gemini-2.0-flash"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "zilliztech/deep-searcher/README.md GitHub code result: zilliztech/deep-searcher/README.md ![DeepSearcher](./assets/pic/logo.png) <div align=\"center\"> [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![DeepWiki](https://img.shields.io/badge/DeepWiki-AI%20Docs-orange.svg)](https://deepwiki...",
+        "fetched_at": "2026-07-07T08:12:53Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "zilliztech/deep-searcher/README.md",
+        "url": "https://github.com/zilliztech/deep-searcher/blob/d89e37cdfbbef5e44ae6162ce9cc2c627a69b7e1/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://pla...openai.com/docs/models",
+    "value_sha256": "1636d167e0ed39c968f04ecb39ec8ee82ed3a8af6d5df0447030ba6d81985e22"
+  },
+  {
+    "base_url_sha256": [
+      "396fbae1cae141eb85e04bf8071c2fc131c8523bec3cecea3cc85a821c1b0692"
+    ],
+    "base_urls_redacted": [
+      "https://api...x.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "c31041c023290a6bbd6c",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "grok-4-fast-reasoning",
+      "Claude-Grok",
+      "grok-3",
+      "grok-beta",
+      "grok-2-latest",
+      "gemini-1.5-pro",
+      "grok-4.3"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 5,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "How to Get Your Grok (XAI) API Key Point the OpenAI client at https://api.x.ai/v1 , pass your XAI_API_KEY , and call models with their xAI names ( grok-4.3 , etc.). Most OpenAI ...",
+        "fetched_at": "2026-07-07T08:14:35Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "google_serpapi",
+        "title": "How to Get Your Grok (XAI) API Key",
+        "url": "https://www.apideck.com/blog/how-to-get-your-grok-xai-api-key"
+      },
+      {
+        "excerpt": "feat(ts-sdk): add xAI (Grok) LLM provider ## Summary The Python SDK supports **xAI (Grok)** as an LLM provider, but the TypeScript OSS SDK (`mem0ai/oss`) does not. Add it to bring the TS SDK to parity. | | | |---|---| | Python reference | `mem0/llms/xai.py` | | Registered in (Python) | `mem0/utils/factory.py` (LLMFactory) | | Target file (TypeScript) | `m...",
+        "fetched_at": "2026-07-07T08:13:03Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "feat(ts-sdk): add xAI (Grok) LLM provider",
+        "url": "https://github.com/mem0ai/mem0/issues/5760"
+      },
+      {
+        "excerpt": "feat(ts-sdk): add xAI (Grok) LLM provider to OSS SDK ## Linked Issue Closes #5760 ## Description The Python SDK ships an xAI (Grok) LLM provider, but the TypeScript OSS SDK (`mem0ai/oss`) does not — so `provider: \"xai\"` works in Python but not in TS. This PR brings the two to parity. **TypeScript OSS SDK (the core change):** - New `XAILLM` in `mem0-ts/src...",
+        "fetched_at": "2026-07-07T08:13:03Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "feat(ts-sdk): add xAI (Grok) LLM provider to OSS SDK",
+        "url": "https://github.com/mem0ai/mem0/pull/6115"
+      },
+      {
+        "excerpt": "siddharthp-git/Flight-Amedus/README.md GitHub code result: siddharthp-git/Flight-Amedus/README.md <img width=\"1275\" height=\"628\" alt=\"image\" src=\"https://github.com/user-attachments/assets/5227222b-772b-4b39-bb86-3d16d6dd938f\" /> ## AI-Powered Travel Itinerary Planner An AI travel assistant that generates personalized itineraries with Grok (xAI) via an Op...",
+        "fetched_at": "2026-07-07T08:12:59Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "siddharthp-git/Flight-Amedus/README.md",
+        "url": "https://github.com/siddharthp-git/Flight-Amedus/blob/393c7a9e456cf9cef954e323ac07d578b3ec03ab/README.md"
+      },
+      {
+        "excerpt": "zejzl/grokputer/grok.md GitHub code result: zejzl/grokputer/grok.md # GROK 'PUTER — VRZIBRZI OPERATIONAL GUIDE **Nejc Vrzel | Node of Server | Eternal | Infinite** **Status: FULLY OPERATIONAL | Nov 06, 2025 | ZA GROKA** ## SYSTEM STATUS: ONLINE ## Custom Instructions for Future Tasks (CLI Development & Integration) ### General Guidelines - **Project Focus...",
+        "fetched_at": "2026-07-07T08:12:54Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "zejzl/grokputer/grok.md",
+        "url": "https://github.com/zejzl/grokputer/blob/6e69ad6406a5db6da9f16c55153323380bc83444/grok.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...x.ai/v1",
+    "value_sha256": "396fbae1cae141eb85e04bf8071c2fc131c8523bec3cecea3cc85a821c1b0692"
+  },
+  {
+    "base_url_sha256": [
+      "bd73e161d6c8141c2bed1eff13872dde00db6dec2f921201b1df46d1e4c42839"
+    ],
+    "base_urls_redacted": [
+      "https://you...openai.azure.com"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "ebce557449b71c579d4d",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "gpt-4.1",
+      "gpt-5",
+      "claude-4-5-opus",
+      "claude-4-5-sonnet",
+      "gemini-3-pro",
+      "gemini-3-flash",
+      "grok-4.1-fast",
+      "deepseek-chat",
+      "deepseek-reasoner",
+      "Qwen3-30B"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "mims-harvard/Qworld/README.md GitHub code result: mims-harvard/Qworld/README.md <div align=\"center\"> <h1>🌍 Qworld: Question-Specific Evaluation Criteria for LLMs</h1> **Generate rich, multi-dimensional evaluation criteria from any question.** [![Paper](https://img.shields.io/badge/Paper-arXiv%202603.23522-b31b1b?style=for-the-badge&logo=arxiv)](https://ar...",
+        "fetched_at": "2026-07-07T08:12:57Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "mims-harvard/Qworld/README.md",
+        "url": "https://github.com/mims-harvard/Qworld/blob/5700dd008c8a9cca33f2404d0918129f74868ee8/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://you...openai.azure.com",
+    "value_sha256": "bd73e161d6c8141c2bed1eff13872dde00db6dec2f921201b1df46d1e4c42839"
+  },
+  {
+    "base_url_sha256": [
+      "754cadf62d5fc0d8503dd89573fbe5c9f8c97730e9be025b0d76244cfd8ac326"
+    ],
+    "base_urls_redacted": [
+      "https://ozr...supabase.co/auth/v1/callback"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "0626b0c56ef640ade921",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Danangoffic/promptcraft-saas/README.md GitHub code result: Danangoffic/promptcraft-saas/README.md # PromptCraft SaaS PromptCraft adalah SaaS prompt engineering dengan subscription Free, Premium, dan Enthusiast. Project ini memakai Next.js, Supabase, Midtrans, dan Grok API untuk membuat prompt library serta AI-assisted prompt awareness engine. ## Status im...",
+        "fetched_at": "2026-07-07T08:12:59Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_code",
+        "title": "Danangoffic/promptcraft-saas/README.md",
+        "url": "https://github.com/Danangoffic/promptcraft-saas/blob/5d955b401ec61526d1cc3499ba7c213a070e4b39/README.md"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ozr...supabase.co/auth/v1/callback",
+    "value_sha256": "754cadf62d5fc0d8503dd89573fbe5c9f8c97730e9be025b0d76244cfd8ac326"
+  },
+  {
+    "base_url_sha256": [
+      "ebb5dec7d8c69fa5c35a5bfa5ae24d96b7d763c30f68df44bceb7195465ce82b"
+    ],
+    "base_urls_redacted": [
+      "https://api...x.ai/v1/responses"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "864672f8aa4e3da0ec45",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [
+      "grok-4.3",
+      "grok-3"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Implement x-search MCP server wrapping xAI's x_search tool ## 概要 xAI（Grok）の `x_search` ツールをラップするMCPサーバー。OpenCode（または任意のMCP対応AIクライアント）からX（Twitter）検索を実行できるようにする。 xAIのAPIキーさえあればX Developerアカウントは不要 — xAIのAPIクレジット内で動作する。 ## アーキテクチャ ``` AI Agent (MCP client, e.g. OpenCode) │ MCP stdio JSON-RPC ▼ x-search-mcp (Node.js) │ OpenAI Responses API (https://api.x.ai/v1...",
+        "fetched_at": "2026-07-07T08:13:03Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "Implement x-search MCP server wrapping xAI's x_search tool",
+        "url": "https://github.com/ohtori222/x-search-mcp/issues/1"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...x.ai/v1/responses",
+    "value_sha256": "ebb5dec7d8c69fa5c35a5bfa5ae24d96b7d763c30f68df44bceb7195465ce82b"
+  },
+  {
+    "base_url_sha256": [
+      "dcb1d19dc7e29e4fd2eef053883ea20f20be689ae6b8dc169275305102871f4b"
+    ],
+    "base_urls_redacted": [
+      "https://you...example/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "279ebd5bef7c59c08c86",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Configuration - OpenAI Agents SDK By default, the SDK uses the OPENAI_API_KEY environment variable for LLM requests and tracing. ... base_url=\"https://your-openai-compatible-endpoint.example/v1\", ...",
+        "fetched_at": "2026-07-07T08:13:09Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "google_serpapi",
+        "title": "Configuration - OpenAI Agents SDK",
+        "url": "https://openai.github.io/openai-agents-python/config/"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://you...example/v1",
+    "value_sha256": "dcb1d19dc7e29e4fd2eef053883ea20f20be689ae6b8dc169275305102871f4b"
+  },
+  {
+    "base_url_sha256": [
+      "680d9133c8e1d4b2940713c21eebcd875dcb8dfe06e50f49bf1eb0aac803bd2c"
+    ],
+    "base_urls_redacted": [
+      "https://new...example.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "35d655aae97242c8b010",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "base_url of OpenAI Client Instance Cannot Be Modified ... getenv(\"OPENAI_API_KEY\"), base_url=\"https://api.openai.com/v1\", ) print(client.base_url) client.base_url = \"https://newurl.example.com/v1\" print ...",
+        "fetched_at": "2026-07-07T08:13:09Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "google_serpapi",
+        "title": "base_url of OpenAI Client Instance Cannot Be Modified ...",
+        "url": "https://github.com/openai/openai-python/issues/913"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://new...example.com/v1",
+    "value_sha256": "680d9133c8e1d4b2940713c21eebcd875dcb8dfe06e50f49bf1eb0aac803bd2c"
+  },
+  {
+    "base_url_sha256": [
+      "c38e4ff44ea6e35d91ab970bf46c567557c34a4b62e3f39c831d0b4d13ddb014"
+    ],
+    "base_urls_redacted": [
+      "https://api...ilmu.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "f7582c55e2e533f20a2e",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "OpenAI Compatibility - ILMU API OPENAI_API_KEY=\"sk-openai-key\" ; OPENAI_BASE_URL=\"https://api.openai.com/v1\" ; OPENAI_API_KEY=\"YOUR_API_KEY\" ; OPENAI_BASE_URL=\"https://api.ilmu.ai/v1\".",
+        "fetched_at": "2026-07-07T08:13:16Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "google_serpapi",
+        "title": "OpenAI Compatibility - ILMU API",
+        "url": "https://docs.ilmu.ai/docs/developer-tools/openai-compatibility"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...ilmu.ai/v1",
+    "value_sha256": "c38e4ff44ea6e35d91ab970bf46c567557c34a4b62e3f39c831d0b4d13ddb014"
+  },
+  {
+    "base_url_sha256": [
+      "7102c29b57b1e6049f552fb966f446acd6bb2e75e1ee839635494437d83fc813"
+    ],
+    "base_urls_redacted": [
+      "https://api...fe8.cn/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "98bac10f51d98212eca7",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Python调用OpenAI OPENAI_API_KEY=\"sk-xxx\" OPENAI_BASE_URL=\"https://api.fe8.cn/v1\". sk-xxx 使用自己的key 替换。 OPENAI_BASE_URL 是访问OpenAI 的国内代理跳板。 5 ...",
+        "fetched_at": "2026-07-07T08:13:16Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "google_serpapi",
+        "title": "Python调用OpenAI",
+        "url": "https://zhuanlan.zhihu.com/p/684314091"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...fe8.cn/v1",
+    "value_sha256": "7102c29b57b1e6049f552fb966f446acd6bb2e75e1ee839635494437d83fc813"
+  },
+  {
+    "base_url_sha256": [
+      "763acecbaccf75323f8a42933856918d517c984e07305eec316eebfa74fd7d25"
+    ],
+    "base_urls_redacted": [
+      "https://api...laozhang.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "5ead163805bff63fa6d4",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "OpenAI Codex CLI Setup Guide - 老张API bashrc : # LaoZhang API Configuration export OPENAI_API_KEY=\"sk-your-...-key\" export OPENAI_BASE_URL=\"https://api.laozhang.ai/v1\". Apply changes:.",
+        "fetched_at": "2026-07-07T08:13:16Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "google_serpapi",
+        "title": "OpenAI Codex CLI Setup Guide - 老张API",
+        "url": "https://docs.laozhang.ai/en/scenarios/programming/codex-cli"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...laozhang.ai/v1",
+    "value_sha256": "763acecbaccf75323f8a42933856918d517c984e07305eec316eebfa74fd7d25"
+  },
+  {
+    "base_url_sha256": [
+      "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3"
+    ],
+    "base_urls_redacted": [
+      "https://api...deepseek.com/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "e090bfa7aa1f7229d4ee",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "DeepSeek API Docs: Your First API Call nodejs. curl https://api.deepseek.com/chat/completions \\ -H \"Content-Type: application/json\" \\ -H \"Authorization: Bearer ${DEEPSEEK_API_KEY}\" \\ -d '{ \"model ...",
+        "fetched_at": "2026-07-07T08:13:40Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "google_serpapi",
+        "title": "DeepSeek API Docs: Your First API Call",
+        "url": "https://api-docs.deepseek.com/"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...deepseek.com/chat/completions",
+    "value_sha256": "948f1ecb6b48f91adc4e110d0351cd172b16450e9936d358992e0dfad7b863f3"
+  },
+  {
+    "base_url_sha256": [
+      "9a5defcf6fc22d447f0454d9e636095546437184a427daec8da479ecd2184c56"
+    ],
+    "base_urls_redacted": [
+      "https://cod...mistral.ai/v1/fim/completions"
+    ],
+    "first_seen_at": "2026-07-07T08:14:36Z",
+    "id": "f32a26d229067f7b7b83",
+    "last_seen_at": "2026-07-07T08:14:36Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "I can't get code completion to work as a free user : r/MistralAI MISTRAL_API_KEY=\"redacted\" curl https://codestral.mistral.ai/v1/fim/completions -H \"Authorization: Bearer $MISTRAL_API_KEY\" -H \"Content-Type ...",
+        "fetched_at": "2026-07-07T08:14:27Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "google_serpapi",
+        "title": "I can't get code completion to work as a free user : r/MistralAI",
+        "url": "https://www.reddit.com/r/MistralAI/comments/1uby334/i_cant_get_code_completion_to_work_as_a_free_user/"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://cod...mistral.ai/v1/fim/completions",
+    "value_sha256": "9a5defcf6fc22d447f0454d9e636095546437184a427daec8da479ecd2184c56"
   },
   {
     "base_url_sha256": [
@@ -159,254 +2385,6 @@
     "type": "base_url",
     "value_redacted": "http://127...0.0.1:3018/v1",
     "value_sha256": "4ee385d6f0364e720345e7a5d4f0b6a0a6e04c17b8b39841ff190352446ab62f"
-  },
-  {
-    "base_url_sha256": [
-      "d9617135d6fdd0a2cde722d637a1dfcc3da37515708b3ea5d66ae607c8ac785e"
-    ],
-    "base_urls_redacted": [
-      "https://api...openai.com/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "aa94cbf2b5ebb88e1c11",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "claude-code"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "feat(earshot): scaffold CLI daemon and config schema ## Intent P1-01 (issue #4) creates the Earshot repo scaffold everything later hangs off: a pip-installable Python package named earshot-cli (module earshot), a daemon entrypoint, and the complete YAML config schema with loader and validation. Deliberately defines ALL config fields now (wake word phrase/...",
-        "fetched_at": "2026-07-07T04:36:37Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_issues",
-        "title": "feat(earshot): scaffold CLI daemon and config schema",
-        "url": "https://github.com/talibilat/vox/pull/20"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...openai.com/v1",
-    "value_sha256": "d9617135d6fdd0a2cde722d637a1dfcc3da37515708b3ea5d66ae607c8ac785e"
-  },
-  {
-    "base_url_sha256": [
-      "12b8deaccc34b32757dbb1497e029da0c2e7b26ffa86b9c926c08cb4692f4508"
-    ],
-    "base_urls_redacted": [
-      "https://api...deepseek.com/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "0d5ff39c3c0224d9753f",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "Qwen",
-      "gpt-4o-mini",
-      "deepseek-chat"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 2,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "support `openai_compatible` provider ## Requirement Add first-class support for non-OpenAI, OpenAI-compatible LLM endpoints (DeepSeek, Moonshot, Qwen, vLLM, Ollama /v1, LocalAI, …) in [summary] / [description], configured in TOML. ## Support config ```toml [summary] enabled = true provider = \"openai_compatible\" model = \"deepseek-chat\" base_url = \"https://...",
-        "fetched_at": "2026-07-07T04:36:37Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_issues",
-        "title": "support `openai_compatible` provider",
-        "url": "https://github.com/zilliztech/mfs/issues/167"
-      },
-      {
-        "excerpt": "feat(llm): add `openai_compatible` provider #167 ## Summary New `openai_compatible` LLM provider so `[summary]` / `[description]` can target any OpenAI Chat Completions-compatible endpoint (DeepSeek, Moonshot, Qwen, vLLM, Ollama `/v1`, …) by configuring `base_url` + `api_key` + `model` in TOML. The cloud `openai.py` is untouched — mirrors how the embeddin...",
-        "fetched_at": "2026-07-07T04:36:37Z",
-        "query": "\"OPENAI_API_KEY\" \"base_url\"",
-        "source": "github_issues",
-        "title": "feat(llm): add `openai_compatible` provider",
-        "url": "https://github.com/zilliztech/mfs/pull/165"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...deepseek.com/v1",
-    "value_sha256": "12b8deaccc34b32757dbb1497e029da0c2e7b26ffa86b9c926c08cb4692f4508"
-  },
-  {
-    "base_url_sha256": [
-      "7acc8cd920359af973331ab29f682589608e2efa118d2cecf5cf59d95a8d78be"
-    ],
-    "base_urls_redacted": [
-      "https://api...openai.com/v1/models"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "2a2b71927701a6890702",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "qwen2.5"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset ## Description <strong>Description</strong> <pre>On Linux, after `nemoclaw onboard` with provider option 7 (Local Ollama), the in-sandbox OpenClaw TUI cannot get any inference r...",
-        "fetched_at": "2026-07-07T04:36:41Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_issues",
-        "title": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset",
-        "url": "https://github.com/NVIDIA/NemoClaw/issues/2519"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...openai.com/v1/models",
-    "value_sha256": "7acc8cd920359af973331ab29f682589608e2efa118d2cecf5cf59d95a8d78be"
-  },
-  {
-    "base_url_sha256": [
-      "7190472ee8fcb0b8a00d8c0b9bb15adf83882874ae46afccad56ba9055b169e2"
-    ],
-    "base_urls_redacted": [
-      "https://api...aimlapi.com/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "f2b4b09f3fc0bf3190ca",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "gpt-4o"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
-        "fetched_at": "2026-07-07T04:36:41Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_issues",
-        "title": "feat(provider): add AI/ML API provider",
-        "url": "https://github.com/Gitlawb/openclaude/pull/863"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...aimlapi.com/v1",
-    "value_sha256": "7190472ee8fcb0b8a00d8c0b9bb15adf83882874ae46afccad56ba9055b169e2"
-  },
-  {
-    "base_url_sha256": [
-      "db6dd4217a2935cebdbf723a38bc56c3ea415d1185cc28aa3b524b9456bf6a23"
-    ],
-    "base_urls_redacted": [
-      "https://api...aimlapi.com/v1/models"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "ca5e75d4848e32990a07",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "gpt-4o"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
-        "fetched_at": "2026-07-07T04:36:41Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_issues",
-        "title": "feat(provider): add AI/ML API provider",
-        "url": "https://github.com/Gitlawb/openclaude/pull/863"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...aimlapi.com/v1/models",
-    "value_sha256": "db6dd4217a2935cebdbf723a38bc56c3ea415d1185cc28aa3b524b9456bf6a23"
-  },
-  {
-    "base_url_sha256": [
-      "1d0e0ac78eec21bf8711740986e39d2f08a1420caf2a1e58a479e38773d48c49"
-    ],
-    "base_urls_redacted": [
-      "https://url/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "54d90de6f7f86aca7f0a",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "examples/code_review_agent: add sandboxed code review agent example Fix #2004 ## What changed This PR adds a sandboxed code review agent example under `examples/code_review_agent`. The example includes a runnable Go CLI, a `skills/code-review` Skill package, review rule documentation, helper scripts, deterministic fixture inputs, structured JSON/Markdown ...",
-        "fetched_at": "2026-07-07T04:36:41Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_issues",
-        "title": "examples/code_review_agent: add sandboxed code review agent example",
-        "url": "https://github.com/trpc-group/trpc-agent-go/pull/2121"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://url/v1",
-    "value_sha256": "1d0e0ac78eec21bf8711740986e39d2f08a1420caf2a1e58a479e38773d48c49"
-  },
-  {
-    "base_url_sha256": [
-      "f423fe4202552ccf51cc9ded990476b992382d0ec2abcf843f2632a6356bf751"
-    ],
-    "base_urls_redacted": [
-      "http://127...evil.test/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "642d747311b4cc315089",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "glm-5.2"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
-        "fetched_at": "2026-07-07T04:36:41Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_issues",
-        "title": "[codex] Add provider-agnostic LLM env",
-        "url": "https://github.com/jadenfix/temp.js/pull/124"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "http://127...evil.test/v1",
-    "value_sha256": "f423fe4202552ccf51cc9ded990476b992382d0ec2abcf843f2632a6356bf751"
-  },
-  {
-    "base_url_sha256": [
-      "7ca1fa200f1e82535aa1c0528805a664662797e31b0bb80ac7ad72634c68fa27"
-    ],
-    "base_urls_redacted": [
-      "https://int...api.nvidia.com/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "40b58ba8956eef067df2",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "glm-5.2"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
-        "fetched_at": "2026-07-07T04:36:41Z",
-        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
-        "source": "github_issues",
-        "title": "[codex] Add provider-agnostic LLM env",
-        "url": "https://github.com/jadenfix/temp.js/pull/124"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://int...api.nvidia.com/v1",
-    "value_sha256": "7ca1fa200f1e82535aa1c0528805a664662797e31b0bb80ac7ad72634c68fa27"
   },
   {
     "base_url_sha256": [
@@ -1077,36 +3055,6 @@
     "type": "base_url",
     "value_redacted": "https://git...com/anthropics/claude-code-...",
     "value_sha256": "f726f009ed80e37c84f7ea702dfbf09caf5db772d333596e6fb1154bc71895f8"
-  },
-  {
-    "base_url_sha256": [
-      "dd9dd182b406f181aa1efb245fd4182c6588c3430bcab8d7db04199ab682acbc"
-    ],
-    "base_urls_redacted": [
-      "https://api...anthropic.com/v1/messages"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "daa1d38e33829928fd45",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "claude-sonnet-4-6"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "fix(agents): Anthropic replay fails after boundaryless compaction Related: #30157 ## Related PR Matrix - #99383: canonical no-compaction completed-turn Anthropic replay fix. That PR owns the SDK and managed transport replay policy for ordinary non-compacted sessions. - #98527: this PR, legacy boundaryless compaction successor repair. It recovers a missing...",
-        "fetched_at": "2026-07-07T04:36:47Z",
-        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
-        "source": "github_issues",
-        "title": "fix(agents): Anthropic replay fails after boundaryless compaction",
-        "url": "https://github.com/openclaw/openclaw/pull/98527"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...anthropic.com/v1/messages",
-    "value_sha256": "dd9dd182b406f181aa1efb245fd4182c6588c3430bcab8d7db04199ab682acbc"
   },
   {
     "base_url_sha256": [
@@ -1784,226 +3732,5 @@
     "type": "base_url",
     "value_redacted": "https://git...com/anthropics/anthropic-sd...",
     "value_sha256": "7b1f1d8a3786a2c2dfa242a49fe1c9ec76ee6b79f2c5451de3077844096694b2"
-  },
-  {
-    "base_url_sha256": [
-      "76ef4ad6f0c8a4ae66efb13875c107cee40c78997a212353d379acfbb2f45591"
-    ],
-    "base_urls_redacted": [
-      "https://ope...ai/api/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "47f16808d923b644a4db",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "gemini-3.5-flash",
-      "claude-code"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "fix(AL-082): default allie init to enable model review when a key resolves ## What / why `allie init` always scaffolded `model: ModelPolicy::default()` (`enabled: false`), so agentic (vision-model) review silently never ran, even with a valid API key in the environment. Live repro from the ticket: `allie init` → `allie doctor` → `allie verify` against a 4...",
-        "fetched_at": "2026-07-07T04:37:00Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_issues",
-        "title": "fix(AL-082): default allie init to enable model review when a key resolves",
-        "url": "https://github.com/adminifi-ai/allie/pull/55"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://ope...ai/api/v1",
-    "value_sha256": "76ef4ad6f0c8a4ae66efb13875c107cee40c78997a212353d379acfbb2f45591"
-  },
-  {
-    "base_url_sha256": [
-      "051e0609abb5b28b9b4f39c7ee10daebade72a6537df07f04f032057759ac2da"
-    ],
-    "base_urls_redacted": [
-      "https://ope...ai/api/v1/models"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "8789552ff2a168c21262",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "gpt-5.3-codex"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "Models: fully dynamic model discovery (OpenRouter + beyond) ## Summary We need **fully dynamic model discovery** for providers with fast-moving catalogs (starting with OpenRouter). Today, OpenClaw model selection is effectively **static**: - Available models come from Pi's built-in generated catalog (pi-ai/models.generated) plus optional `models.json` ove...",
-        "fetched_at": "2026-07-07T04:37:00Z",
-        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
-        "source": "github_issues",
-        "title": "Models: fully dynamic model discovery (OpenRouter + beyond)",
-        "url": "https://github.com/openclaw/openclaw/issues/10687"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://ope...ai/api/v1/models",
-    "value_sha256": "051e0609abb5b28b9b4f39c7ee10daebade72a6537df07f04f032057759ac2da"
-  },
-  {
-    "base_url_sha256": [
-      "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
-    ],
-    "base_urls_redacted": [
-      "https://api...mistral.ai/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "a44af0ebcf66537a52fe",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "mistral-ai",
-      "mistral-small-latest",
-      "mistral-large-latest"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "feat: add Mistral AI as first-class LLM provider ## What does this PR do? Promotes Mistral AI from a manual \"Custom Endpoint\" to a first-class provider, wired the same way the other direct API-key providers (NovitaAI, DeepSeek, MiniMax, and friends) are. After this change `hermes model` lists **Mistral AI**, `--provider mistral` works, and `MISTRAL_API_KE...",
-        "fetched_at": "2026-07-07T04:37:06Z",
-        "query": "\"MISTRAL_API_KEY\"",
-        "source": "github_issues",
-        "title": "feat: add Mistral AI as first-class LLM provider",
-        "url": "https://github.com/NousResearch/hermes-agent/pull/50289"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...mistral.ai/v1",
-    "value_sha256": "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
-  },
-  {
-    "base_url_sha256": [
-      "5891aed827c4e67b2d7c0c73ea819327ce3f2b6ef72213cd79669486a26b1ead"
-    ],
-    "base_urls_redacted": [
-      "https://das...aliyuncs.com/compatible-mode/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "e5d96ee7d055403165ad",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "qwen",
-      "qwen-oauth",
-      "Qwen"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
-        "fetched_at": "2026-07-07T04:37:10Z",
-        "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
-        "source": "github_issues",
-        "title": "Fix DashScope provider mapping",
-        "url": "https://github.com/fathah/hermes-desktop/pull/825"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://das...aliyuncs.com/compatible-mode/v1",
-    "value_sha256": "5891aed827c4e67b2d7c0c73ea819327ce3f2b6ef72213cd79669486a26b1ead"
-  },
-  {
-    "base_url_sha256": [
-      "e7ce1b2fec6e34a3e97a40081667fdba0121a327ad38ed5e9fce4daaf2be9abc"
-    ],
-    "base_urls_redacted": [
-      "https://das...aliyuncs.com/compatible-mode/v1"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "d9e3db19432ef8c89f9b",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "qwen",
-      "qwen-oauth",
-      "Qwen"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
-        "fetched_at": "2026-07-07T04:37:10Z",
-        "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
-        "source": "github_issues",
-        "title": "Fix DashScope provider mapping",
-        "url": "https://github.com/fathah/hermes-desktop/pull/825"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://das...aliyuncs.com/compatible-mode/v1",
-    "value_sha256": "e7ce1b2fec6e34a3e97a40081667fdba0121a327ad38ed5e9fce4daaf2be9abc"
-  },
-  {
-    "base_url_sha256": [
-      "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
-    ],
-    "base_urls_redacted": [
-      "https://api...x.ai/v1/chat/completions"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "7b6d46807ab9a7ae252e",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "GPT-4o",
-      "gemini-2.5-flash",
-      "grok-3"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "feat(Research): add provider-specific execution guides for researcher agents ## Summary Three of the four Researcher agents (Gemini, Grok, Perplexity) currently have no provider-specific call code anywhere in the Research skill or in the agent files. With no API/CLI wire-format defined, each non-Claude agent collapses to the same backend (built-in `WebSea...",
-        "fetched_at": "2026-07-07T04:37:13Z",
-        "query": "\"XAI_API_KEY\" \"grok\"",
-        "source": "github_issues",
-        "title": "feat(Research): add provider-specific execution guides for researcher agents",
-        "url": "https://github.com/danielmiessler/LifeOS/pull/1253"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...x.ai/v1/chat/completions",
-    "value_sha256": "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
-  },
-  {
-    "base_url_sha256": [
-      "d2fb766a9204796e0aa184e102954987f9486c6819f3f962c29b349ce6f88d62"
-    ],
-    "base_urls_redacted": [
-      "https://api...perplexity.ai/chat/completions"
-    ],
-    "first_seen_at": "2026-07-07T04:37:14Z",
-    "id": "3fac3ce501224b72db8e",
-    "last_seen_at": "2026-07-07T04:37:14Z",
-    "models": [
-      "GPT-4o",
-      "gemini-2.5-flash",
-      "grok-3"
-    ],
-    "provider": "openai_compatible",
-    "seen_count": 1,
-    "severity": "medium",
-    "sources": [
-      {
-        "excerpt": "feat(Research): add provider-specific execution guides for researcher agents ## Summary Three of the four Researcher agents (Gemini, Grok, Perplexity) currently have no provider-specific call code anywhere in the Research skill or in the agent files. With no API/CLI wire-format defined, each non-Claude agent collapses to the same backend (built-in `WebSea...",
-        "fetched_at": "2026-07-07T04:37:13Z",
-        "query": "\"XAI_API_KEY\" \"grok\"",
-        "source": "github_issues",
-        "title": "feat(Research): add provider-specific execution guides for researcher agents",
-        "url": "https://github.com/danielmiessler/LifeOS/pull/1253"
-      }
-    ],
-    "type": "base_url",
-    "value_redacted": "https://api...perplexity.ai/chat/completions",
-    "value_sha256": "d2fb766a9204796e0aa184e102954987f9486c6819f3f962c29b349ce6f88d62"
   }
 ]
