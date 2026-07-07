@@ -1,0 +1,2009 @@
+[
+  {
+    "base_url_sha256": [
+      "5def5a0df183d83bced3adf5b8103be0e59b75fd1fe8623dd998f14fc9755047"
+    ],
+    "base_urls_redacted": [
+      "https://gat...internal/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "567bbc14b532ac39788d",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints ## Relevant issues Closes #12367 ## Linear ticket N/A ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [x] My PR passes all unit tests on [`make test-uni...",
+        "fetched_at": "2026-07-07T04:36:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
+        "url": "https://github.com/BerriAI/litellm/pull/31026"
+      },
+      {
+        "excerpt": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints ## Relevant issues Closes #12367 ## Linear ticket N/A ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [x] My PR passes all unit tests on [`make test-uni...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
+        "url": "https://github.com/BerriAI/litellm/pull/31026"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://gat...internal/v1",
+    "value_sha256": "5def5a0df183d83bced3adf5b8103be0e59b75fd1fe8623dd998f14fc9755047"
+  },
+  {
+    "base_url_sha256": [
+      "d300590920ca54e81cdc1eb686f17eb2c40630352156cdd64a2c5fc07e2600e2"
+    ],
+    "base_urls_redacted": [
+      "http://loca.../v1/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "7117173ec89098daa343",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-haiku-4-5",
+      "claude-sonnet-4-5",
+      "mistral-medium-latest",
+      "mistral-embed",
+      "mistral-ocr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 4,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(mistral): support native web search via the Conversations API ## Relevant issues Web search requested by a customer ## Linear ticket ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [ ] My PR passes all CI/CD checks (e.g., lint, format, unit tests) - [...",
+        "fetched_at": "2026-07-07T04:37:06Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_issues",
+        "title": "feat(mistral): support native web search via the Conversations API",
+        "url": "https://github.com/BerriAI/litellm/pull/32059"
+      },
+      {
+        "excerpt": "fix(proxy): trigger gateway fallbacks on local rate limit errors ## Relevant issues Fixes #8822 ## Linear ticket Resolves LIT-3890 ## Pre-Submission checklist - [x] I have added meaningful tests - [x] My PR passes all CI/CD checks (e.g., lint, format, unit tests) - [x] My PR's scope is as isolated as possible; it only solves 1 specific problem - [ ] I hav...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "fix(proxy): trigger gateway fallbacks on local rate limit errors",
+        "url": "https://github.com/BerriAI/litellm/pull/31788"
+      },
+      {
+        "excerpt": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints ## Relevant issues Closes #12367 ## Linear ticket N/A ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [x] My PR passes all unit tests on [`make test-uni...",
+        "fetched_at": "2026-07-07T04:36:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
+        "url": "https://github.com/BerriAI/litellm/pull/31026"
+      },
+      {
+        "excerpt": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints ## Relevant issues Closes #12367 ## Linear ticket N/A ## Pre-Submission checklist **Please complete all items before asking a LiteLLM maintainer to review your PR** - [x] I have added meaningful tests - [x] My PR passes all unit tests on [`make test-uni...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(providers): add custom_oauth provider for OAuth2 client_credentials on OpenAI-compatible endpoints",
+        "url": "https://github.com/BerriAI/litellm/pull/31026"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://loca.../v1/chat/completions",
+    "value_sha256": "d300590920ca54e81cdc1eb686f17eb2c40630352156cdd64a2c5fc07e2600e2"
+  },
+  {
+    "base_url_sha256": [
+      "bc4c44cffca83c7a7d0c51e6b58a012dc2008c28360b1905e84e3eb918f87da4"
+    ],
+    "base_urls_redacted": [
+      "https://…/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "4f9957853315a0edbd2f",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "v0.12.13: OpenAI-compatible Coach backend + doctor Copilot log scan Two additive follow-ups sourced from engagement threads during the v0.12.12 ship cycle. Backward-compatible with v0.12.12 in every dimension. ## What ships ### OpenAI-compatible Coach backend Coach can now dispatch through any OpenAI-shape endpoint (OpenRouter, Ollama, vLLM, LiteLLM, self...",
+        "fetched_at": "2026-07-07T04:36:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "v0.12.13: OpenAI-compatible Coach backend + doctor Copilot log scan",
+        "url": "https://github.com/SaravananJaichandar/world-model-mcp/pull/33"
+      },
+      {
+        "excerpt": "v0.12.13: OpenAI-compatible Coach backend + doctor Copilot log scan Two additive follow-ups sourced from engagement threads during the v0.12.12 ship cycle. Backward-compatible with v0.12.12 in every dimension. ## What ships ### OpenAI-compatible Coach backend Coach can now dispatch through any OpenAI-shape endpoint (OpenRouter, Ollama, vLLM, LiteLLM, self...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "v0.12.13: OpenAI-compatible Coach backend + doctor Copilot log scan",
+        "url": "https://github.com/SaravananJaichandar/world-model-mcp/pull/33"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://…/v1",
+    "value_sha256": "bc4c44cffca83c7a7d0c51e6b58a012dc2008c28360b1905e84e3eb918f87da4"
+  },
+  {
+    "base_url_sha256": [
+      "4ee385d6f0364e720345e7a5d4f0b6a0a6e04c17b8b39841ff190352446ab62f"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:3018/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "5c0ea589649d880a43da",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "Qwen",
+      "Qwen3.6-35B-A3B"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat: codex integration # Codex CLI Tool Call Responses Compatibility ## Summary This PR adds Codex CLI compatibility to `agentic-api` as a stateful Responses API gateway in front of an OpenAI-compatible vLLM endpoint. The primary runtime path is: ```text Codex CLI -> agentic-api /v1 -> vLLM /v1 -> served model ``` A typical local validation path is: ```t...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat: codex integration",
+        "url": "https://github.com/vllm-project/agentic-api/pull/84"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:3018/v1",
+    "value_sha256": "4ee385d6f0364e720345e7a5d4f0b6a0a6e04c17b8b39841ff190352446ab62f"
+  },
+  {
+    "base_url_sha256": [
+      "d9617135d6fdd0a2cde722d637a1dfcc3da37515708b3ea5d66ae607c8ac785e"
+    ],
+    "base_urls_redacted": [
+      "https://api...openai.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "aa94cbf2b5ebb88e1c11",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(earshot): scaffold CLI daemon and config schema ## Intent P1-01 (issue #4) creates the Earshot repo scaffold everything later hangs off: a pip-installable Python package named earshot-cli (module earshot), a daemon entrypoint, and the complete YAML config schema with loader and validation. Deliberately defines ALL config fields now (wake word phrase/...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(earshot): scaffold CLI daemon and config schema",
+        "url": "https://github.com/talibilat/vox/pull/20"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...openai.com/v1",
+    "value_sha256": "d9617135d6fdd0a2cde722d637a1dfcc3da37515708b3ea5d66ae607c8ac785e"
+  },
+  {
+    "base_url_sha256": [
+      "12b8deaccc34b32757dbb1497e029da0c2e7b26ffa86b9c926c08cb4692f4508"
+    ],
+    "base_urls_redacted": [
+      "https://api...deepseek.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "0d5ff39c3c0224d9753f",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "Qwen",
+      "gpt-4o-mini",
+      "deepseek-chat"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "support `openai_compatible` provider ## Requirement Add first-class support for non-OpenAI, OpenAI-compatible LLM endpoints (DeepSeek, Moonshot, Qwen, vLLM, Ollama /v1, LocalAI, …) in [summary] / [description], configured in TOML. ## Support config ```toml [summary] enabled = true provider = \"openai_compatible\" model = \"deepseek-chat\" base_url = \"https://...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "support `openai_compatible` provider",
+        "url": "https://github.com/zilliztech/mfs/issues/167"
+      },
+      {
+        "excerpt": "feat(llm): add `openai_compatible` provider #167 ## Summary New `openai_compatible` LLM provider so `[summary]` / `[description]` can target any OpenAI Chat Completions-compatible endpoint (DeepSeek, Moonshot, Qwen, vLLM, Ollama `/v1`, …) by configuring `base_url` + `api_key` + `model` in TOML. The cloud `openai.py` is untouched — mirrors how the embeddin...",
+        "fetched_at": "2026-07-07T04:36:37Z",
+        "query": "\"OPENAI_API_KEY\" \"base_url\"",
+        "source": "github_issues",
+        "title": "feat(llm): add `openai_compatible` provider",
+        "url": "https://github.com/zilliztech/mfs/pull/165"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...deepseek.com/v1",
+    "value_sha256": "12b8deaccc34b32757dbb1497e029da0c2e7b26ffa86b9c926c08cb4692f4508"
+  },
+  {
+    "base_url_sha256": [
+      "7acc8cd920359af973331ab29f682589608e2efa118d2cecf5cf59d95a8d78be"
+    ],
+    "base_urls_redacted": [
+      "https://api...openai.com/v1/models"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "2a2b71927701a6890702",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "qwen2.5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset ## Description <strong>Description</strong> <pre>On Linux, after `nemoclaw onboard` with provider option 7 (Local Ollama), the in-sandbox OpenClaw TUI cannot get any inference r...",
+        "fetched_at": "2026-07-07T04:36:41Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "[Linux][Brev]Ollama-local provider returns HTTP 401 Unauthorized via inference.local — wizard caches OPENAI_API_KEY env var into credentials.json and not refreshable via env unset",
+        "url": "https://github.com/NVIDIA/NemoClaw/issues/2519"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...openai.com/v1/models",
+    "value_sha256": "7acc8cd920359af973331ab29f682589608e2efa118d2cecf5cf59d95a8d78be"
+  },
+  {
+    "base_url_sha256": [
+      "7190472ee8fcb0b8a00d8c0b9bb15adf83882874ae46afccad56ba9055b169e2"
+    ],
+    "base_urls_redacted": [
+      "https://api...aimlapi.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "f2b4b09f3fc0bf3190ca",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
+        "fetched_at": "2026-07-07T04:36:41Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "feat(provider): add AI/ML API provider",
+        "url": "https://github.com/Gitlawb/openclaude/pull/863"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...aimlapi.com/v1",
+    "value_sha256": "7190472ee8fcb0b8a00d8c0b9bb15adf83882874ae46afccad56ba9055b169e2"
+  },
+  {
+    "base_url_sha256": [
+      "db6dd4217a2935cebdbf723a38bc56c3ea415d1185cc28aa3b524b9456bf6a23"
+    ],
+    "base_urls_redacted": [
+      "https://api...aimlapi.com/v1/models"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "ca5e75d4848e32990a07",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "gpt-4o"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(provider): add AI/ML API provider ## Summary This PR adds first-class AI/ML API support as an OpenAI-compatible provider across setup, runtime, model discovery, and provider-profile flows. Closes #835. It also includes a few **general no-auth hybrid-discovery fixes** in `bootstrap.ts` / `discoveryService.ts` that are not AIMLAPI-specific. They were e...",
+        "fetched_at": "2026-07-07T04:36:41Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "feat(provider): add AI/ML API provider",
+        "url": "https://github.com/Gitlawb/openclaude/pull/863"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...aimlapi.com/v1/models",
+    "value_sha256": "db6dd4217a2935cebdbf723a38bc56c3ea415d1185cc28aa3b524b9456bf6a23"
+  },
+  {
+    "base_url_sha256": [
+      "1d0e0ac78eec21bf8711740986e39d2f08a1420caf2a1e58a479e38773d48c49"
+    ],
+    "base_urls_redacted": [
+      "https://url/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "54d90de6f7f86aca7f0a",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "examples/code_review_agent: add sandboxed code review agent example Fix #2004 ## What changed This PR adds a sandboxed code review agent example under `examples/code_review_agent`. The example includes a runnable Go CLI, a `skills/code-review` Skill package, review rule documentation, helper scripts, deterministic fixture inputs, structured JSON/Markdown ...",
+        "fetched_at": "2026-07-07T04:36:41Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "examples/code_review_agent: add sandboxed code review agent example",
+        "url": "https://github.com/trpc-group/trpc-agent-go/pull/2121"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://url/v1",
+    "value_sha256": "1d0e0ac78eec21bf8711740986e39d2f08a1420caf2a1e58a479e38773d48c49"
+  },
+  {
+    "base_url_sha256": [
+      "f423fe4202552ccf51cc9ded990476b992382d0ec2abcf843f2632a6356bf751"
+    ],
+    "base_urls_redacted": [
+      "http://127...evil.test/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "642d747311b4cc315089",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "glm-5.2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
+        "fetched_at": "2026-07-07T04:36:41Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "[codex] Add provider-agnostic LLM env",
+        "url": "https://github.com/jadenfix/temp.js/pull/124"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...evil.test/v1",
+    "value_sha256": "f423fe4202552ccf51cc9ded990476b992382d0ec2abcf843f2632a6356bf751"
+  },
+  {
+    "base_url_sha256": [
+      "7ca1fa200f1e82535aa1c0528805a664662797e31b0bb80ac7ad72634c68fa27"
+    ],
+    "base_urls_redacted": [
+      "https://int...api.nvidia.com/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "40b58ba8956eef067df2",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "glm-5.2"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "[codex] Add provider-agnostic LLM env ## What changed - Adds canonical `BEATER_LLM_API_KEY` and `BEATER_LLM_BASE_URL` support to both Anthropic and OpenAI-compatible runtime adapters. - Keeps the existing provider-specific env names as backwards-compatible aliases. - Updates the M2 live gate and live-provider smoke gate so NVIDIA-style OpenAI-compatible e...",
+        "fetched_at": "2026-07-07T04:36:41Z",
+        "query": "\"OPENAI_BASE_URL\" \"sk-\"",
+        "source": "github_issues",
+        "title": "[codex] Add provider-agnostic LLM env",
+        "url": "https://github.com/jadenfix/temp.js/pull/124"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://int...api.nvidia.com/v1",
+    "value_sha256": "7ca1fa200f1e82535aa1c0528805a664662797e31b0bb80ac7ad72634c68fa27"
+  },
+  {
+    "base_url_sha256": [
+      "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
+    ],
+    "base_urls_redacted": [
+      "http://127...0.0.1:11434/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "f65f175154aa130f7cc6",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "qwen2.5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed) ## Summary Binding a capability to a `kind: openai` provider pointed at a **trusted local** endpoint (Ollama/vLLM/LM Studio) fails with `OPENAI_AUTH: missing OpenAI API key` unless an `api_key` is set — even though the README states a trusted-netw...",
+        "fetched_at": "2026-07-07T04:36:44Z",
+        "query": "\"api_key\" \"model\" \"base_url\"",
+        "source": "github_issues",
+        "title": "providers: kind:openai requires api_key even for trusted local endpoint (README says credential-less allowed)",
+        "url": "https://github.com/dirstral/dir2mcp/issues/498"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "http://127...0.0.1:11434/v1",
+    "value_sha256": "9b514b1a65f6ebfaa4da53a116ea003831b044dc32a989733eace74554ef5b0c"
+  },
+  {
+    "base_url_sha256": [
+      "b0404b966c0f70c14664d8648e74a3af2e317bf0946f594aa5a7ea163cd31d1a"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "1de4568f24db5bd50394",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "b0404b966c0f70c14664d8648e74a3af2e317bf0946f594aa5a7ea163cd31d1a"
+  },
+  {
+    "base_url_sha256": [
+      "ebde1b56865eddd49c51b5019c7694e047fcc113db2068788897addf47317ab5"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "59be8773b1c7864655b4",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "ebde1b56865eddd49c51b5019c7694e047fcc113db2068788897addf47317ab5"
+  },
+  {
+    "base_url_sha256": [
+      "3fde20933ce31ef84325365eda1321119fb26f556a79fe0d1a349181d55f8d66"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "1a39054f7f55494c5098",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/claude-code-...",
+    "value_sha256": "3fde20933ce31ef84325365eda1321119fb26f556a79fe0d1a349181d55f8d66"
+  },
+  {
+    "base_url_sha256": [
+      "7798c5848401a05d5f458794070103e9806e7ed55d76925f84dee383d8bc8673"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "af771218e0fd288aae0b",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "7798c5848401a05d5f458794070103e9806e7ed55d76925f84dee383d8bc8673"
+  },
+  {
+    "base_url_sha256": [
+      "9fec2be9c54bc353452defcb9ce5e9a1bb09ff249d744ecd6eb5b5e952a89722"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "41b7bce3250d5a2c1ccb",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "9fec2be9c54bc353452defcb9ce5e9a1bb09ff249d744ecd6eb5b5e952a89722"
+  },
+  {
+    "base_url_sha256": [
+      "6ac9edbcfd1aee6898aaac9dd6c92308ca6bd41985f9790cce2a41fafda02f64"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "b58abbb58d54b1bb8919",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/claude-code-...",
+    "value_sha256": "6ac9edbcfd1aee6898aaac9dd6c92308ca6bd41985f9790cce2a41fafda02f64"
+  },
+  {
+    "base_url_sha256": [
+      "ac5892de3bcf162a683da0ee6ebdd7a808ca4da2860a6b37e4017acf79bd5f54"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "99d744b9ca291ba150a2",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "ac5892de3bcf162a683da0ee6ebdd7a808ca4da2860a6b37e4017acf79bd5f54"
+  },
+  {
+    "base_url_sha256": [
+      "ec022faa0179a66e1e245e021b0e7a07b0e57b032bbe2b33c3e47426cbe7d755"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "c4a0a1a97f462b3c9792",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "ec022faa0179a66e1e245e021b0e7a07b0e57b032bbe2b33c3e47426cbe7d755"
+  },
+  {
+    "base_url_sha256": [
+      "9ee6ddd92b6191a76f12bb4627aa68892b9304ebe0b372e028eee12434c9a6b3"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "80d2bbbed7748d8eb270",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/claude-code-...",
+    "value_sha256": "9ee6ddd92b6191a76f12bb4627aa68892b9304ebe0b372e028eee12434c9a6b3"
+  },
+  {
+    "base_url_sha256": [
+      "3833a0dba44580f7a98921ff8ce80d76b9421697a789b36fe7e5d9dfc5a90e57"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "9d5ae626e13b06de2044",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "3833a0dba44580f7a98921ff8ce80d76b9421697a789b36fe7e5d9dfc5a90e57"
+  },
+  {
+    "base_url_sha256": [
+      "4cc44797b6af6b234547b03fa599bc923748d57bb8434b9291bdfc94a3f409be"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "b43bc15e1036b2294317",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "4cc44797b6af6b234547b03fa599bc923748d57bb8434b9291bdfc94a3f409be"
+  },
+  {
+    "base_url_sha256": [
+      "2c3a0337dc68918f70779847047c771921b21b19cdf637bc70c4458a5b80e17f"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "9600d314f42229e4c3e2",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/claude-code-...",
+    "value_sha256": "2c3a0337dc68918f70779847047c771921b21b19cdf637bc70c4458a5b80e17f"
+  },
+  {
+    "base_url_sha256": [
+      "d892dd3a3e49f8a1193e97bc0a7d74994457a8fd3c9743e8fdccf4bc670f6b69"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "3eee76bb8a22cc7f1ba3",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "d892dd3a3e49f8a1193e97bc0a7d74994457a8fd3c9743e8fdccf4bc670f6b69"
+  },
+  {
+    "base_url_sha256": [
+      "e32796bba45663021bcb1ed807d82124a7bc294b7df55427519a328554a9d3b9"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "2cc28c12b29133ffa9bf",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "e32796bba45663021bcb1ed807d82124a7bc294b7df55427519a328554a9d3b9"
+  },
+  {
+    "base_url_sha256": [
+      "bf1443b4912ace6daeaded88b29debcc9a35e1d9d98dc2771aebaeaed3416696"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "90821424543620106506",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "bf1443b4912ace6daeaded88b29debcc9a35e1d9d98dc2771aebaeaed3416696"
+  },
+  {
+    "base_url_sha256": [
+      "be4d7611ddb5474b38f48846e2bcc82506148496ef10660e6e162c569ebc1b09"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "063dbd61eed3ffa767d1",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/claude-code-...",
+    "value_sha256": "be4d7611ddb5474b38f48846e2bcc82506148496ef10660e6e162c569ebc1b09"
+  },
+  {
+    "base_url_sha256": [
+      "ab04514b163114e306342ab9dbee64cf2cbea2eeed815a3ed9fec4327246cd28"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "6563ab4a8910bc75756c",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "ab04514b163114e306342ab9dbee64cf2cbea2eeed815a3ed9fec4327246cd28"
+  },
+  {
+    "base_url_sha256": [
+      "684355632e9ccfcd0f16dcce7ea1e07cc47c75ea72f4d3727b849d4696a1d08a"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "9eac55eb8dc857265d25",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "684355632e9ccfcd0f16dcce7ea1e07cc47c75ea72f4d3727b849d4696a1d08a"
+  },
+  {
+    "base_url_sha256": [
+      "559b65a5ed7f88eded687c9e776b3f3de09b8e5716e578d47d589e39abe1a77d"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "cac4962b5c8c1af4d74f",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/claude-code-...",
+    "value_sha256": "559b65a5ed7f88eded687c9e776b3f3de09b8e5716e578d47d589e39abe1a77d"
+  },
+  {
+    "base_url_sha256": [
+      "f726f009ed80e37c84f7ea702dfbf09caf5db772d333596e6fb1154bc71895f8"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/claude-code-..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "235cb96ed3ca42984e39",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-code-action",
+      "claude-prompts",
+      "claude-pr"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): update anthropics/claude-code-action action to v1.0.166 > ℹ️ **Note** > > This PR body was truncated due to platform limits. This PR contains the following updates: | Package | Type | Update | Change | |---|---|---|---| | [anthropics/claude-code-action](https://redirect.github.com/anthropics/claude-code-action) | action | patch | `v1.0.7` → `...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "chore(deps): update anthropics/claude-code-action action to v1.0.166",
+        "url": "https://github.com/miyamo2/blogapi.miyamo.today/pull/322"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/claude-code-...",
+    "value_sha256": "f726f009ed80e37c84f7ea702dfbf09caf5db772d333596e6fb1154bc71895f8"
+  },
+  {
+    "base_url_sha256": [
+      "dd9dd182b406f181aa1efb245fd4182c6588c3430bcab8d7db04199ab682acbc"
+    ],
+    "base_urls_redacted": [
+      "https://api...anthropic.com/v1/messages"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "daa1d38e33829928fd45",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-4-6"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "fix(agents): Anthropic replay fails after boundaryless compaction Related: #30157 ## Related PR Matrix - #99383: canonical no-compaction completed-turn Anthropic replay fix. That PR owns the SDK and managed transport replay policy for ordinary non-compacted sessions. - #98527: this PR, legacy boundaryless compaction successor repair. It recovers a missing...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "fix(agents): Anthropic replay fails after boundaryless compaction",
+        "url": "https://github.com/openclaw/openclaw/pull/98527"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...anthropic.com/v1/messages",
+    "value_sha256": "dd9dd182b406f181aa1efb245fd4182c6588c3430bcab8d7db04199ab682acbc"
+  },
+  {
+    "base_url_sha256": [
+      "79c4923e753127897a9c2b4c4bef8a310c464f1555191f888dc48d5b1b1a3cf5"
+    ],
+    "base_urls_redacted": [
+      "https://api...z.ai/api/anthropic"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "b8fa2b01cea77d738e84",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-opus-4-7",
+      "glm-4.6",
+      "Claude-specific",
+      "claude-3-5-haiku"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "reporting-release-summary: use z.ai (GLM) instead of Anthropic ## Problem The **Get PR's** job (`reporting-release-summary.yml`) failed at the *Write a short journalistic intro with AI* step: ``` anthropic.BadRequestError: Error code: 400 - Your credit balance is too low to access the Anthropic API. ``` ## Fix Point the AI step at **z.ai's Anthropic-compa...",
+        "fetched_at": "2026-07-07T04:36:47Z",
+        "query": "\"ANTHROPIC_API_KEY\" \"claude\"",
+        "source": "github_issues",
+        "title": "reporting-release-summary: use z.ai (GLM) instead of Anthropic",
+        "url": "https://github.com/armbian/armbian.github.io/pull/352"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...z.ai/api/anthropic",
+    "value_sha256": "79c4923e753127897a9c2b4c4bef8a310c464f1555191f888dc48d5b1b1a3cf5"
+  },
+  {
+    "base_url_sha256": [
+      "efdbb18afca7615955804478fde78bff5e7336dee41fa0844bc1d5f8ec527cbe"
+    ],
+    "base_urls_redacted": [
+      "https://api...deepseek.com/anthropic"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "15a6e2e7ae6f34217cc7",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "deepseek-v4-pro",
+      "deepseek-chat",
+      "deepseek-reasoner",
+      "deepseek-ai",
+      "DeepSeek-V4-Pro",
+      "deepseek-v4-flash",
+      "Claude-name"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 2,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(gateway): support DeepSeek Anthropic-compatible route for Claude Code-style agents Parent: #3006 Why: DeepSeek officially documents an Anthropic-compatible API at `https://api.deepseek.com/anthropic` and gives Claude Code environment examples. fak can use that to front Claude Code-style agents through the same adjudication gateway, but the compatibil...",
+        "fetched_at": "2026-07-07T04:36:50Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "feat(gateway): support DeepSeek Anthropic-compatible route for Claude Code-style agents",
+        "url": "https://github.com/anthony-chaudhary/fak/issues/3010"
+      },
+      {
+        "excerpt": "docs(deepseek): publish V4 Pro runbook, route examples, and alias migration warning Parent: #3006 Why: Once the support spine exists, users need exact commands and honest limitations. The docs must not imply old aliases are stable, and must distinguish hosted DeepSeek, Anthropic-compatible Claude Code use, and self-hosted vLLM/SGLang routes. Source facts:...",
+        "fetched_at": "2026-07-07T04:36:50Z",
+        "query": "\"DEEPSEEK_API_KEY\" \"deepseek\"",
+        "source": "github_issues",
+        "title": "docs(deepseek): publish V4 Pro runbook, route examples, and alias migration warning",
+        "url": "https://github.com/anthony-chaudhary/fak/issues/3012"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...deepseek.com/anthropic",
+    "value_sha256": "efdbb18afca7615955804478fde78bff5e7336dee41fa0844bc1d5f8ec527cbe"
+  },
+  {
+    "base_url_sha256": [
+      "194a5baa2a535af764b80ae20127fef5f44cdcc64f3337511ff3b0a49669ef05"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "bb1583c31f4f6d0cfbe4",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "194a5baa2a535af764b80ae20127fef5f44cdcc64f3337511ff3b0a49669ef05"
+  },
+  {
+    "base_url_sha256": [
+      "6d5629b4573e81c890e4ade2b53a0574e7d3047203aeb70a6ac2c64aa458f171"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "1b68a1be6a1bfed37a62",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "6d5629b4573e81c890e4ade2b53a0574e7d3047203aeb70a6ac2c64aa458f171"
+  },
+  {
+    "base_url_sha256": [
+      "8a971435f554c13e6690df8ee0426afe7992f82c8a84f8fd64d004ea2ca7d53c"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "760a18a0db9efb452437",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "8a971435f554c13e6690df8ee0426afe7992f82c8a84f8fd64d004ea2ca7d53c"
+  },
+  {
+    "base_url_sha256": [
+      "a287457df53e47419d95683419d76b3d144fd3b342a6c3edf3bcc9ef0ec997ec"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "bf77a4cccdac7d162495",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "a287457df53e47419d95683419d76b3d144fd3b342a6c3edf3bcc9ef0ec997ec"
+  },
+  {
+    "base_url_sha256": [
+      "07902138a8d09330d1810f472c1811674fc07df4f4af594743e6b7c58aaa6fa6"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "24c9e4bdee826f433d02",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "07902138a8d09330d1810f472c1811674fc07df4f4af594743e6b7c58aaa6fa6"
+  },
+  {
+    "base_url_sha256": [
+      "c5bda4a972eb8a7e182e94be48cf98bf0ea6bcc13eca50f45afb4ab467242244"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "c04f97f92d4cc79b66da",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "c5bda4a972eb8a7e182e94be48cf98bf0ea6bcc13eca50f45afb4ab467242244"
+  },
+  {
+    "base_url_sha256": [
+      "9adb1a2bfe91bfbee083fc7cae2ba6be53cc556208c3b90d097df4be75d8178e"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "ccfdb1ac3c9bcf9c4983",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "9adb1a2bfe91bfbee083fc7cae2ba6be53cc556208c3b90d097df4be75d8178e"
+  },
+  {
+    "base_url_sha256": [
+      "8d9e010ae22410fec9cca6f6cd8569d98a39d24395ad0b7bd4ff02a8f6882670"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "27c3c071a3a0704cdd33",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "8d9e010ae22410fec9cca6f6cd8569d98a39d24395ad0b7bd4ff02a8f6882670"
+  },
+  {
+    "base_url_sha256": [
+      "64ea5e94f1790594d6341d63a4b8896bf7d4f9f7ddd2f21a240b1782733b744e"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "150f264451a44f09ca36",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "64ea5e94f1790594d6341d63a4b8896bf7d4f9f7ddd2f21a240b1782733b744e"
+  },
+  {
+    "base_url_sha256": [
+      "a1b09e2cff220b7dec9fc58c2a35d9358cea624fcada5cd8307f7ec797e8af5a"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "46e61e605d13b75a639e",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "a1b09e2cff220b7dec9fc58c2a35d9358cea624fcada5cd8307f7ec797e8af5a"
+  },
+  {
+    "base_url_sha256": [
+      "2452887550a0dd9842cbfaef0ad08d2bdc644fbe89679d72d7c2456010453c4d"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "966027aa4c856f243182",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/anthropic-sd...",
+    "value_sha256": "2452887550a0dd9842cbfaef0ad08d2bdc644fbe89679d72d7c2456010453c4d"
+  },
+  {
+    "base_url_sha256": [
+      "c8e282c919631cec0681bac6e85bcb7ebae6c43c21a9022de0afd050bc10edef"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "20ae14af1176354eaec9",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "c8e282c919631cec0681bac6e85bcb7ebae6c43c21a9022de0afd050bc10edef"
+  },
+  {
+    "base_url_sha256": [
+      "ea370f5057069b688f55e649a23252cd74d6228893a9cfd16b8f9c9e06a0c98f"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "1e95ea1c70d466972bca",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "ea370f5057069b688f55e649a23252cd74d6228893a9cfd16b8f9c9e06a0c98f"
+  },
+  {
+    "base_url_sha256": [
+      "9e5e36bf707555f15a8da485c1334e0de2102474ddf2fa87cab7060b10c07a4a"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "e1dbadbc74648ebb6d57",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "9e5e36bf707555f15a8da485c1334e0de2102474ddf2fa87cab7060b10c07a4a"
+  },
+  {
+    "base_url_sha256": [
+      "059c7a2ad738bdb12ebd3bf6c1c30196511c95ae642d9b525e365b32e90ad922"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "3c871ed2ad8c4be10c2d",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "059c7a2ad738bdb12ebd3bf6c1c30196511c95ae642d9b525e365b32e90ad922"
+  },
+  {
+    "base_url_sha256": [
+      "9fcad5638d51c936859d61c2ea910b1c493e808c6b627e9dd4ab5bcde8b1f7e8"
+    ],
+    "base_urls_redacted": [
+      "https://red...github.com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "2bd9acc339577c7bdc84",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://red...github.com/anthropics/anthropic-sd...",
+    "value_sha256": "9fcad5638d51c936859d61c2ea910b1c493e808c6b627e9dd4ab5bcde8b1f7e8"
+  },
+  {
+    "base_url_sha256": [
+      "dd5dd73418087f927c706510bd62ec4a6437d5a74e89de4e7be0521beb4f4889"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "fef4e116ab1d639d7b18",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "dd5dd73418087f927c706510bd62ec4a6437d5a74e89de4e7be0521beb4f4889"
+  },
+  {
+    "base_url_sha256": [
+      "b1e616819b319d91ba5b731e32864fb7c6a1fea5c56fd6fc8fcdea5c9b1462ce"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "28677cae1048bea75ae5",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "b1e616819b319d91ba5b731e32864fb7c6a1fea5c56fd6fc8fcdea5c9b1462ce"
+  },
+  {
+    "base_url_sha256": [
+      "2bf9505a3b8a22ca7b8de550d9d1984e028165f95bf0116325c6684e0b952557"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "d2405fb630c18e16131c",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "2bf9505a3b8a22ca7b8de550d9d1984e028165f95bf0116325c6684e0b952557"
+  },
+  {
+    "base_url_sha256": [
+      "7b1f1d8a3786a2c2dfa242a49fe1c9ec76ee6b79f2c5451de3077844096694b2"
+    ],
+    "base_urls_redacted": [
+      "https://git...com/anthropics/anthropic-sd..."
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "a476964cd7ef1b9d651a",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "claude-sonnet-5"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "chore(deps): bump the ai-clients group across 1 directory with 2 updates Bumps the ai-clients group with 2 updates in the /backend directory: [google-generativeai](https://github.com/google/generative-ai-python) and [anthropic](https://github.com/anthropics/anthropic-sdk-python). Updates `google-generativeai` from 0.8.3 to 0.8.6 <details> <summary>Release...",
+        "fetched_at": "2026-07-07T04:36:57Z",
+        "query": "\"GOOGLE_API_KEY\" \"gemini\"",
+        "source": "github_issues",
+        "title": "chore(deps): bump the ai-clients group across 1 directory with 2 updates",
+        "url": "https://github.com/hassanzafarr/draftly/pull/39"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://git...com/anthropics/anthropic-sd...",
+    "value_sha256": "7b1f1d8a3786a2c2dfa242a49fe1c9ec76ee6b79f2c5451de3077844096694b2"
+  },
+  {
+    "base_url_sha256": [
+      "76ef4ad6f0c8a4ae66efb13875c107cee40c78997a212353d379acfbb2f45591"
+    ],
+    "base_urls_redacted": [
+      "https://ope...ai/api/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "47f16808d923b644a4db",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "gemini-3.5-flash",
+      "claude-code"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "fix(AL-082): default allie init to enable model review when a key resolves ## What / why `allie init` always scaffolded `model: ModelPolicy::default()` (`enabled: false`), so agentic (vision-model) review silently never ran, even with a valid API key in the environment. Live repro from the ticket: `allie init` → `allie doctor` → `allie verify` against a 4...",
+        "fetched_at": "2026-07-07T04:37:00Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_issues",
+        "title": "fix(AL-082): default allie init to enable model review when a key resolves",
+        "url": "https://github.com/adminifi-ai/allie/pull/55"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...ai/api/v1",
+    "value_sha256": "76ef4ad6f0c8a4ae66efb13875c107cee40c78997a212353d379acfbb2f45591"
+  },
+  {
+    "base_url_sha256": [
+      "051e0609abb5b28b9b4f39c7ee10daebade72a6537df07f04f032057759ac2da"
+    ],
+    "base_urls_redacted": [
+      "https://ope...ai/api/v1/models"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "8789552ff2a168c21262",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "gpt-5.3-codex"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Models: fully dynamic model discovery (OpenRouter + beyond) ## Summary We need **fully dynamic model discovery** for providers with fast-moving catalogs (starting with OpenRouter). Today, OpenClaw model selection is effectively **static**: - Available models come from Pi's built-in generated catalog (pi-ai/models.generated) plus optional `models.json` ove...",
+        "fetched_at": "2026-07-07T04:37:00Z",
+        "query": "\"OPENROUTER_API_KEY\" \"sk-or-v1\"",
+        "source": "github_issues",
+        "title": "Models: fully dynamic model discovery (OpenRouter + beyond)",
+        "url": "https://github.com/openclaw/openclaw/issues/10687"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://ope...ai/api/v1/models",
+    "value_sha256": "051e0609abb5b28b9b4f39c7ee10daebade72a6537df07f04f032057759ac2da"
+  },
+  {
+    "base_url_sha256": [
+      "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
+    ],
+    "base_urls_redacted": [
+      "https://api...mistral.ai/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "a44af0ebcf66537a52fe",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "mistral-ai",
+      "mistral-small-latest",
+      "mistral-large-latest"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat: add Mistral AI as first-class LLM provider ## What does this PR do? Promotes Mistral AI from a manual \"Custom Endpoint\" to a first-class provider, wired the same way the other direct API-key providers (NovitaAI, DeepSeek, MiniMax, and friends) are. After this change `hermes model` lists **Mistral AI**, `--provider mistral` works, and `MISTRAL_API_KE...",
+        "fetched_at": "2026-07-07T04:37:06Z",
+        "query": "\"MISTRAL_API_KEY\"",
+        "source": "github_issues",
+        "title": "feat: add Mistral AI as first-class LLM provider",
+        "url": "https://github.com/NousResearch/hermes-agent/pull/50289"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...mistral.ai/v1",
+    "value_sha256": "7c653571276837dbdb3315ec2a432c2535e5ef02f835c1add64d85f3cdc8eba7"
+  },
+  {
+    "base_url_sha256": [
+      "5891aed827c4e67b2d7c0c73ea819327ce3f2b6ef72213cd79669486a26b1ead"
+    ],
+    "base_urls_redacted": [
+      "https://das...aliyuncs.com/compatible-mode/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "e5d96ee7d055403165ad",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "qwen",
+      "qwen-oauth",
+      "Qwen"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
+        "fetched_at": "2026-07-07T04:37:10Z",
+        "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
+        "source": "github_issues",
+        "title": "Fix DashScope provider mapping",
+        "url": "https://github.com/fathah/hermes-desktop/pull/825"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://das...aliyuncs.com/compatible-mode/v1",
+    "value_sha256": "5891aed827c4e67b2d7c0c73ea819327ce3f2b6ef72213cd79669486a26b1ead"
+  },
+  {
+    "base_url_sha256": [
+      "e7ce1b2fec6e34a3e97a40081667fdba0121a327ad38ed5e9fce4daaf2be9abc"
+    ],
+    "base_urls_redacted": [
+      "https://das...aliyuncs.com/compatible-mode/v1"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "d9e3db19432ef8c89f9b",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "qwen",
+      "qwen-oauth",
+      "Qwen"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "Fix DashScope provider mapping 问题描述 配置阿里云百炼 / DashScope 千问接口时，用户填写的是 OpenAI-compatible API 地址和 API Key，例如： `https://dashscope.aliyuncs.com/compatible-mode/v1` 但桌面端会把 DashScope URL 自动识别为 qwen。在当前 Hermes Agent 中，qwen 是 qwen-oauth 的别名，会走 Qwen Portal OAuth 登录流程，导致用户明明配置了 DashScope API Key，聊天时仍被要求进行 OAuth 登录。 解决方案 将 DashScope API Key 线路统一映射到 Hermes Agent 的 nat...",
+        "fetched_at": "2026-07-07T04:37:10Z",
+        "query": "\"DASHSCOPE_API_KEY\" \"qwen\"",
+        "source": "github_issues",
+        "title": "Fix DashScope provider mapping",
+        "url": "https://github.com/fathah/hermes-desktop/pull/825"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://das...aliyuncs.com/compatible-mode/v1",
+    "value_sha256": "e7ce1b2fec6e34a3e97a40081667fdba0121a327ad38ed5e9fce4daaf2be9abc"
+  },
+  {
+    "base_url_sha256": [
+      "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
+    ],
+    "base_urls_redacted": [
+      "https://api...x.ai/v1/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "7b6d46807ab9a7ae252e",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "GPT-4o",
+      "gemini-2.5-flash",
+      "grok-3"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(Research): add provider-specific execution guides for researcher agents ## Summary Three of the four Researcher agents (Gemini, Grok, Perplexity) currently have no provider-specific call code anywhere in the Research skill or in the agent files. With no API/CLI wire-format defined, each non-Claude agent collapses to the same backend (built-in `WebSea...",
+        "fetched_at": "2026-07-07T04:37:13Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "feat(Research): add provider-specific execution guides for researcher agents",
+        "url": "https://github.com/danielmiessler/LifeOS/pull/1253"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...x.ai/v1/chat/completions",
+    "value_sha256": "ca8f6c1b1f9f8ed4b85192dbe9e34fe11d174f830188b96ce7df75d31feb27b4"
+  },
+  {
+    "base_url_sha256": [
+      "d2fb766a9204796e0aa184e102954987f9486c6819f3f962c29b349ce6f88d62"
+    ],
+    "base_urls_redacted": [
+      "https://api...perplexity.ai/chat/completions"
+    ],
+    "first_seen_at": "2026-07-07T04:37:14Z",
+    "id": "3fac3ce501224b72db8e",
+    "last_seen_at": "2026-07-07T04:37:14Z",
+    "models": [
+      "GPT-4o",
+      "gemini-2.5-flash",
+      "grok-3"
+    ],
+    "provider": "openai_compatible",
+    "seen_count": 1,
+    "severity": "medium",
+    "sources": [
+      {
+        "excerpt": "feat(Research): add provider-specific execution guides for researcher agents ## Summary Three of the four Researcher agents (Gemini, Grok, Perplexity) currently have no provider-specific call code anywhere in the Research skill or in the agent files. With no API/CLI wire-format defined, each non-Claude agent collapses to the same backend (built-in `WebSea...",
+        "fetched_at": "2026-07-07T04:37:13Z",
+        "query": "\"XAI_API_KEY\" \"grok\"",
+        "source": "github_issues",
+        "title": "feat(Research): add provider-specific execution guides for researcher agents",
+        "url": "https://github.com/danielmiessler/LifeOS/pull/1253"
+      }
+    ],
+    "type": "base_url",
+    "value_redacted": "https://api...perplexity.ai/chat/completions",
+    "value_sha256": "d2fb766a9204796e0aa184e102954987f9486c6819f3f962c29b349ce6f88d62"
+  }
+]
