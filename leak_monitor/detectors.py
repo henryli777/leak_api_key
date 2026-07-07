@@ -3,11 +3,11 @@ from __future__ import annotations
 import hashlib
 import html
 import re
-from datetime import datetime
 from typing import Any
 from urllib.parse import urlparse, urlunparse
 
 from .models import SearchHit
+from .timeutils import now_iso as current_time_iso
 
 
 SECRET_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
@@ -219,7 +219,7 @@ def _dedup(values: list[str], limit: int = 20) -> list[str]:
 
 
 def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = False) -> list[dict[str, Any]]:
-    now_iso = now_iso or datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    now_iso = now_iso or current_time_iso()
     text = "\n".join(part for part in [hit.title, hit.snippet, hit.content] if part)
     low_text = text.lower()
 

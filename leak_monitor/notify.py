@@ -54,7 +54,9 @@ def notify_dingtalk(health: dict[str, Any], new_findings: list[dict[str, Any]], 
         for item in notable[:8]:
             source = (item.get("sources") or [{}])[0]
             title = (source.get("title") or source.get("url") or "")[:80]
-            value = item.get("value_redacted") or ",".join(item.get("base_urls_redacted") or [])
+            key_value = item.get("key_redacted") or (item.get("value_redacted") if item.get("type") != "base_url" else "")
+            base_url = item.get("base_url_redacted") or ",".join(item.get("base_urls_redacted") or [])
+            value = f"key={key_value or '-'} base_url={base_url or '-'}"
             lines.append(f"- {item.get('severity')} {item.get('type')} {item.get('provider')}: {value} | {title}")
     else:
         lines.append("本轮没有达到通知阈值的新线索。")

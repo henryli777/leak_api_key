@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import html
 from collections import Counter
-from datetime import datetime
 from pathlib import Path
 from typing import Any
-from zoneinfo import ZoneInfo
 
+from .csv_export import emit_findings_csv
 from .models import SourceStats
 from .storage import finding_sort_key
+from .timeutils import now_iso
 
 
 def build_health(
@@ -18,17 +18,14 @@ def build_health(
     query_count: int,
     timezone_name: str,
 ) -> dict[str, Any]:
-    now_utc = datetime.utcnow().replace(microsecond=0)
-    try:
-        cn = datetime.now(ZoneInfo(timezone_name)).replace(microsecond=0)
-    except Exception:
-        cn = datetime.now().replace(microsecond=0)
+    build_time = now_iso(timezone_name)
     severity_counts = Counter(str(item.get("severity", "unknown")) for item in findings)
     type_counts = Counter(str(item.get("type", "unknown")) for item in findings)
     source_hits = {stat.source: stat.hits for stat in source_stats}
     return {
-        "build_time_utc": now_utc.isoformat() + "Z",
-        "build_time_cn": cn.isoformat(),
+        "build_time": build_time,
+        "build_time_cn": build_time,
+        "timezone": timezone_name,
         "query_count": query_count,
         "total_findings": len(findings),
         "new_findings": len(new_findings),
@@ -58,6 +55,7 @@ def emit_report(
 ) -> None:
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
+    emit_findings_csv(out, findings)
     _write_text(out / "index.html", render_html(findings, health, validation_report))
     _write_text(out / "README.txt", "AI leak monitor report. Values are redacted; use source URLs for manual triage.\n")
 
@@ -71,7 +69,10 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
         title = html.escape(source.get("title") or source_url)
         excerpt = html.escape(source.get("excerpt") or "")
         models = html.escape(", ".join(item.get("models") or []))
-        value = html.escape(item.get("value_redacted") or ", ".join(item.get("base_urls_redacted") or []))
+        key_value = html.escape(item.get("key_redacted") or (item.get("value_redacted") if item.get("type") != "base_url" else ""))
+        base_url = html.escape(item.get("base_url_redacted") or ", ".join(item.get("base_urls_redacted") or []) or (item.get("value_redacted") if item.get("type") == "base_url" else ""))
+        pair_source = html.escape(_pair_source_label(item))
+        evidence = html.escape(str(item.get("public_evidence_label") or ""))
         first_seen = html.escape(str(item.get("first_seen_at") or ""))
         last_seen = html.escape(str(item.get("last_seen_at") or ""))
         rows.append(
@@ -79,7 +80,8 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
             f"<td><span class='sev {html.escape(str(item.get('severity')))}'>{html.escape(str(item.get('severity')))}</span></td>"
             f"<td>{html.escape(str(item.get('type')))}</td>"
             f"<td>{html.escape(str(item.get('provider')))}</td>"
-            f"<td><code>{value}</code></td>"
+            f"<td><code>{key_value}</code></td>"
+            f"<td><code>{base_url}</code><div class='excerpt'>{pair_source}</div><div class='excerpt'>{evidence}</div></td>"
             f"<td>{models}</td>"
             f"<td><a href='{source_url}'>{title}</a><div class='excerpt'>{excerpt}</div></td>"
             f"<td>{first_seen}</td>"
@@ -119,11 +121,12 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
 <body>
   <header>
     <h1>AI 泄露线索监测</h1>
-    <div>生成时间: {html.escape(str(health.get("build_time_cn") or health.get("build_time_utc")))}</div>
+    <div>生成时间: {html.escape(str(health.get("build_time_cn") or health.get("build_time")))} | 时区: {html.escape(str(health.get("timezone") or "Asia/Shanghai"))}</div>
   </header>
   <main>
     <nav class="actions">
-      <a class="button" href="validation.html">模型验证结果</a>
+      <a class="button" href="validation.html">后台真实验证</a>
+      <a class="button secondary" href="findings.csv">下载CSV</a>
       <a class="button secondary" href="private.html">明文页</a>
       <a class="button secondary" href="https://github.com/henryli777/leak_api_key/actions/workflows/leak-monitor.yml">重新验证</a>
     </nav>
@@ -135,8 +138,8 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
     </section>
     {validation_summary}
     <table>
-      <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>脱敏值</th><th>模型</th><th>来源</th><th>发现时间</th><th>最后出现</th></tr></thead>
-      <tbody>{''.join(rows) or '<tr><td colspan="8">暂无线索</td></tr>'}</tbody>
+      <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>密钥</th><th>base_url</th><th>模型</th><th>来源</th><th>发现时间</th><th>最后出现</th></tr></thead>
+      <tbody>{''.join(rows) or '<tr><td colspan="9">暂无线索</td></tr>'}</tbody>
     </table>
   </main>
 </body>
@@ -151,12 +154,16 @@ def render_validation_summary(validation_report: dict[str, Any] | None) -> str:
     ok_targets = validation_report.get("ok_targets", 0)
     tested_models = sum(int(item.get("tested_models") or 0) for item in validation_report.get("results", []))
     ok_models = sum(len(item.get("ok_models") or []) for item in validation_report.get("results", []))
+    failed_models = max(tested_models - ok_models, 0)
+    finished_at = html.escape(str(validation_report.get("finished_at") or ""))
     return (
         '<section class="summary">'
         f'<div class="metric"><span>验证目标</span><strong>{target_count}</strong></div>'
         f'<div class="metric"><span>可用目标</span><strong>{ok_targets}</strong></div>'
         f'<div class="metric"><span>测试模型</span><strong>{tested_models}</strong></div>'
         f'<div class="metric"><span>可用模型</span><strong>{ok_models}</strong></div>'
+        f'<div class="metric"><span>不可用模型</span><strong>{failed_models}</strong></div>'
+        f'<div class="metric"><span>验证时间</span><strong style="font-size:15px">{finished_at}</strong></div>'
         "</section>"
     )
 
@@ -164,3 +171,11 @@ def render_validation_summary(validation_report: dict[str, Any] | None) -> str:
 def _write_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
+
+
+def _pair_source_label(item: dict[str, Any]) -> str:
+    if item.get("base_url_source") == "same_hit":
+        return "同一线索发现"
+    if item.get("base_url_source") == "historical_fallback":
+        return "历史 base_url 备选"
+    return ""
