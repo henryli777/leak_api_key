@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -95,11 +96,22 @@ def load_secrets(path: Path) -> dict[str, list[dict[str, str]]]:
         key_hash = (row.get("key_sha256") or "").strip() or (sha256_text(api_key) if api_key else "")
         if not api_key or not key_hash:
             continue
-        row["key_sha256"] = key_hash
-        row["api_key_redacted"] = redact_secret(api_key)
-        if row.get("base_url") and not row.get("base_url_sha256"):
-            row["base_url_sha256"] = sha256_text(row["base_url"].strip().rstrip("/") + "/")
-        by_hash.setdefault(key_hash, []).append(row)
+        base_urls = split_base_urls(row.get("base_url") or "")
+        base_url_hashes = split_hashes(row.get("base_url_sha256") or "")
+        if not base_urls:
+            base_urls = [""]
+        for idx, base_url in enumerate(base_urls):
+            copied = dict(row)
+            copied["key_sha256"] = key_hash
+            copied["api_key_redacted"] = redact_secret(api_key)
+            copied["base_url"] = base_url
+            if base_url:
+                copied["base_url_sha256"] = (
+                    base_url_hashes[idx]
+                    if idx < len(base_url_hashes)
+                    else sha256_text(normalize_base_url_for_hash(base_url))
+                )
+            by_hash.setdefault(key_hash, []).append(copied)
     return by_hash
 
 
@@ -307,6 +319,14 @@ def split_models(value: str) -> list[str]:
 
 def split_hashes(value: str) -> list[str]:
     return [part.strip() for part in value.replace(";", ",").split(",") if part.strip()]
+
+
+def split_base_urls(value: str) -> list[str]:
+    normalized = (value or "").replace("\r\n", "\n").replace("\r", "\n").replace(";", "\n")
+    parts = [part.strip() for part in normalized.split("\n") if part.strip()]
+    if len(parts) == 1 and parts[0].count("http") > 1:
+        parts = [part.strip() for part in re.split(r"\s*,\s*(?=https?://)", parts[0]) if part.strip()]
+    return list(dict.fromkeys(parts))
 
 
 def normalize_base_url_for_hash(base_url: str) -> str:

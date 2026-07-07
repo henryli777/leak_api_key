@@ -10,10 +10,10 @@
 - 可选生成 `dist/private.html` 独立明文页，输入账号和密码后在浏览器本地解密查看完整值。
 - 生成 `dist/validation.html` 后台真实模型验证结果页；配置授权目标后会对你显式授权的 base_url/key 发起真实后台请求，拉取 `/models` 并测试模型可用性，同时保留验证时间。
 - 时间统一按东八区 `Asia/Shanghai` 输出。
-- 密钥线索按 `key + base_url` 配对输出；如果同一线索缺少 base_url，会用历史已收集的 base_url 生成备选验证组合并标记为历史备选。
+- 历史数据仍按 `key + base_url` 细粒度配对保存；报告页、公开 CSV 和私有明文 CSV 会按 `key_sha256` 去重导出，同一 key 的多个 base_url 合并到同一行。
 - 公开泄露 findings 不做未授权 live test；报告会给出公开证据强度，只有你主动配置授权凭据的目标才会进入后台真实验证。
-- 总览页提供 `findings.csv` 下载，内容为脱敏证据、哈希、配对来源和公开证据强度。
-- `private.html` 登录解密后提供“下载明文CSV”，CSV 在浏览器本地生成，不作为公开文件发布。
+- 总览页提供 `findings.csv` 下载，内容为按密钥去重后的脱敏证据、哈希、配对来源和公开证据强度。
+- `private.html` 登录解密后提供“下载明文CSV”，CSV 在浏览器本地生成，不作为公开文件发布；同一明文 key 只导出一行，多个 base_url 用单元格内换行保留。
 - 对新增中高风险线索发送钉钉通知。
 - 支持后续通过 `config/targets.yml` 或 GitHub Secret `TARGETS_YAML` 设定品牌、域名、仓库、项目名等目标。
 
@@ -109,7 +109,7 @@ CSV
 - `validation-history.json`：本地历史记录，重复候选默认跳过。
 - `base-url-library.csv`：本地明文 base_url 基础库，会合并保存 `secrets.csv` 中出现过的 base_url。
 
-`findings.csv` 负责提供哈希索引和模型/来源信息；`secrets.csv` 负责提供本地明文 key，脚本通过 `key_sha256` 对齐。`secrets.csv` 里缺少 `key_sha256` 时会本地自动计算。某条 key 缺少可匹配 base_url 时，脚本会遍历 `base-url-library.csv` 里的 base_url 作为候选。重复验证过的 `key + base_url + models` 组合会从 `validation-history.json` 跳过；需要全量重验时加：
+`findings.csv` 负责提供哈希索引和模型/来源信息；`secrets.csv` 负责提供本地明文 key，脚本通过 `key_sha256` 对齐。`secrets.csv` 里缺少 `key_sha256` 时会本地自动计算。私有明文 CSV 里的 `base_url` 可以是单个 URL，也可以是单元格内多行 URL，脚本会拆成多个验证候选。某条 key 缺少可匹配 base_url 时，脚本会遍历 `base-url-library.csv` 里的 base_url 作为候选。重复验证过的 `key + base_url + models` 组合会从 `validation-history.json` 跳过；需要全量重验时加：
 
 ```bash
 ./scripts/validate_authorized_models.py findings.csv \
@@ -183,7 +183,7 @@ targets:
 - `leak_monitor/detectors.py`：key、base_url、model 特征识别与脱敏。
 - `leak_monitor/storage.py`：历史去重和合并。
 - `leak_monitor/notify.py`：钉钉通知。
-- `.github/workflows/leak-monitor.yml`：每 3 小时定时执行，支持手动触发。
+- `.github/workflows/leak-monitor.yml`：每 6 小时定时执行，支持手动触发，默认搜索源为 `github,google`。
 
 ## 输出
 
@@ -194,6 +194,6 @@ targets:
 - `dist/private.html`：可选明文登录页，只有设置 `PRIVATE_REPORT_PASSWORD` 时生成。
 - `dist/validation.html`：后台真实模型验证结果页；展示可用/不可用模型和验证时间，未配置授权目标时显示空状态和默认模型库。
 - `dist/validation.json`：授权模型可用性测试数据，不包含 key。
-- `dist/findings.csv`：脱敏证据 CSV，可从总览页下载。
+- `dist/findings.csv`：按密钥去重后的脱敏证据 CSV，可从总览页下载。
 - `dist/health.json`：统计摘要。
 - `dist/findings.json`：脱敏后的报告数据；credential 会规范成 `credential_pair`，包含密钥和 base_url 的一组候选。

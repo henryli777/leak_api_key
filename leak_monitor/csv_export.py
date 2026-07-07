@@ -4,6 +4,8 @@ import csv
 from pathlib import Path
 from typing import Any
 
+from .dedup import dedupe_findings_for_export
+
 
 CSV_FIELDS = [
     "id",
@@ -21,6 +23,7 @@ CSV_FIELDS = [
     "first_seen_at",
     "last_seen_at",
     "seen_count",
+    "deduped_finding_count",
     "source",
     "source_url",
     "source_title",
@@ -35,8 +38,11 @@ def emit_findings_csv(output_dir: str | Path, findings: list[dict[str, Any]]) ->
     with open(path, "w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_FIELDS, extrasaction="ignore")
         writer.writeheader()
-        for item in findings:
-            writer.writerow(build_csv_row(item))
+        writer.writerows(build_csv_rows(findings))
+
+
+def build_csv_rows(findings: list[dict[str, Any]]) -> list[dict[str, str]]:
+    return [build_csv_row(item) for item in dedupe_findings_for_export(findings)]
 
 
 def build_csv_row(item: dict[str, Any]) -> dict[str, str]:
@@ -48,7 +54,7 @@ def build_csv_row(item: dict[str, Any]) -> dict[str, str]:
         "severity": item.get("severity"),
         "key_redacted": item.get("key_redacted") or (item.get("value_redacted") if item.get("type") != "base_url" else ""),
         "key_sha256": item.get("key_sha256") or (item.get("value_sha256") if item.get("type") != "base_url" else ""),
-        "base_url_redacted": item.get("base_url_redacted") or ", ".join(item.get("base_urls_redacted") or []) or (item.get("value_redacted") if item.get("type") == "base_url" else ""),
+        "base_url_redacted": "\n".join(item.get("base_urls_redacted") or []) or item.get("base_url_redacted") or (item.get("value_redacted") if item.get("type") == "base_url" else ""),
         "base_url_sha256": ", ".join(item.get("base_url_sha256") or []) or (item.get("value_sha256") if item.get("type") == "base_url" else ""),
         "base_url_source": item.get("base_url_source"),
         "public_evidence_level": item.get("public_evidence_level"),
@@ -57,6 +63,7 @@ def build_csv_row(item: dict[str, Any]) -> dict[str, str]:
         "first_seen_at": item.get("first_seen_at"),
         "last_seen_at": item.get("last_seen_at"),
         "seen_count": item.get("seen_count"),
+        "deduped_finding_count": item.get("deduped_finding_count") or 1,
         "source": source.get("source"),
         "source_url": source.get("url"),
         "source_title": source.get("title"),

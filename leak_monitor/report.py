@@ -6,8 +6,8 @@ from pathlib import Path
 from typing import Any
 
 from .csv_export import emit_findings_csv
+from .dedup import dedupe_findings_for_export
 from .models import SourceStats
-from .storage import finding_sort_key
 from .timeutils import now_iso
 
 
@@ -62,7 +62,7 @@ def emit_report(
 
 def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validation_report: dict[str, Any] | None = None) -> str:
     rows = []
-    sorted_findings = sorted(findings, key=finding_sort_key, reverse=True)
+    sorted_findings = dedupe_findings_for_export(findings)
     for item in sorted_findings[:250]:
         source = (item.get("sources") or [{}])[0]
         source_url = html.escape(source.get("url") or "")
@@ -70,9 +70,10 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
         excerpt = html.escape(source.get("excerpt") or "")
         models = html.escape(", ".join(item.get("models") or []))
         key_value = html.escape(item.get("key_redacted") or (item.get("value_redacted") if item.get("type") != "base_url" else ""))
-        base_url = html.escape(item.get("base_url_redacted") or ", ".join(item.get("base_urls_redacted") or []) or (item.get("value_redacted") if item.get("type") == "base_url" else ""))
+        base_url = html.escape("\n".join(item.get("base_urls_redacted") or []) or item.get("base_url_redacted") or (item.get("value_redacted") if item.get("type") == "base_url" else ""))
         pair_source = html.escape(_pair_source_label(item))
         evidence = html.escape(str(item.get("public_evidence_label") or ""))
+        dedup_count = html.escape(str(item.get("deduped_finding_count") or 1))
         first_seen = html.escape(str(item.get("first_seen_at") or ""))
         last_seen = html.escape(str(item.get("last_seen_at") or ""))
         rows.append(
@@ -81,7 +82,7 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
             f"<td>{html.escape(str(item.get('type')))}</td>"
             f"<td>{html.escape(str(item.get('provider')))}</td>"
             f"<td><code>{key_value}</code></td>"
-            f"<td><code>{base_url}</code><div class='excerpt'>{pair_source}</div><div class='excerpt'>{evidence}</div></td>"
+            f"<td><code>{base_url}</code><div class='excerpt'>{pair_source}</div><div class='excerpt'>{evidence}</div><div class='excerpt'>合并线索: {dedup_count}</div></td>"
             f"<td>{models}</td>"
             f"<td><a href='{source_url}'>{title}</a><div class='excerpt'>{excerpt}</div></td>"
             f"<td>{first_seen}</td>"
@@ -132,6 +133,7 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
     </nav>
     <section class="summary">
       <div class="metric"><span>总线索</span><strong>{health.get("total_findings", 0)}</strong></div>
+      <div class="metric"><span>去重线索</span><strong>{len(sorted_findings)}</strong></div>
       <div class="metric"><span>本轮新增</span><strong>{health.get("new_findings", 0)}</strong></div>
       <div class="metric"><span>高危</span><strong>{(health.get("severity_counts") or {}).get("high", 0)}</strong></div>
       <div class="metric"><span>中危</span><strong>{(health.get("severity_counts") or {}).get("medium", 0)}</strong></div>

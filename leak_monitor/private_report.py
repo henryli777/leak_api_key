@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import base64
+import csv
+import io
 import json
 import os
 from pathlib import Path
@@ -10,8 +12,35 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
+from .csv_export import csv_safe
+from .dedup import dedupe_findings_for_export
+
 
 PBKDF2_ITERATIONS = 250_000
+
+PRIVATE_CSV_FIELDS = [
+    "id",
+    "type",
+    "provider",
+    "severity",
+    "api_key",
+    "key_redacted",
+    "key_sha256",
+    "base_url",
+    "base_url_redacted",
+    "base_url_sha256",
+    "base_url_source",
+    "public_evidence_level",
+    "models",
+    "first_seen_at",
+    "last_seen_at",
+    "seen_count",
+    "deduped_finding_count",
+    "source",
+    "source_url",
+    "source_title",
+    "query",
+]
 
 
 def emit_private_report(output_dir: str | Path, findings: list[dict[str, Any]], health: dict[str, Any]) -> bool:
@@ -22,7 +51,7 @@ def emit_private_report(output_dir: str | Path, findings: list[dict[str, Any]], 
     user = os.getenv("PRIVATE_REPORT_USER", "admin").strip() or "admin"
     payload = {
         "health": health,
-        "findings": findings,
+        "findings": dedupe_findings_for_export(findings),
     }
     encrypted = encrypt_payload(payload, password)
     html = render_private_html(encrypted, user)
@@ -147,12 +176,7 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
     }}
 
     function privateCsv(payload) {{
-      const fields = [
-        "id", "type", "provider", "severity", "api_key", "key_redacted", "key_sha256",
-        "base_url", "base_url_redacted", "base_url_sha256", "base_url_source",
-        "public_evidence_level", "models", "first_seen_at", "last_seen_at",
-        "source", "source_url", "source_title", "query"
-      ];
+      const fields = {json.dumps(PRIVATE_CSV_FIELDS, ensure_ascii=False)};
       const rows = [fields.join(",")];
       for (const item of payload.findings || []) {{
         const source = (item.sources || [{{}}])[0];
@@ -164,14 +188,16 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
           api_key: item.raw_value || "",
           key_redacted: item.key_redacted || item.value_redacted || "",
           key_sha256: item.key_sha256 || item.value_sha256 || "",
-          base_url: item.raw_base_url || (item.raw_base_urls || []).join(", "),
-          base_url_redacted: item.base_url_redacted || (item.base_urls_redacted || []).join(", "),
+          base_url: (item.raw_base_urls || []).join("\\n") || item.raw_base_url || "",
+          base_url_redacted: (item.base_urls_redacted || []).join("\\n") || item.base_url_redacted || "",
           base_url_sha256: (item.base_url_sha256 || []).join(", "),
           base_url_source: item.base_url_source || "",
           public_evidence_level: item.public_evidence_level || "",
           models: (item.models || []).join(", "),
           first_seen_at: item.first_seen_at || "",
           last_seen_at: item.last_seen_at || "",
+          seen_count: item.seen_count || "",
+          deduped_finding_count: item.deduped_finding_count || 1,
           source: source.source || "",
           source_url: source.url || "",
           source_title: source.title || "",
@@ -212,7 +238,7 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
       const rows = findings.map((item) => {{
         const source = (item.sources || [{{}}])[0];
         const keyValue = item.raw_value || item.key_redacted || (item.type !== "base_url" ? item.value_redacted : "");
-        const baseUrl = item.raw_base_url || item.base_url_redacted || (item.raw_base_urls || []).join(", ") || (item.base_urls_redacted || []).join(", ") || (item.type === "base_url" ? item.value_redacted : "");
+        const baseUrl = (item.raw_base_urls || []).join("\\n") || item.raw_base_url || (item.base_urls_redacted || []).join("\\n") || item.base_url_redacted || (item.type === "base_url" ? item.value_redacted : "");
         const pairSource = item.base_url_source === "same_hit" ? "同一线索发现" : (item.base_url_source === "historical_fallback" ? "历史 base_url 备选" : "");
         const evidence = item.public_evidence_label || "";
         const models = (item.models || []).join(", ");
@@ -230,7 +256,7 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
       document.getElementById("report").innerHTML = `
         <div class="summary">
           <div class="metric"><span>总线索</span><strong>${{escapeHtml(health.total_findings || 0)}}</strong></div>
-          <div class="metric"><span>本轮明文线索</span><strong>${{escapeHtml(findings.length)}}</strong></div>
+          <div class="metric"><span>去重明文线索</span><strong>${{escapeHtml(findings.length)}}</strong></div>
           <div class="metric"><span>生成时间</span><strong style="font-size:15px">${{escapeHtml(health.build_time_cn || health.build_time_utc || "")}}</strong></div>
         </div>
         <div class="toolbar">
@@ -271,3 +297,42 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
 
 def _b64(value: bytes) -> str:
     return base64.b64encode(value).decode("ascii")
+
+
+def build_private_csv_rows(findings: list[dict[str, Any]]) -> list[dict[str, str]]:
+    rows = []
+    for item in dedupe_findings_for_export(findings):
+        source = (item.get("sources") or [{}])[0]
+        row = {
+            "id": item.get("id"),
+            "type": item.get("type"),
+            "provider": item.get("provider"),
+            "severity": item.get("severity"),
+            "api_key": item.get("raw_value") or "",
+            "key_redacted": item.get("key_redacted") or item.get("value_redacted") or "",
+            "key_sha256": item.get("key_sha256") or item.get("value_sha256") or "",
+            "base_url": "\n".join(item.get("raw_base_urls") or []) or item.get("raw_base_url") or "",
+            "base_url_redacted": "\n".join(item.get("base_urls_redacted") or []) or item.get("base_url_redacted") or "",
+            "base_url_sha256": ", ".join(item.get("base_url_sha256") or []),
+            "base_url_source": item.get("base_url_source") or "",
+            "public_evidence_level": item.get("public_evidence_level") or "",
+            "models": ", ".join(item.get("models") or []),
+            "first_seen_at": item.get("first_seen_at") or "",
+            "last_seen_at": item.get("last_seen_at") or "",
+            "seen_count": item.get("seen_count") or "",
+            "deduped_finding_count": item.get("deduped_finding_count") or 1,
+            "source": source.get("source") or "",
+            "source_url": source.get("url") or "",
+            "source_title": source.get("title") or "",
+            "query": source.get("query") or "",
+        }
+        rows.append({key: csv_safe(value) for key, value in row.items()})
+    return rows
+
+
+def render_private_csv(findings: list[dict[str, Any]]) -> str:
+    buffer = io.StringIO()
+    writer = csv.DictWriter(buffer, fieldnames=PRIVATE_CSV_FIELDS, extrasaction="ignore")
+    writer.writeheader()
+    writer.writerows(build_private_csv_rows(findings))
+    return "\ufeff" + buffer.getvalue()
