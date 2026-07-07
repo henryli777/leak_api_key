@@ -1,21 +1,21 @@
 {
-  "build_time_cn": "2026-07-07T16:21:42+08:00",
-  "build_time_utc": "2026-07-07T08:21:42Z",
-  "new_findings": 15,
+  "build_time_cn": "2026-07-07T16:50:53+08:00",
+  "build_time_utc": "2026-07-07T08:50:53Z",
+  "new_findings": 31,
   "query_count": 12,
   "severity_counts": {
-    "high": 3,
-    "medium": 120
+    "high": 7,
+    "medium": 147
   },
   "source_hits": {
-    "github": 180,
+    "github": 288,
     "google_serpapi": 108
   },
   "source_stats": [
     {
-      "errors": 9,
-      "hits": 180,
-      "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22MISTRAL_API_KEY%22&sort=indexed&order=desc&per_page=12",
+      "errors": 0,
+      "hits": 288,
+      "message": "",
       "queries": 12,
       "skipped": false,
       "source": "github"
@@ -29,9 +29,9 @@
       "source": "google_serpapi"
     }
   ],
-  "total_findings": 123,
+  "total_findings": 154,
   "type_counts": {
-    "base_url": 120,
-    "credential": 3
+    "base_url": 147,
+    "credential": 7
   }
 }
