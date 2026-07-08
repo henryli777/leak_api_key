@@ -20,11 +20,13 @@ SECRET_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
 
 ASSIGNMENT_RE = re.compile(
     r"""(?ix)
+    (?P<keyquote>["'`]?)
     \b(?P<name>
         OPENAI_API_KEY|ANTHROPIC_API_KEY|GOOGLE_API_KEY|GEMINI_API_KEY|
         DEEPSEEK_API_KEY|OPENROUTER_API_KEY|GROQ_API_KEY|MISTRAL_API_KEY|
         DASHSCOPE_API_KEY|QWEN_API_KEY|XAI_API_KEY|API_KEY
     )\b
+    (?P=keyquote)
     \s*[:=]\s*
     (?P<quote>["']?)
     (?P<value>[A-Za-z0-9._:/+=@-]{16,})
@@ -34,14 +36,29 @@ ASSIGNMENT_RE = re.compile(
 
 BASE_URL_RE = re.compile(
     r"""(?ix)
-    \b(?:
+    (?P<keyquote>["'`]?)
+    \b(?P<name>
         base_url|baseURL|baseUrl|api_base|apiBase|OPENAI_BASE_URL|
         OPENAI_API_BASE|AZURE_OPENAI_ENDPOINT|endpoint|api_url|apiUrl
     )\b
+    (?P=keyquote)
     \s*[:=]\s*
     (?P<quote>["']?)
-    (?P<url>https?://[^\s"'`<>{}\]\)]+)
+    (?P<url>
+        https?://[^\s"'`<>{}\]\),]+|
+        (?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,63}
+        (?::\d{2,5})?
+        (?:/[^\s"'`<>{}\]\),]+)?
+    )
     (?P=quote)
+    """
+)
+
+DOMAIN_BASE_URL_RE = re.compile(
+    r"""(?ix)
+    ^(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,63}
+    (?::\d{2,5})?
+    (?:/[^\s"'`<>{}\]\),]+)?$
     """
 )
 
@@ -87,6 +104,22 @@ PLACEHOLDER_HINTS = (
     "xxx",
     "test_key",
     "demo_key",
+    "${",
+    "<",
+    ">",
+)
+
+BASE_URL_PLACEHOLDER_HINTS = (
+    "example.",
+    "example-",
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+    "your-domain",
+    "your_domain",
+    "your.base",
+    "replace",
+    "placeholder",
     "${",
     "<",
     ">",
@@ -155,9 +188,42 @@ def clean_url(value: str) -> str:
     return value.strip().rstrip(".,;')")
 
 
-def looks_like_secret(value: str) -> bool:
+def clean_base_url(value: str) -> str:
+    cleaned = clean_url(value)
+    if not re.match(r"(?i)^https?://", cleaned) and DOMAIN_BASE_URL_RE.match(cleaned):
+        return f"https://{cleaned}"
+    return cleaned
+
+
+def looks_like_base_url(value: str) -> bool:
     low = value.lower()
-    if not value.startswith("sk-"):
+    if any(hint in low for hint in BASE_URL_PLACEHOLDER_HINTS):
+        return False
+    parsed = urlparse(value if re.match(r"(?i)^https?://", value) else f"https://{value}")
+    host = parsed.netloc.lower()
+    if not host or "." not in host:
+        return False
+    if host.endswith((".invalid", ".test", ".local", ".localhost")):
+        return False
+    return True
+
+
+def infer_provider_from_secret(value: str) -> str:
+    for provider, pattern in SECRET_PATTERNS:
+        if pattern.fullmatch(value):
+            return provider
+    return ""
+
+
+def looks_like_secret(value: str, provider: str = "") -> bool:
+    low = value.lower()
+    if provider == "google":
+        prefix_ok = value.startswith("AIza")
+    elif provider == "groq":
+        prefix_ok = value.startswith("gsk_")
+    else:
+        prefix_ok = value.startswith("sk-")
+    if not prefix_ok:
         return False
     if len(value) < 16 or any(hint in low for hint in PLACEHOLDER_HINTS):
         return False
@@ -229,21 +295,35 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = 
     for provider, pattern in SECRET_PATTERNS:
         for match in pattern.finditer(text):
             value = match.group(0)
-            if looks_like_secret(value):
+            if looks_like_secret(value, provider):
                 secret_matches_by_value.setdefault(value, provider)
 
     for match in ASSIGNMENT_RE.finditer(text):
         value = match.group("value").strip().strip(",")
-        if looks_like_secret(value):
-            provider = PROVIDER_BY_NAME.get(match.group("name").upper(), "unknown")
-            if provider == "unknown" and not looks_like_generic_secret(value):
-                continue
-            secret_matches_by_value.setdefault(value, provider)
+        provider = PROVIDER_BY_NAME.get(match.group("name").upper(), "unknown")
+        inferred_provider = infer_provider_from_secret(value)
+        if inferred_provider:
+            provider = inferred_provider
+        if not looks_like_secret(value, provider):
+            if provider == "unknown" and looks_like_generic_secret(value):
+                secret_matches_by_value.setdefault(value, provider)
+            continue
+        secret_matches_by_value.setdefault(value, provider)
 
     secret_matches = [(provider, value) for value, provider in secret_matches_by_value.items()]
 
-    base_urls = [clean_url(m.group("url")) for m in BASE_URL_RE.finditer(text)]
-    if any(term in low_text for term in AI_CONTEXT_TERMS):
+    base_urls = []
+    has_ai_context = any(term in low_text for term in AI_CONTEXT_TERMS)
+    for match in BASE_URL_RE.finditer(text):
+        raw_url = clean_base_url(match.group("url"))
+        name = (match.group("name") or "").lower()
+        if not raw_url.lower().startswith(("http://", "https://")) and not has_ai_context:
+            continue
+        if name in {"endpoint", "api_url", "apiurl"} and not has_ai_context:
+            continue
+        if looks_like_base_url(raw_url):
+            base_urls.append(raw_url)
+    if has_ai_context:
         base_urls.extend(clean_url(m.group(0)) for m in LOOSE_AI_URL_RE.finditer(text))
     base_urls = _dedup(base_urls)
 

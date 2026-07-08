@@ -10,7 +10,7 @@
 - 可选生成 `dist/private.html` 独立明文页，输入账号和密码后在浏览器本地解密查看完整值。
 - 生成 `dist/validation.html` 后台真实模型验证结果页；配置授权目标后会对你显式授权的 base_url/key 发起真实后台请求，拉取 `/models` 并测试模型可用性，同时保留验证时间。
 - 时间统一按东八区 `Asia/Shanghai` 输出。
-- 密钥识别只保留 `sk-` 开头的 key；Google 是搜索来源之一，不表示导出 `AIza...` 这类 Google API key。
+- 密钥识别重点覆盖 `sk-` / `sk-proj-` / `sk-ant-` / `sk-or-v1-`，并保留 Groq `gsk_`、Gemini/Google `AIza` 这类明确 AI key 前缀。
 - 历史数据仍按 `key + base_url` 细粒度配对保存；报告页、公开 CSV 和私有明文 CSV 会按 `key_sha256` 去重导出，同一 key 的多个 base_url 合并到同一行。
 - 公开泄露 findings 不做未授权 live test；报告会给出公开证据强度，只有你主动配置授权凭据的目标才会进入后台真实验证。
 - 总览页提供 `findings.csv` 下载，内容为按密钥去重后的脱敏证据、哈希、配对来源和公开证据强度。
@@ -27,7 +27,7 @@
 - 默认不在仓库里保存完整密钥。
 - `dist/private.html` 不写入明文，只写入加密密文；需要 `PRIVATE_REPORT_PASSWORD` 才会生成。
 - 明文 CSV 只在 `private.html` 解密成功后由浏览器本地生成，不会写入 `dist/` 或 GitHub Pages 的静态文件列表。
-- 默认不抓取 Google 结果页面正文，只分析 SerpAPI 返回的标题和摘要；如需正文抓取，请仅在授权监测范围内把 `sources.google.fetch_pages` 设为 `true`。
+- 默认不抓取普通 Google 结果页面正文，只分析 SerpAPI 返回的标题和摘要；如果 Google 命中 GitHub blob/raw 源码链接，会自动拉取 raw 内容分析。普通网页正文抓取请仅在授权监测范围内把 `sources.google.fetch_pages` 设为 `true`。
 - 模型可用性测试是真实后台验证，只读取 `AUTHORIZED_VALIDATION_TARGETS_JSON` 中你主动配置的凭据，不会用泄露 findings 里的 key 发请求。
 - 历史 base_url 备选配对只用于生成候选组合；公开 JSON 仍只保存脱敏 base_url 和哈希，明文值只会进入加密的 `private.html`。
 
@@ -59,6 +59,17 @@ key2
 key3'
 python main.py scan --sources google --max-queries 4
 ```
+
+## Google 搜索定位策略
+
+Google 不能直接按“任意一级/二级域名”做正则搜索，所以搜索阶段用上下文锚点，检测阶段再做正则提取：
+
+- key 锚点：`"OPENAI_API_KEY=" "sk-"`、`"OPENAI_API_KEY:" "sk-"`、`"Authorization: Bearer sk-"`、`"OPENROUTER_API_KEY" "sk-or-v1"`、`"GROQ_API_KEY" "gsk_"`、`"GEMINI_API_KEY" "AIza"`。
+- base_url 锚点：`"OPENAI_BASE_URL=" "https://"`、`"base_url" "https://" "sk-"`、`"api_base" "https://" "sk-"`、`"baseURL" "https://" "apiKey"`。
+- SDK 写法锚点：`"client = OpenAI" "base_url" "api_key"`、`"OpenAI(" "base_url=" "api_key="`。
+- 接口路径锚点：`"chat/completions" "sk-"`、`"v1/models" "sk-"`。
+
+检测器会识别 JSON、env、Python/JS 配置里的 key 和 base_url；`base_url: api.example.com/v1` 这种没有协议的域名会按 `https://api.example.com/v1` 归一化后再脱敏、哈希和配对。
 
 本地生成明文登录页：
 

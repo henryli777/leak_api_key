@@ -8,6 +8,7 @@ from .timeutils import to_timezone_iso
 
 FALLBACK_SOURCE = "historical_fallback"
 SAME_HIT_SOURCE = "same_hit"
+SUPPORTED_AI_KEY_PREFIXES = ("sk-", "gsk_", "AIza")
 
 
 def prepare_findings(findings: list[dict[str, Any]], timezone_name: str) -> list[dict[str, Any]]:
@@ -41,7 +42,7 @@ def pair_credential_findings(
     out: list[dict[str, Any]] = []
     for item in findings:
         item_type = str(item.get("type") or "")
-        if item_type in {"credential", "credential_pair"} and not has_sk_prefixed_key(item):
+        if item_type in {"credential", "credential_pair"} and not has_supported_ai_key(item):
             continue
         if item_type == "credential_pair":
             out.append(item)
@@ -66,10 +67,10 @@ def pair_credential_findings(
     return annotate_public_evidence(_dedup_by_id(out))
 
 
-def has_sk_prefixed_key(item: dict[str, Any]) -> bool:
+def has_supported_ai_key(item: dict[str, Any]) -> bool:
     for field in ("raw_value", "key_redacted", "value_redacted"):
         value = str(item.get(field) or "").strip()
-        if value.startswith("sk-"):
+        if value.startswith(SUPPORTED_AI_KEY_PREFIXES):
             return True
     return False
 

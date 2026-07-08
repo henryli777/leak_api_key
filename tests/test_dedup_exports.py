@@ -86,7 +86,7 @@ def test_private_csv_does_not_put_base_url_raw_value_in_api_key():
     assert rows[0]["base_url"] == "https://api.example.test/v1"
 
 
-def test_detector_only_keeps_sk_prefixed_api_keys():
+def test_detector_keeps_supported_ai_api_key_prefixes():
     hit = SearchHit(
         source="unit",
         query="q",
@@ -103,11 +103,15 @@ def test_detector_only_keeps_sk_prefixed_api_keys():
 
     findings = analyze_hit(hit, "2026-07-07T10:00:00+08:00", include_raw=True)
 
-    raw_values = [item.get("raw_value") for item in findings if item.get("type") == "credential"]
-    assert raw_values == ["sk-valid_abcdefghijklmnopqrstuvwxyz"]
+    raw_values = {item.get("raw_value") for item in findings if item.get("type") == "credential"}
+    assert raw_values == {
+        "sk-valid_abcdefghijklmnopqrstuvwxyz",
+        "AIzaSyCQabcdefghijklmnopqrstuvwxyz1234567890",
+        "gsk_abcdefghijklmnopqrstuvwxyz1234567890",
+    }
 
 
-def test_prepare_findings_drops_historical_non_sk_credentials():
+def test_prepare_findings_keeps_supported_ai_credentials():
     rows = prepare_findings(
         [
             {
@@ -151,7 +155,7 @@ def test_prepare_findings_drops_historical_non_sk_credentials():
         "Asia/Shanghai",
     )
 
-    assert [row["id"] for row in rows] == ["sk-key", "base"]
+    assert [row["id"] for row in rows] == ["google-key", "sk-key", "base"]
 
 
 def test_local_validator_splits_multiline_base_urls_from_grouped_private_csv(tmp_path):

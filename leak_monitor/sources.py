@@ -5,7 +5,7 @@ import os
 import re
 import time
 from typing import Any, Iterable
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlparse
 
 import requests
 
@@ -18,6 +18,26 @@ DEFAULT_UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 )
+
+
+def github_raw_content_url(url: str) -> str:
+    parsed = urlparse(url)
+    host = parsed.netloc.lower()
+    if host in {"raw.githubusercontent.com", "gist.githubusercontent.com"}:
+        return url
+    if host != "github.com":
+        return ""
+    parts = [part for part in parsed.path.split("/") if part]
+    if len(parts) < 5:
+        return ""
+    owner, repo, marker = parts[0], parts[1], parts[2]
+    if marker not in {"blob", "raw"}:
+        return ""
+    ref = parts[3]
+    file_path = "/".join(parts[4:])
+    if not file_path:
+        return ""
+    return f"https://raw.githubusercontent.com/{owner}/{repo}/{ref}/{file_path}"
 
 
 class GitHubSource:
@@ -189,7 +209,12 @@ class GoogleSerpApiSource:
 
             for item in (data.get("organic_results") or [])[: self.per_query]:
                 link = item.get("link") or ""
-                content = self._fetch_page(link) if self.fetch_pages else ""
+                raw_link = github_raw_content_url(link)
+                content = ""
+                if raw_link:
+                    content = self._fetch_page(raw_link)
+                elif self.fetch_pages:
+                    content = self._fetch_page(link)
                 hits.append(
                     SearchHit(
                         source="google_serpapi",
