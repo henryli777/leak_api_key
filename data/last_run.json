@@ -1,38 +1,38 @@
 {
-  "build_time": "2026-07-09T12:14:06+08:00",
-  "build_time_cn": "2026-07-09T12:14:06+08:00",
-  "new_findings": 127,
-  "query_count": 11,
+  "build_time": "2026-07-09T16:37:21+08:00",
+  "build_time_cn": "2026-07-09T16:37:21+08:00",
+  "new_findings": 3910,
+  "query_count": 26,
   "severity_counts": {
-    "high": 3057,
-    "medium": 292
+    "high": 6861,
+    "medium": 398
   },
   "source_hits": {
-    "github": 264,
-    "google_serpapi": 101
+    "github": 312,
+    "google_serpapi": 236
   },
   "source_stats": [
     {
-      "errors": 0,
-      "hits": 264,
-      "message": "",
-      "queries": 11,
+      "errors": 22,
+      "hits": 312,
+      "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22grok%22+%22base_url%22+%22sk-%22&sort=indexed&order=desc&per_page=12",
+      "queries": 26,
       "skipped": false,
       "source": "github"
     },
     {
       "errors": 0,
-      "hits": 101,
+      "hits": 236,
       "message": "",
-      "queries": 11,
+      "queries": 26,
       "skipped": false,
       "source": "google_serpapi"
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 3349,
+  "total_findings": 7259,
   "type_counts": {
-    "base_url": 292,
-    "credential_pair": 3057
+    "base_url": 398,
+    "credential_pair": 6861
   }
 }
