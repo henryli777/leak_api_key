@@ -1,20 +1,20 @@
 {
-  "build_time": "2026-07-09T22:04:44+08:00",
-  "build_time_cn": "2026-07-09T22:04:44+08:00",
-  "new_findings": 1702,
+  "build_time": "2026-07-09T23:33:45+08:00",
+  "build_time_cn": "2026-07-09T23:33:45+08:00",
+  "new_findings": 1344,
   "query_count": 22,
   "severity_counts": {
-    "high": 10664,
-    "medium": 667
+    "high": 11999,
+    "medium": 676
   },
   "source_hits": {
-    "github": 276,
+    "github": 144,
     "google_serpapi": 90
   },
   "source_stats": [
     {
-      "errors": 1,
-      "hits": 276,
+      "errors": 12,
+      "hits": 144,
       "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22v1%2Fmodels%22+%22sk-%22&sort=indexed&order=desc&per_page=12",
       "queries": 12,
       "skipped": false,
@@ -30,10 +30,10 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 11331,
+  "total_findings": 12675,
   "type_counts": {
-    "base_url": 657,
-    "credential_pair": 10664,
-    "provider_config": 10
+    "base_url": 665,
+    "credential_pair": 11998,
+    "provider_config": 12
   }
 }
