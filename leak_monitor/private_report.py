@@ -101,10 +101,20 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
     .summary {{ display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }}
     .metric {{ background: white; border: 1px solid #d9e2ec; border-radius: 6px; padding: 10px 12px; min-width: 140px; }}
     .metric strong {{ display: block; font-size: 22px; }}
-    table {{ width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }}
+    .table-wrap {{ width: 100%; overflow-x: auto; border: 1px solid #d9e2ec; background: white; }}
+    table {{ width: 2300px; table-layout: fixed; border-collapse: collapse; background: white; }}
     th, td {{ padding: 10px; border-bottom: 1px solid #e6edf3; vertical-align: top; text-align: left; }}
     th {{ background: #eef3f8; font-weight: 650; }}
-    code {{ word-break: break-all; white-space: pre-wrap; }}
+    .col-level {{ width: 72px; }}
+    .col-type {{ width: 140px; }}
+    .col-provider {{ width: 170px; }}
+    .col-key {{ width: 460px; }}
+    .col-base-url {{ width: 620px; }}
+    .col-models {{ width: 180px; }}
+    .col-source {{ width: 480px; }}
+    .col-time {{ width: 178px; }}
+    .secret-block {{ display: block; max-width: 100%; overflow-x: auto; white-space: pre; overflow-wrap: normal; word-break: normal; background: #f8fafc; border: 1px solid #d9e2ec; border-radius: 4px; padding: 6px 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.45; }}
+    .url-cell .secret-block {{ max-height: 144px; }}
     a {{ color: #0b63ce; text-decoration: none; }}
     .excerpt {{ color: #52606d; margin-top: 6px; max-width: 680px; white-space: pre-wrap; }}
     .hidden {{ display: none; }}
@@ -167,6 +177,11 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
 
     function escapeHtml(value) {{
       return String(value ?? "").replace(/[&<>"']/g, (ch) => ({{ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }}[ch]));
+    }}
+
+    function codeBlock(value) {{
+      const text = String(value ?? "");
+      return text ? `<code class="secret-block">${{escapeHtml(text)}}</code>` : "";
     }}
 
     function csvCell(value) {{
@@ -246,8 +261,8 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
           <td>${{escapeHtml(item.severity)}}</td>
           <td>${{escapeHtml(item.type)}}</td>
           <td>${{escapeHtml(item.provider)}}</td>
-          <td><code>${{escapeHtml(keyValue)}}</code></td>
-          <td><code>${{escapeHtml(baseUrl)}}</code><div class="excerpt">${{escapeHtml(pairSource)}}</div><div class="excerpt">${{escapeHtml(evidence)}}</div></td>
+          <td class="secret-cell">${{codeBlock(keyValue)}}</td>
+          <td class="url-cell">${{codeBlock(baseUrl)}}<div class="excerpt">${{escapeHtml(pairSource)}}</div><div class="excerpt">${{escapeHtml(evidence)}}</div></td>
           <td>${{escapeHtml(models)}}</td>
           <td><a href="${{escapeHtml(source.url)}}">${{escapeHtml(source.title || source.url)}}</a><div class="excerpt">${{escapeHtml(source.excerpt || "")}}</div></td>
           <td>${{escapeHtml(item.last_seen_at || "")}}</td>
@@ -262,10 +277,22 @@ def render_private_html(encrypted: dict[str, Any], user: str) -> str:
         <div class="toolbar">
           <button type="button" id="downloadPrivateCsv">下载明文CSV</button>
         </div>
-        <table>
-          <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>密钥</th><th>base_url</th><th>模型</th><th>来源</th><th>最后发现</th></tr></thead>
-          <tbody>${{rows || '<tr><td colspan="8">暂无线索</td></tr>'}}</tbody>
-        </table>`;
+        <div class="table-wrap">
+          <table>
+            <colgroup>
+              <col class="col-level">
+              <col class="col-type">
+              <col class="col-provider">
+              <col class="col-key">
+              <col class="col-base-url">
+              <col class="col-models">
+              <col class="col-source">
+              <col class="col-time">
+            </colgroup>
+            <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>密钥</th><th>base_url</th><th>模型</th><th>来源</th><th>最后发现</th></tr></thead>
+            <tbody>${{rows || '<tr><td colspan="8">暂无线索</td></tr>'}}</tbody>
+          </table>
+        </div>`;
       document.getElementById("login").classList.add("hidden");
       document.getElementById("report").classList.remove("hidden");
       document.getElementById("downloadPrivateCsv").addEventListener("click", downloadPrivateCsv);

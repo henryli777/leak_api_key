@@ -69,8 +69,8 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
         title = html.escape(source.get("title") or source_url)
         excerpt = html.escape(source.get("excerpt") or "")
         models = html.escape(", ".join(item.get("models") or []))
-        key_value = html.escape(item.get("key_redacted") or (item.get("value_redacted") if item.get("type") != "base_url" else ""))
-        base_url = html.escape("\n".join(item.get("base_urls_redacted") or []) or item.get("base_url_redacted") or (item.get("value_redacted") if item.get("type") == "base_url" else ""))
+        key_value = _code_block(item.get("key_redacted") or (item.get("value_redacted") if item.get("type") != "base_url" else ""))
+        base_url = _code_block("\n".join(item.get("base_urls_redacted") or []) or item.get("base_url_redacted") or (item.get("value_redacted") if item.get("type") == "base_url" else ""))
         pair_source = html.escape(_pair_source_label(item))
         evidence = html.escape(str(item.get("public_evidence_label") or ""))
         dedup_count = html.escape(str(item.get("deduped_finding_count") or 1))
@@ -81,8 +81,8 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
             f"<td><span class='sev {html.escape(str(item.get('severity')))}'>{html.escape(str(item.get('severity')))}</span></td>"
             f"<td>{html.escape(str(item.get('type')))}</td>"
             f"<td>{html.escape(str(item.get('provider')))}</td>"
-            f"<td><code>{key_value}</code></td>"
-            f"<td><code>{base_url}</code><div class='excerpt'>{pair_source}</div><div class='excerpt'>{evidence}</div><div class='excerpt'>合并线索: {dedup_count}</div></td>"
+            f"<td class='secret-cell'>{key_value}</td>"
+            f"<td class='url-cell'>{base_url}<div class='excerpt'>{pair_source}</div><div class='excerpt'>{evidence}</div><div class='excerpt'>合并线索: {dedup_count}</div></td>"
             f"<td>{models}</td>"
             f"<td><a href='{source_url}'>{title}</a><div class='excerpt'>{excerpt}</div></td>"
             f"<td>{first_seen}</td>"
@@ -101,16 +101,26 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
     header {{ padding: 24px 28px; background: #102a43; color: white; }}
     h1 {{ margin: 0 0 8px; font-size: 24px; }}
     main {{ padding: 22px 28px; }}
+    .table-wrap {{ width: 100%; overflow-x: auto; border: 1px solid #d9e2ec; background: white; }}
     .actions {{ display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }}
     .button {{ display: inline-flex; align-items: center; height: 34px; border-radius: 4px; padding: 0 12px; background: #0b63ce; color: white; font-weight: 650; text-decoration: none; }}
     .button.secondary {{ background: #486581; }}
     .summary {{ display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }}
     .metric {{ background: white; border: 1px solid #d9e2ec; border-radius: 6px; padding: 10px 12px; min-width: 140px; }}
     .metric strong {{ display: block; font-size: 22px; }}
-    table {{ width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }}
+    table {{ width: 2240px; table-layout: fixed; border-collapse: collapse; background: white; }}
     th, td {{ padding: 10px; border-bottom: 1px solid #e6edf3; vertical-align: top; text-align: left; }}
     th {{ background: #eef3f8; font-weight: 650; }}
-    code {{ word-break: break-all; }}
+    .col-level {{ width: 72px; }}
+    .col-type {{ width: 140px; }}
+    .col-provider {{ width: 170px; }}
+    .col-key {{ width: 380px; }}
+    .col-base-url {{ width: 560px; }}
+    .col-models {{ width: 180px; }}
+    .col-source {{ width: 460px; }}
+    .col-time {{ width: 170px; }}
+    .secret-block {{ display: block; max-width: 100%; overflow-x: auto; white-space: pre; overflow-wrap: normal; word-break: normal; background: #f8fafc; border: 1px solid #d9e2ec; border-radius: 4px; padding: 6px 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.45; }}
+    .url-cell .secret-block {{ max-height: 124px; }}
     a {{ color: #0b63ce; text-decoration: none; }}
     .excerpt {{ color: #52606d; margin-top: 6px; max-width: 640px; }}
     .sev {{ display: inline-block; border-radius: 4px; padding: 2px 7px; color: white; font-size: 12px; }}
@@ -139,10 +149,23 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
       <div class="metric"><span>中危</span><strong>{(health.get("severity_counts") or {}).get("medium", 0)}</strong></div>
     </section>
     {validation_summary}
-    <table>
-      <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>密钥</th><th>base_url</th><th>模型</th><th>来源</th><th>发现时间</th><th>最后出现</th></tr></thead>
-      <tbody>{''.join(rows) or '<tr><td colspan="9">暂无线索</td></tr>'}</tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="col-level">
+          <col class="col-type">
+          <col class="col-provider">
+          <col class="col-key">
+          <col class="col-base-url">
+          <col class="col-models">
+          <col class="col-source">
+          <col class="col-time">
+          <col class="col-time">
+        </colgroup>
+        <thead><tr><th>级别</th><th>类型</th><th>平台</th><th>密钥</th><th>base_url</th><th>模型</th><th>来源</th><th>发现时间</th><th>最后出现</th></tr></thead>
+        <tbody>{''.join(rows) or '<tr><td colspan="9">暂无线索</td></tr>'}</tbody>
+      </table>
+    </div>
   </main>
 </body>
 </html>
@@ -181,3 +204,10 @@ def _pair_source_label(item: dict[str, Any]) -> str:
     if item.get("base_url_source") == "historical_fallback":
         return "历史 base_url 备选"
     return ""
+
+
+def _code_block(value: Any) -> str:
+    text = str(value if value is not None else "")
+    if not text:
+        return ""
+    return f"<code class='secret-block'>{html.escape(text)}</code>"

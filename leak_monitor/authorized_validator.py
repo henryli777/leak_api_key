@@ -291,12 +291,12 @@ def render_validation_html(report: dict[str, Any]) -> str:
             err = item.get("error", "")
             tests.append(
                 "<tr>"
-                f"<td>{escape(item.get('model'))}</td>"
+                f"<td>{code_block(item.get('model'))}</td>"
                 f"<td>{status}</td>"
                 f"<td>{escape(item.get('tested_at', ''))}</td>"
                 f"<td>{escape(item.get('status_code', ''))}</td>"
                 f"<td>{escape(item.get('elapsed_ms', ''))}</td>"
-                f"<td>{escape(err)}</td>"
+                f"<td>{code_block(err)}</td>"
                 "</tr>"
             )
         endpoint = result.get("models_endpoint", {})
@@ -306,15 +306,15 @@ def render_validation_html(report: dict[str, Any]) -> str:
         sections.append(
             "<section>"
             f"<h2>{escape(result.get('name'))}</h2>"
-            f"<p><strong>base_url:</strong> <code>{escape(result.get('base_url'))}</code></p>"
+            f"<p><strong>base_url:</strong> {code_block(result.get('base_url'))}</p>"
             f"<p><strong>后台验证时间:</strong> {escape(result.get('validation_started_at'))} 至 {escape(result.get('validation_finished_at'))}</p>"
             f"<p><strong>模型来源:</strong> {escape(result.get('model_source'))} | "
             f"<strong>/models:</strong> {'成功' if endpoint.get('ok') else '失败'} | "
             f"<strong>/models 验证时间:</strong> {escape(endpoint.get('checked_at', ''))}</p>"
             f"<p><strong>可用模型:</strong> {ok_models_text}</p>"
             f"<p><strong>不可用模型:</strong> {failed_models_text}</p>"
-            "<table><thead><tr><th>模型</th><th>状态</th><th>验证时间</th><th>HTTP</th><th>耗时 ms</th><th>错误</th></tr></thead>"
-            f"<tbody>{test_rows}</tbody></table>"
+            "<div class='table-wrap'><table><colgroup><col class='col-model'><col class='col-status'><col class='col-time'><col class='col-http'><col class='col-elapsed'><col class='col-error'></colgroup><thead><tr><th>模型</th><th>状态</th><th>验证时间</th><th>HTTP</th><th>耗时 ms</th><th>错误</th></tr></thead>"
+            f"<tbody>{test_rows}</tbody></table></div>"
             "</section>"
         )
     default_models = "".join(f"<code>{escape(model)}</code>" for model in report.get("default_model_library", []))
@@ -345,10 +345,17 @@ def render_validation_html(report: dict[str, Any]) -> str:
     .badge.fail {{ background: #ba2525; }}
     .library {{ display: flex; flex-wrap: wrap; gap: 8px; }}
     .library code {{ background: white; border: 1px solid #d9e2ec; border-radius: 4px; padding: 4px 7px; }}
-    table {{ width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }}
+    .table-wrap {{ width: 100%; overflow-x: auto; border: 1px solid #d9e2ec; background: white; }}
+    table {{ width: 1120px; table-layout: fixed; border-collapse: collapse; background: white; }}
     th, td {{ padding: 9px 10px; border-bottom: 1px solid #e6edf3; text-align: left; vertical-align: top; }}
     th {{ background: #eef3f8; }}
-    code {{ word-break: break-all; }}
+    .col-model {{ width: 280px; }}
+    .col-status {{ width: 84px; }}
+    .col-time {{ width: 190px; }}
+    .col-http {{ width: 88px; }}
+    .col-elapsed {{ width: 88px; }}
+    .col-error {{ width: 390px; }}
+    .secret-block {{ display: block; max-width: 100%; overflow-x: auto; white-space: pre; overflow-wrap: normal; word-break: normal; background: #f8fafc; border: 1px solid #d9e2ec; border-radius: 4px; padding: 6px 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.45; }}
   </style>
 </head>
 <body>
@@ -408,3 +415,10 @@ def utc_now() -> str:
 
 def escape(value: Any) -> str:
     return html.escape(str(value if value is not None else ""))
+
+
+def code_block(value: Any) -> str:
+    text = str(value if value is not None else "")
+    if not text:
+        return ""
+    return f'<code class="secret-block">{escape(text)}</code>'
