@@ -1,21 +1,21 @@
 {
-  "build_time": "2026-07-09T23:33:45+08:00",
-  "build_time_cn": "2026-07-09T23:33:45+08:00",
-  "new_findings": 1344,
+  "build_time": "2026-07-10T04:06:21+08:00",
+  "build_time_cn": "2026-07-10T04:06:21+08:00",
+  "new_findings": 1431,
   "query_count": 22,
   "severity_counts": {
-    "high": 11999,
-    "medium": 676
+    "high": 13397,
+    "medium": 709
   },
   "source_hits": {
-    "github": 144,
+    "github": 264,
     "google_serpapi": 90
   },
   "source_stats": [
     {
-      "errors": 12,
-      "hits": 144,
-      "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22v1%2Fmodels%22+%22sk-%22&sort=indexed&order=desc&per_page=12",
+      "errors": 2,
+      "hits": 264,
+      "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22chat%2Fcompletions%22+%22sk-%22&sort=indexed&order=desc&per_page=12",
       "queries": 12,
       "skipped": false,
       "source": "github"
@@ -30,10 +30,10 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 12675,
+  "total_findings": 14106,
   "type_counts": {
-    "base_url": 665,
-    "credential_pair": 11998,
+    "base_url": 698,
+    "credential_pair": 13396,
     "provider_config": 12
   }
 }
