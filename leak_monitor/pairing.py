@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+import re
 from typing import Any
 
-from .detectors import redact_url, sha256_text
+from .detectors import looks_like_secret, redact_url, sha256_text
 from .timeutils import to_timezone_iso
 
 
@@ -71,11 +72,18 @@ def pair_credential_findings(
 
 
 def has_supported_ai_key(item: dict[str, Any]) -> bool:
-    for field in ("raw_value", "key_redacted", "value_redacted"):
+    raw_value = str(item.get("raw_value") or "").strip()
+    if raw_value and looks_like_secret(raw_value):
+        return True
+    for field in ("key_redacted", "value_redacted"):
         value = str(item.get(field) or "").strip()
-        if value.startswith(SUPPORTED_AI_KEY_PREFIXES):
+        if value.startswith(SUPPORTED_AI_KEY_PREFIXES) and not is_natural_language_slug_redaction(value):
             return True
     return False
+
+
+def is_natural_language_slug_redaction(value: str) -> bool:
+    return bool(re.fullmatch(r"sk-[a-z]+-\.\.\.[a-z]+", value))
 
 
 def annotate_public_evidence(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:

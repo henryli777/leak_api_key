@@ -126,6 +126,21 @@ def test_detector_does_not_export_generic_non_sk_api_key_values():
     assert [item for item in findings if item.get("type") == "credential"] == []
 
 
+def test_detector_does_not_treat_natural_language_sk_url_slug_as_key():
+    hit = SearchHit(
+        source="google_serpapi",
+        query='"grok" "base_url" "sk-"',
+        url="https://devblogs.microsoft.com/agent-framework/integrate-sk-with-xai-grok-easily/",
+        title="Effortlessly Integrate xAI's Grok with Semantic Kernel",
+        snippet="More about SK Chat Completion and Grok integration.",
+        fetched_at="2026-07-07T10:00:00+08:00",
+    )
+
+    findings = analyze_hit(hit, "2026-07-07T10:00:00+08:00", include_raw=True)
+
+    assert [item for item in findings if item.get("type") == "credential"] == []
+
+
 def test_detector_extracts_api_providers_json_config():
     hit = SearchHit(
         source="google_serpapi",
@@ -205,6 +220,42 @@ def test_prepare_findings_keeps_only_sk_prefixed_ai_credentials():
     )
 
     assert [row["id"] for row in rows] == ["sk-key", "base"]
+
+
+def test_prepare_findings_filters_old_natural_language_sk_slug_history():
+    rows = prepare_findings(
+        [
+            {
+                "id": "slug-key",
+                "type": "credential_pair",
+                "provider": "openai_compatible",
+                "severity": "high",
+                "key_redacted": "sk-with-...sily",
+                "key_sha256": "slughash",
+                "base_url_redacted": "https://api...example.test/v1",
+                "base_url_sha256": ["basehash"],
+                "first_seen_at": "2026-07-07T10:00:00+08:00",
+                "last_seen_at": "2026-07-07T11:00:00+08:00",
+                "sources": [],
+            },
+            {
+                "id": "real-redacted-key",
+                "type": "credential_pair",
+                "provider": "openai_compatible",
+                "severity": "high",
+                "key_redacted": "sk-valid...abcd",
+                "key_sha256": "skhash",
+                "base_url_redacted": "https://api...example.test/v1",
+                "base_url_sha256": ["basehash"],
+                "first_seen_at": "2026-07-07T10:00:00+08:00",
+                "last_seen_at": "2026-07-07T11:00:00+08:00",
+                "sources": [],
+            },
+        ],
+        "Asia/Shanghai",
+    )
+
+    assert [row["id"] for row in rows] == ["real-redacted-key"]
 
 
 def test_local_validator_splits_multiline_base_urls_from_grouped_private_csv(tmp_path):

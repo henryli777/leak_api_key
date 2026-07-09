@@ -237,6 +237,8 @@ def looks_like_secret(value: str, provider: str = "") -> bool:
     low = value.lower()
     if not value.startswith("sk-"):
         return False
+    if re.fullmatch(r"sk-[a-z]+(?:-[a-z]+){2,}", value):
+        return False
     if len(value) < 16 or any(hint in low for hint in PLACEHOLDER_HINTS):
         return False
     if any(hint in low for hint in REFERENCE_VALUE_HINTS):
