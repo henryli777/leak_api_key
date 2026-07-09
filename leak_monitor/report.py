@@ -8,6 +8,7 @@ from typing import Any
 from .csv_export import emit_findings_csv
 from .dedup import dedupe_findings_for_export
 from .models import SourceStats
+from .safety import sanitize_source_url
 from .timeutils import now_iso
 
 
@@ -65,7 +66,7 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
     sorted_findings = dedupe_findings_for_export(findings)
     for item in sorted_findings[:250]:
         source = (item.get("sources") or [{}])[0]
-        source_url = html.escape(source.get("url") or "")
+        source_url = html.escape(sanitize_source_url(source.get("url") or ""))
         title = html.escape(source.get("title") or source_url)
         excerpt = html.escape(source.get("excerpt") or "")
         models = html.escape(", ".join(item.get("models") or []))
@@ -138,6 +139,7 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
     <nav class="actions">
       <a class="button" href="validation.html">后台真实验证</a>
       <a class="button secondary" href="findings.csv">下载CSV</a>
+      <a class="button secondary" href="provider_pairs.csv">下载Provider配对CSV</a>
       <a class="button secondary" href="private.html">明文页</a>
       <a class="button secondary" href="https://github.com/henryli777/leak_api_key/actions/workflows/leak-monitor.yml">重新验证</a>
     </nav>
@@ -199,6 +201,8 @@ def _write_text(path: Path, text: str) -> None:
 
 
 def _pair_source_label(item: dict[str, Any]) -> str:
+    if item.get("base_url_source") == "provider_config":
+        return "同一 provider 配置对象"
     if item.get("base_url_source") == "same_hit":
         return "同一线索发现"
     if item.get("base_url_source") == "historical_fallback":

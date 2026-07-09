@@ -22,12 +22,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Run real backend model validation for explicitly authorized findings.csv rows."
     )
-    parser.add_argument("findings_csv", help="Downloaded findings.csv from the report page.")
+    parser.add_argument(
+        "findings_csv",
+        help="Downloaded findings.csv, provider_pairs.csv, or private-findings CSV from the report page.",
+    )
     parser.add_argument(
         "--secrets-csv",
-        required=True,
+        default="",
         help=(
-            "Local CSV with authorized raw api_key values. Columns: api_key; optional key_sha256, "
+            "Local CSV with authorized raw api_key values. Required only when findings_csv is not a private "
+            "CSV with an api_key column. Columns: api_key; optional key_sha256, "
             "base_url, base_url_sha256, name, models, max_models, timeout_seconds."
         ),
     )
@@ -56,8 +60,18 @@ def main() -> int:
         )
         return 2
 
-    findings = read_csv(Path(args.findings_csv))
-    secrets = load_secrets(Path(args.secrets_csv))
+    findings_path = Path(args.findings_csv)
+    findings = read_csv(findings_path)
+    if has_private_api_key_column(findings):
+        secrets = load_secrets_from_private_findings(findings_path)
+    else:
+        if not args.secrets_csv:
+            print(
+                "Refusing to run: --secrets-csv is required unless findings_csv is a private CSV with api_key values.",
+                file=sys.stderr,
+            )
+            return 2
+        secrets = load_secrets(Path(args.secrets_csv))
     base_url_library_path = Path(args.base_url_library)
     base_urls = merge_base_url_library(load_base_url_library(base_url_library_path), collect_secret_base_urls(secrets))
     write_base_url_library(base_url_library_path, base_urls)
@@ -89,9 +103,30 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return [{str(k or "").strip(): str(v or "").strip() for k, v in row.items()} for row in csv.DictReader(f)]
 
 
+def has_private_api_key_column(rows: list[dict[str, str]]) -> bool:
+    return any((row.get("api_key") or "").strip() for row in rows)
+
+
 def load_secrets(path: Path) -> dict[str, list[dict[str, str]]]:
-    by_hash: dict[str, list[dict[str, str]]] = {}
+    return secrets_by_hash_from_rows(read_csv(path))
+
+
+def load_secrets_from_private_findings(path: Path) -> dict[str, list[dict[str, str]]]:
+    rows = []
     for row in read_csv(path):
+        api_key = (row.get("api_key") or "").strip()
+        if not api_key:
+            continue
+        copied = dict(row)
+        if not copied.get("name"):
+            copied["name"] = copied.get("provider_name") or copied.get("provider") or copied.get("id") or "private-finding"
+        rows.append(copied)
+    return secrets_by_hash_from_rows(rows)
+
+
+def secrets_by_hash_from_rows(rows: list[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
+    by_hash: dict[str, list[dict[str, str]]] = {}
+    for row in rows:
         api_key = (row.get("api_key") or "").strip()
         key_hash = (row.get("key_sha256") or "").strip() or (sha256_text(api_key) if api_key else "")
         if not api_key or not key_hash:
@@ -103,7 +138,7 @@ def load_secrets(path: Path) -> dict[str, list[dict[str, str]]]:
         for idx, base_url in enumerate(base_urls):
             copied = dict(row)
             copied["key_sha256"] = key_hash
-            copied["api_key_redacted"] = redact_secret(api_key)
+            copied["api_key_redacted"] = row.get("api_key_redacted") or redact_secret(api_key)
             copied["base_url"] = base_url
             if base_url:
                 copied["base_url_sha256"] = (

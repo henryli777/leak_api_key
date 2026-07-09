@@ -8,7 +8,7 @@ from .timeutils import to_timezone_iso
 
 FALLBACK_SOURCE = "historical_fallback"
 SAME_HIT_SOURCE = "same_hit"
-SUPPORTED_AI_KEY_PREFIXES = ("sk-", "gsk_", "AIza")
+SUPPORTED_AI_KEY_PREFIXES = ("sk-",)
 
 
 def prepare_findings(findings: list[dict[str, Any]], timezone_name: str) -> list[dict[str, Any]]:
@@ -42,6 +42,9 @@ def pair_credential_findings(
     out: list[dict[str, Any]] = []
     for item in findings:
         item_type = str(item.get("type") or "")
+        if item_type == "provider_config":
+            out.append(item)
+            continue
         if item_type in {"credential", "credential_pair"} and not has_supported_ai_key(item):
             continue
         if item_type == "credential_pair":
@@ -88,8 +91,12 @@ def annotate_public_evidence(findings: list[dict[str, Any]]) -> list[dict[str, A
 
 
 def public_evidence_level(item: dict[str, Any]) -> str:
+    if item.get("type") == "provider_config" and item.get("value_kind") == "literal":
+        return "strong_provider_config"
+    if item.get("type") == "provider_config":
+        return "provider_config_reference"
     if item.get("type") == "credential_pair" and item.get("base_url_source") == SAME_HIT_SOURCE:
-        return "strong"
+        return "same_response"
     if item.get("type") == "credential_pair" and item.get("base_url_source") == FALLBACK_SOURCE:
         return "candidate"
     if item.get("type") == "credential":
@@ -103,6 +110,9 @@ def public_evidence_level(item: dict[str, Any]) -> str:
 
 def public_evidence_label(level: str) -> str:
     return {
+        "strong_provider_config": "公开证据强：同一 provider 配置对象包含 base_url 和 apiKey",
+        "provider_config_reference": "Provider 配置引用：同一对象包含 base_url 和非明文 key 引用",
+        "same_response": "公开证据强：同一响应包含密钥和 base_url",
         "strong": "公开证据强：同一线索包含密钥和 base_url",
         "candidate": "候选证据：密钥使用历史 base_url 备选",
         "credential_only": "密钥证据：缺少 base_url",

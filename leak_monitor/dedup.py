@@ -11,10 +11,13 @@ EVIDENCE_RANK = {
     "base_url_with_model": 2,
     "credential_only": 3,
     "candidate": 4,
+    "provider_config_reference": 5,
+    "same_response": 6,
     "strong": 5,
+    "strong_provider_config": 7,
 }
 
-BASE_URL_SOURCE_RANK = {"historical_fallback": 1, "same_hit": 2}
+BASE_URL_SOURCE_RANK = {"historical_fallback": 1, "same_hit": 2, "provider_config": 3}
 
 
 def dedupe_findings_for_export(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:

@@ -34,14 +34,54 @@ DEFAULT_QUERY_TEMPLATES = [
     '"api/providers" "models" "baseUrl"',
     '"ANTHROPIC_API_KEY" "claude"',
     '"DEEPSEEK_API_KEY" "deepseek"',
-    '"GEMINI_API_KEY" "AIza"',
-    '"GOOGLE_API_KEY" "AIza"',
     '"OPENROUTER_API_KEY" "sk-or-v1"',
-    '"GROQ_API_KEY" "gsk_"',
     '"MISTRAL_API_KEY"',
     '"DASHSCOPE_API_KEY" "qwen"',
     '"grok" "base_url" "sk-"',
 ]
+
+DEFAULT_SOURCE_QUERY_GROUPS: dict[str, dict[str, list[str]]] = {
+    "github": {
+        "llm_openai_compatible": [
+            '"OPENAI_API_KEY" "OPENAI_BASE_URL"',
+            '"OPENAI_API_KEY=" "sk-"',
+            '"OPENAI_API_KEY:" "sk-"',
+            '"Authorization: Bearer sk-"',
+            '"api_key" "sk-" "base_url"',
+            '"baseURL" "apiKey" "sk-"',
+            '"chat/completions" "sk-"',
+            '"v1/models" "sk-"',
+        ],
+        "provider_config": [
+            '"/api/providers" "baseUrl" "apiKey"',
+            '"api/providers" "baseURL" "apiKey"',
+            '"api/providers" "base_url" "api_key"',
+            '"providers" "baseUrl" "apiKey" "models"',
+        ],
+        "path_signal": [
+            '"/api/providers" "sk-"',
+            '"api/providers" "OPENAI_BASE_URL"',
+        ],
+    },
+    "google": {
+        "path_signal": [
+            'inurl:/api/providers "baseUrl" "apiKey"',
+            'inurl:/api/providers "baseURL" "apiKey"',
+            'inurl:/api/providers "base_url" "api_key"',
+            'inurl:/api/providers "sk-"',
+        ],
+        "provider_config": [
+            '"/api/providers" "baseUrl" "apiKey"',
+            '"api/providers" "baseURL" "apiKey"',
+            '"api/providers" "models" "baseUrl"',
+        ],
+        "llm_openai_compatible": [
+            '"OPENAI_API_KEY=" "sk-"',
+            '"Authorization: Bearer sk-"',
+            '"base_url" "https://" "sk-"',
+        ],
+    },
+}
 
 TARGET_QUERY_TEMPLATES = [
     '"{target}" "OPENAI_API_KEY" "sk-"',
@@ -76,6 +116,12 @@ class AppConfig:
     targets: list[str] = field(default_factory=list)
     query_templates: list[str] = field(default_factory=lambda: list(DEFAULT_QUERY_TEMPLATES))
     target_query_templates: list[str] = field(default_factory=lambda: list(TARGET_QUERY_TEMPLATES))
+    source_query_groups: dict[str, dict[str, list[str]]] = field(
+        default_factory=lambda: {
+            source: {group: list(values) for group, values in groups.items()}
+            for source, groups in DEFAULT_SOURCE_QUERY_GROUPS.items()
+        }
+    )
     max_queries: int = 36
     github: SourceConfig = field(default_factory=lambda: SourceConfig(per_query=12, delay_seconds=1.2))
     google: SourceConfig = field(default_factory=lambda: SourceConfig(per_query=10, delay_seconds=1.0))
@@ -116,6 +162,7 @@ def load_config(path: str | os.PathLike[str] | None) -> AppConfig:
     queries = raw.get("queries", {})
     query_templates = queries.get("templates") if isinstance(queries, dict) else None
     target_query_templates = queries.get("target_templates") if isinstance(queries, dict) else None
+    source_groups = queries.get("source_groups") if isinstance(queries, dict) else None
 
     sources = raw.get("sources", {})
     cfg.targets = list(dict.fromkeys(targets))
@@ -123,6 +170,8 @@ def load_config(path: str | os.PathLike[str] | None) -> AppConfig:
         cfg.query_templates = [str(q) for q in query_templates if str(q).strip()]
     if target_query_templates:
         cfg.target_query_templates = [str(q) for q in target_query_templates if str(q).strip()]
+    if isinstance(source_groups, dict):
+        cfg.source_query_groups = _source_query_groups(source_groups, cfg.source_query_groups)
     if "max_queries" in raw:
         cfg.max_queries = int(raw["max_queries"])
     if "timezone" in raw:
@@ -143,3 +192,62 @@ def build_queries(cfg: AppConfig) -> list[str]:
         for template in cfg.target_query_templates:
             queries.append(template.format(target=target.replace('"', "")))
     return list(dict.fromkeys(q.strip() for q in queries if q.strip()))[: cfg.max_queries]
+
+
+@dataclass(frozen=True, slots=True)
+class SearchQuery:
+    source: str
+    group: str
+    text: str
+
+
+def build_queries_by_source(cfg: AppConfig) -> list[SearchQuery]:
+    queries: list[SearchQuery] = []
+    for source, groups in cfg.source_query_groups.items():
+        for group, templates in groups.items():
+            for template in templates:
+                if template and str(template).strip():
+                    queries.append(SearchQuery(source=source, group=group, text=str(template).strip()))
+            for target in cfg.targets:
+                for template in cfg.target_query_templates:
+                    text = template.format(target=target.replace('"', ""))
+                    if text.strip():
+                        queries.append(SearchQuery(source=source, group=group, text=text.strip()))
+
+    if not queries:
+        for query in build_queries(cfg):
+            queries.append(SearchQuery(source="all", group="legacy", text=query))
+
+    out: list[SearchQuery] = []
+    seen: set[tuple[str, str, str]] = set()
+    for item in queries:
+        key = (item.source, item.group, item.text)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(item)
+        if len(out) >= cfg.max_queries:
+            break
+    return out
+
+
+def _source_query_groups(
+    raw: dict[str, Any],
+    defaults: dict[str, dict[str, list[str]]],
+) -> dict[str, dict[str, list[str]]]:
+    out = {
+        source: {group: list(values) for group, values in groups.items()}
+        for source, groups in defaults.items()
+    }
+    for source, groups in raw.items():
+        if not isinstance(groups, dict):
+            continue
+        source_key = str(source).strip()
+        out[source_key] = {}
+        for group, values in groups.items():
+            if isinstance(values, str):
+                values = [values]
+            if not isinstance(values, list):
+                continue
+            out[source_key][str(group).strip()] = [str(v).strip() for v in values if str(v).strip()]
+    return out

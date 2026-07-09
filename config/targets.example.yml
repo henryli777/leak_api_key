@@ -11,33 +11,37 @@ targets:
   repos: []
 
 queries:
-  templates:
-    - '"OPENAI_API_KEY" "OPENAI_BASE_URL"'
-    - '"OPENAI_API_KEY=" "sk-"'
-    - '"OPENAI_API_KEY:" "sk-"'
-    - '"Authorization: Bearer sk-"'
-    - '"api_key" "sk-" "base_url"'
-    - '"base_url" "https://" "sk-"'
-    - '"baseURL" "https://" "apiKey"'
-    - '"OPENAI_BASE_URL=" "https://"'
-    - '"client = OpenAI" "base_url" "api_key"'
-    - '"chat/completions" "sk-"'
-    - '"v1/models" "sk-"'
-    - 'inurl:/api/providers "baseUrl" "apiKey"'
-    - 'inurl:/api/providers "baseURL" "apiKey"'
-    - 'inurl:/api/providers "base_url" "api_key"'
-    - 'inurl:/api/providers "sk-"'
-    - '"api/providers" "baseUrl" "apiKey"'
-    - '"api/providers" "baseUrl" "sk-"'
-    - '"api/providers" "models" "baseUrl"'
-    - '"ANTHROPIC_API_KEY" "claude"'
-    - '"DEEPSEEK_API_KEY" "deepseek"'
-    - '"GEMINI_API_KEY" "AIza"'
-    - '"OPENROUTER_API_KEY" "sk-or-v1"'
-    - '"GROQ_API_KEY" "gsk_"'
-    - '"MISTRAL_API_KEY"'
-    - '"DASHSCOPE_API_KEY" "qwen"'
-    - '"grok" "base_url" "sk-"'
+  source_groups:
+    github:
+      path_signal:
+        - '"/api/providers" "sk-"'
+        - '"api/providers" "OPENAI_BASE_URL"'
+      provider_config:
+        - '"/api/providers" "baseUrl" "apiKey"'
+        - '"api/providers" "baseURL" "apiKey"'
+        - '"api/providers" "base_url" "api_key"'
+        - '"providers" "baseUrl" "apiKey" "models"'
+      llm_openai_compatible:
+        - '"OPENAI_API_KEY" "OPENAI_BASE_URL"'
+        - '"OPENAI_API_KEY=" "sk-"'
+        - '"Authorization: Bearer sk-"'
+        - '"api_key" "sk-" "base_url"'
+        - '"chat/completions" "sk-"'
+        - '"v1/models" "sk-"'
+    google:
+      path_signal:
+        - 'inurl:/api/providers "baseUrl" "apiKey"'
+        - 'inurl:/api/providers "baseURL" "apiKey"'
+        - 'inurl:/api/providers "base_url" "api_key"'
+        - 'inurl:/api/providers "sk-"'
+      provider_config:
+        - '"/api/providers" "baseUrl" "apiKey"'
+        - '"api/providers" "baseURL" "apiKey"'
+        - '"api/providers" "models" "baseUrl"'
+      llm_openai_compatible:
+        - '"OPENAI_API_KEY=" "sk-"'
+        - '"Authorization: Bearer sk-"'
+        - '"base_url" "https://" "sk-"'
   target_templates:
     - '"{target}" "OPENAI_API_KEY" "sk-"'
     - '"{target}" "OPENAI_BASE_URL" "https://"'

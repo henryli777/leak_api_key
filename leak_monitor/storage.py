@@ -101,4 +101,4 @@ def _merge_sources(left: list[dict[str, Any]], right: list[dict[str, Any]], limi
 
 
 def _base_url_source_rank(value: str | None) -> int:
-    return {"historical_fallback": 1, "same_hit": 2}.get(str(value or ""), 0)
+    return {"historical_fallback": 1, "same_hit": 2, "provider_config": 3}.get(str(value or ""), 0)

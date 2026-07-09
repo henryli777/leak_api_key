@@ -4,7 +4,7 @@ from leak_monitor.models import SearchHit
 from leak_monitor.pairing import prepare_findings
 from leak_monitor.private_report import build_private_csv_rows
 from leak_monitor.sources import should_fetch_google_result_body
-from scripts.validate_authorized_models import collect_secret_base_urls, load_secrets
+from scripts.validate_authorized_models import collect_secret_base_urls, load_secrets, load_secrets_from_private_findings
 
 
 def pair(row_id: str, key_hash: str, base_url: str, base_hash: str, source: str = "historical_fallback"):
@@ -87,7 +87,7 @@ def test_private_csv_does_not_put_base_url_raw_value_in_api_key():
     assert rows[0]["base_url"] == "https://api.example.test/v1"
 
 
-def test_detector_keeps_supported_ai_api_key_prefixes():
+def test_detector_keeps_only_sk_prefixed_ai_api_keys_for_exportable_credentials():
     hit = SearchHit(
         source="unit",
         query="q",
@@ -105,11 +105,25 @@ def test_detector_keeps_supported_ai_api_key_prefixes():
     findings = analyze_hit(hit, "2026-07-07T10:00:00+08:00", include_raw=True)
 
     raw_values = {item.get("raw_value") for item in findings if item.get("type") == "credential"}
-    assert raw_values == {
-        "sk-valid_abcdefghijklmnopqrstuvwxyz",
-        "AIzaSyCQabcdefghijklmnopqrstuvwxyz1234567890",
-        "gsk_abcdefghijklmnopqrstuvwxyz1234567890",
-    }
+    assert raw_values == {"sk-valid_abcdefghijklmnopqrstuvwxyz"}
+
+
+def test_detector_does_not_export_generic_non_sk_api_key_values():
+    hit = SearchHit(
+        source="unit",
+        query="q",
+        url="https://example.test",
+        title="generic key",
+        snippet=(
+            "API_KEY=AbcDefGhIjKlMnOpQrStUvWxYz1234567890 "
+            "base_url=https://api.example.test/v1 model=gpt-4o"
+        ),
+        fetched_at="2026-07-07T10:00:00+08:00",
+    )
+
+    findings = analyze_hit(hit, "2026-07-07T10:00:00+08:00", include_raw=True)
+
+    assert [item for item in findings if item.get("type") == "credential"] == []
 
 
 def test_detector_extracts_api_providers_json_config():
@@ -146,7 +160,7 @@ def test_google_fetches_api_provider_bodies_even_when_page_fetching_is_disabled(
     assert not should_fetch_google_result_body("https://service.vendor.ai/pricing")
 
 
-def test_prepare_findings_keeps_supported_ai_credentials():
+def test_prepare_findings_keeps_only_sk_prefixed_ai_credentials():
     rows = prepare_findings(
         [
             {
@@ -190,7 +204,7 @@ def test_prepare_findings_keeps_supported_ai_credentials():
         "Asia/Shanghai",
     )
 
-    assert [row["id"] for row in rows] == ["google-key", "sk-key", "base"]
+    assert [row["id"] for row in rows] == ["sk-key", "base"]
 
 
 def test_local_validator_splits_multiline_base_urls_from_grouped_private_csv(tmp_path):
@@ -207,3 +221,21 @@ def test_local_validator_splits_multiline_base_urls_from_grouped_private_csv(tmp
     assert len(secrets["keyhash"]) == 2
     assert [row["base_url"] for row in secrets["keyhash"]] == ["https://api.one.test/v1", "https://api.two.test/v1"]
     assert [row["base_url"] for row in base_urls] == ["https://api.one.test/v1", "https://api.two.test/v1"]
+
+
+def test_local_validator_loads_private_findings_csv_directly(tmp_path):
+    private_path = tmp_path / "private-findings.csv"
+    private_path.write_text(
+        "id,type,provider,provider_name,endpoint_path,value_kind,api_key,key_sha256,base_url,base_url_sha256,models\n"
+        '"provider-1","provider_config","openai_compatible","openai","/api/providers","literal",'
+        '"sk-test-abcdefghijklmnopqrstuvwxyz","keyhash","https://api.one.test/v1\nhttps://api.two.test/v1",'
+        '"basehash1, basehash2","gpt-4o"\n',
+        encoding="utf-8",
+    )
+
+    secrets = load_secrets_from_private_findings(private_path)
+
+    assert len(secrets["keyhash"]) == 2
+    assert [row["base_url"] for row in secrets["keyhash"]] == ["https://api.one.test/v1", "https://api.two.test/v1"]
+    assert all(row["provider_name"] == "openai" for row in secrets["keyhash"])
+    assert all(row["endpoint_path"] == "/api/providers" for row in secrets["keyhash"])

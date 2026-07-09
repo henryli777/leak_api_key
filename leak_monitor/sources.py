@@ -76,10 +76,11 @@ class GitHubSource:
 
         hits: list[SearchHit] = []
         for query in queries:
+            query_text = query_text_value(query)
             stats.queries += 1
-            hits.extend(self._search_code(query, stats))
+            hits.extend(self._search_code(query_text, stats))
             time.sleep(self.delay_seconds)
-            hits.extend(self._search_issues(query, stats))
+            hits.extend(self._search_issues(query_text, stats))
             time.sleep(self.delay_seconds)
         stats.hits = len(hits)
         return hits, stats
@@ -194,11 +195,12 @@ class GoogleSerpApiSource:
 
         hits: list[SearchHit] = []
         for query in queries:
+            query_text = query_text_value(query)
             stats.queries += 1
             key = self._next_key()
             params = {
                 "engine": "google",
-                "q": query,
+                "q": query_text,
                 "num": self.per_query,
                 "hl": "zh-cn",
                 "gl": "us",
@@ -228,7 +230,7 @@ class GoogleSerpApiSource:
                 hits.append(
                     SearchHit(
                         source="google_serpapi",
-                        query=query,
+                        query=query_text,
                         url=link,
                         title=item.get("title") or "",
                         snippet=item.get("snippet") or "",
@@ -280,7 +282,7 @@ def run_sources(cfg: AppConfig, queries: list[str], requested_sources: set[str])
 
     if "github" in requested_sources and cfg.github.enabled:
         source = GitHubSource(os.getenv("GITHUB_TOKEN"), cfg.github.per_query, cfg.github.delay_seconds, cfg.timezone)
-        source_hits, source_stats = source.search(queries)
+        source_hits, source_stats = source.search(queries_for_source(queries, "github"))
         hits.extend(source_hits)
         stats.append(source_stats)
 
@@ -292,11 +294,28 @@ def run_sources(cfg: AppConfig, queries: list[str], requested_sources: set[str])
             cfg.google.fetch_pages,
             cfg.timezone,
         )
-        source_hits, source_stats = source.search(queries)
+        source_hits, source_stats = source.search(queries_for_source(queries, "google"))
         hits.extend(source_hits)
         stats.append(source_stats)
 
     return hits, stats
+
+
+def query_text_value(query: Any) -> str:
+    return str(getattr(query, "text", query))
+
+
+def query_source_value(query: Any) -> str:
+    return str(getattr(query, "source", "all"))
+
+
+def queries_for_source(queries: Iterable[Any], source: str) -> list[Any]:
+    out = []
+    for query in queries:
+        query_source = query_source_value(query)
+        if query_source in {"all", source}:
+            out.append(query)
+    return out
 
 
 def utc_now(timezone_name: str = DEFAULT_TIMEZONE) -> str:

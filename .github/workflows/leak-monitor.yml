@@ -76,6 +76,9 @@ jobs:
             --max-queries "${MAX_QUERIES}" \
             --notify
 
+      - name: Verify public exports
+        run: python main.py verify-exports --output-dir dist
+
       - name: Persist redacted history
         run: |
           git config user.name "github-actions[bot]"

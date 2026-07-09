@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from .config import build_queries, load_config
+from .config import build_queries_by_source, load_config
 from .authorized_validator import build_authorized_validation_report_from_env, emit_validation_report
 from .detectors import analyze_hit
 from .models import SearchHit
@@ -14,6 +14,7 @@ from .notify import notify_dingtalk
 from .pairing import collect_base_url_candidates, normalize_finding_timezones, pair_credential_findings, prepare_findings
 from .private_report import emit_private_report
 from .report import build_health, emit_report
+from .safety import verify_public_exports
 from .sources import run_sources, utc_now
 from .storage import merge_findings, read_json, write_json
 
@@ -32,10 +33,16 @@ def main(argv: list[str] | None = None) -> int:
     scan.add_argument("--dry-run", action="store_true")
 
     sub.add_parser("self-test", help="run detector smoke test with synthetic data")
+    verify = sub.add_parser("verify-exports", help="verify public exports do not contain raw secrets")
+    verify.add_argument("--output-dir", default="dist")
     args = parser.parse_args(argv)
 
     if args.command == "self-test":
         return self_test()
+    if args.command == "verify-exports":
+        verify_public_exports(args.output_dir)
+        print(f"public export safety ok: {args.output_dir}")
+        return 0
     if args.command in (None, "scan"):
         return run_scan(args)
     parser.print_help()
@@ -46,7 +53,7 @@ def run_scan(args: argparse.Namespace) -> int:
     cfg = load_config(args.config)
     if args.max_queries:
         cfg.max_queries = args.max_queries
-    queries = build_queries(cfg)
+    queries = build_queries_by_source(cfg)
     requested_sources = {s.strip() for s in args.sources.split(",") if s.strip()}
 
     print(f"queries={len(queries)} sources={','.join(sorted(requested_sources))}")
@@ -80,6 +87,7 @@ def run_scan(args: argparse.Namespace) -> int:
         write_json(Path(args.output_dir) / "findings.json", merged)
         emit_report(args.output_dir, merged, new_findings, health, validation_report)
         emit_validation_report(args.output_dir, validation_report)
+        verify_public_exports(args.output_dir)
         if private_report_enabled:
             private_incoming = normalize_finding_timezones(private_incoming, cfg.timezone)
             private_fallback_candidates = collect_base_url_candidates([*private_incoming, *existing])

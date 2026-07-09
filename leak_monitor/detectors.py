@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import html
+import json
 import re
 from typing import Any
 from urllib.parse import urlparse, urlunparse
@@ -13,8 +14,6 @@ from .timeutils import now_iso as current_time_iso
 SECRET_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("anthropic", re.compile(r"\bsk-ant-[A-Za-z0-9_-]{20,}\b")),
     ("openrouter", re.compile(r"\bsk-or-v1-[A-Za-z0-9_-]{20,}\b")),
-    ("groq", re.compile(r"\bgsk_[A-Za-z0-9]{20,}\b")),
-    ("google", re.compile(r"\bAIza[A-Za-z0-9_-]{30,}\b")),
     ("openai_compatible", re.compile(r"\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b")),
 ]
 
@@ -161,6 +160,21 @@ AI_CONTEXT_TERMS = (
     "api/providers",
 )
 
+PROVIDER_NAME_KEYS = ("name", "provider", "providerName", "id", "title")
+PROVIDER_BASE_URL_KEYS = ("baseUrl", "baseURL", "base_url", "apiBase", "api_base", "endpoint", "url")
+PROVIDER_KEY_KEYS = ("apiKey", "api_key", "apikey", "key", "token")
+
+ENV_REF_RE = re.compile(
+    r"""(?ix)
+    (?:
+      process\.env\.[A-Za-z_][A-Za-z0-9_]* |
+      os\.environ(?:\.get)?\(["'][A-Za-z_][A-Za-z0-9_]*["']\) |
+      \$\{[A-Za-z_][A-Za-z0-9_]*\} |
+      env:[A-Za-z_][A-Za-z0-9_]*
+    )
+    """
+)
+
 
 def sha256_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8", errors="ignore")).hexdigest()
@@ -221,13 +235,7 @@ def infer_provider_from_secret(value: str) -> str:
 
 def looks_like_secret(value: str, provider: str = "") -> bool:
     low = value.lower()
-    if provider == "google":
-        prefix_ok = value.startswith("AIza")
-    elif provider == "groq":
-        prefix_ok = value.startswith("gsk_")
-    else:
-        prefix_ok = value.startswith("sk-")
-    if not prefix_ok:
+    if not value.startswith("sk-"):
         return False
     if len(value) < 16 or any(hint in low for hint in PLACEHOLDER_HINTS):
         return False
@@ -252,6 +260,25 @@ def looks_like_generic_secret(value: str) -> bool:
     if not re.search(r"[A-Z]", value):
         return False
     return True
+
+
+def classify_key_value(value: str) -> str:
+    text = value.strip()
+    low = text.lower()
+    if not text:
+        return "missing"
+    if ENV_REF_RE.search(text):
+        return "env_ref"
+    if any(hint in low for hint in PLACEHOLDER_HINTS):
+        return "placeholder"
+    if any(hint in low for hint in REFERENCE_VALUE_HINTS):
+        return "env_ref"
+    inferred = infer_provider_from_secret(text)
+    if inferred and looks_like_secret(text, inferred):
+        return "literal"
+    if looks_like_secret(text, "unknown"):
+        return "literal"
+    return "placeholder"
 
 
 def normalize_excerpt(text: str, max_len: int = 360, mask: bool = True) -> str:
@@ -295,6 +322,8 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = 
     text = "\n".join(part for part in [hit.url, hit.title, hit.snippet, hit.content] if part)
     low_text = text.lower()
 
+    provider_config_findings = extract_provider_config_findings(hit, text, now_iso, include_raw)
+
     secret_matches_by_value: dict[str, str] = {}
     for provider, pattern in SECRET_PATTERNS:
         for match in pattern.finditer(text):
@@ -309,8 +338,6 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = 
         if inferred_provider:
             provider = inferred_provider
         if not looks_like_secret(value, provider):
-            if provider == "unknown" and looks_like_generic_secret(value):
-                secret_matches_by_value.setdefault(value, provider)
             continue
         secret_matches_by_value.setdefault(value, provider)
 
@@ -343,7 +370,7 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = 
     excerpt = normalize_excerpt(text, mask=not include_raw)
     base_url_redacted = [redact_url(u) for u in base_urls]
     base_url_hashes = [sha256_text(u) for u in base_urls]
-    findings: list[dict[str, Any]] = []
+    findings: list[dict[str, Any]] = [*provider_config_findings]
 
     for packed in _dedup([f"{p}\0{v}" for p, v in secret_matches]):
         provider_name, raw_value = packed.split("\0", 1)
@@ -378,7 +405,7 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = 
             finding["raw_base_urls"] = base_urls
         findings.append(finding)
 
-    if base_urls and not findings:
+    if base_urls and not secret_matches and not provider_config_findings:
         for raw_url in base_urls:
             value_hash = sha256_text(raw_url)
             finding_id = sha256_text(f"base_url:{value_hash}")[:20]
@@ -412,3 +439,246 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = 
             findings.append(finding)
 
     return findings
+
+
+def extract_provider_config_findings(
+    hit: SearchHit,
+    text: str,
+    now_iso: str,
+    include_raw: bool,
+) -> list[dict[str, Any]]:
+    if not provider_config_context(text, hit.url):
+        return []
+
+    blocks = extract_provider_blocks(text)
+    findings: list[dict[str, Any]] = []
+    for block in blocks:
+        item = provider_item_from_block(block)
+        if not item:
+            continue
+        finding = build_provider_config_finding(hit, block, item, now_iso, include_raw)
+        if finding:
+            findings.append(finding)
+    return _dedup_provider_findings(findings)
+
+
+def provider_config_context(text: str, url: str) -> bool:
+    low = f"{url}\n{text}".lower()
+    return "/api/providers" in low or (
+        "provider" in low
+        and re.search(r"(?i)\bbase_?url\b|\bbaseUrl\b|\bbaseURL\b", text)
+        and re.search(r"(?i)\bapi_?key\b|\bapiKey\b", text)
+    )
+
+
+def extract_provider_blocks(text: str) -> list[str]:
+    blocks: list[str] = []
+    parsed = parse_jsonish(text)
+    if parsed is not None:
+        blocks.extend(json_blocks(parsed))
+    blocks.extend(extract_brace_blocks(text))
+    return _dedup(blocks, limit=200)
+
+
+def parse_jsonish(text: str) -> Any:
+    cleaned = text.strip()
+    if not cleaned:
+        return None
+    try:
+        return json.loads(cleaned)
+    except Exception:
+        pass
+    try:
+        return json.loads(cleaned.replace("\\/", "/"))
+    except Exception:
+        return None
+
+
+def json_blocks(value: Any) -> list[str]:
+    blocks: list[str] = []
+    if isinstance(value, dict):
+        if has_provider_fields(value):
+            blocks.append(json.dumps(value, ensure_ascii=False))
+        for child in value.values():
+            blocks.extend(json_blocks(child))
+    elif isinstance(value, list):
+        for child in value:
+            blocks.extend(json_blocks(child))
+    return blocks
+
+
+def has_provider_fields(value: dict[str, Any]) -> bool:
+    lowered = {str(k).lower() for k in value}
+    has_url = any(key.lower() in lowered for key in PROVIDER_BASE_URL_KEYS)
+    has_key = any(key.lower() in lowered for key in PROVIDER_KEY_KEYS)
+    return has_url and has_key
+
+
+def extract_brace_blocks(text: str) -> list[str]:
+    blocks: list[str] = []
+    stack: list[int] = []
+    in_string = ""
+    escape = False
+    for idx, char in enumerate(text):
+        if in_string:
+            if escape:
+                escape = False
+            elif char == "\\":
+                escape = True
+            elif char == in_string:
+                in_string = ""
+            continue
+        if char in {"'", '"', "`"}:
+            in_string = char
+            continue
+        if char == "{":
+            stack.append(idx)
+        elif char == "}" and stack:
+            start = stack.pop()
+            block = text[start : idx + 1]
+            low = block.lower()
+            if ("baseurl" in low or "base_url" in low) and ("apikey" in low or "api_key" in low or '"key"' in low or "'key'" in low):
+                blocks.append(block)
+    return blocks
+
+
+def provider_item_from_block(block: str) -> dict[str, str] | None:
+    parsed = parse_object_block(block)
+    if parsed:
+        name = first_value(parsed, PROVIDER_NAME_KEYS)
+        base_url = first_value(parsed, PROVIDER_BASE_URL_KEYS)
+        key_value = first_value(parsed, PROVIDER_KEY_KEYS)
+    else:
+        name = first_field_value(block, PROVIDER_NAME_KEYS)
+        base_url = first_field_value(block, PROVIDER_BASE_URL_KEYS)
+        key_value = first_field_value(block, PROVIDER_KEY_KEYS)
+
+    base_url = clean_base_url(str(base_url or ""))
+    key_value = str(key_value or "").strip()
+    if not base_url or not key_value or not looks_like_base_url(base_url):
+        return None
+    return {
+        "provider_name": str(name or "").strip() or infer_provider_from_secret(key_value) or "provider",
+        "base_url": base_url,
+        "key_value": key_value,
+    }
+
+
+def parse_object_block(block: str) -> dict[str, Any] | None:
+    try:
+        parsed = json.loads(block.replace("\\/", "/"))
+        return parsed if isinstance(parsed, dict) else None
+    except Exception:
+        pass
+    normalized = re.sub(r"(?m)([{,]\s*)([A-Za-z_][A-Za-z0-9_]*)(\s*:)", r'\1"\2"\3', block)
+    normalized = normalized.replace("'", '"')
+    normalized = re.sub(r":\s*(process\.env\.[A-Za-z_][A-Za-z0-9_]*)", r': "\1"', normalized)
+    try:
+        parsed = json.loads(normalized.replace("\\/", "/"))
+        return parsed if isinstance(parsed, dict) else None
+    except Exception:
+        return None
+
+
+def first_value(data: dict[str, Any], keys: tuple[str, ...]) -> str:
+    lowered = {str(k).lower(): v for k, v in data.items()}
+    for key in keys:
+        value = lowered.get(key.lower())
+        if isinstance(value, (str, int, float)):
+            return str(value)
+    return ""
+
+
+def first_field_value(block: str, keys: tuple[str, ...]) -> str:
+    for key in keys:
+        pattern = re.compile(
+            rf"""(?ix)
+            ["']?{re.escape(key)}["']?\s*:\s*
+            (?:
+                (?P<quoted>["'])(?P<qvalue>.*?)(?P=quoted) |
+                (?P<bare>process\.env\.[A-Za-z_][A-Za-z0-9_]*|\$\{{[A-Za-z_][A-Za-z0-9_]*\}}|[A-Za-z0-9._:/+=@-]{{4,}})
+            )
+            """
+        )
+        match = pattern.search(block)
+        if match:
+            return (match.group("qvalue") or match.group("bare") or "").strip()
+    return ""
+
+
+def build_provider_config_finding(
+    hit: SearchHit,
+    block: str,
+    item: dict[str, str],
+    now_iso: str,
+    include_raw: bool,
+) -> dict[str, Any] | None:
+    raw_key = item["key_value"]
+    raw_url = item["base_url"]
+    value_kind = classify_key_value(raw_key)
+    provider_name = item["provider_name"]
+    provider = infer_provider_from_secret(raw_key) or "openai_compatible"
+    key_hash = sha256_text(raw_key) if value_kind == "literal" else ""
+    url_hash = sha256_text(raw_url)
+    finding_id = sha256_text(f"provider_config:{provider_name}:{key_hash or raw_key}:{url_hash}:{hit.url}")[:20]
+    endpoint_path = endpoint_path_from_url(hit.url)
+    key_redacted = redact_secret(raw_key) if value_kind == "literal" else raw_key
+    finding = {
+        "id": finding_id,
+        "type": "provider_config",
+        "provider": provider,
+        "provider_name": provider_name,
+        "severity": "high" if value_kind == "literal" else "medium",
+        "endpoint_path": endpoint_path,
+        "key_redacted": key_redacted,
+        "key_sha256": key_hash,
+        "base_url_redacted": redact_url(raw_url),
+        "base_urls_redacted": [redact_url(raw_url)],
+        "base_url_sha256": [url_hash],
+        "base_url_source": "provider_config",
+        "is_fallback_base_url": False,
+        "value_kind": value_kind,
+        "public_evidence_level": "strong_provider_config" if value_kind == "literal" else "provider_config_reference",
+        "public_evidence_label": "Provider 配置证据：同一对象包含 base_url 和 apiKey",
+        "models": _dedup([m.group(1) for m in MODEL_RE.finditer(block)], limit=15),
+        "first_seen_at": now_iso,
+        "last_seen_at": now_iso,
+        "seen_count": 1,
+        "validation_candidate": bool(value_kind == "literal" and key_hash and url_hash),
+        "has_raw_validation_material": bool(include_raw and value_kind == "literal"),
+        "sources": [
+            {
+                "source": hit.source,
+                "query": hit.query,
+                "url": hit.url,
+                "title": hit.title,
+                "excerpt": normalize_excerpt(block, mask=not include_raw),
+                "fetched_at": hit.fetched_at or now_iso,
+            }
+        ],
+    }
+    if include_raw:
+        if value_kind == "literal":
+            finding["raw_value"] = raw_key
+        finding["raw_base_url"] = raw_url
+        finding["raw_base_urls"] = [raw_url]
+    return finding
+
+
+def endpoint_path_from_url(url: str) -> str:
+    parsed = urlparse(url)
+    if parsed.path:
+        return parsed.path
+    return "/api/providers" if "/api/providers" in url.lower() else ""
+
+
+def _dedup_provider_findings(findings: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    out = []
+    seen = set()
+    for item in findings:
+        key = item.get("id")
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(item)
+    return out
