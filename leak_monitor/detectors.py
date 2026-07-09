@@ -24,7 +24,8 @@ ASSIGNMENT_RE = re.compile(
     \b(?P<name>
         OPENAI_API_KEY|ANTHROPIC_API_KEY|GOOGLE_API_KEY|GEMINI_API_KEY|
         DEEPSEEK_API_KEY|OPENROUTER_API_KEY|GROQ_API_KEY|MISTRAL_API_KEY|
-        DASHSCOPE_API_KEY|QWEN_API_KEY|XAI_API_KEY|API_KEY
+        DASHSCOPE_API_KEY|QWEN_API_KEY|XAI_API_KEY|API_KEY|
+        apiKey|api_key|key
     )\b
     (?P=keyquote)
     \s*[:=]\s*
@@ -45,7 +46,7 @@ BASE_URL_RE = re.compile(
     \s*[:=]\s*
     (?P<quote>["']?)
     (?P<url>
-        https?://[^\s"'`<>{}\]\),]+|
+        https?:\\?/\\?/[^\s"'`<>{}\]\),]+|
         (?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,63}
         (?::\d{2,5})?
         (?:/[^\s"'`<>{}\]\),]+)?
@@ -92,6 +93,8 @@ PROVIDER_BY_NAME = {
     "QWEN_API_KEY": "dashscope",
     "XAI_API_KEY": "xai",
     "API_KEY": "unknown",
+    "APIKEY": "unknown",
+    "KEY": "unknown",
 }
 
 PLACEHOLDER_HINTS = (
@@ -155,6 +158,7 @@ AI_CONTEXT_TERMS = (
     "qwen",
     "grok",
     "llm",
+    "api/providers",
 )
 
 
@@ -185,7 +189,7 @@ def redact_url(value: str) -> str:
 
 
 def clean_url(value: str) -> str:
-    return value.strip().rstrip(".,;')")
+    return value.strip().replace("\\/", "/").rstrip(".,;')")
 
 
 def clean_base_url(value: str) -> str:
@@ -288,7 +292,7 @@ def _dedup(values: list[str], limit: int = 20) -> list[str]:
 
 def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = False) -> list[dict[str, Any]]:
     now_iso = now_iso or current_time_iso()
-    text = "\n".join(part for part in [hit.title, hit.snippet, hit.content] if part)
+    text = "\n".join(part for part in [hit.url, hit.title, hit.snippet, hit.content] if part)
     low_text = text.lower()
 
     secret_matches_by_value: dict[str, str] = {}
@@ -313,7 +317,11 @@ def analyze_hit(hit: SearchHit, now_iso: str | None = None, include_raw: bool = 
     secret_matches = [(provider, value) for value, provider in secret_matches_by_value.items()]
 
     base_urls = []
-    has_ai_context = any(term in low_text for term in AI_CONTEXT_TERMS)
+    has_provider_config_context = bool(
+        re.search(r"(?i)\bapi_?key\b|\bapiKey\b", text)
+        and re.search(r"(?i)\bbase_?url\b|\bbaseUrl\b|\bbaseURL\b", text)
+    )
+    has_ai_context = any(term in low_text for term in AI_CONTEXT_TERMS) or has_provider_config_context
     for match in BASE_URL_RE.finditer(text):
         raw_url = clean_base_url(match.group("url"))
         name = (match.group("name") or "").lower()

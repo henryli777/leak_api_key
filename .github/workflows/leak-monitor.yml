@@ -14,7 +14,7 @@ on:
       max_queries:
         description: "Max query count for this run"
         required: false
-        default: "24"
+        default: "36"
 
 permissions:
   contents: write
@@ -67,7 +67,7 @@ jobs:
           AUTHORIZED_VALIDATION_TARGETS_JSON: ${{ secrets.AUTHORIZED_VALIDATION_TARGETS_JSON }}
         run: |
           SOURCES="${{ github.event.inputs.sources || 'github,google' }}"
-          MAX_QUERIES="${{ github.event.inputs.max_queries || '24' }}"
+          MAX_QUERIES="${{ github.event.inputs.max_queries || '36' }}"
           python main.py scan \
             --config config/targets.yml \
             --data-dir data \

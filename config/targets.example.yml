@@ -2,7 +2,7 @@
 # Keep targets focused on your own brands, domains, repos, project names, or customer identifiers.
 
 timezone: Asia/Shanghai
-max_queries: 24
+max_queries: 36
 
 targets:
   keywords: []
@@ -12,21 +12,44 @@ targets:
 
 queries:
   templates:
-    - '"OPENAI_API_KEY" "base_url"'
-    - '"OPENAI_BASE_URL" "sk-"'
-    - '"api_key" "model" "base_url"'
+    - '"OPENAI_API_KEY" "OPENAI_BASE_URL"'
+    - '"OPENAI_API_KEY=" "sk-"'
+    - '"OPENAI_API_KEY:" "sk-"'
+    - '"Authorization: Bearer sk-"'
+    - '"api_key" "sk-" "base_url"'
+    - '"base_url" "https://" "sk-"'
+    - '"baseURL" "https://" "apiKey"'
+    - '"OPENAI_BASE_URL=" "https://"'
+    - '"client = OpenAI" "base_url" "api_key"'
+    - '"chat/completions" "sk-"'
+    - '"v1/models" "sk-"'
+    - 'inurl:/api/providers "baseUrl" "apiKey"'
+    - 'inurl:/api/providers "baseURL" "apiKey"'
+    - 'inurl:/api/providers "base_url" "api_key"'
+    - 'inurl:/api/providers "sk-"'
+    - '"api/providers" "baseUrl" "apiKey"'
+    - '"api/providers" "baseUrl" "sk-"'
+    - '"api/providers" "models" "baseUrl"'
     - '"ANTHROPIC_API_KEY" "claude"'
     - '"DEEPSEEK_API_KEY" "deepseek"'
-    - '"gemini" "base_url" "sk-"'
+    - '"GEMINI_API_KEY" "AIza"'
     - '"OPENROUTER_API_KEY" "sk-or-v1"'
-    - '"groq" "base_url" "sk-"'
+    - '"GROQ_API_KEY" "gsk_"'
     - '"MISTRAL_API_KEY"'
     - '"DASHSCOPE_API_KEY" "qwen"'
     - '"grok" "base_url" "sk-"'
   target_templates:
-    - '"{target}" "OPENAI_API_KEY"'
-    - '"{target}" "OPENAI_BASE_URL"'
+    - '"{target}" "OPENAI_API_KEY" "sk-"'
+    - '"{target}" "OPENAI_BASE_URL" "https://"'
     - '"{target}" "base_url" "sk-"'
+    - '"{target}" "baseURL" "apiKey"'
+    - '"{target}" "api_base" "https://"'
+    - '"{target}" "Authorization: Bearer sk-"'
+    - '"{target}" "chat/completions" "sk-"'
+    - '"{target}" "v1/models" "sk-"'
+    - '"{target}" "api/providers" "baseUrl" "apiKey"'
+    - '"{target}" "api/providers" "baseUrl" "sk-"'
+    - '"{target}" inurl:/api/providers "apiKey"'
     - '"{target}" "api_key" "model"'
     - '"{target}" "ANTHROPIC_API_KEY"'
     - '"{target}" "DEEPSEEK_API_KEY"'

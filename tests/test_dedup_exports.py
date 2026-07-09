@@ -3,6 +3,7 @@ from leak_monitor.detectors import analyze_hit
 from leak_monitor.models import SearchHit
 from leak_monitor.pairing import prepare_findings
 from leak_monitor.private_report import build_private_csv_rows
+from leak_monitor.sources import should_fetch_google_result_body
 from scripts.validate_authorized_models import collect_secret_base_urls, load_secrets
 
 
@@ -109,6 +110,40 @@ def test_detector_keeps_supported_ai_api_key_prefixes():
         "AIzaSyCQabcdefghijklmnopqrstuvwxyz1234567890",
         "gsk_abcdefghijklmnopqrstuvwxyz1234567890",
     }
+
+
+def test_detector_extracts_api_providers_json_config():
+    hit = SearchHit(
+        source="google_serpapi",
+        query='inurl:/api/providers "baseUrl" "apiKey"',
+        url="https://service.vendor.ai/api/providers",
+        title="providers",
+        snippet="",
+        content=(
+            '[{"name":"openai","baseUrl":"api.realvendor.ai/v1",'
+            '"apiKey":"sk-provider_abcdefghijklmnopqrstuvwxyz123456","models":["gpt-4o"]},'
+            '{"name":"openrouter","baseURL":"https:\\/\\/api.secondvendor.net\\/v1",'
+            '"apiKey":"sk-or-v1-abcdefghijklmnopqrstuvwxyz123456","models":["gpt-4o-mini"]}]'
+        ),
+        fetched_at="2026-07-09T10:00:00+08:00",
+    )
+
+    findings = analyze_hit(hit, "2026-07-09T10:00:00+08:00", include_raw=True)
+
+    raw_values = {item.get("raw_value") for item in findings if item.get("type") == "credential"}
+    raw_base_urls = {url for item in findings for url in item.get("raw_base_urls", [])}
+    assert "sk-provider_abcdefghijklmnopqrstuvwxyz123456" in raw_values
+    assert "sk-or-v1-abcdefghijklmnopqrstuvwxyz123456" in raw_values
+    assert "https://api.realvendor.ai/v1" in raw_base_urls
+    assert "https://api.secondvendor.net/v1" in raw_base_urls
+    assert any("gpt-4o" in item.get("models", []) for item in findings)
+
+
+def test_google_fetches_api_provider_bodies_even_when_page_fetching_is_disabled():
+    assert should_fetch_google_result_body("https://service.vendor.ai/api/providers")
+    assert should_fetch_google_result_body("https://service.vendor.ai/api/providers?format=json")
+    assert should_fetch_google_result_body("https://service.vendor.ai/config.json")
+    assert not should_fetch_google_result_body("https://service.vendor.ai/pricing")
 
 
 def test_prepare_findings_keeps_supported_ai_credentials():

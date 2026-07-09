@@ -68,8 +68,11 @@ Google 不能直接按“任意一级/二级域名”做正则搜索，所以搜
 - base_url 锚点：`"OPENAI_BASE_URL=" "https://"`、`"base_url" "https://" "sk-"`、`"api_base" "https://" "sk-"`、`"baseURL" "https://" "apiKey"`。
 - SDK 写法锚点：`"client = OpenAI" "base_url" "api_key"`、`"OpenAI(" "base_url=" "api_key="`。
 - 接口路径锚点：`"chat/completions" "sk-"`、`"v1/models" "sk-"`。
+- Provider API 锚点：`inurl:/api/providers "baseUrl" "apiKey"`、`inurl:/api/providers "sk-"`、`"api/providers" "baseUrl" "apiKey"`、`"api/providers" "models" "baseUrl"`。
 
 检测器会识别 JSON、env、Python/JS 配置里的 key 和 base_url；`base_url: api.example.com/v1` 这种没有协议的域名会按 `https://api.example.com/v1` 归一化后再脱敏、哈希和配对。
+
+`/api/providers` 是特殊高价值入口：即使普通 Google 正文抓取关闭，只要 SerpAPI 结果链接路径包含 `/api/providers`，程序也会抓取该 JSON/API 响应正文再分析，因为这类响应里常见 `baseUrl/baseURL/base_url` 和 `apiKey/api_key/key` 同时出现。
 
 本地生成明文登录页：
 

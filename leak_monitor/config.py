@@ -25,6 +25,13 @@ DEFAULT_QUERY_TEMPLATES = [
     '"OpenAI(" "base_url=" "api_key="',
     '"chat/completions" "sk-"',
     '"v1/models" "sk-"',
+    'inurl:/api/providers "baseUrl" "apiKey"',
+    'inurl:/api/providers "baseURL" "apiKey"',
+    'inurl:/api/providers "base_url" "api_key"',
+    'inurl:/api/providers "sk-"',
+    '"api/providers" "baseUrl" "apiKey"',
+    '"api/providers" "baseUrl" "sk-"',
+    '"api/providers" "models" "baseUrl"',
     '"ANTHROPIC_API_KEY" "claude"',
     '"DEEPSEEK_API_KEY" "deepseek"',
     '"GEMINI_API_KEY" "AIza"',
@@ -45,6 +52,9 @@ TARGET_QUERY_TEMPLATES = [
     '"{target}" "Authorization: Bearer sk-"',
     '"{target}" "chat/completions" "sk-"',
     '"{target}" "v1/models" "sk-"',
+    '"{target}" "api/providers" "baseUrl" "apiKey"',
+    '"{target}" "api/providers" "baseUrl" "sk-"',
+    '"{target}" inurl:/api/providers "apiKey"',
     '"{target}" "api_key" "model"',
     '"{target}" "ANTHROPIC_API_KEY"',
     '"{target}" "DEEPSEEK_API_KEY"',
@@ -66,7 +76,7 @@ class AppConfig:
     targets: list[str] = field(default_factory=list)
     query_templates: list[str] = field(default_factory=lambda: list(DEFAULT_QUERY_TEMPLATES))
     target_query_templates: list[str] = field(default_factory=lambda: list(TARGET_QUERY_TEMPLATES))
-    max_queries: int = 24
+    max_queries: int = 36
     github: SourceConfig = field(default_factory=lambda: SourceConfig(per_query=12, delay_seconds=1.2))
     google: SourceConfig = field(default_factory=lambda: SourceConfig(per_query=10, delay_seconds=1.0))
     min_severity_to_notify: str = "medium"

@@ -40,6 +40,16 @@ def github_raw_content_url(url: str) -> str:
     return f"https://raw.githubusercontent.com/{owner}/{repo}/{ref}/{file_path}"
 
 
+def should_fetch_google_result_body(url: str) -> bool:
+    parsed = urlparse(url)
+    path = parsed.path.lower()
+    if "/api/providers" in path:
+        return True
+    if path.endswith((".json", ".env", ".yaml", ".yml", ".toml")):
+        return True
+    return False
+
+
 class GitHubSource:
     def __init__(self, token: str | None, per_query: int, delay_seconds: float, timezone_name: str = DEFAULT_TIMEZONE) -> None:
         self.token = token
@@ -213,7 +223,7 @@ class GoogleSerpApiSource:
                 content = ""
                 if raw_link:
                     content = self._fetch_page(raw_link)
-                elif self.fetch_pages:
+                elif self.fetch_pages or should_fetch_google_result_body(link):
                     content = self._fetch_page(link)
                 hits.append(
                     SearchHit(
