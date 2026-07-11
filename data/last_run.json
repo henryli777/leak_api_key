@@ -1,21 +1,21 @@
 {
-  "build_time": "2026-07-11T03:53:13+08:00",
-  "build_time_cn": "2026-07-11T03:53:13+08:00",
-  "new_findings": 1905,
+  "build_time": "2026-07-11T11:42:03+08:00",
+  "build_time_cn": "2026-07-11T11:42:03+08:00",
+  "new_findings": 599,
   "query_count": 22,
   "severity_counts": {
-    "high": 17188,
-    "medium": 810
+    "high": 17649,
+    "medium": 948
   },
   "source_hits": {
-    "github": 276,
+    "github": 288,
     "google_serpapi": 90
   },
   "source_stats": [
     {
-      "errors": 1,
-      "hits": 276,
-      "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22Authorization%3A+Bearer+sk-%22&sort=indexed&order=desc&per_page=12",
+      "errors": 0,
+      "hits": 288,
+      "message": "",
       "queries": 12,
       "skipped": false,
       "source": "github"
@@ -30,10 +30,10 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 17998,
+  "total_findings": 18597,
   "type_counts": {
-    "base_url": 795,
-    "credential_pair": 17187,
-    "provider_config": 16
+    "base_url": 931,
+    "credential_pair": 17648,
+    "provider_config": 18
   }
 }
