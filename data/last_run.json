@@ -1,15 +1,15 @@
 {
-  "build_time": "2026-08-09T02:56:26+08:00",
-  "build_time_cn": "2026-08-09T02:56:26+08:00",
-  "new_findings": 31,
+  "build_time": "2026-08-09T15:14:57+08:00",
+  "build_time_cn": "2026-08-09T15:14:57+08:00",
+  "new_findings": 11,
   "query_count": 22,
   "severity_counts": {
     "high": 26499,
-    "medium": 1318
+    "medium": 1329
   },
   "source_hits": {
     "github": 156,
-    "google_serpapi": 25
+    "google_serpapi": 54
   },
   "source_stats": [
     {
@@ -21,8 +21,8 @@
       "source": "github"
     },
     {
-      "errors": 7,
-      "hits": 25,
+      "errors": 4,
+      "hits": 54,
       "message": "SerpAPI HTTP 429: {\n  \"error\": \"Your account has run out of searches.\"\n}",
       "queries": 10,
       "skipped": false,
@@ -30,9 +30,9 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 27817,
+  "total_findings": 27828,
   "type_counts": {
-    "base_url": 1282,
+    "base_url": 1293,
     "credential_pair": 26498,
     "provider_config": 37
   }
