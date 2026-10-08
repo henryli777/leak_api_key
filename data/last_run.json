@@ -1,28 +1,28 @@
 {
-  "build_time": "2026-09-30T13:30:58+08:00",
-  "build_time_cn": "2026-09-30T13:30:58+08:00",
-  "new_findings": 67,
+  "build_time": "2026-10-08T21:25:26+08:00",
+  "build_time_cn": "2026-10-08T21:25:26+08:00",
+  "new_findings": 52,
   "query_count": 22,
   "severity_counts": {
-    "high": 26528,
-    "medium": 1762
+    "high": 26530,
+    "medium": 1812
   },
   "source_hits": {
-    "github": 204,
-    "google_serpapi": 48
+    "github": 168,
+    "google_serpapi": 28
   },
   "source_stats": [
     {
-      "errors": 7,
-      "hits": 204,
+      "errors": 10,
+      "hits": 168,
       "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22v1%2Fmodels%22+%22sk-%22&sort=indexed&order=desc&per_page=12",
       "queries": 12,
       "skipped": false,
       "source": "github"
     },
     {
-      "errors": 5,
-      "hits": 48,
+      "errors": 7,
+      "hits": 28,
       "message": "SerpAPI HTTP 429: {\n  \"error\": \"Your account has run out of searches.\"\n}",
       "queries": 10,
       "skipped": false,
@@ -30,10 +30,10 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 28290,
+  "total_findings": 28342,
   "type_counts": {
-    "base_url": 1710,
-    "credential_pair": 26527,
-    "provider_config": 53
+    "base_url": 1759,
+    "credential_pair": 26529,
+    "provider_config": 54
   }
 }
