@@ -76,6 +76,11 @@ jobs:
             --max-queries "${MAX_QUERIES}" \
             --notify
 
+      - name: Add public support navigation
+        run: |
+          python -m unittest test_project_support -v
+          python project_support.py dist
+
       - name: Verify public exports
         run: python main.py verify-exports --output-dir dist
 

@@ -1,0 +1,76 @@
+name: Publish public support navigation
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: "Successful original Pages build whose published snapshot must be preserved"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: leak-api-key-monitor
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify original build provenance
+        env:
+          SOURCE_WORKFLOW: .github/workflows/leak-monitor.yml
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" > source-run.json
+          python - <<'PY'
+          import json, os
+          with open('source-run.json') as stream:
+              run = json.load(stream)
+          assert str(run['id']) == os.environ['SOURCE_RUN_ID']
+          assert run['conclusion'] == 'success' and run['head_branch'] == 'main'
+          assert run['path'] == os.environ['SOURCE_WORKFLOW']
+          print('Preserving published snapshot from run', run['id'], 'commit', run['head_sha'])
+          PY
+      - name: Download only original public artifact
+        run: |
+          gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name leak-monitor-report --dir snapshot
+          mv snapshot dist
+      - name: Add navigation without refreshing data
+        run: |
+          python -m unittest test_project_support -v
+          python - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+          from project_support import PUBLIC_PAGES, apply_to_directory
+          root = Path('dist')
+          assert (root / 'index.html').is_file()
+          before = {path.relative_to(root): sha256(path.read_bytes()).hexdigest() for path in root.rglob('*') if path.is_file()}
+          apply_to_directory(root)
+          allowed = set(PUBLIC_PAGES) | {'404.html'}
+          for name, digest in before.items():
+              if str(name) not in allowed:
+                  assert sha256((root / name).read_bytes()).hexdigest() == digest, f'Unexpected snapshot change: {name}'
+          print('Original non-public-page files preserved:', sum(str(name) not in allowed for name in before))
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy original snapshot with updated navigation
+        id: deployment
+        uses: actions/deploy-pages@v4
