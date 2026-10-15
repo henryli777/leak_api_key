@@ -1,15 +1,15 @@
 {
-  "build_time": "2026-10-15T19:25:15+08:00",
-  "build_time_cn": "2026-10-15T19:25:15+08:00",
-  "new_findings": 5592,
+  "build_time": "2026-10-16T00:58:51+08:00",
+  "build_time_cn": "2026-10-16T00:58:51+08:00",
+  "new_findings": 3945,
   "query_count": 22,
   "severity_counts": {
-    "high": 32085,
-    "medium": 1849
+    "high": 35987,
+    "medium": 1892
   },
   "source_hits": {
     "github": 156,
-    "google_serpapi": 57
+    "google_serpapi": 77
   },
   "source_stats": [
     {
@@ -21,8 +21,8 @@
       "source": "github"
     },
     {
-      "errors": 4,
-      "hits": 57,
+      "errors": 2,
+      "hits": 77,
       "message": "SerpAPI search failed: HTTPSConnectionPool(host='serpapi.com', port=443): Read timed out. (read timeout=30)",
       "queries": 10,
       "skipped": false,
@@ -30,10 +30,10 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 33934,
+  "total_findings": 37879,
   "type_counts": {
-    "base_url": 1795,
-    "credential_pair": 32084,
+    "base_url": 1838,
+    "credential_pair": 35986,
     "provider_config": 55
   }
 }
