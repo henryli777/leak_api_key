@@ -26,6 +26,25 @@ def verify_source_run(run, jobs, run_id):
     raise ValueError("source lacks successful collection, public export verification, or report artifact upload")
 
 
+def verify_publication_state(run, jobs, artifacts, run_id, *, repository, ref, checkout_sha, current_sha):
+    verify_source_run(run, jobs, run_id)
+    if (ref != "refs/heads/main" or not checkout_sha or checkout_sha != current_sha
+            or run.get("repository", {}).get("full_name") != repository or run.get("status") != "completed"):
+        raise ValueError("UI publication requires this repository's unchanged current main branch")
+    repository_id = run["repository"].get("id")
+    reports = [artifact for artifact in artifacts.get("artifacts", [])
+               if artifact.get("name") == "leak-monitor-report" and not artifact.get("expired")
+               and artifact.get("workflow_run", {}).get("head_branch") == "main"
+               and artifact.get("workflow_run", {}).get("repository_id") == repository_id
+               and artifact.get("workflow_run", {}).get("head_repository_id") == repository_id]
+    if not repository_id or not reports:
+        raise ValueError("no unexpired original public report is available")
+    latest = max(reports, key=lambda artifact: int(artifact["id"]))
+    if (str(latest["workflow_run"].get("id")) != str(run_id)
+            or latest["workflow_run"].get("head_sha") != run.get("head_sha")):
+        raise ValueError("a newer public report exists; refusing to overwrite it with an older snapshot")
+
+
 def refresh_public_snapshot(directory):
     root = Path(directory)
     verify_public_exports(root)

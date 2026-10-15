@@ -149,6 +149,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
       - uses: actions/download-artifact@v4
         with:
           name: leak-monitor-history
@@ -165,7 +167,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A -- data
           git diff --cached --quiet || git commit -m "chore(data): update bounded redacted history [skip ci]"
-          git push
+          # Reject a concurrent main update; never replace newer durable history.
+          git push origin HEAD:refs/heads/main
 
   deploy:
     needs: build

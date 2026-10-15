@@ -47,3 +47,26 @@ def test_source_provenance_requires_successful_collection_verification_and_artif
     steps[-1]["conclusion"] = "skipped"
     with pytest.raises(ValueError):
         snapshot.verify_source_run(run, {"jobs": [{"name": "build", "steps": steps}]}, "123")
+
+
+def test_publication_guard_requires_own_current_main_and_latest_available_report():
+    import refresh_public_snapshot as snapshot
+    run = {"id": 123, "repository": {"full_name": "owner/project", "id": 77},
+           "head_branch": "main", "head_sha": "collection-sha", "status": "completed",
+           "path": ".github/workflows/leak-monitor.yml", "conclusion": "success"}
+    jobs = {"jobs": [{"name": "build", "steps": [{"name": name, "conclusion": "success"}
+             for name in ("Run leak monitor", "Verify public exports", "Upload report artifact")]}]}
+    artifact = {"id": 456, "name": "leak-monitor-report", "expired": False,
+                "workflow_run": {"id": 123, "head_branch": "main", "head_sha": "collection-sha",
+                                 "repository_id": 77, "head_repository_id": 77}}
+    kwargs = dict(repository="owner/project", ref="refs/heads/main", checkout_sha="ui-sha", current_sha="ui-sha")
+    snapshot.verify_publication_state(run, jobs, {"artifacts": [artifact]}, "123", **kwargs)
+    for change in ({"repository": "other/project"}, {"ref": "refs/heads/feature"}, {"current_sha": "new-ui-sha"}):
+        with pytest.raises(ValueError):
+            snapshot.verify_publication_state(run, jobs, {"artifacts": [artifact]}, "123", **(kwargs | change))
+    for unavailable in ({}, {"expired": True}, {"workflow_run": artifact["workflow_run"] | {"head_repository_id": 88}}):
+        with pytest.raises(ValueError):
+            snapshot.verify_publication_state(run, jobs, {"artifacts": [artifact | unavailable] if unavailable else []}, "123", **kwargs)
+    newer = artifact | {"id": 457, "workflow_run": artifact["workflow_run"] | {"id": 124}}
+    with pytest.raises(ValueError):
+        snapshot.verify_publication_state(run, jobs, {"artifacts": [artifact, newer]}, "123", **kwargs)

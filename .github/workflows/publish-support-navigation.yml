@@ -20,6 +20,7 @@ concurrency:
 
 jobs:
   publish:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -35,19 +36,7 @@ jobs:
       - name: Install safe UI dependencies
         run: pip install -r requirements.txt pytest
       - name: Verify original build provenance
-        run: |
-          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" > source-run.json
-          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/jobs?per_page=100" > source-jobs.json
-          python - <<'PY'
-          import json, os
-          from refresh_public_snapshot import verify_source_run
-          with open('source-run.json') as stream:
-              run = json.load(stream)
-          with open('source-jobs.json') as stream:
-              jobs = json.load(stream)
-          verify_source_run(run, jobs, os.environ['SOURCE_RUN_ID'])
-          print('Preserving published snapshot from run', run['id'], 'commit', run['head_sha'])
-          PY
+        run: python scripts/verify_snapshot_publication.py
       - name: Download only original public artifact
         run: |
           gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name leak-monitor-report --dir snapshot
@@ -60,6 +49,8 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+      - name: Recheck current main and latest snapshot before deployment
+        run: python scripts/verify_snapshot_publication.py
       - name: Deploy original snapshot with updated public UI
         id: deployment
         uses: actions/deploy-pages@v4
