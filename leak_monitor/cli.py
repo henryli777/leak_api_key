@@ -16,7 +16,7 @@ from .private_report import emit_private_report
 from .report import build_health, emit_report
 from .safety import verify_public_exports
 from .sources import run_sources, utc_now
-from .storage import merge_findings, read_json, write_json
+from .storage import merge_findings, read_history, redact_findings, write_history, write_json
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -71,23 +71,30 @@ def run_scan(args: argparse.Namespace) -> int:
     print(f"detected_findings={len(incoming)}")
 
     data_dir = Path(args.data_dir)
-    findings_path = data_dir / "findings.json"
-    existing = prepare_findings(read_json(findings_path, []), cfg.timezone)
+    ready_path = data_dir / "history-ready"
+    existing = prepare_findings(redact_findings(read_history(data_dir)), cfg.timezone)
     incoming = normalize_finding_timezones(incoming, cfg.timezone)
     fallback_candidates = collect_base_url_candidates([*existing, *incoming])
     incoming = pair_credential_findings(incoming, fallback_candidates)
     merged, new_findings = merge_findings(existing, incoming)
+    merged = redact_findings(merged)
+    new_findings = redact_findings(new_findings)
     health = build_health(merged, new_findings, source_stats, len(queries), cfg.timezone)
 
     if not args.dry_run:
         validation_report, validation_configured = build_authorized_validation_report_from_env()
-        write_json(findings_path, merged)
-        write_json(data_dir / "last_run.json", health)
         write_json(Path(args.output_dir) / "health.json", health)
         write_json(Path(args.output_dir) / "findings.json", merged)
         emit_report(args.output_dir, merged, new_findings, health, validation_report)
         emit_validation_report(args.output_dir, validation_report)
         verify_public_exports(args.output_dir)
+        try:
+            ready_path.unlink(missing_ok=True)
+            write_history(data_dir, merged)
+            write_json(data_dir / "last_run.json", health)
+            ready_path.write_text(str(health["build_time"]) + "\n", encoding="utf-8")
+        except (OSError, ValueError):
+            print("::warning::History persistence unavailable; verified public report is ready.", file=sys.stderr)
         if private_report_enabled:
             private_incoming = normalize_finding_timezones(private_incoming, cfg.timezone)
             private_fallback_candidates = collect_base_url_candidates([*private_incoming, *existing])

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import shutil
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -57,6 +58,7 @@ def emit_report(
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
     emit_findings_csv(out, findings)
+    shutil.copyfile(Path(__file__).with_name("public-refresh.js"), out / "public-refresh.js")
     _write_text(out / "index.html", render_html(findings, health, validation_report))
     _write_text(out / "README.txt", "AI leak monitor report. Values are redacted; use source URLs for manual triage.\n")
 
@@ -97,6 +99,9 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI 泄露线索监测</title>
+  <meta name="report-kind" content="index">
+  <meta name="report-snapshot" content="{html.escape(str(health.get('build_time') or ''), quote=True)}">
+  <script src="public-refresh.js" defer></script>
   <style>
     body {{ margin: 0; font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1f2933; background: #f7f8fa; }}
     header {{ padding: 24px 28px; background: #102a43; color: white; }}
@@ -133,7 +138,8 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
 <body>
   <header>
     <h1>AI 泄露线索监测</h1>
-    <div>生成时间: {html.escape(str(health.get("build_time_cn") or health.get("build_time")))} | 时区: {html.escape(str(health.get("timezone") or "Asia/Shanghai"))}</div>
+    <div data-refresh-region="timestamp">数据采集时间: {html.escape(str(health.get("build_time_cn") or health.get("build_time")))} | 时区: {html.escape(str(health.get("timezone") or "Asia/Shanghai"))}</div>
+    <div id="refresh-status" role="status" aria-live="polite">等待检查更新</div>
   </header>
   <main>
     <nav class="actions">
@@ -143,15 +149,15 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
       <a class="button secondary" href="private.html">明文页</a>
       <a class="button secondary" href="https://github.com/henryli777/leak_api_key/actions/workflows/leak-monitor.yml">重新验证</a>
     </nav>
-    <section class="summary">
+    <section class="summary" data-refresh-region="summary">
       <div class="metric"><span>总线索</span><strong>{health.get("total_findings", 0)}</strong></div>
       <div class="metric"><span>去重线索</span><strong>{len(sorted_findings)}</strong></div>
       <div class="metric"><span>本轮新增</span><strong>{health.get("new_findings", 0)}</strong></div>
       <div class="metric"><span>高危</span><strong>{(health.get("severity_counts") or {}).get("high", 0)}</strong></div>
       <div class="metric"><span>中危</span><strong>{(health.get("severity_counts") or {}).get("medium", 0)}</strong></div>
     </section>
-    {validation_summary}
-    <div class="table-wrap">
+    <div data-refresh-region="validation-summary">{validation_summary}</div>
+    <div class="table-wrap" data-refresh-region="results">
       <table>
         <colgroup>
           <col class="col-level">

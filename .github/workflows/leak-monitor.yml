@@ -23,12 +23,30 @@ permissions:
   id-token: write
 
 concurrency:
-  group: leak-api-key-monitor
+  group: ${{ github.event_name == 'push' && 'leak-api-key-safe-tests' || 'leak-api-key-monitor' }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  safe-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install safe test dependencies
+        run: pip install -r requirements.txt pytest
+      - name: Run safe regression tests
+        run: python -m pytest -q
+
+  build:
+    needs: safe-tests
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    outputs:
+      history_ready: ${{ steps.history.outputs.ready }}
     steps:
       - uses: actions/checkout@v4
 
@@ -84,14 +102,6 @@ jobs:
       - name: Verify public exports
         run: python main.py verify-exports --output-dir dist
 
-      - name: Persist redacted history
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/findings.json data/last_run.json || true
-          git diff --cached --quiet || git commit -m "chore(data): update leak monitor findings [skip ci]"
-          git push
-
       - name: Upload report artifact
         uses: actions/upload-artifact@v4
         with:
@@ -106,6 +116,56 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
+      - name: Check optional history snapshot
+        id: history
+        continue-on-error: true
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, sys
+          from pathlib import Path
+          marker = Path('data/history-ready')
+          health = json.loads(Path('dist/health.json').read_text())
+          ready = marker.exists() and marker.read_text().strip() == health['build_time'] and Path('data/history/index.json').exists()
+          print('ready=' + str(ready).lower())
+          if not ready:
+              print('::warning::History snapshot unavailable; publishing verified public report only.', file=sys.stderr)
+          PY
+
+      - name: Upload optional redacted history
+        if: steps.history.outputs.ready == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: leak-monitor-history
+          path: |
+            data/history
+            data/last_run.json
+          if-no-files-found: error
+
+  persist-history:
+    needs: build
+    if: needs.build.outputs.history_ready == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: leak-monitor-history
+          path: history-snapshot
+      - name: Persist bounded redacted history
+        run: |
+          test -f history-snapshot/history/index.json
+          rm -rf data/history
+          mkdir -p data/history
+          cp -R history-snapshot/history/. data/history/
+          cp history-snapshot/last_run.json data/last_run.json
+          rm -f data/findings.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- data
+          git diff --cached --quiet || git commit -m "chore(data): update bounded redacted history [skip ci]"
+          git push
 
   deploy:
     needs: build

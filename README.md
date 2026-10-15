@@ -7,7 +7,7 @@
 - 从 GitHub Code / Issues 和 Google SerpAPI 结果里发现疑似泄露线索。
 - 识别 AI 相关 `API_KEY`、`base_url`、`OPENAI_BASE_URL`、`model` 等配置。
 - 专项识别 `/api/providers` 暴露的 provider 配置对象，按同一 JSON/JS/config block 绑定 `baseUrl/base_url` 和 `apiKey/api_key/key`。
-- 输出脱敏后的 `data/findings.json`、`dist/health.json`、`dist/findings.json` 和 HTML 报告。
+- 输出脱敏后的 `data/history/` 分片历史、`dist/health.json`、`dist/findings.json` 和 HTML 报告。
 - 可选生成 `dist/private.html` 独立明文页，输入账号和密码后在浏览器本地解密查看完整值。
 - 生成 `dist/validation.html` 后台真实模型验证结果页；配置授权目标后会对你显式授权的 base_url/key 发起真实后台请求，拉取 `/models` 并测试模型可用性，同时保留验证时间。
 - 时间统一按东八区 `Asia/Shanghai` 输出。
@@ -223,7 +223,11 @@ targets:
 ## 输出
 
 - GitHub Pages: `https://henryli777.github.io/leak_api_key/`
-- `data/findings.json`：脱敏后的持久化历史，Actions 会回写提交。
+- `data/history/index.json`：持久化历史清单；每个内容寻址 JSON 分片不超过 4 MiB，保留所有线索 ID、哈希、发现时间及有长度限制的脱敏证据，不按日期丢弃去重状态。
+- 旧版 `data/findings.json` 会在下一次成功采集时迁移，历史提交同时删除旧文件。损坏的清单或分片会明确失败，不会默默重置历史。
+- Actions 先上传通过安全检查的公开报告，再由独立任务提交脱敏历史；历史推送失败会在任务中显示，但不会阻止 Pages 部署。每 6 小时的采集计划保持不变。
+- 推送代码只运行安全测试；采集只由定时任务或 `leak-monitor.yml` 手动触发执行。`publish-support-navigation.yml` 可手动使用原采集任务的已验证报告产物更新公开 UI；必须确认采集、安全检查和报告上传步骤均成功，只有安全测试的推送任务不能充当来源。
+- 公开总览和验证页在可见时每 60 秒检查同源快照，回到前台时立即检查；不触发采集或模型验证。报告数据时间保持采集/验证时间，浏览器检查时间单独显示。检查失败时保留现有数据及上次成功检查时间。
 - `data/last_run.json`：最近一次运行健康状态。
 - `dist/index.html`：本轮 HTML 报告，Actions 上传为 artifact。
 - `dist/private.html`：可选明文登录页，只有设置 `PRIVATE_REPORT_PASSWORD` 时生成。

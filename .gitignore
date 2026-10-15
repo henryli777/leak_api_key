@@ -9,6 +9,7 @@ __pycache__/
 config/targets.yml
 data/*.tmp
 data/raw/
+data/history-ready
 dist/
 
 # Never store real keys or webhook material in the repository.

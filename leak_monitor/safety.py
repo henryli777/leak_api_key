@@ -13,13 +13,13 @@ def sanitize_source_url(url: str) -> str:
     parsed = urlparse(str(url or ""))
     if not parsed.scheme or not parsed.netloc:
         return str(url or "").split("?", 1)[0]
-    return urlunparse((parsed.scheme, parsed.netloc, parsed.path, "", "", ""))
+    return urlunparse((parsed.scheme, parsed.netloc.rsplit("@", 1)[-1], parsed.path, "", "", ""))
 
 
 def verify_public_exports(output_dir: str | Path) -> None:
     out = Path(output_dir)
     checked = []
-    for name in ("findings.csv", "provider_pairs.csv", "index.html", "findings.json", "health.json"):
+    for name in ("findings.csv", "provider_pairs.csv", "index.html", "findings.json", "health.json", "validation.html", "validation.json"):
         path = out / name
         if not path.exists():
             continue

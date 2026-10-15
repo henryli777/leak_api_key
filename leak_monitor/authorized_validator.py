@@ -3,6 +3,7 @@ from __future__ import annotations
 import html
 import json
 import os
+import shutil
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -278,6 +279,7 @@ def filter_chat_models(models: list[str]) -> list[str]:
 def emit_validation_report(output_dir: str | Path, report: dict[str, Any]) -> None:
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(Path(__file__).with_name("public-refresh.js"), out / "public-refresh.js")
     (out / "validation.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     (out / "validation.html").write_text(render_validation_html(report), encoding="utf-8")
 
@@ -329,6 +331,9 @@ def render_validation_html(report: dict[str, Any]) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>后台真实模型验证结果</title>
+  <meta name="report-kind" content="validation">
+  <meta name="report-snapshot" content="{escape(report.get('finished_at', ''))}">
+  <script src="public-refresh.js" defer></script>
   <style>
     body {{ margin: 0; font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f8fa; color: #1f2933; }}
     header {{ padding: 22px 26px; background: #102a43; color: white; }}
@@ -361,25 +366,27 @@ def render_validation_html(report: dict[str, Any]) -> str:
 <body>
   <header>
     <h1>后台真实模型验证结果</h1>
-    <div>验证时间: {escape(report.get("started_at"))} 至 {escape(report.get("finished_at"))} | 目标: {escape(report.get("target_count"))} | 可用目标: {escape(report.get("ok_targets"))} | 模式: 授权后台实测</div>
+    <div data-refresh-region="timestamp">验证时间: {escape(report.get("started_at"))} 至 {escape(report.get("finished_at"))} | 目标: {escape(report.get("target_count"))} | 可用目标: {escape(report.get("ok_targets"))} | 模式: 授权后台实测</div>
+    <div id="refresh-status" role="status" aria-live="polite">等待检查更新</div>
   </header>
   <main>
     <nav class="actions">
       <a class="button" href="index.html">返回总览</a>
       <a class="button secondary" href="https://github.com/henryli777/leak_api_key/actions/workflows/leak-monitor.yml">重新验证</a>
     </nav>
-    <section class="summary">
+    <section class="summary" data-refresh-region="summary">
       <div class="metric"><span>验证目标</span><strong>{escape(report.get("target_count", 0))}</strong></div>
       <div class="metric"><span>可用目标</span><strong>{escape(report.get("ok_targets", 0))}</strong></div>
       <div class="metric"><span>测试模型</span><strong>{escape(report.get("tested_models", 0))}</strong></div>
       <div class="metric"><span>可用模型</span><strong>{escape(report.get("ok_models", 0))}</strong></div>
       <div class="metric"><span>不可用模型</span><strong>{escape(report.get("failed_models", 0))}</strong></div>
     </section>
-    {''.join(sections) or empty_state}
+    <div data-refresh-region="results">{''.join(sections) or empty_state}
     <section>
       <h2>默认模型库</h2>
       <div class="library">{default_models}</div>
     </section>
+    </div>
   </main>
 </body>
 </html>
