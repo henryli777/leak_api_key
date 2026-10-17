@@ -1,28 +1,28 @@
 {
-  "build_time": "2026-10-17T12:22:05+08:00",
-  "build_time_cn": "2026-10-17T12:22:05+08:00",
-  "new_findings": 450,
+  "build_time": "2026-10-17T18:39:41+08:00",
+  "build_time_cn": "2026-10-17T18:39:41+08:00",
+  "new_findings": 3998,
   "query_count": 22,
   "severity_counts": {
-    "high": 56544,
-    "medium": 2110
+    "high": 60523,
+    "medium": 2129
   },
   "source_hits": {
-    "github": 156,
-    "google_serpapi": 87
+    "github": 168,
+    "google_serpapi": 53
   },
   "source_stats": [
     {
-      "errors": 11,
-      "hits": 156,
+      "errors": 10,
+      "hits": 168,
       "message": "GitHub code search failed: 429 Client Error: Too Many Requests for url: https://api.github.com/search/code?q=%22v1%2Fmodels%22+%22sk-%22&sort=indexed&order=desc&per_page=12",
       "queries": 12,
       "skipped": false,
       "source": "github"
     },
     {
-      "errors": 1,
-      "hits": 87,
+      "errors": 3,
+      "hits": 53,
       "message": "SerpAPI search failed: HTTPSConnectionPool(host='serpapi.com', port=443): Read timed out. (read timeout=30)",
       "queries": 10,
       "skipped": false,
@@ -30,10 +30,10 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 58654,
+  "total_findings": 62652,
   "type_counts": {
-    "base_url": 2053,
-    "credential_pair": 56543,
+    "base_url": 2072,
+    "credential_pair": 60522,
     "provider_config": 58
   }
 }
