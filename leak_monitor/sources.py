@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import base64
+import math
 import os
 import re
 import time
+from datetime import timezone
+from email.utils import parsedate_to_datetime
 from typing import Any, Iterable
 from urllib.parse import quote_plus, urlparse
 
@@ -18,6 +21,172 @@ DEFAULT_UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 )
+
+MAX_ATTEMPTS = 3
+MAX_RETRY_DELAY_SECONDS = 30.0
+MAX_RETRY_WAIT_SECONDS = 60.0
+SOURCE_BUDGET_SECONDS = 600.0
+
+
+def _retry_delay(headers: Any, attempt: int, *, rate_limited: bool) -> float:
+    delays = [float(2 ** (attempt + 1))]
+    retry_after = headers.get("Retry-After", "")
+    try:
+        seconds = float(retry_after)
+    except (TypeError, ValueError):
+        try:
+            date = parsedate_to_datetime(retry_after)
+            if date.tzinfo is None:
+                date = date.replace(tzinfo=timezone.utc)
+            seconds = date.timestamp() - time.time()
+        except (TypeError, ValueError, OverflowError):
+            seconds = 0.0
+    if math.isfinite(seconds):
+        delays.append(max(0.0, seconds))
+    if rate_limited:
+        try:
+            reset_delay = float(headers.get("X-RateLimit-Reset", "")) - time.time()
+            if math.isfinite(reset_delay):
+                delays.append(max(0.0, reset_delay))
+        except (TypeError, ValueError, OverflowError):
+            pass
+    return max(delays)
+
+
+def _serpapi_quota_error(response: Any) -> bool:
+    try:
+        error = str(response.json().get("error") or "").lower()
+    except (ValueError, AttributeError, TypeError):
+        return False
+    return any(phrase in error for phrase in ("run out of searches", "searches exhausted", "monthly limit")) or (
+        "quota" in error and any(word in error for word in ("exceed", "exhaust", "limit"))
+    )
+
+
+class _SourceRequests:
+    def __init__(self, session: requests.Session, stats: SourceStats, request_limit: int) -> None:
+        self.session = session
+        self.stats = stats
+        self.request_limit = request_limit
+        self.started = time.monotonic()
+        self.stopped = False
+
+    def stop(self, reason: str, status: int | None = None) -> None:
+        self.stopped = True
+        self.message(reason, status)
+
+    def message(self, reason: str, status: int | None = None) -> None:
+        suffix = f" HTTP {status}" if status is not None else ""
+        self.stats.message = f"{self.stats.source}: {reason}{suffix}"
+
+    def available(self) -> bool:
+        if self.stopped:
+            return False
+        if time.monotonic() - self.started >= SOURCE_BUDGET_SECONDS:
+            self.stop("source_time_budget")
+        elif self.stats.requests >= self.request_limit:
+            self.stop("source_request_budget")
+        return not self.stopped
+
+    def pace(self, seconds: float) -> None:
+        if not self.available():
+            return
+        seconds = max(0.0, seconds)
+        if seconds >= SOURCE_BUDGET_SECONDS - (time.monotonic() - self.started):
+            self.stop("source_time_budget")
+            return
+        time.sleep(seconds)
+
+    def get(self, url: str, *, timeout: float, serpapi: bool = False, **kwargs: Any) -> Any:
+        for attempt in range(MAX_ATTEMPTS):
+            if not self.available():
+                return None
+            self.stats.requests += 1
+            if attempt:
+                self.stats.retries += 1
+            headers: Any = {}
+            status = None
+            retryable = False
+            try:
+                remaining = SOURCE_BUDGET_SECONDS - (time.monotonic() - self.started)
+                response = self.session.get(url, timeout=min(timeout, remaining), **kwargs)
+                status = response.status_code
+                headers = response.headers
+                quota = str(headers.get("X-RateLimit-Remaining", "")).strip() == "0"
+                quota = quota or (serpapi and _serpapi_quota_error(response))
+                if 200 <= status < 300:
+                    if quota:
+                        self.stop("quota_exhausted", status)
+                    return response
+                self.stats.errors += 1
+                if status == 401:
+                    self.stats.failed_requests += 1
+                    self.stop("unauthorized", status)
+                    return None
+                if quota:
+                    self.stats.failed_requests += 1
+                    self.stop("quota_exhausted", status)
+                    return None
+                limited = status == 429 or (status == 403 and bool(headers.get("Retry-After")))
+                retryable = limited or 500 <= status < 600
+                reason = "rate_limited" if limited else "server_error" if retryable else "http_error"
+                if status == 403 and not limited:
+                    self.stats.failed_requests += 1
+                    self.stop("permission_denied", status)
+                    return None
+            except (requests.Timeout, requests.ConnectionError) as exc:
+                self.stats.errors += 1
+                retryable = True
+                reason = "timeout" if isinstance(exc, requests.Timeout) else "connection_error"
+            except requests.RequestException:
+                self.stats.errors += 1
+                reason = "request_error"
+            self.message(reason, status)
+            if not retryable:
+                self.stats.failed_requests += 1
+                return None
+            if attempt + 1 == MAX_ATTEMPTS:
+                self.stats.failed_requests += 1
+                self.stop("retry_exhausted_" + reason, status)
+                return None
+            delay = _retry_delay(headers, attempt, rate_limited=reason == "rate_limited")
+            remaining = SOURCE_BUDGET_SECONDS - (time.monotonic() - self.started)
+            if (delay > MAX_RETRY_DELAY_SECONDS or self.stats.retry_wait_seconds + delay > MAX_RETRY_WAIT_SECONDS or delay >= remaining):
+                self.stats.failed_requests += 1
+                self.stop("cooldown_deferred_" + reason, status)
+                return None
+            time.sleep(delay)
+            self.stats.retry_wait_seconds += delay
+        return None
+
+    def json(self, url: str, *, timeout: float, serpapi: bool = False, **kwargs: Any) -> dict[str, Any] | None:
+        response = self.get(url, timeout=timeout, serpapi=serpapi, **kwargs)
+        if response is None:
+            return None
+        try:
+            data = response.json()
+            if not isinstance(data, dict):
+                raise ValueError
+        except (ValueError, TypeError):
+            self.stats.errors += 1
+            self.stats.failed_requests += 1
+            self.message("invalid_response")
+            return None
+        if serpapi and data.get("error"):
+            self.stats.errors += 1
+            self.stats.failed_requests += 1
+            self.stop("quota_exhausted" if _serpapi_quota_error(response) else "provider_error", response.status_code)
+            return None
+        return data
+
+    def search_complete(self, data: dict[str, Any]) -> bool:
+        self.stats.successful_searches += 1
+        if data.get("incomplete_results"):
+            self.stats.errors += 1
+            self.stats.failed_requests += 1
+            self.message("incomplete_results")
+            return False
+        return True
 
 
 def github_raw_content_url(url: str) -> str:
@@ -68,41 +237,48 @@ class GitHubSource:
             self.session.headers["Authorization"] = f"Bearer {token}"
 
     def search(self, queries: Iterable[str]) -> tuple[list[SearchHit], SourceStats]:
-        stats = SourceStats(source="github")
+        queries = list(queries)
+        stats = SourceStats(source="github", planned_queries=len(queries))
+        if not queries:
+            return [], stats
         if not self.token:
             stats.skipped = True
+            stats.deferred_queries = len(queries)
             stats.message = "GITHUB_TOKEN not configured; skip GitHub API search"
             return [], stats
 
         hits: list[SearchHit] = []
+        requests = _SourceRequests(self.session, stats, len(queries) * (2 + max(0, self.per_query)) * MAX_ATTEMPTS)
         for query in queries:
+            if not requests.available():
+                break
             query_text = query_text_value(query)
             stats.queries += 1
-            hits.extend(self._search_code(query_text, stats))
-            time.sleep(self.delay_seconds)
-            hits.extend(self._search_issues(query_text, stats))
-            time.sleep(self.delay_seconds)
+            code_hits, code_ok = self._search_code(query_text, stats, requests)
+            hits.extend(code_hits)
+            requests.pace(self.delay_seconds)
+            issue_hits, issues_ok = self._search_issues(query_text, stats, requests)
+            hits.extend(issue_hits)
+            if code_ok and issues_ok:
+                stats.completed_queries += 1
+            else:
+                stats.failed_queries += 1
+            requests.pace(self.delay_seconds)
         stats.hits = len(hits)
+        stats.deferred_queries = len(queries) - stats.queries
         return hits, stats
 
-    def _search_code(self, query: str, stats: SourceStats) -> list[SearchHit]:
+    def _search_code(self, query: str, stats: SourceStats, requests: _SourceRequests) -> tuple[list[SearchHit], bool]:
         params = {"q": query, "sort": "indexed", "order": "desc", "per_page": self.per_query}
-        try:
-            resp = self.session.get("https://api.github.com/search/code", params=params, timeout=20)
-            if resp.status_code in (401, 403, 422):
-                stats.errors += 1
-                stats.message = f"GitHub code search HTTP {resp.status_code}: {resp.text[:160]}"
-                return []
-            resp.raise_for_status()
-            items = resp.json().get("items") or []
-        except Exception as exc:
-            stats.errors += 1
-            stats.message = f"GitHub code search failed: {exc}"
-            return []
+        data = requests.json("https://api.github.com/search/code", params=params, timeout=20)
+        if data is None:
+            return [], False
+        items = data.get("items") or []
+        complete = requests.search_complete(data)
 
         hits: list[SearchHit] = []
         for item in items[: self.per_query]:
-            content = self._fetch_code_content(item.get("url") or "")
+            content = self._fetch_code_content(item.get("url") or "", requests)
             repo = (item.get("repository") or {}).get("full_name", "")
             path = item.get("path") or item.get("name") or ""
             title = f"{repo}/{path}".strip("/")
@@ -118,17 +294,16 @@ class GitHubSource:
                     metadata={"repo": repo, "path": path},
                 )
             )
-            time.sleep(max(0.2, self.delay_seconds / 2))
-        return hits
+            requests.pace(max(0.2, self.delay_seconds / 2))
+        return hits, complete
 
-    def _fetch_code_content(self, api_url: str) -> str:
+    def _fetch_code_content(self, api_url: str, requests: _SourceRequests) -> str:
         if not api_url:
             return ""
         try:
-            resp = self.session.get(api_url, timeout=20)
-            if resp.status_code != 200:
+            data = requests.json(api_url, timeout=20)
+            if data is None:
                 return ""
-            data = resp.json()
             if data.get("encoding") == "base64" and data.get("content"):
                 raw = base64.b64decode(data["content"], validate=False)
                 return raw[:120_000].decode("utf-8", errors="ignore")
@@ -136,20 +311,13 @@ class GitHubSource:
             return ""
         return ""
 
-    def _search_issues(self, query: str, stats: SourceStats) -> list[SearchHit]:
+    def _search_issues(self, query: str, stats: SourceStats, requests: _SourceRequests) -> tuple[list[SearchHit], bool]:
         params = {"q": query, "sort": "updated", "order": "desc", "per_page": self.per_query}
-        try:
-            resp = self.session.get("https://api.github.com/search/issues", params=params, timeout=20)
-            if resp.status_code in (401, 403, 422):
-                stats.errors += 1
-                stats.message = f"GitHub issue search HTTP {resp.status_code}: {resp.text[:160]}"
-                return []
-            resp.raise_for_status()
-            items = resp.json().get("items") or []
-        except Exception as exc:
-            stats.errors += 1
-            stats.message = f"GitHub issue search failed: {exc}"
-            return []
+        data = requests.json("https://api.github.com/search/issues", params=params, timeout=20)
+        if data is None:
+            return [], False
+        items = data.get("items") or []
+        complete = requests.search_complete(data)
 
         hits: list[SearchHit] = []
         for item in items[: self.per_query]:
@@ -165,7 +333,7 @@ class GitHubSource:
                     metadata={"state": item.get("state"), "updated_at": item.get("updated_at")},
                 )
             )
-        return hits
+        return hits, complete
 
 
 class GoogleSerpApiSource:
@@ -187,14 +355,21 @@ class GoogleSerpApiSource:
         self.session.headers.update({"User-Agent": DEFAULT_UA, "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"})
 
     def search(self, queries: Iterable[str]) -> tuple[list[SearchHit], SourceStats]:
-        stats = SourceStats(source="google_serpapi")
+        queries = list(queries)
+        stats = SourceStats(source="google_serpapi", planned_queries=len(queries))
+        if not queries:
+            return [], stats
         if not self.api_keys:
             stats.skipped = True
+            stats.deferred_queries = len(queries)
             stats.message = "SERPAPI_KEY or SERPAPI_KEYS not configured; skip Google search"
             return [], stats
 
         hits: list[SearchHit] = []
+        requests = _SourceRequests(self.session, stats, len(queries) * (1 + max(0, self.per_query)) * MAX_ATTEMPTS)
         for query in queries:
+            if not requests.available():
+                break
             query_text = query_text_value(query)
             stats.queries += 1
             key = self._next_key()
@@ -206,27 +381,22 @@ class GoogleSerpApiSource:
                 "gl": "us",
                 "api_key": key,
             }
-            try:
-                resp = self.session.get("https://serpapi.com/search.json", params=params, timeout=30)
-                if resp.status_code in (401, 403, 429):
-                    stats.errors += 1
-                    stats.message = f"SerpAPI HTTP {resp.status_code}: {resp.text[:160]}"
-                    continue
-                resp.raise_for_status()
-                data = resp.json()
-            except Exception as exc:
-                stats.errors += 1
-                stats.message = f"SerpAPI search failed: {exc}"
+            data = requests.json("https://serpapi.com/search.json", params=params, timeout=30, serpapi=True)
+            if data is None:
+                stats.failed_queries += 1
+                requests.pace(self.delay_seconds)
                 continue
+            stats.successful_searches += 1
+            stats.completed_queries += 1
 
             for item in (data.get("organic_results") or [])[: self.per_query]:
                 link = item.get("link") or ""
                 raw_link = github_raw_content_url(link)
                 content = ""
                 if raw_link:
-                    content = self._fetch_page(raw_link)
+                    content = self._fetch_page(raw_link, requests)
                 elif self.fetch_pages or should_fetch_google_result_body(link):
-                    content = self._fetch_page(link)
+                    content = self._fetch_page(link, requests)
                 hits.append(
                     SearchHit(
                         source="google_serpapi",
@@ -239,8 +409,9 @@ class GoogleSerpApiSource:
                         metadata={"position": item.get("position"), "displayed_link": item.get("displayed_link")},
                     )
                 )
-            time.sleep(self.delay_seconds)
+            requests.pace(self.delay_seconds)
         stats.hits = len(hits)
+        stats.deferred_queries = len(queries) - stats.queries
         return hits, stats
 
     def _next_key(self) -> str:
@@ -248,11 +419,13 @@ class GoogleSerpApiSource:
         self.key_index += 1
         return key
 
-    def _fetch_page(self, url: str) -> str:
+    def _fetch_page(self, url: str, requests: _SourceRequests) -> str:
         if not url or not url.startswith(("http://", "https://")):
             return ""
         try:
-            resp = self.session.get(url, timeout=15)
+            resp = requests.get(url, timeout=15)
+            if resp is None:
+                return ""
             if "text/" not in resp.headers.get("Content-Type", "") and "json" not in resp.headers.get("Content-Type", ""):
                 return ""
             return resp.text[:120_000]

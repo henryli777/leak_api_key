@@ -34,6 +34,7 @@ def build_health(
         "severity_counts": dict(severity_counts),
         "type_counts": dict(type_counts),
         "source_hits": source_hits,
+        "collection_status": collection_status([stat.status for stat in source_stats]),
         "source_stats": [
             {
                 "source": stat.source,
@@ -42,10 +43,56 @@ def build_health(
                 "errors": stat.errors,
                 "skipped": stat.skipped,
                 "message": stat.message,
+                "status": stat.status,
+                "planned_queries": stat.planned_queries,
+                "attempted_queries": stat.queries,
+                "completed_queries": stat.completed_queries if stat.planned_queries is not None else None,
+                "failed_queries": stat.failed_queries if stat.planned_queries is not None else None,
+                "deferred_queries": stat.deferred_queries if stat.planned_queries is not None else None,
+                "requests": stat.requests,
+                "failed_requests": stat.failed_requests,
+                "retries": stat.retries,
+                "retry_wait_seconds": stat.retry_wait_seconds,
             }
             for stat in source_stats
         ],
     }
+
+
+def collection_status(statuses: list[str]) -> str:
+    if not statuses or "unknown" in statuses:
+        return "unknown"
+    if all(status == "no_queries" for status in statuses):
+        return "no_queries"
+    if all(status in {"complete", "no_queries"} for status in statuses):
+        return "complete"
+    if all(status in {"skipped", "no_queries"} for status in statuses):
+        return "skipped"
+    if any(status in {"complete", "partial"} for status in statuses):
+        return "partial"
+    return "failed"
+
+
+def render_collection_summary(health: dict[str, Any]) -> str:
+    labels = {
+        "complete": "采集完成", "partial": "部分完成", "failed": "采集失败",
+        "no_queries": "无计划查询", "skipped": "采集已跳过", "unknown": "完成情况未知",
+    }
+    rows = []
+    for stat in health.get("source_stats") or []:
+        status = stat.get("status") or "unknown"
+        label = labels.get(status, labels["unknown"])
+        attempted = stat.get("attempted_queries", stat.get("queries", 0))
+        counts = f"已尝试 {attempted}"
+        for key, title in (("planned_queries", "计划"), ("completed_queries", "完成"), ("failed_queries", "失败"), ("deferred_queries", "延后")):
+            if stat.get(key) is not None:
+                counts += f" · {title} {stat[key]}"
+        counts += f" · 错误请求 {stat.get('errors', 0)}"
+        if stat.get("retries") is not None:
+            counts += f" · 重试 {stat['retries']}"
+        # Older snapshots may contain URLs or credentials in message; only render structured counters.
+        rows.append(f"<p><strong>{html.escape(str(stat.get('source') or 'unknown'))}: {label}</strong> · {html.escape(counts)}</p>")
+    return "".join(rows) or "<p>采集完成情况未记录</p>"
 
 
 def emit_report(
@@ -93,6 +140,7 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
             "</tr>"
         )
     validation_summary = render_validation_summary(validation_report)
+    collection_summary = render_collection_summary(health)
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -133,12 +181,14 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
     .sev.high {{ background: #ba2525; }}
     .sev.medium {{ background: #b7791f; }}
     .sev.low {{ background: #486581; }}
+    .collection-status {{ margin-bottom: 18px; overflow-wrap: anywhere; }}
+    .collection-status p {{ margin: 6px 0; }}
   </style>
 </head>
 <body>
   <header>
     <h1>AI 泄露线索监测</h1>
-    <div data-refresh-region="timestamp">数据采集时间: {html.escape(str(health.get("build_time_cn") or health.get("build_time")))} | 时区: {html.escape(str(health.get("timezone") or "Asia/Shanghai"))}</div>
+    <div data-refresh-region="timestamp">本轮检查时间: {html.escape(str(health.get("build_time_cn") or health.get("build_time")))} | 时区: {html.escape(str(health.get("timezone") or "Asia/Shanghai"))}</div>
     <div id="refresh-status" role="status" aria-live="polite">等待检查更新</div>
   </header>
   <main>
@@ -156,6 +206,7 @@ def render_html(findings: list[dict[str, Any]], health: dict[str, Any], validati
       <div class="metric"><span>高危</span><strong>{(health.get("severity_counts") or {}).get("high", 0)}</strong></div>
       <div class="metric"><span>中危</span><strong>{(health.get("severity_counts") or {}).get("medium", 0)}</strong></div>
     </section>
+    <section class="collection-status" aria-label="来源采集状态" data-refresh-region="collection-summary">{collection_summary}</section>
     <div data-refresh-region="validation-summary">{validation_summary}</div>
     <div class="table-wrap" data-refresh-region="results">
       <table>

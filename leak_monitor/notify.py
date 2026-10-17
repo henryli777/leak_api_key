@@ -48,6 +48,7 @@ def notify_dingtalk(health: dict[str, Any], new_findings: list[dict[str, Any]], 
         f"新增: {len(new_findings)}  需关注: {len(notable)}  总线索: {health.get('total_findings', 0)}",
         f"高危: {health.get('severity_counts', {}).get('high', 0)}  中危: {health.get('severity_counts', {}).get('medium', 0)}",
         f"来源命中: {health.get('source_hits', {})}",
+        _collection_notice(health),
     ]
     if notable:
         lines.append("新增重点:")
@@ -67,3 +68,16 @@ def notify_dingtalk(health: dict[str, Any], new_findings: list[dict[str, Any]], 
         return resp.status_code < 300
     except Exception:
         return False
+
+
+def _collection_notice(health: dict[str, Any]) -> str:
+    labels = {"complete": "完成", "partial": "部分完成", "failed": "失败", "no_queries": "无计划查询", "skipped": "已跳过"}
+    status = labels.get(str(health.get("collection_status")), "完成情况未知")
+    stats = health.get("source_stats") or []
+
+    def count(field: str) -> str:
+        if not stats or any(not isinstance(item.get(field), int) for item in stats):
+            return "未知"
+        return str(sum(item[field] for item in stats))
+
+    return f"采集: {status}  失败查询: {count('failed_queries')}  延后查询: {count('deferred_queries')}"
