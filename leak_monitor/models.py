@@ -31,6 +31,7 @@ class SourceStats:
     successful_searches: int = 0
     requests: int = 0
     failed_requests: int = 0
+    deferred_content_requests: int = 0
     retries: int = 0
     retry_wait_seconds: float = 0.0
 
@@ -42,7 +43,7 @@ class SourceStats:
             return "unknown"
         if self.planned_queries == 0:
             return "no_queries"
-        if self.completed_queries == self.planned_queries and self.failed_requests == 0:
+        if self.completed_queries == self.planned_queries and self.failed_requests == 0 and self.deferred_content_requests == 0:
             return "complete"
         if self.successful_searches:
             return "partial"

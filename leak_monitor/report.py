@@ -51,6 +51,7 @@ def build_health(
                 "deferred_queries": stat.deferred_queries if stat.planned_queries is not None else None,
                 "requests": stat.requests,
                 "failed_requests": stat.failed_requests,
+                "deferred_content_requests": stat.deferred_content_requests,
                 "retries": stat.retries,
                 "retry_wait_seconds": stat.retry_wait_seconds,
             }
@@ -90,6 +91,8 @@ def render_collection_summary(health: dict[str, Any]) -> str:
         counts += f" · 错误请求 {stat.get('errors', 0)}"
         if stat.get("retries") is not None:
             counts += f" · 重试 {stat['retries']}"
+        if stat.get("deferred_content_requests"):
+            counts += f" · 补充正文延后 {stat['deferred_content_requests']}"
         # Older snapshots may contain URLs or credentials in message; only render structured counters.
         rows.append(f"<p><strong>{html.escape(str(stat.get('source') or 'unknown'))}: {label}</strong> · {html.escape(counts)}</p>")
     return "".join(rows) or "<p>采集完成情况未记录</p>"

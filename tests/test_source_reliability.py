@@ -100,18 +100,23 @@ def test_timeout_and_server_error_recover_with_bounded_backoff(clock):
     assert SECRET not in json.dumps(build_health([], [], [stats], 1, "Asia/Shanghai"))
 
 
-@pytest.mark.parametrize("hint", ["seconds", "date", "reset"])
-def test_github_honors_rate_limit_cooldown_before_retry(clock, hint):
+@pytest.mark.parametrize("hint", ["seconds", "date"])
+def test_github_honors_retry_after_cooldown_before_retry(clock, hint):
     if hint == "seconds":
         headers = {"Retry-After": "6"}
-    elif hint == "date":
-        headers = {"Retry-After": format_datetime(datetime.fromtimestamp(clock.time() + 6, timezone.utc), usegmt=True)}
     else:
-        headers = {"X-RateLimit-Reset": str(int(clock.time() + 6))}
+        headers = {"Retry-After": format_datetime(datetime.fromtimestamp(clock.time() + 6, timezone.utc), usegmt=True)}
     source = github([Response(429, headers=headers), Response(data={"items": []}), Response(data={"items": []})], clock)
     _, stats = source.search(["one"])
     assert source.session.calls[1][2] == 6
     assert (stats.queries, stats.completed_queries, stats.errors, stats.status) == (1, 1, 1, "complete")
+
+
+def test_serpapi_honors_explicit_rate_limit_reset_when_remaining_is_unknown(clock):
+    source = google([Response(429, headers={"X-RateLimit-Reset": str(int(clock.time() + 6))}), Response(data={"organic_results": []})], clock)
+    _, stats = source.search(["one"])
+    assert len(source.session.calls) == 2 and source.session.calls[1][2] == 6
+    assert stats.status == "complete" and stats.retries == 1
 
 
 def test_explicit_github_quota_stops_source_and_preserves_first_hit_time(clock):
@@ -337,3 +342,141 @@ def test_failed_run_with_historical_findings_labels_report_time_without_new_coll
     assert f"本轮检查时间: {report_time}" in page
     assert "数据采集时间" not in page and "采集失败" in page
     assert SNAPSHOT in page
+
+
+@pytest.mark.parametrize("headers", [{}, {"Retry-After": "not-a-date"}, {"X-RateLimit-Remaining": "12", "X-RateLimit-Reset": "1800003600"}, {"X-RateLimit-Reset": "1800000006"}])
+def test_github_rate_limit_without_usable_hint_defers_instead_of_retrying_in_seconds(clock, headers):
+    source = github([Response(429, headers=headers)] * 3, clock)
+    _, stats = source.search(["one", "two"])
+    assert len(source.session.calls) == 1 and clock.sleeps == []
+    assert (stats.errors, stats.retries, stats.failed_queries, stats.deferred_queries) == (1, 0, 1, 1)
+    assert "cooldown_deferred_rate_limited" in stats.message
+
+
+@pytest.mark.parametrize("status", [403, 429])
+def test_github_secondary_retry_after_is_not_overridden_by_positive_primary_quota_reset(clock, status):
+    source = github([
+        Response(status, headers={"Retry-After": "3", "X-RateLimit-Remaining": "12", "X-RateLimit-Reset": "1800003600"}),
+        Response(data={"items": []}),
+        Response(data={"items": []}),
+    ], clock)
+    _, stats = source.search(["one"])
+    assert len(source.session.calls) == 3 and source.session.calls[1][2] == 3
+    assert stats.completed_queries == 1 and stats.status == "complete"
+
+
+def test_optional_google_page_permission_failure_preserves_next_provider_query_and_pacing(clock):
+    source = google([
+        Response(data={"organic_results": [{"link": "https://page.example.invalid/data.json", "title": "first"}]}),
+        Response(403),
+        Response(data={"organic_results": [{"link": "https://example.invalid/article", "title": "second"}]}),
+    ], clock)
+    hits, stats = source.search(["one", "two"])
+    assert [hit.title for hit in hits] == ["first", "second"]
+    assert len(source.session.calls) == 3 and source.session.calls[2][2] >= 1.5
+    assert (stats.queries, stats.completed_queries, stats.failed_queries, stats.deferred_queries) == (2, 2, 0, 0)
+    assert (stats.errors, stats.failed_requests, stats.status) == (1, 1, "partial")
+
+
+def test_optional_google_page_rate_limit_blocks_same_host_without_stopping_other_hosts_or_provider(clock):
+    source = google([
+        Response(data={"organic_results": [{"link": "https://limited.example.invalid/a.json"}, {"link": "https://limited.example.invalid/b.json"}]}),
+        Response(429, headers={"Retry-After": "3600"}),
+        Response(data={"organic_results": [{"link": "https://limited.example.invalid/c.json"}, {"link": "https://healthy.example.invalid/d.json"}]}),
+        Response(headers={"Content-Type": "application/json"}),
+    ], clock)
+    hits, stats = source.search(["one", "two"])
+    assert [call[0] for call in source.session.calls] == [
+        "https://serpapi.com/search.json", "https://limited.example.invalid/a.json",
+        "https://serpapi.com/search.json", "https://healthy.example.invalid/d.json",
+    ]
+    assert len(hits) == 4 and all(hit.fetched_at == SNAPSHOT for hit in hits)
+    assert (stats.completed_queries, stats.deferred_queries, stats.errors, stats.retries, stats.requests) == (2, 0, 1, 0, 4)
+    assert stats.deferred_content_requests == 2 and stats.status == "partial"
+
+
+def test_optional_google_page_retry_exhaustion_only_blocks_its_host(clock):
+    source = google([
+        Response(data={"organic_results": [{"link": "https://slow.example.invalid/a.json"}]}),
+        requests.Timeout(SECRET), requests.Timeout(SECRET), requests.Timeout(SECRET),
+        Response(data={"organic_results": [{"link": "https://slow.example.invalid/b.json"}]}),
+    ], clock)
+    hits, stats = source.search(["one", "two"])
+    assert len(hits) == 2 and len(source.session.calls) == 5
+    assert (stats.completed_queries, stats.deferred_queries, stats.errors, stats.retries, stats.retry_wait_seconds) == (2, 0, 3, 2, 6)
+    assert stats.deferred_content_requests == 1 and stats.status == "partial"
+    assert SECRET not in stats.message
+
+
+@pytest.mark.parametrize("status", [403, 429])
+def test_real_serpapi_permission_or_rate_limit_still_stops_source_after_optional_host_failure(clock, status):
+    events = [
+        Response(data={"organic_results": [{"link": "https://page.example.invalid/a.json"}]}),
+        Response(403),
+    ]
+    headers = {"Retry-After": "3600"} if status == 429 else {}
+    source = google(events + [Response(status, headers=headers)], clock)
+    hits, stats = source.search(["one", "two", "three"])
+    assert len(hits) == 1 and len(source.session.calls) == 3
+    assert (stats.queries, stats.completed_queries, stats.failed_queries, stats.deferred_queries) == (2, 1, 1, 1)
+    assert stats.errors == 2 and stats.status == "partial"
+
+
+def test_optional_content_and_provider_retries_share_the_same_wait_budget(clock):
+    source = google([
+        Response(data={"organic_results": [{"link": "https://slow.example.invalid/a.json"}]}),
+        Response(503, headers={"Retry-After": "30"}),
+        Response(503, headers={"Retry-After": "30"}),
+        Response(headers={"Content-Type": "application/json"}),
+        Response(429, headers={"Retry-After": "2"}),
+    ], clock)
+    _, stats = source.search(["one", "two", "three"])
+    assert len(source.session.calls) == 5 and stats.retry_wait_seconds == 60
+    assert (stats.completed_queries, stats.failed_queries, stats.deferred_queries) == (1, 1, 1)
+    assert stats.status == "partial"
+
+
+def test_successful_optional_response_with_exhausted_host_quota_defers_other_content_truthfully(clock):
+    source = google([
+        Response(data={"organic_results": [{"link": "https://limited.example.invalid/a.json"}, {"link": "https://limited.example.invalid/b.json"}]}),
+        Response(headers={"Content-Type": "application/json", "X-RateLimit-Remaining": "0"}),
+        Response(data={"organic_results": []}),
+    ], clock)
+    hits, stats = source.search(["one", "two"])
+    assert len(source.session.calls) == 3 and len(hits) == 2
+    assert hits[0].content and not hits[1].content
+    assert (stats.completed_queries, stats.failed_queries, stats.deferred_queries, stats.errors, stats.failed_requests) == (2, 0, 0, 0, 0)
+    assert stats.deferred_content_requests == 1 and stats.status == "partial"
+    health = build_health([], [], [stats], 2, "Asia/Shanghai")
+    assert health["source_stats"][0]["deferred_content_requests"] == 1
+    assert "补充正文延后 1" in render_html([], health)
+
+
+def test_optional_fetch_on_provider_host_cannot_hide_provider_limit(clock):
+    source = google([
+        Response(data={"organic_results": [{"link": "https://serpapi.com/blocked.json"}]}),
+        Response(429, headers={"Retry-After": "3600"}),
+    ], clock)
+    hits, stats = source.search(["one", "two"])
+    assert len(hits) == 1 and len(source.session.calls) == 2
+    assert (stats.queries, stats.completed_queries, stats.deferred_queries, stats.errors) == (1, 1, 1, 1)
+    assert "cooldown_deferred_rate_limited" in stats.message
+
+
+def test_optional_network_time_consumes_same_source_budget_before_next_provider_query(clock):
+    source = google([
+        Response(data={"organic_results": [{"link": "https://slow.example.invalid/a.json"}]}),
+        Response(headers={"Content-Type": "application/json"}),
+    ], clock)
+    original_get = source.session.get
+
+    def slow_content(url, **kwargs):
+        response = original_get(url, **kwargs)
+        if "slow.example.invalid" in url:
+            clock.elapsed += 600
+        return response
+
+    source.session.get = slow_content
+    _, stats = source.search(["one", "two"])
+    assert len(source.session.calls) == 2
+    assert (stats.completed_queries, stats.deferred_queries, stats.status) == (1, 1, "partial")

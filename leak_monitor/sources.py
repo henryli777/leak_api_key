@@ -28,8 +28,9 @@ MAX_RETRY_WAIT_SECONDS = 60.0
 SOURCE_BUDGET_SECONDS = 600.0
 
 
-def _retry_delay(headers: Any, attempt: int, *, rate_limited: bool) -> float:
+def _retry_delay(headers: Any, attempt: int, *, rate_limited: bool, github: bool) -> float:
     delays = [float(2 ** (attempt + 1))]
+    server_delays = []
     retry_after = headers.get("Retry-After", "")
     try:
         seconds = float(retry_after)
@@ -40,16 +41,24 @@ def _retry_delay(headers: Any, attempt: int, *, rate_limited: bool) -> float:
                 date = date.replace(tzinfo=timezone.utc)
             seconds = date.timestamp() - time.time()
         except (TypeError, ValueError, OverflowError):
-            seconds = 0.0
-    if math.isfinite(seconds):
-        delays.append(max(0.0, seconds))
-    if rate_limited:
+            seconds = None
+    if seconds is not None and math.isfinite(seconds):
+        server_delays.append(max(0.0, seconds))
+    remaining_header = str(headers.get("X-RateLimit-Remaining", "")).strip()
+    try:
+        remaining_positive = float(remaining_header) > 0
+    except (TypeError, ValueError):
+        remaining_positive = False
+    if rate_limited and not remaining_positive and (not github or remaining_header == "0"):
         try:
             reset_delay = float(headers.get("X-RateLimit-Reset", "")) - time.time()
             if math.isfinite(reset_delay):
-                delays.append(max(0.0, reset_delay))
+                server_delays.append(max(0.0, reset_delay))
         except (TypeError, ValueError, OverflowError):
             pass
+    if rate_limited and github and not server_delays:
+        server_delays.append(60.0)
+    delays.extend(server_delays)
     return max(delays)
 
 
@@ -70,6 +79,7 @@ class _SourceRequests:
         self.request_limit = request_limit
         self.started = time.monotonic()
         self.stopped = False
+        self.blocked_content_hosts: set[str] = set()
 
     def stop(self, reason: str, status: int | None = None) -> None:
         self.stopped = True
@@ -78,6 +88,13 @@ class _SourceRequests:
     def message(self, reason: str, status: int | None = None) -> None:
         suffix = f" HTTP {status}" if status is not None else ""
         self.stats.message = f"{self.stats.source}: {reason}{suffix}"
+
+    def stop_request(self, reason: str, status: int | None, content_host: str) -> None:
+        if content_host:
+            self.blocked_content_hosts.add(content_host)
+            self.message("optional_content_" + reason, status)
+        else:
+            self.stop(reason, status)
 
     def available(self) -> bool:
         if self.stopped:
@@ -97,9 +114,17 @@ class _SourceRequests:
             return
         time.sleep(seconds)
 
-    def get(self, url: str, *, timeout: float, serpapi: bool = False, **kwargs: Any) -> Any:
+    def get(self, url: str, *, timeout: float, serpapi: bool = False, optional_content: bool = False, **kwargs: Any) -> Any:
+        host = (urlparse(url).hostname or "").lower()
+        provider_host = "api.github.com" if self.stats.source == "github" else "serpapi.com"
+        content_host = host if optional_content and host != provider_host else ""
+        if content_host and content_host in self.blocked_content_hosts:
+            self.stats.deferred_content_requests += 1
+            return None
         for attempt in range(MAX_ATTEMPTS):
             if not self.available():
+                if optional_content and attempt == 0:
+                    self.stats.deferred_content_requests += 1
                 return None
             self.stats.requests += 1
             if attempt:
@@ -116,23 +141,27 @@ class _SourceRequests:
                 quota = quota or (serpapi and _serpapi_quota_error(response))
                 if 200 <= status < 300:
                     if quota:
-                        self.stop("quota_exhausted", status)
+                        self.stop_request("quota_exhausted", status, content_host)
                     return response
                 self.stats.errors += 1
                 if status == 401:
                     self.stats.failed_requests += 1
-                    self.stop("unauthorized", status)
+                    self.stop_request("unauthorized", status, content_host)
                     return None
                 if quota:
                     self.stats.failed_requests += 1
-                    self.stop("quota_exhausted", status)
+                    self.stop_request("quota_exhausted", status, content_host)
                     return None
                 limited = status == 429 or (status == 403 and bool(headers.get("Retry-After")))
+                if limited and content_host:
+                    self.stats.failed_requests += 1
+                    self.stop_request("rate_limited", status, content_host)
+                    return None
                 retryable = limited or 500 <= status < 600
                 reason = "rate_limited" if limited else "server_error" if retryable else "http_error"
                 if status == 403 and not limited:
                     self.stats.failed_requests += 1
-                    self.stop("permission_denied", status)
+                    self.stop_request("permission_denied", status, content_host)
                     return None
             except (requests.Timeout, requests.ConnectionError) as exc:
                 self.stats.errors += 1
@@ -147,13 +176,13 @@ class _SourceRequests:
                 return None
             if attempt + 1 == MAX_ATTEMPTS:
                 self.stats.failed_requests += 1
-                self.stop("retry_exhausted_" + reason, status)
+                self.stop_request("retry_exhausted_" + reason, status, content_host)
                 return None
-            delay = _retry_delay(headers, attempt, rate_limited=reason == "rate_limited")
+            delay = _retry_delay(headers, attempt, rate_limited=reason == "rate_limited", github=self.stats.source == "github")
             remaining = SOURCE_BUDGET_SECONDS - (time.monotonic() - self.started)
             if (delay > MAX_RETRY_DELAY_SECONDS or self.stats.retry_wait_seconds + delay > MAX_RETRY_WAIT_SECONDS or delay >= remaining):
                 self.stats.failed_requests += 1
-                self.stop("cooldown_deferred_" + reason, status)
+                self.stop_request("cooldown_deferred_" + reason, status, content_host)
                 return None
             time.sleep(delay)
             self.stats.retry_wait_seconds += delay
@@ -422,8 +451,9 @@ class GoogleSerpApiSource:
     def _fetch_page(self, url: str, requests: _SourceRequests) -> str:
         if not url or not url.startswith(("http://", "https://")):
             return ""
+        started_requests = requests.stats.requests
         try:
-            resp = requests.get(url, timeout=15)
+            resp = requests.get(url, timeout=15, optional_content=True)
             if resp is None:
                 return ""
             if "text/" not in resp.headers.get("Content-Type", "") and "json" not in resp.headers.get("Content-Type", ""):
@@ -431,6 +461,9 @@ class GoogleSerpApiSource:
             return resp.text[:120_000]
         except Exception:
             return ""
+        finally:
+            if requests.stats.requests > started_requests:
+                requests.pace(max(0.2, self.delay_seconds / 2))
 
 
 def load_serpapi_keys() -> list[str]:
