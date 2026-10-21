@@ -1,16 +1,16 @@
 {
-  "build_time": "2026-10-21T05:36:31+08:00",
-  "build_time_cn": "2026-10-21T05:36:31+08:00",
+  "build_time": "2026-10-21T12:42:14+08:00",
+  "build_time_cn": "2026-10-21T12:42:14+08:00",
   "collection_status": "partial",
-  "new_findings": 12,
+  "new_findings": 3900,
   "query_count": 22,
   "severity_counts": {
-    "high": 60735,
-    "medium": 2166
+    "high": 64599,
+    "medium": 2202
   },
   "source_hits": {
     "github": 24,
-    "google_serpapi": 10
+    "google_serpapi": 79
   },
   "source_stats": [
     {
@@ -33,30 +33,30 @@
       "status": "partial"
     },
     {
-      "attempted_queries": 2,
-      "completed_queries": 1,
+      "attempted_queries": 10,
+      "completed_queries": 10,
       "deferred_content_requests": 0,
-      "deferred_queries": 8,
-      "errors": 3,
-      "failed_queries": 1,
-      "failed_requests": 1,
-      "hits": 10,
-      "message": "google_serpapi: retry_exhausted_timeout",
+      "deferred_queries": 0,
+      "errors": 2,
+      "failed_queries": 0,
+      "failed_requests": 0,
+      "hits": 79,
+      "message": "google_serpapi: timeout",
       "planned_queries": 10,
-      "queries": 2,
-      "requests": 4,
+      "queries": 10,
+      "requests": 12,
       "retries": 2,
-      "retry_wait_seconds": 6.0,
+      "retry_wait_seconds": 4.0,
       "skipped": false,
       "source": "google_serpapi",
-      "status": "partial"
+      "status": "complete"
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 62901,
+  "total_findings": 66801,
   "type_counts": {
-    "base_url": 2109,
-    "credential_pair": 60734,
+    "base_url": 2145,
+    "credential_pair": 64598,
     "provider_config": 58
   }
 }
