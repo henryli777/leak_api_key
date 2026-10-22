@@ -1,61 +1,61 @@
 {
-  "build_time": "2026-10-22T05:40:06+08:00",
-  "build_time_cn": "2026-10-22T05:40:06+08:00",
+  "build_time": "2026-10-22T12:39:20+08:00",
+  "build_time_cn": "2026-10-22T12:39:20+08:00",
   "collection_status": "partial",
-  "new_findings": 4,
+  "new_findings": 2,
   "query_count": 22,
   "severity_counts": {
     "high": 64599,
-    "medium": 2208
+    "medium": 2210
   },
   "source_hits": {
-    "github": 0,
-    "google_serpapi": 80
+    "github": 24,
+    "google_serpapi": 41
   },
   "source_stats": [
     {
-      "attempted_queries": 1,
-      "completed_queries": 0,
+      "attempted_queries": 2,
+      "completed_queries": 1,
       "deferred_content_requests": 0,
-      "deferred_queries": 11,
+      "deferred_queries": 10,
       "errors": 1,
       "failed_queries": 1,
       "failed_requests": 1,
-      "hits": 0,
+      "hits": 24,
       "message": "github: cooldown_deferred_rate_limited HTTP 429",
       "planned_queries": 12,
-      "queries": 1,
-      "requests": 1,
+      "queries": 2,
+      "requests": 15,
       "retries": 0,
       "retry_wait_seconds": 0.0,
       "skipped": false,
       "source": "github",
-      "status": "failed"
+      "status": "partial"
     },
     {
-      "attempted_queries": 10,
-      "completed_queries": 10,
+      "attempted_queries": 6,
+      "completed_queries": 5,
       "deferred_content_requests": 0,
-      "deferred_queries": 0,
+      "deferred_queries": 4,
       "errors": 3,
-      "failed_queries": 0,
-      "failed_requests": 0,
-      "hits": 80,
-      "message": "google_serpapi: timeout",
+      "failed_queries": 1,
+      "failed_requests": 1,
+      "hits": 41,
+      "message": "google_serpapi: retry_exhausted_timeout",
       "planned_queries": 10,
-      "queries": 10,
-      "requests": 13,
-      "retries": 3,
-      "retry_wait_seconds": 8.0,
+      "queries": 6,
+      "requests": 8,
+      "retries": 2,
+      "retry_wait_seconds": 6.0,
       "skipped": false,
       "source": "google_serpapi",
-      "status": "complete"
+      "status": "partial"
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 66807,
+  "total_findings": 66809,
   "type_counts": {
-    "base_url": 2150,
+    "base_url": 2152,
     "credential_pair": 64598,
     "provider_config": 59
   }
