@@ -1,31 +1,31 @@
 {
-  "build_time": "2026-10-28T20:47:44+08:00",
-  "build_time_cn": "2026-10-28T20:47:44+08:00",
+  "build_time": "2026-10-29T06:33:04+08:00",
+  "build_time_cn": "2026-10-29T06:33:04+08:00",
   "collection_status": "partial",
-  "new_findings": 4,
+  "new_findings": 1,
   "query_count": 22,
   "severity_counts": {
     "high": 70516,
-    "medium": 2277
+    "medium": 2278
   },
   "source_hits": {
-    "github": 24,
-    "google_serpapi": 20
+    "github": 96,
+    "google_serpapi": 10
   },
   "source_stats": [
     {
-      "attempted_queries": 2,
-      "completed_queries": 1,
+      "attempted_queries": 5,
+      "completed_queries": 4,
       "deferred_content_requests": 0,
-      "deferred_queries": 10,
+      "deferred_queries": 7,
       "errors": 1,
       "failed_queries": 1,
       "failed_requests": 1,
-      "hits": 24,
+      "hits": 96,
       "message": "github: cooldown_deferred_rate_limited HTTP 429",
       "planned_queries": 12,
-      "queries": 2,
-      "requests": 15,
+      "queries": 5,
+      "requests": 57,
       "retries": 0,
       "retry_wait_seconds": 0.0,
       "skipped": false,
@@ -33,29 +33,29 @@
       "status": "partial"
     },
     {
-      "attempted_queries": 3,
-      "completed_queries": 2,
+      "attempted_queries": 2,
+      "completed_queries": 1,
       "deferred_content_requests": 0,
-      "deferred_queries": 7,
-      "errors": 3,
+      "deferred_queries": 8,
+      "errors": 1,
       "failed_queries": 1,
       "failed_requests": 1,
-      "hits": 20,
-      "message": "google_serpapi: retry_exhausted_timeout",
+      "hits": 10,
+      "message": "google_serpapi: quota_exhausted HTTP 429",
       "planned_queries": 10,
-      "queries": 3,
-      "requests": 5,
-      "retries": 2,
-      "retry_wait_seconds": 6.0,
+      "queries": 2,
+      "requests": 2,
+      "retries": 0,
+      "retry_wait_seconds": 0.0,
       "skipped": false,
       "source": "google_serpapi",
       "status": "partial"
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 72793,
+  "total_findings": 72794,
   "type_counts": {
-    "base_url": 2217,
+    "base_url": 2218,
     "credential_pair": 70515,
     "provider_config": 61
   }
