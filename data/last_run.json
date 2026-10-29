@@ -1,31 +1,31 @@
 {
-  "build_time": "2026-10-29T06:33:04+08:00",
-  "build_time_cn": "2026-10-29T06:33:04+08:00",
+  "build_time": "2026-10-29T13:42:30+08:00",
+  "build_time_cn": "2026-10-29T13:42:30+08:00",
   "collection_status": "partial",
-  "new_findings": 1,
+  "new_findings": 21,
   "query_count": 22,
   "severity_counts": {
     "high": 70516,
-    "medium": 2278
+    "medium": 2299
   },
   "source_hits": {
-    "github": 96,
+    "github": 72,
     "google_serpapi": 10
   },
   "source_stats": [
     {
-      "attempted_queries": 5,
-      "completed_queries": 4,
+      "attempted_queries": 4,
+      "completed_queries": 3,
       "deferred_content_requests": 0,
-      "deferred_queries": 7,
+      "deferred_queries": 8,
       "errors": 1,
       "failed_queries": 1,
       "failed_requests": 1,
-      "hits": 96,
+      "hits": 72,
       "message": "github: cooldown_deferred_rate_limited HTTP 429",
       "planned_queries": 12,
-      "queries": 5,
-      "requests": 57,
+      "queries": 4,
+      "requests": 43,
       "retries": 0,
       "retry_wait_seconds": 0.0,
       "skipped": false,
@@ -53,9 +53,9 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 72794,
+  "total_findings": 72815,
   "type_counts": {
-    "base_url": 2218,
+    "base_url": 2239,
     "credential_pair": 70515,
     "provider_config": 61
   }
