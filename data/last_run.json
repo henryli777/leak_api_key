@@ -1,12 +1,12 @@
 {
-  "build_time": "2026-11-04T22:25:27+08:00",
-  "build_time_cn": "2026-11-04T22:25:27+08:00",
+  "build_time": "2026-11-05T07:38:35+08:00",
+  "build_time_cn": "2026-11-05T07:38:35+08:00",
   "collection_status": "partial",
-  "new_findings": 1,
+  "new_findings": 2,
   "query_count": 22,
   "severity_counts": {
     "high": 70520,
-    "medium": 2330
+    "medium": 2332
   },
   "source_hits": {
     "github": 0,
@@ -53,9 +53,9 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 72850,
+  "total_findings": 72852,
   "type_counts": {
-    "base_url": 2270,
+    "base_url": 2272,
     "credential_pair": 70519,
     "provider_config": 61
   }
