@@ -1,12 +1,12 @@
 {
-  "build_time": "2026-11-14T21:30:33+08:00",
-  "build_time_cn": "2026-11-14T21:30:33+08:00",
+  "build_time": "2026-11-15T06:20:40+08:00",
+  "build_time_cn": "2026-11-15T06:20:40+08:00",
   "collection_status": "partial",
-  "new_findings": 30,
+  "new_findings": 16,
   "query_count": 22,
   "severity_counts": {
-    "high": 97459,
-    "medium": 2390
+    "high": 97470,
+    "medium": 2395
   },
   "source_hits": {
     "github": 24,
@@ -18,16 +18,16 @@
       "completed_queries": 1,
       "deferred_content_requests": 0,
       "deferred_queries": 10,
-      "errors": 3,
+      "errors": 1,
       "failed_queries": 1,
       "failed_requests": 1,
       "hits": 24,
       "message": "github: cooldown_deferred_rate_limited HTTP 429",
       "planned_queries": 12,
       "queries": 2,
-      "requests": 17,
-      "retries": 2,
-      "retry_wait_seconds": 15.0,
+      "requests": 15,
+      "retries": 0,
+      "retry_wait_seconds": 0.0,
       "skipped": false,
       "source": "github",
       "status": "partial"
@@ -37,26 +37,26 @@
       "completed_queries": 10,
       "deferred_content_requests": 0,
       "deferred_queries": 0,
-      "errors": 1,
+      "errors": 0,
       "failed_queries": 0,
       "failed_requests": 0,
       "hits": 85,
-      "message": "google_serpapi: timeout",
+      "message": "",
       "planned_queries": 10,
       "queries": 10,
-      "requests": 11,
-      "retries": 1,
-      "retry_wait_seconds": 2.0,
+      "requests": 10,
+      "retries": 0,
+      "retry_wait_seconds": 0.0,
       "skipped": false,
       "source": "google_serpapi",
       "status": "complete"
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 99849,
+  "total_findings": 99865,
   "type_counts": {
-    "base_url": 2327,
-    "credential_pair": 97458,
+    "base_url": 2332,
+    "credential_pair": 97469,
     "provider_config": 64
   }
 }
