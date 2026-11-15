@@ -1,11 +1,11 @@
 {
-  "build_time": "2026-11-15T06:20:40+08:00",
-  "build_time_cn": "2026-11-15T06:20:40+08:00",
+  "build_time": "2026-11-15T14:22:25+08:00",
+  "build_time_cn": "2026-11-15T14:22:25+08:00",
   "collection_status": "partial",
-  "new_findings": 16,
+  "new_findings": 9,
   "query_count": 22,
   "severity_counts": {
-    "high": 97470,
+    "high": 97479,
     "medium": 2395
   },
   "source_hits": {
@@ -53,10 +53,10 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 99865,
+  "total_findings": 99874,
   "type_counts": {
     "base_url": 2332,
-    "credential_pair": 97469,
+    "credential_pair": 97478,
     "provider_config": 64
   }
 }
