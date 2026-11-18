@@ -1,12 +1,12 @@
 {
-  "build_time": "2026-11-18T15:20:47+08:00",
-  "build_time_cn": "2026-11-18T15:20:47+08:00",
+  "build_time": "2026-11-19T04:28:26+08:00",
+  "build_time_cn": "2026-11-19T04:28:26+08:00",
   "collection_status": "partial",
-  "new_findings": 77,
+  "new_findings": 71,
   "query_count": 22,
   "severity_counts": {
-    "high": 97555,
-    "medium": 2405
+    "high": 97622,
+    "medium": 2409
   },
   "source_hits": {
     "github": 0,
@@ -27,7 +27,7 @@
       "queries": 1,
       "requests": 3,
       "retries": 2,
-      "retry_wait_seconds": 8.0,
+      "retry_wait_seconds": 6.0,
       "skipped": false,
       "source": "github",
       "status": "failed"
@@ -44,7 +44,7 @@
       "message": "",
       "planned_queries": 10,
       "queries": 10,
-      "requests": 10,
+      "requests": 11,
       "retries": 0,
       "retry_wait_seconds": 0.0,
       "skipped": false,
@@ -53,10 +53,10 @@
     }
   ],
   "timezone": "Asia/Shanghai",
-  "total_findings": 99960,
+  "total_findings": 100031,
   "type_counts": {
-    "base_url": 2341,
-    "credential_pair": 97554,
+    "base_url": 2345,
+    "credential_pair": 97621,
     "provider_config": 65
   }
 }
